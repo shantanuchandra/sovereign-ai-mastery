@@ -83,7 +83,7 @@
       const strict=v.location==='country', restricted=v.operator==='enterprise', ready=v.capacity==='gpu', sensitive=v.data==='sensitive';
       if(restricted&&ready){
         pattern='Enterprise-operated private inference';
-        why='Your country-only processing and enterprise-only administration constraints favor a locally operated serving stack, assuming you can verify every data and support path.';
+        why=strict?'Country-only processing and enterprise-only administration favor a locally operated serving stack, provided every data and support path is verified.':'Enterprise-only administration and available private compute favor self-operated inference; territorial restrictions still need a separate assessment.';
         architecture=['Enterprise-operated model service on approved infrastructure','Private RAG and storage with explicit egress controls','Enterprise-owned identities, keys, monitoring, and incident procedures'];
       } else if(restricted&&!ready){
         pattern='Gated prototype, then a deployment decision';
