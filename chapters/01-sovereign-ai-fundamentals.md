@@ -180,10 +180,12 @@ Write one page for a hypothetical UAE enterprise with the following headings:
 2. Is “open-source model” synonymous with “sovereign AI”? Explain two dependencies that could remain.
 3. Give a useful enterprise/workload sovereignty classification for an HR copilot.
 4. What makes a sovereignty claim falsifiable? Rewrite “fully sovereign” into a specific acceptance criterion.
-5. Why might a vendor contract be strong evidence for one claim and weak evidence for another?
-6. When should a PM record `UNVERIFIED` rather than `FAIL`?
+5. **Real-product case: Microsoft Foundry Models.** Microsoft's deployment-type documentation distinguishes stored data from inference processing and states that Global deployments may process prompts in any Azure region.[^ms-foundry] A hypothetical UAE enterprise signs a vendor agreement covering deletion, access, and subprocessors, then selects a Global deployment. Which claims could the signed agreement support? Which location claim still needs deployment configuration and runtime evidence? What must the PM obtain before launch? Treat this as an analysis of documented product behavior, **not a reported customer incident**.
+6. **Evidence-status and root-cause challenge.** Your declared requirement says prompt logs must stay in the approved geography. At kickoff, nobody has inspected the telemetry destinations. Later, a controlled failover test records logs flowing to an endpoint outside the approved set. What status is appropriate **before** the test, **after** the adverse result, and **after** a proposed fix but before retesting? Provide an RCA: observed impact, direct cause, contributing process gap, corrective control, accountable owner, verification test, and closure criterion.
 
 Solutions are maintained separately for facilitators in the repository and deliberately omitted from the learner website.
+
+[^ms-foundry]: Microsoft Learn, *Understanding deployment types in Microsoft Foundry Models*, data residency and data processing location sections; [official Microsoft documentation](https://learn.microsoft.com/azure/ai-foundry/foundry-models/concepts/deployment-types). Verified 17 Nov 2026. The page states: “Global types: May be processed in any Azure region”. The quote describes a product capability, not observed traffic for this fictional organization.
 
 ## 11. Decision checklist
 
@@ -195,10 +197,14 @@ Solutions are maintained separately for facilitators in the repository and delib
 - [ ] Vendor exit and operational responsibility considered
 - [ ] Claims in launch materials limited to demonstrated facts
 
-## 12. LinkedIn discussion prompt
+## 12. Learning by changing the constraints
+
+Use the [Sovereignty Decision Studio](../onboarding/index.html) to answer eight onboarding questions and generate a provisional architecture, control-test checklist, gaps, and relevant chapters. Change just one assumption and document which part of the proposed solution changed and why. The studio is a **course-authored learning simulation**, not a certification, vendor assessment, or automated legal determination. Use synthetic scenarios only.
+
+## 13. LinkedIn discussion prompt
 
 **Question:** *If a model runs inside your country, who still controls the intelligence?* Use the [HTML question carousel](../social/module-01/CAROUSEL.html) to structure a discussion around territorial, operational, technological and legal control—not an unsupported claim of national or enterprise independence.
 
-## 13. Further reading
+## 14. Further reading
 
 Start with the [OECD revised AI definition](https://oecd.ai/en/dashboards/policy-initiatives/updated-oecd-definition-of-an-ai-system-4108), [NIST AI RMF](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10), [UAE AI Strategy 2031](https://ai.gov.ae/strategy/), and the [course ontology](../taxonomy/ONTOLOGY.md). Read these for their *actual* scope, not as authorities endorsing the course's new classification framework.
