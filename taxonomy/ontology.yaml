@@ -1,41 +1,96 @@
-version: '1.0.0'
-status: course-derived-not-standard
+version: '1.1.0'
+status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-17'
+maintainer: Sovereign AI Mastery
+note: >-
+  This ontology is a learning and product-design tool. It does not determine
+  legal applicability, assert formal compliance, or certify sovereignty.
 classification_axes:
-  scope: [national, sectoral, enterprise, workload]
-  control_dimension: [territorial, operational, technological, legal_contractual]
-  deployment: [public, managed_sovereign, private, hybrid, air_gapped, edge]
-  evidence_type: [vendor_claim, contract, configuration, technical_test, independent_attestation]
+  scope:
+    values: [national, sectoral, enterprise, workload]
+    question: At what organizational boundary is sovereignty being asserted?
+  control_dimension:
+    values: [territorial, operational, technological, legal_contractual]
+    question: Which kind of control is required?
+  deployment:
+    values: [public_cloud, managed_sovereign_cloud, enterprise_private_cloud, hybrid, air_gapped, edge]
+    question: Where and under whose operations does the system run?
+  lifecycle_stage:
+    values: [data_acquisition, training, adaptation, evaluation, inference, monitoring, retirement]
+    question: At which lifecycle stage is control required?
+  dependency_type:
+    values: [hardware, cloud, model, data, service, identity, support, network, license]
+    question: Which upstream dependency can affect autonomy?
+  evidence_type:
+    values: [assertion, contract, architecture, configuration, log, technical_test, independent_attestation]
+    question: How independently can a claim be verified?
+  decision_status:
+    values: [proposed, reviewed, accepted, accepted_with_exception, rejected]
+    question: What disposition did an accountable reviewer record?
 classes:
   - Organization
+  - Vendor
+  - Authority
+  - LegalJurisdiction
+  - LegalInstrument
+  - Requirement
+  - BusinessObjective
+  - SovereigntyClaim
   - Workload
   - ProcessingActivity
   - Dataset
   - ModelArtifact
   - InfrastructureService
-  - LegalJurisdiction
-  - LegalInstrument
-  - Authority
-  - Requirement
+  - Identity
+  - CryptographicKey
+  - SupportAccessPath
+  - Contract
+  - Dependency
+  - Risk
   - Control
   - Test
   - Evidence
-  - Risk
-  - Vendor
+  - Decision
 relations:
-  - [Authority, issues, LegalInstrument]
-  - [LegalInstrument, contains, Requirement]
+  - [Organization, owns, Workload]
+  - [Organization, sets, BusinessObjective]
+  - [BusinessObjective, motivates, SovereigntyClaim]
+  - [SovereigntyClaim, applies_to, Workload]
+  - [SovereigntyClaim, requires, Control]
   - [Workload, performs, ProcessingActivity]
   - [ProcessingActivity, uses, Dataset]
-  - [ProcessingActivity, runs_on, InfrastructureService]
   - [ProcessingActivity, invokes, ModelArtifact]
-  - [Requirement, mapped_to, Control]
+  - [ProcessingActivity, runs_on, InfrastructureService]
+  - [Vendor, supplies, Dependency]
+  - [Workload, depends_on, Dependency]
+  - [Dependency, exposes, Risk]
+  - [Control, mitigates, Risk]
   - [Control, verified_by, Test]
   - [Test, produces, Evidence]
-  - [Control, mitigates, Risk]
-  - [Vendor, supports, InfrastructureService]
+  - [Evidence, supports, SovereigntyClaim]
+  - [Organization, makes, Decision]
+  - [Decision, evaluates, SovereigntyClaim]
+  - [Identity, can_access, InfrastructureService]
+  - [CryptographicKey, protects, Dataset]
+  - [SupportAccessPath, reaches, InfrastructureService]
+  - [Authority, issues, LegalInstrument]
+  - [LegalInstrument, contains, Requirement]
+  - [Requirement, mapped_to, Control]
 constraints:
-  - no_automatic_legal_applicability_inference
-  - require_source_version_for_every_legal_requirement
-  - require_test_or_evidence_gap_for_each_control
-  - no_claim_of_compliance_from_single_evidence_item
+  - A sovereignty claim must name a scope, dimension, owner, and test criterion.
+  - Missing evidence is unknown, not compliant or noncompliant by default.
+  - Evidence must have a time, source, and relation to a specific test.
+  - A vendor assertion alone cannot establish technical enforcement.
+  - No automatic legal applicability inference from server location.
+  - No universal numerical sovereignty certification by this course.
+  - Do not store secret values in public annotations or exercises.
+illustrative_claim:
+  id: claim-uae-inference-001
+  scope: workload
+  dimension: territorial
+  statement: Production inference and its request logs remain in approved UAE locations.
+  owner: Enterprise platform lead
+  control: egress-deny-and-region-policy
+  test: inspect-execution-location-and-egress-logs
+  evidence: required-not-yet-provided
+  status: proposed

@@ -1,4 +1,4 @@
-> **Website-first edition v3.0:** Final learner experience is a responsive static website; Markdown is the source. The sample [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn PDF.
+> **Book-reader edition v4.0:** Final learner experience is a responsive static website; Markdown is the source. The sample [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn PDF.
 
 # Sovereign AI Mastery
 

@@ -1,0 +1,26 @@
+{
+  "claims": [
+    {
+      "id": "TERR-001",
+      "workload": "EMP-001",
+      "scope": "workload",
+      "dimension": "territorial",
+      "owner": "Platform lead",
+      "criterion": "Inference payload and prompt logs remain in approved locations",
+      "control": "Destination restrictions and log route review",
+      "test": "Inspect regional routing, failover configuration and egress logs",
+      "evidence": {"status": "missing", "source": "", "observed_at": ""}
+    },
+    {
+      "id": "OPS-001",
+      "workload": "EMP-001",
+      "scope": "workload",
+      "dimension": "operational",
+      "owner": "Identity lead",
+      "criterion": "Only approved identities may administer model serving",
+      "control": "Role-bound access, reviewed break-glass procedure",
+      "test": "Enumerate privileged identities and test denied access",
+      "evidence": {"status": "tested", "source": "fictional-iam-test-001", "observed_at": "2026-11-17"}
+    }
+  ]
+}
