@@ -1,4 +1,4 @@
-name: Deploy Sovereign AI reader to GitHub Pages
+name: Build and deploy Sovereign AI reader
 on:
   push:
     branches: [main]
@@ -17,14 +17,33 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Check out book source
         uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install static site builder dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4'
+      - name: Build from Markdown source
+        run: python scripts/build_site.py
+      - name: Verify rendered diagrams and onboarding
+        run: |
+          test -s dist/index.html
+          test -s dist/onboarding/index.html
+          test -s dist/modules/01-sovereign-ai-fundamentals.html
+          test -s dist/diagrams/module-01-claim-chain.svg
+          test -s dist/diagrams/sovereignty-ontology.svg
+          grep -q 'diagram-rendered' dist/modules/01-sovereign-ai-fundamentals.html
+          grep -q 'diagram-rendered' dist/taxonomy/ONTOLOGY.html
+          ! grep -q 'class="mermaid"' dist/modules/01-sovereign-ai-fundamentals.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
-      - name: Upload website
+      - name: Upload generated website
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: ./dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
