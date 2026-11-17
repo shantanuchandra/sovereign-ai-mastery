@@ -1,0 +1,41 @@
+version: '1.0.0'
+status: course-derived-not-standard
+reviewed: '2026-11-17'
+classification_axes:
+  scope: [national, sectoral, enterprise, workload]
+  control_dimension: [territorial, operational, technological, legal_contractual]
+  deployment: [public, managed_sovereign, private, hybrid, air_gapped, edge]
+  evidence_type: [vendor_claim, contract, configuration, technical_test, independent_attestation]
+classes:
+  - Organization
+  - Workload
+  - ProcessingActivity
+  - Dataset
+  - ModelArtifact
+  - InfrastructureService
+  - LegalJurisdiction
+  - LegalInstrument
+  - Authority
+  - Requirement
+  - Control
+  - Test
+  - Evidence
+  - Risk
+  - Vendor
+relations:
+  - [Authority, issues, LegalInstrument]
+  - [LegalInstrument, contains, Requirement]
+  - [Workload, performs, ProcessingActivity]
+  - [ProcessingActivity, uses, Dataset]
+  - [ProcessingActivity, runs_on, InfrastructureService]
+  - [ProcessingActivity, invokes, ModelArtifact]
+  - [Requirement, mapped_to, Control]
+  - [Control, verified_by, Test]
+  - [Test, produces, Evidence]
+  - [Control, mitigates, Risk]
+  - [Vendor, supports, InfrastructureService]
+constraints:
+  - no_automatic_legal_applicability_inference
+  - require_source_version_for_every_legal_requirement
+  - require_test_or_evidence_gap_for_each_control
+  - no_claim_of_compliance_from_single_evidence_item

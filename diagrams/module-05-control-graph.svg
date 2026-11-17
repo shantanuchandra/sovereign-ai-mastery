@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" role="img" aria-labelledby="title desc">
+<title id="title">Sovereign AI legal-to-evidence control graph</title>
+<desc id="desc">Two inputs: legal entity and processing activity, and jurisdiction and instrument version. Counsel determines applicability. A requirement maps to an owner-held control, tested with recorded evidence, informing a conditional product decision.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#0D7B72" stroke-width="1.8"/></marker></defs>
+<rect width="1000" height="450" rx="20" fill="#F3F7F9"/>
+<text x="42" y="56" font-family="Arial,sans-serif" font-weight="bold" font-size="17" fill="#132438">LEGAL CLAIM → CONTROL → EVIDENCE</text>
+<text x="42" y="80" font-family="Arial,sans-serif" font-size="12" fill="#516476">Course-authored evidence graph · applicability requires legal review</text>
+<g font-family="Arial,sans-serif" font-size="15" text-anchor="middle">
+<rect x="38" y="136" width="214" height="66" rx="9" fill="#fff" stroke="#C8D7DB"/>
+<text x="145" y="164" fill="#132438">Entity + processing</text><text x="145" y="183" fill="#52697A">activity</text>
+<rect x="38" y="252" width="214" height="66" rx="9" fill="#fff" stroke="#C8D7DB"/>
+<text x="145" y="279" fill="#132438">Legal instrument</text><text x="145" y="298" fill="#52697A">+ version + section</text>
+<rect x="304" y="183" width="174" height="88" rx="10" fill="#123A48"/>
+<text x="391" y="214" fill="#fff">Counsel assesses</text><text x="391" y="234" fill="#fff">applicability</text><text x="391" y="252" font-size="11" fill="#B7DEDB">human decision</text>
+<rect x="533" y="183" width="136" height="88" rx="9" fill="#fff" stroke="#C8D7DB"/>
+<text x="601" y="214" fill="#132438">Documented</text><text x="601" y="234" fill="#132438">requirement</text><text x="601" y="252" font-size="11" fill="#6D7783">or open question</text>
+<rect x="724" y="183" width="128" height="88" rx="9" fill="#E1F3EF" stroke="#0D7B72"/>
+<text x="788" y="214" fill="#132438">Owned</text><text x="788" y="234" fill="#132438">control</text><text x="788" y="251" font-size="11" fill="#4C675E">test criteria</text>
+<rect x="724" y="333" width="228" height="78" rx="9" fill="#fff" stroke="#B9CED0"/>
+<text x="838" y="362" fill="#132438">Evidence + timestamp</text><text x="838" y="384" font-size="11" fill="#52697A">supports a scoped decision</text>
+</g>
+<g stroke="#0D7B72" stroke-width="3" fill="none" marker-end="url(#arrow)">
+<path d="M252 169 H279 L304 205"/><path d="M252 285 H279 L304 247"/>
+<path d="M478 227 H533"/><path d="M669 227 H724"/>
+<path d="M788 271 V305 L838 333"/>
+</g>
+<text x="41" y="400" font-size="12" font-family="Arial,sans-serif" fill="#6B7280">A server region alone does not establish legal scope or provider administrative control.</text>
+</svg>
