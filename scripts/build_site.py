@@ -203,6 +203,12 @@ def main():
     ]
     for source,dest,page,title in paths:
         if not (ROOT/source).exists():
+            # Temporary compatibility for reference chapters published before
+            # the source-first build workflow was introduced.
+            old_html=ROOT/dest
+            if old_html.exists():
+                (DIST/dest).parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(old_html,DIST/dest)
             continue
         content,sections=article_content(ROOT/source,dest,diagram=(page=='module' and source.startswith('chapters/') and source.startswith('chapters/05')))
         if page=='curriculum':
