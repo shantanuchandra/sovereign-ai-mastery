@@ -6,6 +6,9 @@
 
 ## NON-NEGOTIABLE EDITORIAL RULES
 
+**Specific style prohibition for social publications:** Do not use the em dash character (—), dash-led faux drama, generic AI platitudes, or a question whose answer is a slogan. Use periods, commas, colons, or a rewritten sentence. A build-time scan should fail social artifacts containing the em dash.
+
+
 1. **No AI slop.** Do not use broad hype, vague claims, generic three-part slogans, motivational padding, repeated transitions, or unsupported superlatives. Delete any sentence that changes no reader decision, mental model, or procedure. No fabricated examples presented as real deployments. Ban phrases such as "in today's rapidly evolving landscape", "game-changer", "leverage the power", "unlock the potential", "robust and seamless", and "it is important to note".
 2. **Quote the evidence, not just the bibliography.** For each material legal/regulatory or market assertion, show a **short, exact, attributed quotation** in the text or an evidence table, with a pinpoint source section/article, URL, retrieval date, and a clear interpretation. A bibliography alone does not qualify. Quote only what was checked in the actual source. Keep quotes brief; do not reproduce paywalled standards or substantial passages of protected works.
 3. **Interpretations are not quotations.** Separate **verbatim source**, **editorial inference**, **scenario assumption**, **verification evidence**, and **open question**. A vendor's claim is not independent proof.
@@ -88,6 +91,7 @@ Write only what the concept, lab, and PM decision require. Use a progressive det
 - Use **Mermaid by default** for version-controlled flowcharts, sequence diagrams, control boundaries, and architecture overviews rendered by GitHub.
 - Use tables for a small number of alternatives; decision trees for classification logic; C4-style diagrams for architectures.
 - Every diagram must have a caption, a textual walkthrough, and labels that do not rely on color alone.
+- **Website rendering is mandatory.** GitHub's Markdown Mermaid viewer does not automatically power the custom HTML reader. Build a legible static SVG from the committed Mermaid source, retain the original source in expandable HTML, and fail quality checks if the page shows only raw graph instructions. The static diagram must display without network/CDN access or JavaScript. For unsupported diagram types use a build-time renderer rather than silently leaving a code fence.
 - For complex cross-plane architecture or executive exhibits, create **custom-designed vector diagrams** with an editable source (SVG plus editable authoring source where applicable) under `diagrams/`; include alt text, version, and source attribution. Mermaid drafts are encouraged as a first step.
 - Be conservative with screenshots: add timestamp, product version, attribution, and alt text.
 
@@ -239,6 +243,9 @@ Each chapter must produce at least one reusable deliverable:
 - Criteria must be measurable: "log all administrative operations" is more testable than "ensure transparency".
 - Include discussion questions for CTO/CISO/procurement/business stakeholder perspectives.
 - Use scenario questions that require a defended judgment, not only memorized definitions.
+- **Question 5 must use a real-world sourced example:** a named product with verified primary documentation or an actual, attributed incident. Do not invent the organizational circumstances of a real-world incident; a fictional customer scenario using a real product must be explicitly labeled.
+- **Question 6 must support a complete RCA:** require observed behavior, expected behavior, state before evidence, state after evidence, direct cause, contributing cause, containment, owner, reproducible retest, and bounded decision. A one-sentence answer is unacceptable.
+- **Dynamic learning is strongly encouraged:** run a constrained questionnaire, compute a provisional architecture and evidence plan, then invite the learner to change one variable and explain the consequence.
 - **Separate solutions are mandatory**: create `assessments/solutions/NN-short-title-solutions.md` for every chapter. Include quiz answer rationales, scenario trade-offs, lab expected output and troubleshooting, and a PM artifact scoring rubric. No solutions inline with the learner chapter.
 
 ## 9. Repository structure and publishing conventions
@@ -324,3 +331,12 @@ The learner's final format is a **book-reading website**, not a dashboard or gen
 ## 10. Publication gate for the book website
 
 Before a module is marked ready, verify: left-rail course TOC; long-form chapter rendering; source quote ledger; ontology backlink; local lab; PM deliverable; separate solutions not publicly copied; selection/highlight/note behavior; mobile layout; HTML question deck; PDF export check; bibliography links; and no console errors. Run the local browser QA and static link checker. Mark unverified steps visibly; never substitute a claim of QA for an actual run.
+
+## LinkedIn editorial design contract (v4.1)
+
+- Source: `social/module-NN/CAROUSEL.html`, not a screenshot, canvas image, or PDF. 4:5 slide aspect ratio; use print CSS for a portrait document.
+- Typography: two styles at most (an editorial serif for questions and a neutral sans for explanations). Maintain reading contrast of at least 4.5:1 for ordinary text and 3:1 for large headings. Never use cream-on-cream text or content clipped by the print page.
+- Content: 7 to 9 slides; each slide headline must be a **real question**. One answer, mechanism, concrete example, counterexample, or decision per slide. Vary the structure across slides; don't make eight identical blocks.
+- Evidence: reserve space for a compact source line when presenting a real product, regulation, benchmark or quotation. Attribute exact wording and distinguish direct source from editorial synthesis. Check every URL and publication date. Do not exceed reasonable quotation limits.
+- Tone: ban em dashes (—), inflated claims, inspirational empty lines, decorative icons unrelated to the content, and stock imagery. Favor specific predicates and examples, not AI-sounding transitions.
+- Delivery: inspect slides 1 through last at 1080×1350 preview size, inspect print/PDF with correct colors, text selectability and page breaks, and run a text scan for em dashes and unverified claims. The website chapter is the CTA destination.
