@@ -1,4 +1,4 @@
-> **Book-reader edition v4.0:** Final learner experience is a responsive static website; Markdown is the source. The sample [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn PDF.
+> **Book-reader edition v4.1:** Final learner experience is a responsive static website; Markdown is the source. The sample [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn HTML question deck with a PDF export.
 
 # Sovereign AI Mastery
 
@@ -6,14 +6,16 @@
 
 **Owner:** `shantanuchandra`  
 **Repository target:** `shantanuchandra/sovereign-ai-mastery` (**public as approved by the owner**; annotations committed here will be public)  
-**Editorial baseline:** v4.0 book-reader edition, 2026-11-17  
+**Editorial baseline:** v4.1 book-reader edition, 2026-11-17  
 **Learning commitment:** ~240 hours / 24 weeks; adaptable to individual pace
 
 ## Start here
 
-1. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
-2. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, five-question quiz and scenario, citations and follow-up.
-3. **[Editorial and reference guide](STYLE_GUIDE.md)** — writing tone, visual system, source hierarchy, footnote style, lab standards and publication checklist.
+1. **[Interactive Sovereignty Decision Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — eight-question onboarding exercise that proposes a bounded architecture, evidence tests, a PM memo, and follow-on modules. Change one answer to inspect how the decision changes.
+2. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
+3. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
+4. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, six-question assessment with a real-product case and RCA challenge, citations and follow-up.
+5. **[Editorial and reference guide](STYLE_GUIDE.md)** — writing tone, visual system, source hierarchy, footnote style, lab standards and publication checklist.
 
 ## Who this is for
 
@@ -25,10 +27,10 @@ Intermediate AI PMs moving toward technical product leadership. The outcome is n
 
 Every module is authored in the **executive playbook** voice: **bottom line first**, rigorous but concise; length expands only when complexity warrants. Required elements:
 
-- Conceptual explanation, trade-off table, Mermaid or custom diagram, and sourced UAE/GCC case with international perspective.
+- Conceptual explanation, trade-off table, rendered SVG sourced from Mermaid or a custom vector diagram, and sourced UAE/GCC case with international perspective.
 - **Practical lab** with observable acceptance criteria, cost and egress assumptions, failure recovery, and clean-up.
 - **Distinct PM deliverable**, such as an architecture decision record, PRD, scorecard, procurement memo, or risk register.
-- **Five-question quiz + decision scenario**. Solutions and PM scoring rubric live in a **separate** `assessments/solutions/` file.
+- **Six-question quiz, including a sourced real-product example (Q5) and detailed RCA exercise (Q6)**. Solutions and PM scoring rubric live in a **separate** `assessments/solutions/` file.
 - Academic-style Markdown footnotes attached to important claims, with official primary-source URLs and `Verified: YYYY-MM-DD`.
 
 ## Lab baseline
@@ -94,3 +96,9 @@ The homepage now resembles the opening page of a book, not a dashboard. Desktop 
 To persist across devices in GitHub, open **Sync with GitHub**, create a fine-grained personal access token scoped to this repo with **Contents: Read and write**, paste it into the session-only input, and authorize a sync. The site creates/updates `annotations/notes.json` via GitHub API. Token lives in memory for that browser tab only. **Because this repository is public, saved notes are public. Do not save secrets.** To keep notes private, create a separate private GitHub repository and select its `owner/repo` in the sync dialog; authorize a token scoped to that private repository.
 
 The LinkedIn carousel is now authored in editable, standalone HTML at [`social/module-05/CAROUSEL.html`](social/module-05/CAROUSEL.html), with an **Export PDF** button and 8 distinct portrait layouts. The earlier PDF remains available as a historical sample; the HTML is now the canonical source.
+
+## Source-first website deployment (v4.1)
+
+GitHub Pages runs `scripts/build_site.py` for every push to `main`. The builder publishes Markdown as styled HTML, checks that the canonical Mermaid diagrams are **pre-rendered to accessible SVG**, and copies the interactive Decision Studio and question-led social HTML. The Pages artifact is `dist/`; the rendered site is derived output, not the authoring source.
+
+The public course and public annotations are intentional. The Decision Studio stores input selections in the learner's browser by default and copies a summary on request. It does not assess legal compliance and does not automatically commit questionnaire responses to GitHub. Never put secrets or customer information in public notes or questionnaire answers.
