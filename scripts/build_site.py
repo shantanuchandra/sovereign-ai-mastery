@@ -88,8 +88,13 @@ def article_content(path,dest,diagram=False):
         if not (ROOT/asset).exists():
             raise FileNotFoundError('Missing pre-rendered diagram: '+asset)
         figure=soup.new_tag('figure',attrs={'class':'diagram diagram-rendered'})
-        img=soup.new_tag('img',src=os.path.relpath(DIST/asset,outdir).replace(os.sep,'/'),alt=alt,loading='lazy')
-        figure.append(img)
+        image_route=os.path.relpath(DIST/asset,outdir).replace(os.sep,'/')
+        viewport=soup.new_tag('div',attrs={'class':'diagram-viewport','role':'region','aria-label':'Scrollable diagram'})
+        link=soup.new_tag('a',href=image_route,target='_blank',rel='noopener',title='Open full-size diagram in a new tab')
+        img=soup.new_tag('img',src=image_route,alt=alt,loading='lazy')
+        link.append(img)
+        viewport.append(link)
+        figure.append(viewport)
         caption=soup.new_tag('figcaption')
         caption.string='Source-authored Mermaid flowchart, pre-rendered to SVG for reliable reading. Expand below to inspect the original definition.'
         figure.append(caption)
