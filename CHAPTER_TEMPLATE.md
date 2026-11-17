@@ -219,17 +219,18 @@ echo 'Replace with tested lab steps'
 
 ## 11. Knowledge check
 
-**Five questions**
+**Six decision questions**
 
 1. [Core definition and misconception]
 2. [Classification, boundary, or evidence]
 3. [Architecture/design reasoning]
 4. [Security, regulatory, or operational judgment]
-5. [Cost, product, or vendor trade-off]
+5. [**Named, real-world example** drawn from a dated primary-source product document, official case report, regulator decision, or actual published incident. Provide a source footnote. If applying a real product to a hypothetical customer, label the customer situation hypothetical rather than claiming a real incident. Ask what technical evidence would change the decision.]
+6. [**Evidence-state and root-cause analysis**. Give an explicit pre-test state, observed adverse or ambiguous result, and proposed fix. Ask for status transitions, probable root cause, contributing gap, accountable owner, mitigation and a dated retest before closure.]
 
 **Scenario challenge:** [Ambiguous real-world situation requiring a justified recommendation.]
 
-**Answer key / rubric:** `assessments/solutions/NN-short-title-solutions.md` — a **separate file**. Do not put solutions, model answers, or hints that reveal the answer here. Solutions must include lab verification, quiz answers with rationales, scenario trade-offs, and a PM-deliverable scoring rubric.
+**Answer key / rubric:** `assessments/solutions/NN-short-title-solutions.md` — a **separate file**. Do not put solutions, model answers, or hints that reveal the answer here. Solutions must include lab verification; a cited, worked answer to Question 5 that distinguishes genuine documented product behavior from invented deployment facts; and a **step-by-step Question 6 RCA** with observation, direct cause, systemic cause, validation, remediation owner, retest, residual risk and bounded closure decision. Include all other quiz rationales, scenario trade-offs and a PM-deliverable rubric.
 
 ## 12. Key takeaways
 
@@ -274,7 +275,8 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 **Question-led social derivative (mandatory):**
 
 - `social/module-NN/SLIDES.md` — 7–9 slides with a question as **every slide headline**.
-- `social/module-NN/NN-questions.pdf` — portrait LinkedIn document, text-selectable, sourced, and verified visually.
+- `social/module-NN/CAROUSEL.html` — source-of-truth, **4:5 portrait editorial layout** built in semantic HTML/CSS. Every slide has a question headline, one distinct insight, strong text contrast, a meaningful visual or evidence extract when useful, and a real source for any product or legal claim.
+- `social/module-NN/NN-questions.pdf` — optional derived export after screenshot review. Print must preserve text, links, colors and page breaks. **Never make the PDF the primary design source.**
 - `social/module-NN/POST.md` — a concise LinkedIn post built around substantive questions, with the website chapter as the intended destination.
 
 **Review record:** [Primary-source check and reviewer], [editorial anti-slop pass], [technical lab verification], [different-model critique: completed / NOT COMPLETED with model/version and evidence link].
@@ -292,7 +294,7 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 - [ ] The SCOPE anti-slop edit has removed vagueness, filler, hype, and unsupported claims.
 - [ ] Ontology spotlight defines meaningful entities/relationships and links to the shared model.
 - [ ] The published output is a responsive website page with accessible navigation, footnotes, diagrams and mobile preview.
-- [ ] Question-led HTML carousel and POST.md exist and have been visually/source checked.
+- [ ] Question-led HTML carousel and POST.md exist and have been visually/source checked. Check each slide for legibility, hierarchy, overflow, accurate citations, and **zero em dashes (—)** in social copy. Remove filler, faux profundity, generic endings, and undeclared fictional examples.
 - [ ] Second-model-review status is truthful and independent output is stored if completed.
 - [ ] Each major concept has a definition, worked example, and trade-off.
 - [ ] UAE/GCC treatment distinguishes federal, free-zone, and sector-specific applicability.
@@ -300,7 +302,7 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 - [ ] Lab was tested on a declared environment and uses no secrets or confidential data.
 - [ ] Cost assumptions, versions, dates, and vendor claims are explicit.
 - [ ] The PM deliverable has measurable acceptance criteria.
-- [ ] Five-question quiz and scenario exercise assess real comprehension.
+- [ ] Six-question quiz includes a sourced real-world case in Q5 and a root-cause exercise in Q6.
 - [ ] Separate solution key contains answer rationales, tested lab expected results, scenario trade-offs, and PM rubric.
 - [ ] The first screen communicates executive takeaway, decision, and conditions.
 - [ ] Accessibility and Markdown rendering were checked.
@@ -311,9 +313,16 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 ## Website/book-rendering requirements for this chapter
 
 - Render as a book chapter with the 24-module left-hand table of contents, long-form serif reading column, and personal annotation margin.
-- Ensure every H2 becomes an accessible in-page anchor and every technical diagram remains legible on mobile.
+- Ensure every H2 becomes an accessible in-page anchor and every technical diagram is **rendered as an image/SVG on the final website**, not exposed as an unrendered Mermaid code fence. Retain downloadable or expandable `mermaid` source for inspectability, plus caption and text equivalent. Test diagram display on mobile and with scripts disabled.
 - Ensure all evidence quotations are truly verbatim, precisely footnoted, and checked against the original primary source. No filler, generic AI prose, or unverified vendor claims.
 - Explicitly link to the course taxonomy/ontology and state the entities, relationships and constraints this chapter introduces.
 - Test that selecting any substantive text can create a highlight or note; check local reload and optional GitHub-backed cross-device sync.
 - Ship a separate **HTML-authored question-led carousel** at `social/module-NN/CAROUSEL.html`; export a PDF derivative only after visual QA. Every slide headline must be a question and the post must point back to this chapter.
 - Keep answer keys out of the public reader build even if the source repository itself is public; source availability is not answer confidentiality.
+
+### Dynamic learning companion (required when decisions depend on configurable constraints)
+
+- Create or link a low-friction **questionnaire with immediate feedback**. Each input maps to taxonomy dimensions, controls, evidence requirements, and alternative architecture patterns.
+- Show a **provisional** recommendation, counterfactual comparison when one input changes, unresolved evidence, and chapter links. A quiz that collects answers without teaching the decision mechanism does not qualify.
+- Never generate a legal-compliance status, a sovereignty certification percentage, or a promise of location/control from unspecified vendor details. Label every assumption and provide human-review gates.
+- Keep inputs in browser storage by default; make public GitHub sync explicit and warn against entering confidential information.
