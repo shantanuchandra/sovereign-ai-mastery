@@ -2,3 +2,14 @@
 @media(max-width:1280px){.shell{grid-template-columns:235px minmax(0,1fr)}.margin{display:none}}@media(max-width:850px){.shell{grid-template-columns:1fr}.rail{position:fixed;z-index:30;top:0;left:0;width:min(320px,88vw);transform:translateX(-102%);transition:transform .25s;box-shadow:10px 0 30px #0002}.rail.show{transform:translateX(0)}.mobile-toc{display:inline-flex;background:transparent;border:1px solid #aebdb1;padding:8px;color:#39584a;font:600 12px var(--sans)}.topbar{padding:15px 20px}.workspace main{padding:0 25px}.hero{padding-top:43px}}@media(max-width:610px){.questions,.two-cols,.counter-input,.compare-grid,.journal-panel,.hero-meta{grid-template-columns:1fr}.hero-meta{gap:14px}.hero-meta>div{border-bottom:1px solid var(--line);padding-bottom:9px}.diagram-node{grid-template-columns:1fr;gap:4px}.diagram-node .node-owner{grid-column:1}.topbar>span{display:none}.workspace main{padding:0 18px}.hero{padding-top:32px}.lead{font-size:18px}.section{padding:45px 0}.challenge{padding:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rail{transition:none}}
 @media print{.rail,.margin,.topbar,.preset-row,.instruction,.journal-buttons,.tutor-progress,.counter-input,.answer,.reflection textarea{display:none!important}.shell{display:block;box-shadow:none}.workspace main{max-width:100%;padding:0 10mm}.section{page-break-inside:avoid}}
+
+/* Expanded use-case library and physical boundary explanation */
+.scenario-library{display:flex;align-items:end;gap:16px;margin:15px 0 30px;padding:19px 22px;background:#f1eee5;border:1px solid #d7d0c2}
+.scenario-library>div{flex:1;min-width:0}
+.scenario-library label{margin:0 0 8px;font:700 14px/1.4 var(--sans);color:#304c41}
+.scenario-library select{width:100%;font-size:15px;max-width:100%}
+.scenario-library small{display:block;margin-top:6px;font:12px/1.4 var(--sans);color:#52695d}
+.scenario-library button{flex-shrink:0;min-height:44px}
+.boundary-warning{padding:16px 20px;margin:22px 0;background:#fff2e8;border:1px solid #cba98b;border-left:5px solid #9f4b31;color:#623d29;font:600 14px/1.6 var(--sans)}
+[hidden]{display:none!important}
+@media(max-width:720px){.scenario-library{flex-direction:column;align-items:stretch;padding:14px}.scenario-library button{width:100%}}

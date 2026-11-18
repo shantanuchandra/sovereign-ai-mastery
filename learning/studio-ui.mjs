@@ -1,4 +1,4 @@
-import {DEFAULTS, LABELS, PRESETS, VERSION, normalize, createBlueprint, createChallenges, evaluateChallenge, compareBlueprints, exportJournal} from './studio-engine.mjs';
+import {DEFAULTS, LABELS, PRESETS, PRESET_LABELS, VERSION, normalize, createBlueprint, createChallenges, evaluateChallenge, compareBlueprints, exportJournal} from './studio-engine.mjs';
 
 const STORAGE='sovereign-ai-learning-studio-v1';
 const OLD='sovereign-ai-studio-v1';
@@ -20,6 +20,13 @@ function renderArchitecture(){
   byId('solution-status').classList.toggle('blocked',current.status==='BLOCKED');
   byId('margin-pattern').textContent=current.title;
   byId('margin-gate').textContent=current.gates[0]||'All major claims still require actual tests and reviewer acceptance.';
+  const boundary=byId('boundary-warning');
+  const premise=['premises','airgap','approved_sites'].includes(current.input.location);
+  boundary.hidden=!premise;
+  if(premise){
+    const phrase=current.input.location==='airgap'?'Air-gapped: no network connections and no external service endpoints.':current.input.location==='premises'?'Single-premises-only: no prompts, vector embeddings, logs, backups or diagnostics may leave the building.':'Approved-sites-only: treat every permitted facility and link as an explicit boundary.';
+    boundary.textContent=phrase+' The generated design is conditional, not a certification.';
+  }
   list('implementation-steps',current.steps,true);
   list('approval-gates',current.gates);
   byId('architecture-diagram').innerHTML=current.architectures.map((layer,i)=>`${i?'<div class="diagram-arrow" aria-hidden="true">↓</div>':''}<div class="diagram-node"><div class="node-title">${escape(layer.name)}</div><div class="node-detail">${escape(layer.detail)}</div><div class="node-owner">Accountable: ${escape(layer.owner)}</div></div>`).join('');
@@ -78,6 +85,28 @@ function build(){
   renderArchitecture();updateCounterOptions();renderComparison();renderChallenges();safeSave();
   document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('selected',signature(PRESETS[b.dataset.preset])===sig));
 }
+// Dropdowns are populated from the same taxonomy as the decision engine.
+// This avoids stale HTML options when the vocabulary expands.
+function populateDropdowns(){
+  for(const [key,values] of Object.entries(LABELS)){
+    const el=form.elements.namedItem(key);
+    if(!el)throw new Error(`Missing dropdown for ${key}`);
+    el.replaceChildren();
+    for(const [value,label] of Object.entries(values)){
+      const option=document.createElement('option');option.value=value;option.textContent=label;el.append(option);
+    }
+  }
+  const counter=byId('counter-key');counter.replaceChildren();
+  const titles={workload:'Workload / use case',data:'Data classification',location:'Physical and geographic boundary',connectivity:'Network and egress',operator:'Operating authority',portability:'Technology portability',capacity:'Infrastructure and compute',evidence:'Available evidence',jurisdiction:'Jurisdiction',stage:'Release stage'};
+  for(const key of Object.keys(LABELS)){const option=document.createElement('option');option.value=key;option.textContent=titles[key];counter.append(option);}
+  counter.value='location';
+  const library=byId('scenario-library');library.replaceChildren();
+  for(const [key,label] of Object.entries(PRESET_LABELS)){
+    const option=document.createElement('option');option.value=key;option.textContent=label;library.append(option);
+  }
+  library.value='onsite';
+}
+populateDropdowns();
 const saved=readSaved();
 let inputs=saved?.inputs;
 if(!inputs){try{inputs=JSON.parse(localStorage.getItem(OLD)||'null')}catch{inputs=null}}
@@ -93,6 +122,7 @@ build();
 
 form.addEventListener('change',build);
 document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{applyInputs(PRESETS[b.dataset.preset]);build();}));
+byId('apply-scenario').addEventListener('click',()=>{const key=byId('scenario-library').value;if(!PRESETS[key])return;applyInputs(PRESETS[key]);build();byId('assumptions').scrollIntoView({block:'start',behavior:'smooth'});});
 byId('clear-all').addEventListener('click',()=>{applyInputs(DEFAULTS);answers={};build();});
 byId('counter-key').addEventListener('change',()=>{updateCounterOptions();renderComparison();});
 byId('counter-value').addEventListener('change',renderComparison);

@@ -342,3 +342,8 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 - **Verification:** [Unit tests for major branches, browser interactions, accessible labels and export checks; explicitly record any unavailable visual or deployment test.]
 
 **No AI slop rule:** Never claim the interactive engine is intelligent, personalized by an LLM, or legally authoritative when it is a deterministic learning tool. The depth of feedback matters more than animated UI. Do not use em dashes or generic thought-leadership filler in any LinkedIn derivative.
+
+
+### Physical-site-only and air-gapped case authoring (v1.1)
+
+When a scenario says data cannot leave the premises, distinguish the **physical building/site** from a country, cloud region, or colocation facility. Document where prompts, model weights, vector indices, diagnostics, logs, backups, telemetry, updates, removable media, remote support, and recovery copies can exist. Require physically on-site compute, an explicit operator model, and a separately testable connectivity/egress rule. An internet-enabled or remotely managed alternative must be recorded as a conflict, not quietly selected as an architecture. For air-gapped cases include offline updates and media transfer controls. The learner should see a blocked design when assumptions cannot all be satisfied. These course scenarios are not proof of legal compliance or actual facility capability.

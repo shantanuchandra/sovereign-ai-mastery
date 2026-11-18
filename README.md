@@ -11,7 +11,7 @@
 
 ## Start here
 
-1. **[Adaptive Architecture & Learning Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html)** — nine-question adaptive workshop that generates an architecture, explains controls and evidence gaps, challenges reasoning, compares a changed constraint, and exports a public learning journal.
+1. **[Adaptive Architecture & Learning Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html)** — ten-question adaptive workshop that generates an architecture, explains controls and evidence gaps, challenges reasoning, compares a changed constraint, and exports a public learning journal.
 2. **[Quick onboarding questionnaire](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — lightweight starting point that can hand off to the full learning studio.\n3. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
 4. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
 5. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, six-question assessment with a real-product case and RCA challenge, citations and follow-up.
@@ -116,3 +116,8 @@ Open [the interactive Studio](https://shantanuchandra.github.io/sovereign-ai-mas
 - **Validation:** `node --test learning/tests/engine.test.mjs` (11 test cases), JS syntax checks, and GitHub Pages build-time presence checks.
 
 The implementation deliberately keeps the first adaptive experience reproducible. An opt-in, retrieval-grounded conversational tutor can be evaluated later without hard-coding secrets into the public client.
+
+
+### Premises-only scenarios (Studio v1.1)
+
+The [Architecture & Learning Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/) now supports 20 workload types and 15 example scenarios. Its ten input dimensions include a separate network connectivity boundary. Choose **Data cannot leave premises** for the physical-site scenario, or **Air-gapped factory** for disconnected processing. Strict premises and air-gap constraints never silently route to cloud APIs: mismatched compute, remote administration and network options produce explicit blockers. An architecture remains provisional until verified by the applicable owners. See [learning/README.md](learning/README.md).

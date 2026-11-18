@@ -35,15 +35,15 @@ test('test record never becomes a passing compliance claim',()=>{
 test('all input dimensions appear in trace and ontology controls',()=>{
   const b=createBlueprint(DEFAULTS);
   assert.equal(b.controls.length,4);
-  assert.equal(b.trace.length,7);
-  for(const key of ['territorial','operational','technological','legal'])assert.ok(b.trace.some(x=>x.key===key));
+  assert.equal(b.trace.length,Object.keys(LABELS).length);
+  for(const key of ['location','operator','portability','jurisdiction','connectivity'])assert.ok(b.trace.some(x=>x.key===key));
 });
 test('challenge set adapts to blockers and portability',()=>{
   const blocked=createChallenges(PRESETS.banking);
   const basic=createChallenges(PRESETS.support);
   assert.equal(blocked.length,4);assert.equal(basic.length,4);
-  assert.match(blocked[1].question,/no production compute/);
-  assert.match(basic[1].question,/provider hosts/);
+  assert.match(blocked[1].question,/enterprise compute is unavailable/);
+  assert.match(basic[1].question,/platform hosts/);
   assert.notEqual(blocked[2].question,basic[2].question);
   for(const q of [...blocked,...basic]){
     assert.equal(q.options.length,3);
@@ -69,4 +69,63 @@ test('cross-product invariant: no declared sovereignty pass',()=>{
     assert.ok(b.controls.every(c=>!['PASS','COMPLIANT','CERTIFIED'].includes(c.evidence)));
     assert.ok(b.architectures.length>=4);
   }
+});
+
+
+test('broad taxonomy supports all presets with valid dropdown values',()=>{
+  assert.ok(Object.keys(LABELS.workload).length>=18);
+  for(const p of Object.values(PRESETS))for(const [key,value] of Object.entries(p))assert.ok(Object.hasOwn(LABELS[key],value),`${key}:${value}`);
+  assert.ok(Object.keys(LABELS.location).length>=8);
+});
+test('premises only and adequate onsite controls never select a cloud endpoint',()=>{
+  const b=createBlueprint(PRESETS.onsite);
+  assert.equal(b.pattern,'onprem');assert.equal(b.status,'PROVISIONAL');
+  assert.match(b.architectures[2].detail,/no off-prem/);
+  assert.match(b.controls[0].claim,/telemetry, backups or diagnostics/);
+  assert.ok(createChallenges(PRESETS.onsite)[0].question.includes('premises'));
+});
+test('on-premises rule blocks remote cloud compute even with vendor promises',()=>{
+  for(const capacity of ['managed','public_cloud','colo','gpu','private_dc','hybrid','laptop']){
+    const b=createBlueprint({...PRESETS.onsite,capacity});
+    assert.equal(b.pattern,'gated',capacity);assert.equal(b.status,'BLOCKED');
+    assert.doesNotMatch(b.architectures[2].detail,/managed inference endpoint/i);
+    assert.ok(b.conflicts.some(x=>x.includes('physically located')));
+  }
+});
+test('premises restriction disallows unsupported external links and remote administration',()=>{
+  for(const connectivity of ['internet','flexible','private_links'])assert.equal(createBlueprint({...PRESETS.onsite,connectivity}).status,'BLOCKED');
+  for(const operator of ['local','provider','shared','dedicated'])assert.equal(createBlueprint({...PRESETS.onsite,operator}).status,'BLOCKED');
+});
+test('air gap only permits disconnected networking and onsite compute',()=>{
+  const a=createBlueprint(PRESETS.factory);
+  assert.equal(a.pattern,'airgap');assert.equal(a.status,'PROVISIONAL');
+  for(const connectivity of Object.keys(LABELS.connectivity)){
+    const b=createBlueprint({...PRESETS.factory,connectivity});
+    assert.equal(b.status,connectivity==='disconnected'?'PROVISIONAL':'BLOCKED');
+  }
+});
+test('reported failing evidence blocks release until RCA and retest',()=>{
+  const b=createBlueprint({...PRESETS.onsite,evidence:'adverse'});
+  assert.equal(b.status,'BLOCKED');assert.match(b.gates.join(' '),/RCA/);
+  assert.ok(b.controls.every(x=>x.evidence!=='PASS'));
+});
+test('every processing boundary and operating capability pair is fail closed when premises-only',()=>{
+  for(const location of ['premises','airgap'])for(const capacity of Object.keys(LABELS.capacity))for(const operator of Object.keys(LABELS.operator)){
+    const b=createBlueprint({...PRESETS.onsite,location,capacity,operator,connectivity:location==='airgap'?'disconnected':'isolated'});
+    if(b.status==='PROVISIONAL'){
+      assert.ok(['onsite_cpu','onsite_gpu'].includes(capacity));assert.ok(['enterprise','onsite_partner'].includes(operator));
+      assert.ok(['onprem','airgap'].includes(b.pattern));
+    }else assert.equal(b.pattern,'gated');
+  }
+});
+test('local-only network rejects remote compute and remote administration',()=>{
+  for(const capacity of ['managed','hybrid','public_cloud','colo'])assert.equal(createBlueprint({...PRESETS.assistant,location:'country',connectivity:'isolated',capacity}).status,'BLOCKED');
+  for(const operator of ['provider','shared','local','dedicated'])assert.equal(createBlueprint({...PRESETS.factory,operator}).status,'BLOCKED');
+});
+test('on-premises learning journal records hard boundary and precise test',()=>{
+  const b=createBlueprint(PRESETS.onsite);
+  const md=exportJournal(b,createChallenges(b.input),{},'I must test backup and telemetry paths.');
+  assert.match(md,/Single premises only/);
+  assert.match(md,/removable-media/);
+  assert.match(md,/on-prem/i);
 });
