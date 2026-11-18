@@ -26,12 +26,20 @@ jobs:
       - name: Install static site builder dependencies
         run: |
           python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4'
+      - name: Validate adaptive learning rules
+        run: |
+          node --test learning/tests/engine.test.mjs
+          node --check learning/studio-engine.mjs
+          node --check learning/studio-ui.mjs
       - name: Build from Markdown source
         run: python scripts/build_site.py
       - name: Verify rendered diagrams and onboarding
         run: |
           test -s dist/index.html
           test -s dist/onboarding/index.html
+          test -s dist/learning/index.html
+          test -s dist/learning/studio-engine.mjs
+          test -s dist/learning/studio-ui.mjs
           test -s dist/modules/01-sovereign-ai-fundamentals.html
           test -s dist/diagrams/module-01-claim-chain.svg
           test -s dist/diagrams/sovereignty-ontology.svg
