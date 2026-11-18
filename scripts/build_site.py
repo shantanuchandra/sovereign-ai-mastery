@@ -113,7 +113,18 @@ def article_content(path,dest,diagram=False):
     # Mistune does not add heading IDs by default; pandoc does.
     # Keep in-page navigation usable whichever renderer GitHub Actions has.
     used=set()
-    for heading in soup.find_all(re.compile(r'^h[1-6]
+    for heading in soup.select('h1,h2,h3,h4,h5,h6'):
+        anchor=heading.get('id')
+        if not anchor:
+            anchor=re.sub(r'[^a-z0-9-]', '', re.sub(r'\s+', '-', heading.get_text(' ', strip=True).lower())).strip('-') or 'section'
+        seed=anchor
+        k=2
+        while anchor in used:
+            anchor=f'{seed}-{k}'
+            k+=1
+        heading['id']=anchor
+        used.add(anchor)
+    sections=[(h.get('id'),h.get_text(' ',strip=True)) for h in soup.find_all('h2') if h.get('id')]
     return str(soup),sections
 
 def relroute(num):
