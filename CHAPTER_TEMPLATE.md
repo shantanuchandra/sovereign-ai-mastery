@@ -326,3 +326,19 @@ NIST provides an AI risk management framework.[^nist-ai-rmf]
 - Show a **provisional** recommendation, counterfactual comparison when one input changes, unresolved evidence, and chapter links. A quiz that collects answers without teaching the decision mechanism does not qualify.
 - Never generate a legal-compliance status, a sovereignty certification percentage, or a promise of location/control from unspecified vendor details. Label every assumption and provide human-review gates.
 - Keep inputs in browser storage by default; make public GitHub sync explicit and warn against entering confidential information.
+
+
+## 15. Adaptive learning companion specification
+
+> **Required when the chapter introduces a consequential architecture choice.** Link to the shared [Architecture & Learning Studio](learning/index.html) or contribute a module-specific challenge to its source. Do not add a decorative questionnaire.
+
+- **Onboarding inputs:** [Which workload attributes and ontology relations determine the recommendation?]
+- **Decision rules:** [Explain each branch and its exclusions. Reject impossible operating/compute combinations.]
+- **Rendered output:** [Architecture components, claims, owner, test procedure, evidence state and approval gates.]
+- **Adaptive challenge:** [A genuinely plausible wrong option, the misconception it reveals, an evidence-backed explanation, an RCA when appropriate, and the next module.]
+- **Counterfactual:** [Which single constraint should the learner change to expose a non-obvious trade-off?]
+- **Portable learning artifact:** [What Markdown/JSON record can be reviewed, sourced, and committed to GitHub?]
+- **Safety and transparency:** [Explain whether the reasoning is rules-driven or model-driven, what is stored, what is public, and where a qualified human must review.]
+- **Verification:** [Unit tests for major branches, browser interactions, accessible labels and export checks; explicitly record any unavailable visual or deployment test.]
+
+**No AI slop rule:** Never claim the interactive engine is intelligent, personalized by an LLM, or legally authoritative when it is a deterministic learning tool. The depth of feedback matters more than animated UI. Do not use em dashes or generic thought-leadership filler in any LinkedIn derivative.
