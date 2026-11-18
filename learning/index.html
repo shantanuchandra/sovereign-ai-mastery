@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="An interactive sovereign AI architecture and learning studio: change constraints, inspect architecture trade-offs, practice decisions, and export a public learning journal.">
+  <title>Architecture & Learning Studio | Sovereign AI Field Guide</title>
+  <link rel="stylesheet" href="./studio.css">
+</head>
+<body>
+<a class="skip" href="#chapter">Skip to the studio</a>
+<div class="shell">
+  <aside class="rail" aria-label="Book navigation">
+    <div class="brand"><span class="brand-mark">S<span>/</span>A</span><span>THE SOVEREIGN AI<br><strong>FIELD GUIDE</strong></span></div>
+    <div class="small-label">YOUR READING DESK <span>LAB 01</span></div>
+    <nav class="rail-nav" aria-label="Course navigation">
+      <a href="../index.html">Opening pages</a>
+      <a href="../curriculum.html">Complete contents</a>
+      <a href="../taxonomy/ONTOLOGY.html">Taxonomy & ontology</a>
+      <a href="../modules/01-sovereign-ai-fundamentals.html">01 · Who controls the intelligence?</a>
+      <a href="../onboarding/index.html">Quick decision questionnaire</a>
+      <a href="./index.html" class="active" aria-current="page">Architecture & Learning Studio</a>
+    </nav>
+    <div class="part-label">IN THIS STUDIO</div>
+    <nav class="rail-nav in-page" aria-label="Studio sections">
+      <a href="#assumptions">01 &nbsp; Set the constraints</a>
+      <a href="#architecture">02 &nbsp; Inspect architecture</a>
+      <a href="#counterfactual">03 &nbsp; Change one assumption</a>
+      <a href="#tutor">04 &nbsp; Defend the decision</a>
+      <a href="#journal">05 &nbsp; Publish your learning</a>
+    </nav>
+    <p class="rail-note">A design is a hypothesis until you can trace its claims to controls and evidence.</p>
+  </aside>
+  <div class="workspace" id="chapter">
+    <header class="topbar"><button id="toc-toggle" class="mobile-toc" type="button" aria-expanded="false" aria-controls="book-nav">☰ Contents</button><span>THE LABORATORY / AN EXECUTIVE FIELD GUIDE</span><a href="../modules/01-sovereign-ai-fundamentals.html">Back to Module 01 ↗</a></header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">EXPERIMENT 001 <span>/</span> THE DECISION ENGINE</div>
+        <h1>Design the system.<br><em>Defend the choice.</em></h1>
+        <p class="lead">An enterprise architecture generator and adaptive tutor in one learning loop. Set your constraints, examine the trade-offs, answer questions, then change an assumption to see where your reasoning holds.</p>
+        <div class="hero-meta"><div><span>THE METHOD</span><strong>Requirements → architecture → evidence</strong></div><div><span>THE OUTPUT</span><strong>Blueprint + tested reasoning</strong></div><div><span>THE RULE</span><strong>Never confuse a claim with proof</strong></div></div>
+        <div class="notice"><strong>This is an educational rule engine, not an AI chat model.</strong> Recommendations are provisional and course-authored. They do not validate vendors, certify sovereignty, judge regulatory applicability, or inspect actual infrastructure. All sample scenarios are fictional. Inputs are stored only in your browser until you export them.</div>
+      </section>
+      <section id="assumptions" class="section">
+        <div class="section-head"><div class="eyebrow">01 / THE INPUTS</div><h2>What problem are we actually solving?</h2><p>Try a preset or set your own workload. Every selection changes an architectural assumption.</p></div>
+        <div class="preset-row" role="group" aria-label="Example workloads">
+          <button type="button" class="preset" data-preset="assistant">UAE employee assistant</button>
+          <button type="button" class="preset" data-preset="banking">UAE bank document reviewer</button>
+          <button type="button" class="preset" data-preset="support">Saudi public-information bot</button>
+        </div>
+        <form id="assumption-form" class="questions" autocomplete="off">
+          <div class="field"><div class="step">01 · SCOPE</div><label for="workload">What AI workload is it?</label><select id="workload" name="workload"><option value="knowledge">Internal knowledge assistant</option><option value="customer">Customer-facing assistant</option><option value="regulated">Regulated document analysis</option></select><small>Start with one bounded use case.</small></div>
+          <div class="field"><div class="step">02 · DATA</div><label for="data">How sensitive is the information?</label><select id="data" name="data"><option value="internal">Internal business documents</option><option value="public">Public material only</option><option value="sensitive">Sensitive or regulated information</option></select><small>Changes isolation and review gates.</small></div>
+          <div class="field"><div class="step">03 · TERRITORIAL</div><label for="location">Where may prompts be processed?</label><select id="location" name="location"><option value="country">Selected country only</option><option value="zone">Approved geographic zone</option><option value="flexible">No strict geography constraint</option></select><small>Include embeddings, logs, and failover.</small></div>
+          <div class="field"><div class="step">04 · OPERATIONAL</div><label for="operator">Who may administer the service?</label><select id="operator" name="operator"><option value="enterprise">Enterprise-authorized administrators only</option><option value="local">Approved managed-service operators</option><option value="provider">Provider administration permitted by contract</option></select><small>Includes break-glass and support paths.</small></div>
+          <div class="field"><div class="step">05 · TECHNOLOGICAL</div><label for="portability">How important is switching providers?</label><select id="portability" name="portability"><option value="essential">Mandatory; rehearse an exit</option><option value="useful">Important but negotiable</option><option value="low">Low priority for this pilot</option></select><small>Portability requires a trial, not a slogan.</small></div>
+          <div class="field"><div class="step">06 · CAPACITY</div><label for="capacity">What infrastructure can you operate?</label><select id="capacity" name="capacity"><option value="laptop">Laptop / prototype only</option><option value="managed">Approved managed AI platform</option><option value="gpu">Enterprise-operated production compute</option></select><small>A local M4 Pro is a lab, not a production SLA.</small></div>
+          <div class="field"><div class="step">07 · EVIDENCE</div><label for="evidence">What evidence is available?</label><select id="evidence" name="evidence"><option value="none">Nothing mapped or tested</option><option value="design">Architecture and contracts only</option><option value="tested">Test records exist; not reviewed</option></select><small>Having a report does not mean it passed.</small></div>
+          <div class="field"><div class="step">08 · JURISDICTION</div><label for="jurisdiction">Where is the primary legal context?</label><select id="jurisdiction" name="jurisdiction"><option value="uae">UAE</option><option value="saudi">Saudi Arabia</option><option value="eu">European Union</option><option value="other">Other or undecided</option></select><small>Qualified counsel determines applicability.</small></div>
+          <div class="field"><div class="step">09 · RELEASE</div><label for="stage">What stage are you planning?</label><select id="stage" name="stage"><option value="prototype">Exploration</option><option value="pilot">Controlled pilot</option><option value="production">Production rollout</option></select><small>Risk appetite and assurance change by stage.</small></div>
+        </form>
+        <div class="instruction">Selections update the blueprint immediately. <button class="text-button" id="clear-all" type="button">Reset assumptions</button></div>
+      </section>
+      <section id="architecture" class="section">
+        <div class="section-head"><div class="eyebrow">02 / THE GENERATED SOLUTION</div><h2>What would you actually build?</h2><p>Follow the requirement, the architecture consequence, and the test needed to support each claim.</p></div>
+        <div class="architecture-header"><span class="status" id="solution-status">PROVISIONAL</span><span class="version">COURSE RULES / V1.0</span></div>
+        <div class="architecture-intro"><h3 id="solution-title">Provisional architecture</h3><p id="solution-why"></p></div>
+        <div class="diagram" id="architecture-diagram" role="group" aria-label="Generated architecture layers"></div>
+        <div class="two-cols"><div><h3>Implementation sequence</h3><ol id="implementation-steps"></ol></div><div><h3>Approval gates</h3><ul id="approval-gates"></ul></div></div>
+        <div class="section-sub"><h3>Four dimensions, four falsifiable controls</h3><p>These are proposed controls, not verified compliance results.</p></div>
+        <div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Claim and implementation</th><th>Verification</th><th>Evidence</th></tr></thead><tbody id="controls-table"></tbody></table></div>
+        <details class="reason-details"><summary>Why did the engine propose this? View the complete decision trace</summary><ol id="reasoning-trace"></ol></details>
+      </section>
+      <section id="counterfactual" class="section">
+        <div class="section-head"><div class="eyebrow">03 / COUNTERFACTUAL</div><h2>Which assumption is doing the work?</h2><p>Choose an alternative and compare the outcome. The original solution remains unchanged until you apply it.</p></div>
+        <div class="counter-input"><div><label for="counter-key">Change one dimension</label><select id="counter-key"><option value="operator">Operational authority</option><option value="location">Processing geography</option><option value="capacity">Infrastructure capacity</option><option value="portability">Provider exit</option><option value="data">Data sensitivity</option><option value="evidence">Evidence level</option><option value="stage">Release stage</option></select></div><div><label for="counter-value">Try this new constraint</label><select id="counter-value"></select></div></div>
+        <div class="compare-grid"><article><span class="compare-label">CURRENT</span><h3 id="compare-original"></h3><p id="compare-original-why"></p></article><article><span class="compare-label">WHAT IF?</span><h3 id="compare-next"></h3><p id="compare-next-why"></p></article></div>
+        <p class="counter-explanation" id="counter-explanation" aria-live="polite"></p><button type="button" class="outline-button" id="apply-counter">Apply this constraint to my design</button>
+      </section>
+      <section id="tutor" class="section">
+        <div class="section-head"><div class="eyebrow">04 / THE SOCRATIC TEST</div><h2>Can you defend that architecture?</h2><p>Four scenario questions adapt to your current constraints. Choose an answer before revealing the reasoning; wrong answers surface a misconception, a corrective action, and a relevant chapter.</p></div>
+        <div class="tutor-progress"><strong id="tutor-progress">0 of 4 answered</strong><span id="tutor-context">Generated from your workload</span><button type="button" id="restart-challenges" class="text-button">Restart practice</button></div>
+        <div id="challenge-list" class="challenge-list"></div>
+        <div id="tutor-summary" class="tutor-summary" aria-live="polite"></div>
+        <div class="reflection"><label for="reflection">Write your own recommendation. Which trade-off would you defend to a CTO, and what would change your mind?</label><textarea id="reflection" rows="4" maxlength="2400" placeholder="I would choose ... because ...; the deciding evidence would be ..."></textarea><p class="muted">The browser cannot evaluate your written reasoning. Use the decision trace and answer rationales to self-review it.</p></div>
+      </section>
+      <section id="journal" class="section">
+        <div class="section-head"><div class="eyebrow">05 / BUILD IN PUBLIC</div><h2>What did you learn, and how can you prove it?</h2><p>Export a readable decision record with the inputs, proposed architecture, unverified gaps, your answers, and the reasoning you want to test next.</p></div>
+        <div class="journal-panel"><div><h3>Your learning record</h3><p>Nothing is sent to a server. This tool stores a draft in your browser and creates a local Markdown or JSON file when requested. You can commit the reviewed file to your public GitHub repository.</p><p class="warning">Do not include secrets, personal details, customer records or confidential architecture data. Your course repository is public.</p></div><div class="journal-buttons"><button type="button" id="download-md" class="primary-button">Export learning journal (.md)</button><button type="button" id="download-json" class="outline-button">Export architecture (.json)</button><a href="https://github.com/shantanuchandra/sovereign-ai-mastery/tree/main" target="_blank" rel="noopener">Open repository ↗</a></div></div>
+        <div class="sources"><h3>Source and methodology notes</h3><p>The engine maps the course-authored <a href="../taxonomy/ONTOLOGY.html">Sovereignty Taxonomy & Ontology</a> to example controls and decisions. It uses concepts from <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10" target="_blank" rel="noopener">NIST AI RMF 1.0 (2023)</a> for thinking about risk governance. Neither source endorses this decision engine or its architectural classifications. See <a href="../modules/01-sovereign-ai-fundamentals.html">Module 01</a> for direct attributed quotations, definitions and limitations.</p></div>
+      </section>
+      <footer>THE SOVEREIGN AI FIELD GUIDE <span>•</span> REQUIREMENTS / CONTROLS / EVIDENCE</footer>
+    </main>
+  </div>
+  <aside class="margin" aria-label="Learning guidance"><div class="margin-top"><div class="eyebrow">YOUR FIELD NOTES</div><h2>Make the assumption visible.</h2><p>Every confident architecture contains an explicit condition that could reverse it.</p></div><div class="margin-section"><div class="margin-eyebrow">CURRENT DECISION</div><p id="margin-pattern" class="margin-pattern"></p><div id="margin-gate" class="margin-gate"></div></div><div class="margin-section"><div class="margin-eyebrow">THE LEARNING LOOP</div><ol><li>Define a bounded workload.</li><li>Inspect architecture controls.</li><li>Change one requirement.</li><li>Defend your decision.</li><li>Export an evidence-led journal.</li></ol></div><div class="margin-section"><div class="margin-eyebrow">READ NEXT</div><div id="lesson-links"></div></div><p class="aside-bottom">Course framework, not a certification</p></aside>
+</div>
+<script type="module" src="./studio-ui.mjs"></script>
+</body></html>
