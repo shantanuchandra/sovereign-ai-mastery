@@ -120,7 +120,7 @@ def relroute(num):
     return 'modules/01-sovereign-ai-fundamentals.html' if num==1 else ('modules/05-laws-regulation-jurisdiction.html' if num==5 else f'curriculum.html#module-{num:02}')
 
 def book_sidebar(page,prefix=''):
-    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Decision studio','onboarding/index.html')]
+    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html')]
     core=''.join(f'<a class="toc-special {"is-active" if page==name else ""}" href="{prefix}{route}">{html.escape(label)}</a>' for name,label,route in links)
     parts=[]; seq=modules(); j=0
     for roman,title,range_text in PART_NAMES:
@@ -140,7 +140,7 @@ def book_sidebar(page,prefix=''):
     </aside>'''
 
 def topbar(page,prefix=''):
-    return f'''<div class="reader-topbar"><button class="mobile-menu" type="button" aria-label="Open table of contents" aria-expanded="false">☰ <span>Contents</span></button><a class="mobile-brand" href="{prefix}index.html">S/A <span>FIELD GUIDE</span></a><span class="edition-label">A READER'S EDITION <span class="tiny-sep">/</span> 2026</span><div class="top-actions"><a href="{prefix}onboarding/index.html">Decision studio <span>↗</span></a><a href="{prefix}taxonomy/ONTOLOGY.html">Ontology <span>↗</span></a><button type="button" id="notes-toggle" aria-controls="reader-notes" aria-expanded="true">✎ <span>My notes</span><span class="notes-count" id="notes-count">0</span></button></div></div>'''
+    return f'''<div class="reader-topbar"><button class="mobile-menu" type="button" aria-label="Open table of contents" aria-expanded="false">☰ <span>Contents</span></button><a class="mobile-brand" href="{prefix}index.html">S/A <span>FIELD GUIDE</span></a><span class="edition-label">A READER'S EDITION <span class="tiny-sep">/</span> 2026</span><div class="top-actions"><a href="{prefix}learning/index.html">Learning studio <span>↗</span></a><a href="{prefix}taxonomy/ONTOLOGY.html">Ontology <span>↗</span></a><button type="button" id="notes-toggle" aria-controls="reader-notes" aria-expanded="true">✎ <span>My notes</span><span class="notes-count" id="notes-count">0</span></button></div></div>'''
 
 def notes_panel():
     return '''<aside class="notes-rail" id="reader-notes" aria-label="Personal annotations"><div class="notes-header"><div class="section-number">THE MARGIN</div><h2>Your field notes <span>✎</span></h2><p>Highlight a sentence in the text. Save a thought beside it.</p></div>
@@ -154,7 +154,7 @@ def frame(body,page,title,prefix='',article=False,toc=None):
         toc_lines=''.join(f'<a href="#{html.escape(k,quote=True)}">{html.escape(v)}</a>' for k,v in (toc or []))
         body=f'''<div class="read-content-header"><div class="book-eyebrow">THE LIBRARY <span>/</span> {html.escape(title)}</div><div class="reading-tools"><span class="chapter-status">CHAPTER IN PROGRESS</span><span class="reading-time">READ / ANNOTATE / REVISIT</span></div></div><div class="prose" data-annotatable="true" data-page-id="{html.escape(page)}">{body}</div><nav class="on-page"><div class="section-number">IN THIS CHAPTER</div>{toc_lines}</nav>'''
         if page=='module01' and title=='Module 01':
-            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
+            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../learning/index.html">Practice with the adaptive tutor ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
         if page=='module' and title=='Module 05':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Turn the question into a decision.</h2><p>Try the local lab, then explore the HTML version of the LinkedIn question deck.</p><a class="simple-link" href="../labs/module-05/index.html">Open practical lab ↗</a><a class="simple-link" href="../social/module-05/CAROUSEL.html">Open question deck ↗</a></section>'''
     outer=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>{html.escape(title)} — Sovereign AI Field Guide</title><meta name="description" content="A sourced, annotated book on enterprise sovereign AI product leadership."><link rel="stylesheet" href="{prefix}assets/site.css"></head>
@@ -183,16 +183,16 @@ def home():
     </div>
     <div class="reading-section chapter-preview"><div class="section-intro"><span class="section-number">02 / AN OPEN CHAPTER</span><h2>A worked example, not a brochure.</h2><p>Begin with Module 01: a sourced introduction to enterprise control, concrete classification and testable sovereignty claims.</p></div>
       <a class="chapter-feature" href="modules/01-sovereign-ai-fundamentals.html"><div class="feature-index"><span>PART I</span><span>01</span></div><div class="feature-copy"><div class="feature-type">FIRST PUBLISHED CHAPTER <span>·</span> FOUNDATIONS</div><h3>Who controls the intelligence?</h3><p>Classify a sovereignty claim. Inspect dependencies and evidence. Run the local lab. Make the product decision.</p><span class="feature-action">Read chapter 01 <b>↗</b></span></div></a>
-      <div class="after-feature"><a href="onboarding/index.html">Try the Decision Studio <span>↗</span></a><a href="taxonomy/ONTOLOGY.html">Explore the ontology <span>↗</span></a><a href="social/module-01/CAROUSEL.html">View the HTML question deck <span>↗</span></a><a href="curriculum.html">Browse all 24 modules <span>↗</span></a></div>
+      <div class="after-feature"><a href="learning/index.html">Explore the Architecture & Learning Studio <span>↗</span></a><a href="onboarding/index.html">Try the quick questionnaire <span>↗</span></a><a href="taxonomy/ONTOLOGY.html">Explore the ontology <span>↗</span></a><a href="social/module-01/CAROUSEL.html">View the HTML question deck <span>↗</span></a><a href="curriculum.html">Browse all 24 modules <span>↗</span></a></div>
     </div>'''
 
 def main():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
     shutil.copytree(ROOT/'site/assets', DIST/'assets')
-    for name in ['diagrams','labs','social','onboarding']:
+    for name in ['diagrams','labs','social','onboarding','learning']:
         if (ROOT/name).exists():
-            shutil.copytree(ROOT/name, DIST/name, ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+            shutil.copytree(ROOT/name, DIST/name, ignore=shutil.ignore_patterns('__pycache__','*.pyc','tests'))
     (DIST/'taxonomy').mkdir(exist_ok=True)
     shutil.copy2(ROOT/'taxonomy/ontology.yaml',DIST/'taxonomy/ontology.yaml')
     write(DIST/'index.html',frame(home(),'index','Opening pages'))
