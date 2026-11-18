@@ -31,6 +31,8 @@ jobs:
           node --test learning/tests/engine.test.mjs
           node --check learning/studio-engine.mjs
           node --check learning/studio-ui.mjs
+      - name: Check Python builder syntax
+        run: python -m py_compile scripts/build_site.py
       - name: Build from Markdown source
         run: python scripts/build_site.py
       - name: Verify rendered diagrams and onboarding
