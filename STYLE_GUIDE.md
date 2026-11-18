@@ -340,3 +340,21 @@ Before a module is marked ready, verify: left-rail course TOC; long-form chapter
 - Evidence: reserve space for a compact source line when presenting a real product, regulation, benchmark or quotation. Attribute exact wording and distinguish direct source from editorial synthesis. Check every URL and publication date. Do not exceed reasonable quotation limits.
 - Tone: ban em dashes (—), inflated claims, inspirational empty lines, decorative icons unrelated to the content, and stock imagery. Favor specific predicates and examples, not AI-sounding transitions.
 - Delivery: inspect slides 1 through last at 1080×1350 preview size, inspect print/PDF with correct colors, text selectability and page breaks, and run a text scan for em dashes and unverified claims. The website chapter is the CTA destination.
+
+
+## 11. Adaptive tutor and architecture generator authoring contract
+
+**Purpose:** Use interactive choices to teach architectural *causality*, not to give the impression that clicking through a form constitutes compliance assessment.
+
+1. The interaction starts from a **bounded workload and explicit assumptions**: data class, processing boundary, operating authority, portability, compute capability, evidence, jurisdiction, and release stage.
+2. Every input must map to a named ontology concept and to an observable **architecture consequence**. The output presents affected components, operational dependencies, control owner, test, evidence state, and approval blockers.
+3. Recommendations are **provisional architectural hypotheses**. An unaudited document, signed term, or uploaded test does not automatically mean the underlying control passed. The browser cannot issue legal opinions, vendor attestations or compliance ratings.
+4. An **adaptive question** must depend on a relevant assumption. Each alternative includes a defensible explanation, not only a correct-answer letter. A wrong answer reveals a probable misconception, root cause and actionable validation step. Do not automatically grade free-text reasoning without a disclosed, validated method.
+5. Provide a **counterfactual** where the learner changes one dimension at a time and sees whether the architecture, approval gates, or evidence plan changes. Avoid fake precision or an ungrounded universal “sovereignty score”.
+6. Provide a portable **PM artifact**: Markdown journal or machine-readable architecture with assumptions, reasoning, control matrix, unresolved risks, evidence requests, challenge answers, and reflection.
+7. **Local-first and honest:** If inference is rule-based, say so. If a future LLM-backed tutor is used, disclose model/provider, data flows, retrieval sources, costs, limitations, and opt-in consent. Do not ship secrets to a public static site.
+8. **Build in public:** Input selections and personal notes remain in browser storage until explicit export. Explain that the GitHub repository is public; require review before committing anything to it.
+9. Testing must cover contradictory inputs, evidence-state invariants, role/capacity conflict handling, wrong-answer rationale, counterfactual changes, export integrity, mobile layout, and keyboard accessibility. Record which tests were actually run.
+10. Learning links must distinguish **published chapters** from syllabus placeholders. Source-backed facts cite official or primary references at point of use; the course-authored decision rules are not attributed to regulators.
+
+**Reference implementation:** `learning/index.html`, `learning/studio-engine.mjs`, `learning/studio-ui.mjs`, and `learning/tests/engine.test.mjs`.
