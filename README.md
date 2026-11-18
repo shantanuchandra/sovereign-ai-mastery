@@ -11,11 +11,11 @@
 
 ## Start here
 
-1. **[Interactive Sovereignty Decision Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — eight-question onboarding exercise that proposes a bounded architecture, evidence tests, a PM memo, and follow-on modules. Change one answer to inspect how the decision changes.
-2. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
-3. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
-4. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, six-question assessment with a real-product case and RCA challenge, citations and follow-up.
-5. **[Editorial and reference guide](STYLE_GUIDE.md)** — writing tone, visual system, source hierarchy, footnote style, lab standards and publication checklist.
+1. **[Adaptive Architecture & Learning Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html)** — nine-question adaptive workshop that generates an architecture, explains controls and evidence gaps, challenges reasoning, compares a changed constraint, and exports a public learning journal.
+2. **[Quick onboarding questionnaire](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — lightweight starting point that can hand off to the full learning studio.\n3. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
+4. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
+5. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, six-question assessment with a real-product case and RCA challenge, citations and follow-up.
+6. **[Editorial and reference guide](STYLE_GUIDE.md)** — writing tone, visual system, source hierarchy, footnote style, lab standards and publication checklist.
 
 ## Who this is for
 
@@ -102,3 +102,17 @@ The LinkedIn carousel is now authored in editable, standalone HTML at [`social/m
 GitHub Pages runs `scripts/build_site.py` for every push to `main`. The builder publishes Markdown as styled HTML, checks that the canonical Mermaid diagrams are **pre-rendered to accessible SVG**, and copies the interactive Decision Studio and question-led social HTML. The Pages artifact is `dist/`; the rendered site is derived output, not the authoring source.
 
 The public course and public annotations are intentional. The Decision Studio stores input selections in the learner's browser by default and copies a summary on request. It does not assess legal compliance and does not automatically commit questionnaire responses to GitHub. Never put secrets or customer information in public notes or questionnaire answers.
+
+
+## Adaptive Architecture & Learning Studio (v1.0)
+
+Open [the interactive Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html) or read its [developer and pedagogy notes](learning/README.md).
+
+- **Inputs:** Nine enterprise workload constraints. All cases are fictional or user-supplied for learning. Do not enter sensitive information.
+- **Output:** One of five provisional architecture patterns, a traceable reasoning chain, layered system diagram, four control dimensions, acceptance tests, unresolved gates, and targeted syllabus links.
+- **Practice:** Four questions adapt to the selected constraints. Answer explanations include a plausible reasoning error, corrective action, and a relevant chapter. A counterfactual comparison supports changing exactly one input.
+- **Publishing:** Export a Markdown learning journal or JSON architecture. The learner reviews and commits it to public GitHub manually; the website does not upload responses.
+- **Caveat:** This is deterministic JavaScript, not a hosted LLM. It never certifies sovereignty, claims regulatory compliance, or validates a vendor deployment.
+- **Validation:** `node --test learning/tests/engine.test.mjs` (11 test cases), JS syntax checks, and GitHub Pages build-time presence checks.
+
+The implementation deliberately keeps the first adaptive experience reproducible. An opt-in, retrieval-grounded conversational tutor can be evaluated later without hard-coding secrets into the public client.
