@@ -25,6 +25,28 @@ A UAE enterprise wants an employee knowledge assistant. Three implementation pro
 
 **Recommendation:** Create a claim register before writing the product requirements document. For each claim capture scope, owner, acceptance criterion, dependency, control, test, evidence and exception. This avoids buying an adjective instead of a capability.
 
+
+### 1.1 What is sovereign AI? Start with the boundary
+
+**Working definition:** For a defined AI workload, sovereign AI means the organization can demonstrate the decision rights, technical controls and operating arrangements needed to meet its stated sovereignty objectives. Those objectives may concern where processing happens, who can administer it, which dependencies can be replaced, or which contractual and legal exposures require review. The claim is only as strong as its **scope, test and dated evidence**. This is a course-authored decision framework, not a legal definition or certification.
+
+**Worked field case (fictional): A manufacturer's maintenance assistant that cannot send data off-site.** Technicians want an assistant to search machine manuals and summarize incident notes. The enterprise's requirement is narrower and stronger than “host in the UAE”: no restricted source document, prompt, embedding, generated answer, telemetry, diagnostic bundle or backup copy may leave the factory premises.
+
+A vendor proposes a model endpoint in a nearby cloud region. That may be a credible choice for a country-level residency requirement, but it **does not meet this physical-premises requirement**. The product team instead evaluates a small, locally served model, on-premises retrieval index, local audit logging, enterprise-held access controls, and an approved process for importing software and model updates. The team must still test usefulness, latency and the site's compute capacity. A premises-only network may permit approved local connectivity; it is not automatically air-gapped.
+
+| Design question | Observable proof to request | PM release decision |
+|---|---|---|
+| Do prompts or derived data leave the factory? | Network destination inventory, egress-deny test, packet or proxy evidence across inference and retrieval | Block real factory data until the tests are reviewed |
+| Can an external operator read or export restricted material? | Named-admin access review, remote-support path test, privileged session records | Reject unapproved remote support paths |
+| What happens during logging, backup, failure and recovery? | Local telemetry and backup configuration, failover drill, restore destination evidence | Treat untested paths as open gaps |
+| Can the team maintain the model without bypassing the boundary? | Signed artifact intake, malware scan, license review, rollback rehearsal | Approve an explicit, auditable update process |
+
+**Failure drill and root cause:** During an acceptance test, the backup agent uploads diagnostic logs to an off-site storage endpoint. The requirement is **failed**, even if primary inference was local. The direct cause is an overlooked backup destination; the process gap is that the data-flow inventory excluded support and recovery tooling. The platform owner disables that route, investigates and contains any exported material, updates the inventory, then reruns normal, failover and restore tests. Only the newly observed result can be recorded as evidence; installing a fix alone is not a pass.
+
+**What the PM may say after review:** “In the tested factory-assistant configuration, the reviewed inference, retrieval, logging and recovery paths showed no restricted off-premises data flow on the recorded test date.” Do not replace that bounded finding with “100% sovereign” or infer legal compliance.
+
+**Try the counterfactual:** Change **single premises** to **two approved enterprise campuses** in the [Architecture & Learning Studio](../learning/index.html). Which inter-site connections, support paths and backup destinations would now need evidence? Which single-site assumptions would no longer apply?
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
