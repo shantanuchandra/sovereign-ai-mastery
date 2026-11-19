@@ -97,6 +97,79 @@ A dependency can support multiple requirements, but **a cloud region setting mus
 
 **Facilitator check (not a quiz answer key):** A defensible response names prompt derivatives and non-inference flows, rejects off-premises compute for B and all network links for C, and does not turn vendor assertions into a verified sovereignty pass. For the primary-source distinction between governance and sovereignty, the [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) provides risk-management functions, **not** this four-layer sovereignty taxonomy; see the chapter's source ledger in Section 5. No new regulatory applicability or vendor behavior is asserted here.
 
+
+### 1.3 Sovereign vs. private vs. secure vs. compliant AI
+
+**Decision first:** Do not approve a system because it is described as *private*, *secure*, *compliant* or *sovereign*. These are four different propositions. A product can satisfy one while failing another. The PM's question is: *Which requirement does each adjective represent, which test could refute it, and who can accept the evidence?*
+
+| Claim | Specific question | Evidence to request | What the claim does not establish |
+|---|---|---|---|
+| **Private AI** | Is the workload deployed within an organization-selected isolation or tenancy boundary? | Runtime inventory, network routes, identity and privileged-access map, storage location | An on-site model may still upload diagnostic logs off-site |
+| **Secure AI** | Are confidentiality, integrity, availability and AI-specific misuse risks controlled against a defined threat model? | Access-control tests, key custody, patching, adversarial evaluations, incident and recovery drills | Encryption alone says nothing about location or provider independence |
+| **Compliant AI** | Does the actual organization, use case and processing activity satisfy identified applicable obligations? | Applicability matrix, contractual analysis, required notices/approvals, operational tests and accountable legal/privacy review | Neither a provider badge nor a control framework automatically proves workload-specific legal compliance |
+| **Sovereign AI** | Are defined territorial, operational, technological and legal/contractual control objectives enforceable and evidenced? | Claim register, control and dependency graph, egress and operator tests, portability rehearsal | A country-hosted endpoint does not prove data-derivative containment or full autonomy |
+
+This is a **course-authored comparison**, not an official regulatory classification. The properties intersect but are **not a hierarchy**: a private deployment can be insecure; a secure one can break a sovereignty boundary; a sovereignty claim can remain unverified while compliance analysis is still open. A sovereign design does not excuse poor security or applicable legal obligations.
+
+#### Why control categories cannot substitute for each other
+
+**Security** evaluates a specified threat model. **Sovereignty** evaluates whether named decision rights, data flows, administrators and dependencies stay within agreed boundaries. **Privacy** governs permitted information handling, while **compliance** is an assessment against *specific* applicable obligations. The same workload may need all four lines of evidence.
+
+NIST SP 800-207 says there is “no implicit trust granted to assets or user accounts based solely on their physical or network location.” A private network is therefore not a proof of safe access.[^nist-zero-13] NIST SP 800-53 Rev. 5 catalogs security and privacy controls, but it does not certify that an AI deployment is sovereign.[^nist-controls-13] NIST AI RMF 1.0 discusses AI trustworthiness, including being “secure and resilient”; it is a risk-management framework, not a sovereignty attestation.[^nist-airmf-13]
+
+| Fictional architecture | Private? | Security status | Sovereignty status | Compliance status |
+|---|---|---|---|---|
+| Factory-owned inference server with remote vendor diagnostics | Yes at the serving layer | Other controls **unverified** | **Failed** if derivatives may not leave the factory | Specialist review pending |
+| Managed in-country inference service with reviewed encryption | Depends on tenancy design | Narrow controls may be verified | **Unverified** until support, telemetry and failover paths are tested | Specialist review pending |
+| Air-gapped local model with untested media-handling and restore procedures | Local, disconnected | Recovery and physical controls **untested** | **Provisional** until offline media, admin and backup controls pass | Specialist review pending |
+
+A vendor name, industry badge or hosting geography is not evidence of any particular legal regime's applicability. Avoid a single “sovereignty score” that hides a failing constraint.
+
+#### Worked decision: a private factory assistant with a forbidden support route
+
+**Scenario (fictional UAE manufacturer):** An operations team pilots a maintenance assistant on its own rack-mounted server. Manuals, embeddings and inference run locally; staff authenticate with enterprise identities. The team demonstrates storage encryption, multifactor admin access and vulnerability scans. Procurement describes the system as “private, secure and sovereign.”
+
+**The actual requirement:** No restricted prompt, document, embedding, answer, telemetry, backup or diagnostic may leave the physical plant. Acceptance testing discovers a crash-reporting agent that sends application traces and supposedly sanitized prompt fragments to a remote vendor service. “Sanitized” is not an automatic exemption: the data owner must approve the transformation and residual risk. This design is **private at the inference layer**, and may have useful security controls, but it **fails the premises-only sovereignty claim**.
+
+**Recommendation:** Stop restricted-data release. Remove or locally redirect the support path, inspect historical destinations, validate physical-site egress, then retest under failure conditions. Do not substitute a cloud-region endpoint simply because it is located in the same country. Compliance assessment remains a separate task for legal and privacy owners.
+
+**Air-gap counterfactual:** If the factory's requirement changes to *no network connectivity at all*, even a restricted outbound allowlist or temporary remote-maintenance tunnel is disallowed. Use controlled offline artifact intake, signature/integrity checks, removable-media custody and rollback rehearsals. If local compute cannot serve the required model, classify the current proposal as **not feasible**, rather than silently relaxing the boundary.
+
+#### Failure drill: the hidden diagnostic egress
+
+| RCA stage | Fictional test evidence and response |
+|---|---|
+| **Symptom and impact** | Synthetic restricted-label strings appear in outbound HTTPS crash reports. The egress acceptance criterion **FAILS**; this test does not by itself prove a real customer-data breach |
+| **Direct cause** | Crash reporter shipped with a vendor-managed upload destination enabled |
+| **Contributing process gap** | The security checklist covered login and encryption; the sovereignty inventory excluded exception, support and recovery flows |
+| **Containment and owners** | Platform owner disables export and restricts the route; security lead examines historical traffic and handles incident triage; PM blocks launch |
+| **Corrective actions** | Replace with a local diagnostic sink or remove the agent; update data-flow and support inventories; add a deny-by-default egress policy |
+| **Verification test** | Inject synthetic failures in normal, degraded and restored states; examine DNS, firewall and packet evidence, local logs, backups and support routes |
+| **Closure** | Dated, independently reviewed results plus explicit issue/exception disposition. A configuration fix alone is not a passing test |
+
+**Root-cause lesson:** The failure is not merely a bad default. The product team defined its boundary around *primary model inference* rather than the **whole AI lifecycle**. Treat support software and its updates as dependencies, and add an egress regression test to the release gate.
+
+#### PM artifact: four-claim release card
+
+Create four records, each with owner, claim boundary, acceptance test, evidence date, reviewer and disposition. This illustrative card shows why one passing claim must not overwrite another:
+
+| ID / owner | Falsifiable requirement | Status in this fictional case |
+|---|---|---|
+| PRI-01 / infrastructure lead | Only approved plant roles and processes can read model and vector stores | **TEST REQUIRED** |
+| SEC-01 / security lead | Named threat-model tests, access/key controls, recovery and adversarial cases pass | **PARTIAL**, with work outstanding |
+| SOV-01 / platform lead | No restricted data or derivative leaves the site during inference, logging, support, backups or failure | **FAILED**, evidenced by synthetic egress test |
+| CMP-01 / legal and privacy | Applicable obligations and contract restrictions are mapped, reviewed and evidenced | **LEGAL REVIEW PENDING** |
+
+**Release decision:** Block the intended restricted-data use until SOV-01 has an accepted retest. Do not mark SEC-01 as fully passed merely because encryption and MFA were demonstrated. Do not represent CMP-01 as “compliant” before the relevant expert review.
+
+**Learner practice (20 minutes):** Open the [Architecture & Learning Studio](../learning/index.html). Choose the **On-premises research lab** preset with single-premises processing, on-site operator and local compute. Change only the network connectivity from local-only to general internet; predict whether the engine should block the proposal and explain why encryption cannot undo a forbidden route. Next try the **Air-gapped factory** preset and propose an offline update, integrity-check and rollback acceptance test. In your decision memo, state one observable result that would *falsify* each claim.
+
+**Exit question:** Procurement offers “a private model, ISO-aligned security controls and in-country hosting.” Which of the four claims can be approved from that sentence alone? **None.** These are design assertions. Ask for a scoped architecture, claim owners, independent test evidence and a workload-specific legal review.
+
+[^nist-zero-13]: NIST, *Zero Trust Architecture*, SP 800-207, abstract and Section 2.1 (2020), [official publication](https://csrc.nist.gov/pubs/sp/800/207/final). Source checked 19 November 2026. The quoted principle concerns security architecture, not sovereign-AI certification.
+[^nist-controls-13]: NIST, *Security and Privacy Controls for Information Systems and Organizations*, SP 800-53 Rev. 5 (2020), [official control catalog](https://csrc.nist.gov/pubs/sp/800/53/r5/final). Source checked 19 November 2026.
+[^nist-airmf-13]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1, Section 3, trustworthy AI characteristics (2023), [official NIST text](https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/). Source checked 19 November 2026.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
