@@ -59,6 +59,26 @@ For a selected TOC header:
 
 **Stop:** No additional work after approximately 17:26 Asia/Dubai on 19 November 2026 without a new request. The queue is a scope and pacing proposal, not an active unattended automation.
 
+## Improvement entry 003 | 2026-11-19 | Module 01 / header 1.3
+
+**Scope:** One complete TOC header: *Sovereign vs. private vs. secure vs. compliant AI*. Continue from the completed 1.1 and 1.2 headings; do **not** advance to Module 02.  
+**Changed file:** \`chapters/01-sovereign-ai-fundamentals.md\`  
+**Content commit:** \`b1a147725080412adb8fa5226c9c95e89520bd2d\`  
+**Studio-label correction commit:** \`8609df79d2b5a693a8db1e3e458b3e6cdb653fd6\`  
+**Output:** Approximately 1,427 words of learner-facing material under Section 1.3: four independent claim definitions with evidence and non-implications, source-grounded distinctions, an architecture comparison, a fictional UAE factory deployment, strict premises and air-gap overrides, a full failure RCA, a four-claim PM release card and a 20-minute Studio exercise.
+
+**Educational problem / root cause:** A deployment can be private at the inference layer and have encryption/MFA while violating no-off-premises data-derivative requirements. Treating “private”, “secure”, “compliant” and “sovereign” as mutually interchangeable was the conceptual defect. The worked case makes a hidden crash-report destination a failed sovereignty gate. The cause is an uncontrolled diagnostic default; the contributing process flaw is an architecture inventory that excluded support and failure paths. The fix requires egress restriction, local-only diagnostics, incident triage and a dated independent retest.
+
+**Sources reviewed 2026-11-19:** NIST SP 800-207, *Zero Trust Architecture*, [official final publication](https://csrc.nist.gov/pubs/sp/800/207/final); NIST SP 800-53 Rev. 5, [official controls publication](https://csrc.nist.gov/pubs/sp/800/53/r5/final); and NIST AI RMF 1.0, [trustworthiness characteristics](https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/). None of these is asserted to be a sovereign-AI certification or compliance approval. The UAE factory incident is **fictional**, not vendor-reported or regulator-confirmed.
+
+**Validation performed:** Ten targeted structural/content assertions passed on the current chapter and complete Studio engine: section heading appears once, TOC order and 14 core chapter sections preserved, four claim classes remain separate, physical premises and air-gap restrictions are explicit, root cause and closure criteria exist, PM artifact and learner exercise are present, primary-source URLs are included, current Studio example names match their actual preset labels, and a positive compliance claim is not inferred. An initial cross-file check mistakenly read only the first 132 lines of the Studio engine, producing an incomplete comparison; it was repeated against the **full** file and both label matches were confirmed. The initial content commit's Pages workflow [44563787099](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44563787099) completed **successfully**. The Studio-label correction was committed later; its [Pages workflow 44563880981](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44563880981) was still **waiting** when checked. The GitHub Pages workflow executes Node engine tests, JS syntax checks, Python builder syntax, website build and required rendered artifacts; a successful prior run is not evidence that the latest run passed.
+
+**Remaining QA:** Inspect the final latest commit's Pages result and rendered chapter, perform live desktop/mobile and assistive-technology checks, confirm all source pinpoints in the final rendered site, and audit chapter-level consistency. No different-model review has been performed. Keep module boundary reviews A (technical/security/sources) and B (editorial/accessibility/assessment) **NOT COMPLETED** until all seven Module 01 headers are done.
+
+**Reusable learning:** A private deployment is an architectural property, not a security, compliance or sovereignty guarantee. Distinct owners, test evidence and release statuses prevent a strong result in one dimension from laundering a failed result in another. Verify exercise dropdown names against source code, not from memory. When a script's slice omits relevant data, repeat the check against the full file before deciding a test failed.
+
+**Next:** Module 01 / **1.4 National sovereignty versus enterprise-level sovereign AI**. On the next run, first confirm the corrected commit's Pages status and continue only if no blocking defect is found.
+
 ## Improvement entry 002 | 2026-11-19 | Module 01 / header 1.2
 
 **Changed file:** `chapters/01-sovereign-ai-fundamentals.md`  
