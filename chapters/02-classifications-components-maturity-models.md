@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Sections 2.1–2.4**. Sections 2.5–2.7 and both module-critical reviews are pending |
+| Current publication | **In-progress chapter, Sections 2.1–2.5**. Sections 2.6–2.7 and both module-critical reviews are pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -399,8 +399,109 @@ Next choose **Air-gapped factory operations** and attempt **General internet acc
 
 **Exit check:** Does local GPU ownership establish control over all twelve layers? **No.** Is managed compute necessarily wrong for every workload? **No**, only when its actual boundaries conflict with scoped requirements. Does a suitable local model make an air-gapped workload ready? **Not until** offline integrity, capacity, operations, physical security and recovery controls are tested.
 
-**Next header:** 2.5, *Model ownership vs. model hosting vs. platform control*. The complete Module 02 remains a draft until Sections 2.5–2.7, lab, assessment, solutions, website assets and two distinct module-level reviews are completed.
+**Sections 2.1–2.4 are complete.** The next section separates model rights from hosting and platform authority.
 
 [^nist-map-stack24]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Short direct phrase checked against official NIST AI RMF results **20 November 2026**. This is AI risk mapping, not a sovereign-AI stack specification.
 [^nist-scrm-stack24]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022, updated **1 November 2024**), [official abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Direct phrase checked on the official HTML page **20 November 2026**. General C-SCRM guidance, not a sovereignty certification.
 [^nist-zt-stack24]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final). Direct phrase checked on official HTML **20 November 2026**. The principle concerns authorization and trust rather than sovereign-AI ownership.
+
+
+### 2.5 Model ownership vs. model hosting vs. platform control
+
+**Executive decision:** An enterprise can own a model and still have no control over where it runs, who can change its inference routing, or where prompts and logs travel. Conversely, an enterprise can license third-party weights and operate them entirely under an approved physical boundary. Evaluate three independently testable claims: **model rights**, **model hosting** and **platform control**. A procurement declaration such as “we own the AI” is not an acceptance criterion.
+
+This distinction matters most when a supplier sells a downloadable model together with a managed gateway. Rights to copy weights do not automatically include rights to modify, redistribute or run the model offline; a locally served model is not automatically free of cloud dependencies; and platform operators may have privileged access without owning the model.
+
+#### The three rights-and-control questions
+
+| Dimension | Actual decision | Evidence and accountable owner | A claim this does **not** establish |
+|---|---|---|---|
+| **Model ownership and usage rights** | Who owns or licenses the weights, architecture, tokenizer, adaptations and checkpoints? What use, redistribution, export and modification are permitted? | Model lead and procurement: exact version, licence text, artifact hashes, approved usage, permitted offline copies and exit terms | Where inference takes place; access to original training data; whether the platform controls logs or routes |
+| **Model hosting and execution** | Where do inference, embeddings, evaluation, adaptation and recovery actually execute, including degraded mode? | Platform/SRE: host inventory, deployment type, endpoint/region configuration, actual flow traces and failover tests | Who may change gateway rules, recover keys, view prompts or invoke external support |
+| **Platform control** | Who can deploy or remove models, administer IAM, manage keys, change routing, enable tools, retain traces and grant vendor support? | CISO/platform lead: administrator matrix, versioned policies, privileged-session records, revocation tests and incident drill | Model IP ownership, approved processing geography or specialist legal compliance |
+
+**Separate asset custody:** The application's source documents, prompt history, embeddings, fine-tuning data, evaluation corpora and generated responses are not automatically owned or licensed under the same terms as the model weights. Maintain a distinct inventory for each data class and derivative. If a customer owns its training documents but the vendor controls the monitoring agent, ownership of the data does not prevent an unauthorized export.
+
+The [course ontology](../taxonomy/ONTOLOGY.md) expresses the relationships without pretending they are a formal legal standard: **Enterprise licenses ModelArtifact; Supplier publishes Artifact; Operator hosts Runtime; Platform routes Requests; Requirement constrains Route; Test verifies Claim**. Keep model rights, technical operations and legal/contractual obligations as separate nodes and evidence fields.
+
+**Source check:** The Open Source Initiative's *Open Source AI Definition 1.0* (approved October 2024) distinguishes **Data Information, Code and Parameters**. Its text requires “Open Source models” and “Open Source weights” to include the data information and code used to derive the parameters.[^osi-open-25] Hence a download link for model weights does **not**, by itself, demonstrate that the full system meets OSI's Open Source AI Definition. NIST AI RMF 1.0, *Map 4.1*, addresses technology and legal risks “including the use of third-party data or software”.[^nist-map-25] These are sources on openness and risk management, **not** a definition of sovereign AI, an IP entitlement for any particular model, or a compliance certificate.
+
+#### Draw the decision boundary before comparing vendors
+
+Use the following path as an architecture inspection checklist. A different supplier may own or administer each element:
+
+**Model artifact and licence → inference host and runtime → model gateway → retrieval/application → outputs.**
+
+**Platform-control path → IAM and keys → gateway policy → observability, updates and recovery.**
+
+The second path can silently override the first. If the local inference server fails, the gateway might automatically select a remote model API. If the local logging service fails, an agent may send diagnostic bundles to a provider endpoint. If the locally installed model requires online entitlement renewal, it may be unable to restart in a disconnected environment. Review **normal operation, failures, support, updates, backup/restore and exit** instead of relying on a static deployment diagram.
+
+| Candidate design | Model rights | Who hosts and controls the platform? | Suitable use and hard limitation |
+|---|---|---|---|
+| **Licensed model on an enterprise-operated on-site GPU** | Rights to run and maintain local artifacts must be reviewed | Enterprise operates gateway, keys, logs, storage and model; vendor access must be constrained | **CONDITIONAL** for a single-premises workload if no-egress, capacity, licence, operator and recovery tests pass |
+| **Enterprise-owned model hosted by a managed regional service** | Enterprise may own specified adaptations or weights | Provider hosts part of inference and may hold administration or support authority | Could serve a workload that allows approved off-site locations; **REJECT** when restricted processing must stay inside one plant |
+| **Downloaded open-weight model behind a vendor-managed gateway** | Model weights are available but usage rights still require inspection | Supplier can set fallback endpoints, diagnostics or privileged support | **BLOCKED** for a site-only workload if the vendor can reroute restricted requests without an enterprise-enforced deny |
+| **Proprietary hosted model API** | Customer licenses use of an endpoint rather than possessing weights | Provider operates inference and much of the serving platform | Potentially efficient for public or synthetic-data pilots; not eligible for air-gapped or strict single-site workloads requiring remote inference |
+
+**PM trade-off:** Provider hosting can reduce local infrastructure and staffing demands, but makes runtime behavior, service continuity and exit dependent on a supplier. Local hosting shifts GPU capacity, power, patching, safety, monitoring and incident response to the enterprise. Compare eligible designs using measured quality, latency, concurrency, licensing and recovery evidence. Do not invent a universal ownership premium or claim one model is accurate enough without a benchmark.
+
+#### Fictional UAE industrial use case: one model contract, three different outcomes
+
+A UAE engineering company proposes a common model contract for **CORP-25**, a synthetic public-policy writing assistant; **PLANT-25**, a retrieval assistant for restricted machine drawings at one physical factory; and **OT-25**, a disconnected reference tool in a controlled operations facility. These workloads, permissions and failures are invented for teaching; no real supplier behavior, UAE rule or customer incident is asserted.
+
+**CORP-25:** Inference may use named approved locations. A managed model API is a **CONDITIONAL** candidate after source and output rights, actual data processing, diagnostics, vendor access, continuity, contracts and exit are examined. Owning the model weights is not mandatory for every possible bounded control objective.
+
+**PLANT-25:** No restricted documents, prompts, embeddings, adapted weights, generated answers, diagnostic traces, evaluation samples, or backups may leave the **named factory premises**. A licensed model can be hosted on on-site GPUs behind an enterprise-managed gateway and local vector index. A supplier may retain the model IP while the enterprise retains permitted operating authority. This architecture is only **CONDITIONAL** pending data-flow, access, licence, offline restart, quality and backup tests. An in-country managed endpoint outside the plant is **REJECT** even if the enterprise owns the model.
+
+**OT-25:** A stricter **air-gap** condition requires **no inbound or outbound network connectivity**. Online activation, remote support, cloud inference, live telemetry and automatic model updates are prohibited. Offline model installation needs a valid licence, artifact checksums/signatures, malware assessment, controlled removable-media custody, local monitoring, rollback and on-site operations. A premises-only network is **not** an air gap.
+
+**Shared-governance design:** The enterprise may use one policy for model inventories, licenses and evaluations across the portfolio while keeping the actual inference networks and key stores separated. Copy approved code and model versions into disconnected environments through their offline intake process. Never allow PLANT-25 or OT-25 to inherit CORP-25's external fallback simply because one procurement contract covers all three.
+
+If the only capable model requires cloud inference, or no permitted offline licence or local compute exists, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. A PM cannot resolve the failure by silently weakening the site or network requirement.
+
+#### Failure drill: the local model falls back to a remote host
+
+**Fictional test setup:** PLANT-25 serves licensed model weights from a GPU in its factory. The platform gateway has a performance fallback configured by a supplier. A simulated local timeout occurs during the synthetic acceptance suite. The gateway sends the pending prompt to the provider's hosted model API. A restricted-label synthetic marker is visible in an off-site proxy request. The enterprise-owned GPU and model artifacts remain local, but its **platform routing violates territorial control**.
+
+| RCA item | Finding and response |
+|---|---|
+| **Observed symptom and impact** | Off-premises model request during controlled failure test; **FAILED / BLOCKED** for restricted-data launch. No actual customer-data disclosure is asserted |
+| **Direct cause** | Gateway retry/fallback rule included a remote inference endpoint |
+| **Contributing process gap** | Procurement and architecture checks examined model licence and normal serving location, not degraded-mode routing or operator privileges |
+| **Containment and accountable owner** | Platform engineer disables the external fallback and denies the outbound route; CISO team retains synthetic trace and checks historical access |
+| **Corrective action** | Use a truly on-site fallback with matching controls, or return an explicit controlled failure under overload. Document capacity limits and gateway change approval |
+| **Retest** | Inject synthetic timeouts, overload, reboot, gateway failure, update and restore events. Inspect DNS, proxy/firewall traces, logs and privileges to confirm no prohibited route |
+| **Closure** | Dated evidence, versioned gateway policy, licence/access review and sign-off by data owner, platform lead and security. A configuration edit without a retest is not PASS |
+
+**Root cause and prevention:** The product review confused **possession of model artifacts** with **effective authority over inference routes**. An operational feature introduced for availability changed the legal/territorial risk profile without a new architecture decision. Make fallback and support paths explicit release gates and reopen the claim when gateways, service configurations or model deployments change.
+
+#### PM artifact: model–host–platform control card
+
+Prepare one row for every asset/right and a different row for every executable control. For fictional PLANT-25:
+
+| Record and accountable owner | Requirement / evidence state |
+|---|---|
+| **MODEL-25, model lead + procurement** | Licenced third-party weights/tokenizer and approved usage/offline copies; exact model version and licence review **PENDING** |
+| **HOST-25, platform SRE** | On-site GPU, inference process, local vector storage and approved keys; capacity and no-egress evidence **UNVERIFIED** across full lifecycle |
+| **GATE-25, platform/SecOps** | Remote fallback forbidden; gateway change rights, admin revocation and denied egress must pass |
+| **DATA-25, factory data owner** | All restricted inputs, embeddings, derived material, prompts, outputs, logs and recovery copies remain on the physical premises |
+| **EXIT-25, architecture owner** | Rebuild local inference from approved artifacts, change model without losing retrieval access checks, benchmark quality and rehearse rollback |
+| **Release decision, PM** | **BLOCKED** because the synthetic degraded-mode request crossed the boundary. A passed model-licence check cannot override a hard territorial failure |
+
+**Decision procedure:** First identify hard physical, network, model-rights and minimum-quality requirements. Reject ineligible hosting/control proposals. For those remaining, test model quality, administrator rights, offline resilience, capacity, backup and exit with synthetic inputs; then compare operating costs and support burden. Do not collapse rights, location, independence and compliance into one score.
+
+#### Learner challenge (30 minutes)
+
+Open the [Architecture & Learning Studio](../learning/index.html) and select **Strict on-premises IP research assistant** with **Single premises only; no data or derivatives may leave**. Change only compute from **On-prem production GPU servers inside the premises** to **Approved managed AI platform**. Explain why model ownership cannot rescue an off-site inference plan. Restore local compute and change operator from **Enterprise employees administer all layers** to **Provider administration permitted by contract**. Identify the new privileged-access and support-path evidence required.
+
+Next select **Air-gapped factory operations** and set **General internet access including external service endpoints**. Predict the hard rejection. For the valid offline baseline, set portability to **Model artifacts, serving and data must be enterprise-portable**, then design a *no-network* model substitution drill covering license, hashes, tokenizer compatibility, retrieval authorization, quality evaluation, local restore and rollback. Distinguish the result the Studio can simulate from the tests only a real deployment can perform.
+
+**Submission:** Four rows for model rights, runtime host, platform controls and data derivatives, each with the owner, boundary, test, evidence and disposition. Add a one-paragraph go/no-go memo and an RCA/retest for the remote fallback. Use only fictional or synthetic data. Facilitator answer details belong in the separate solutions artifact, not the public learner chapter.
+
+**Exit check:** A downloadable model is not automatically OSI Open Source AI, owned training data or a verified portable platform. Enterprise-owned weights do not prove hosting locality. A licensed third-party model can be conditionally eligible for local hosting if every hard boundary and rights requirement is tested. A physical air gap never permits remote model fallback.
+
+**Next header:** 2.6, *Dependency and autonomy spectrum; why one-size-fits-all labels fail*. Module 02 remains incomplete until 2.6–2.7, lab, assessment/solutions, publishing assets and two distinct critical reviews are complete.
+
+[^osi-open-25]: Open Source Initiative, *The Open Source AI Definition 1.0* (adopted October 2024), sections “Preferred form to make modifications” and “Open Source models and Open Source weights”, [official OSI definition](https://opensource.org/ai/open-source-ai-definition), text checked **20 November 2026**. This source does not declare a particular model sovereign or commercially usable.
+[^nist-map-25]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), Map 4.1 and Govern 6.1, [official NIST Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), checked **20 November 2026**. Source addresses third-party technology/legal risk, not sovereignty certification.
+[^nist-scrm-25]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1, updated **1 November 2024**, [official NIST abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), checked **20 November 2026**. Use to justify supplier and dependency review; no jurisdiction-specific legal conclusion.
