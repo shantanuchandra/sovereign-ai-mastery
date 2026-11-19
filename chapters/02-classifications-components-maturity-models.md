@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Sections 2.1–2.2**. Sections 2.3–2.7 and both module-critical reviews are pending |
+| Current publication | **In-progress chapter, Sections 2.1–2.3**. Sections 2.4–2.7 and both module-critical reviews are pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -202,7 +202,97 @@ Record a **separate status and owner for each dimension**. Here is a draft accep
 
 **Submission:** Provide a four-row register with claim, test, evidence owner, release status and one corrective action; add a one-paragraph architecture decision explaining why none of the four dimensions may substitute for another. The Studio is a deterministic educational simulator. It does **not** inspect real environments, validate supplier assertions or determine regulatory compliance.
 
-**Next header:** 2.3, *Deployment classes: public, managed sovereign, private, hybrid, air-gapped, edge*. The module remains in progress until all seven headers, lab, solutions, website outputs and both separate module reviews are complete.
+**2.2 completed.** The four dimensions above identify the controls to test. Section 2.3 below evaluates deployment classes against those controls.
 
 [^nist-core-dim22]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, **NIST AI 100-1** (2023), [AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Official HTML checked **19 November 2026**; the quoted function names and checklist limitation appear near the opening of Section 5. This source does not establish the course-authored four-dimension taxonomy.
 [^nist-zt-dim22]: NIST, *Zero Trust Architecture*, **SP 800-207**, abstract (August 2020), [official final publication](https://csrc.nist.gov/pubs/sp/800/207/final). Official abstract checked **19 November 2026**; the quotation concerns physical/network trust, not AI sovereignty.
+
+
+### 2.3 Deployment classes: public, managed sovereign, private, hybrid, air-gapped, edge
+
+**Executive decision:** Choose a deployment class **after** establishing the workload's non-negotiable processing, operator, connectivity, model-quality and recovery requirements. “Sovereign cloud,” “private,” and “edge” are not interchangeable guarantees. A design is eligible only when its actual data and control paths satisfy the declared boundary. Rank cost, latency and convenience *only among eligible candidates*.
+
+This section adds the course-authored **DeploymentClass** classification to the [ontology](../taxonomy/ONTOLOGY.md): a Workload **uses** a DeploymentClass, which **comprises** Components and Dependencies, **enforces** Controls, and **requires** Tests and Evidence. A deployment class is an architectural pattern, not a compliance certificate. A single system may combine several classes, but every cross-class transfer needs its own authorization and verification.
+
+#### Compare the six classes by who operates what
+
+| Class | Typical control arrangement | Possible advantage | Main exposure or operational cost | Hard-boundary verdict |
+|---|---|---|---|---|
+| **Public cloud AI** | Provider-operated shared infrastructure and managed services, with tenant-specific logical controls | Elastic capacity and fast experiments | Provider and subprocessor access, service-region exceptions, telemetry, backups, availability and exit | **REJECT** when restricted prompts must remain at a named physical premises |
+| **Managed “sovereign” offering** | Provider or partner operates an advertised restricted-location/control configuration | Potentially useful for country- or region-bounded workloads | “Sovereign” is a supplier description; verify actual operator identities, subprocessors, model endpoint, logs, support, keys, failover and contracts | **CONDITIONAL** for permitted geography, **REJECT** for site-only if inference or derivatives leave the site |
+| **Private enterprise deployment** | Dedicated enterprise-controlled resources on-site or at a named hosted facility | More direct control over access, configuration and data paths | Enterprise bears more capacity, patching, incident response and recovery work; hosted private may still be off-premises | **CONDITIONAL** only when the exact physical facility and all derivative paths satisfy the requirement |
+| **Hybrid** | Explicit links between local and external compute or services | Can separate low-sensitivity processing from restricted workloads | Boundary crossing, routing errors, fallback, synchronization and inconsistent observability | **REJECT** for restricted data when any external path is required; can be valid with strict segregation of permitted workloads |
+| **Air-gapped** | Physically disconnected enclave with local inference, storage, operations and recovery | Meets a mandatory no-network topology if independently tested | Offline patch/media handling, model supply, hardware, capacity and support burden | **CONDITIONAL** only with **no inbound or outbound network path**, including remote support, licensing and failover |
+| **Edge** | Processing close to a device or industrial site; can be locally or remotely administered | Low-latency or intermittent-network operation | Device security, fleet management, remote telemetry, constrained compute and update paths | **NOT automatically site-only or air-gapped**: inspect each device and every management connection |
+
+**Two axes, not one ladder:** *where the model runs* and *who can operate it* are independent. A private GPU cluster in another city is off-premises for a factory-only workload. An edge appliance that phones home is not air-gapped. A managed service running in-country is not evidence that support access or backups meet a particular customer's requirement.
+
+#### Architecture boundary map and tests
+
+For each option, trace **user → identity → retrieval → embedding → inference → output → evaluation → logs → backups → restore**, then add administrator sessions, licence activation, updates, diagnostics, key management and incident response. A diagram showing only inference is incomplete. Capture normal, degraded, disaster-recovery and vendor-support paths. Mark every edge as **allowed, prohibited or unverified**.
+
+**Public or managed pattern (illustrative):** Enterprise user → tenant gateway → provider endpoint → provider logging/operations. Verify the named region, endpoint, network route, subprocessor roles, failover and administrative access from actual configuration and contracts. A marketing region label is not packet-level evidence.
+
+**On-site private pattern (illustrative):** Plant user → local identity service → local vector store → local model → local logs and backups. Validate that update agents, crash reporting, evaluation and remote support cannot export restricted material. A local model does not automatically have a valid offline licence or adequate quality.
+
+**Air-gapped pattern (illustrative):** Local user → disconnected identity and model services → local outputs and audit storage. Updates enter only through approved **offline media** with documented custody, malware checks, artifact signature/hash verification, staging, rollback and operator approval. There must be **no inbound or outbound network connection**. A firewall rule or disabled Wi-Fi icon alone does not establish physical disconnection.
+
+NIST SP 800-207 explains that zero trust assumes no implicit trust “based solely on their physical or network location.”[^nist-deploy-23] This supports explicit identity and access testing in private and on-site designs, but **does not certify** any deployment class as sovereign. NIST AI RMF 1.0 **Map 4.1** calls for documented approaches to component-level technology and legal risks, including third-party software and data; **Govern 6.2** addresses contingency processes for third-party failures.[^nist-rmf-deploy-23] These are voluntary risk-management references, not a substitute for local legal advice or vendor-specific proof.
+
+#### Fictional UAE industrial-group decision: three workloads, four viable questions
+
+The following organization, requirements and outcomes are **synthetic teaching examples**, not assertions about real UAE law, vendors or infrastructure.
+
+| Workload and binding requirement | Candidate | Eligibility | Evidence still needed |
+|---|---|---|---|
+| **POL-23:** synthetic employee handbook; approved named processing sites | Managed regional service | **CONDITIONAL** | Endpoint configuration, access, retention, support, backup, failover, legal and procurement review |
+| **ENG-23:** proprietary engineering manuals, embeddings and outputs stay within **one named factory premises** | Hosted private cluster in another UAE city | **REJECT** | Off-premises location alone conflicts with the signed requirement |
+| **ENG-23:** same requirement | Factory-local private RAG and model serving | **CONDITIONAL** | Quality/latency, capacity, key custody, logs, no-egress, local backup and offline restart |
+| **OPS-23:** disconnected operations reference; **no inbound or outbound network** | Edge appliance with remote fleet telemetry | **REJECT** | Remote telemetry violates the air gap regardless of device location |
+| **OPS-23:** same requirement | Disconnected local enclave with controlled offline media | **CONDITIONAL** | Physical disconnection, media chain of custody, offline model licensing, rollback, operator drill |
+
+**Hybrid nuance:** The group can use managed AI for POL-23 and an isolated local system for ENG-23. This is a *portfolio-level hybrid* architecture, not permission to forward ENG-23 prompts, embeddings, diagnostics or backups to the managed endpoint. A cross-boundary model fallback must default to **disabled**. For OPS-23, even an approved remote-support tunnel contradicts the mandatory air-gap requirement.
+
+**Trade-off calculation:** Compare eligible designs using measured quality on a synthetic task set, p95 latency under realistic concurrency, recovery time, annualized infrastructure and support cost, change-management workload, licence rights and a supplier-exit drill. Do not invent universal prices or GPU throughput. Record the test environment, version, workload size, confidence interval where applicable and owner. If a local model fails minimum quality or capacity and the requirement cannot be changed by its legitimate owner, mark **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**; do not silently substitute a remote API.
+
+#### Failure simulation and root-cause analysis: “local” edge with remote telemetry
+
+**Fictional observation:** ENG-23 pilots a factory-floor edge device. Inference and vector search are local, but the device-management agent exports sampled error traces containing a synthetic restricted marker to an external fleet dashboard. The network test detects a forbidden destination. **The territorial requirement fails**, even though local inference latency is acceptable. This is a simulated acceptance failure, not a claim of an actual incident.
+
+| RCA stage | Finding and accountable action |
+|---|---|
+| **Impact / decision** | **BLOCKED** for restricted data; retain synthetic trace, route and build version as evidence |
+| **Direct cause** | Fleet agent's default diagnostic collection includes a prompt-output excerpt |
+| **Contributing gap** | Architecture review classified the appliance as “edge/on-prem” without tracing the management plane and error-handling path |
+| **Containment** | Platform owner disables outbound diagnostics and closes the network route; security lead checks for other outbound dependencies |
+| **Corrective architecture** | Replace remote fleet management with approved local monitoring or disable the feature entirely; establish deny-by-default egress and configuration tests |
+| **Retest / closure** | Replay synthetic errors, normal requests, restart, update, failover and recovery; inspect packet traces and local logs, verify no forbidden destinations and obtain data-owner sign-off |
+
+**Root cause:** The team treated *compute placement* as proof of *end-to-end processing containment*. The correction is not merely to rename the device “private”; it is to verify the entire data and management path and make the failed condition a release-blocking regression test.
+
+#### PM artifact: deployment eligibility and evidence matrix
+
+A procurement or architecture review should produce this minimum record for **ENG-23**:
+
+| Field | Example decision |
+|---|---|
+| Requirement ID / owner | SITE-ENG-23; engineering data owner |
+| Non-negotiable boundary | One physical factory premises, including derivatives, support and recovery |
+| Class considered | Edge/local private appliance |
+| Known failure | Remote fleet telemetry exported synthetic restricted marker |
+| Gate and evidence | **FAILED** territorial egress; packet capture, software version and test ID retained |
+| Operational / technological unknowns | Admin revocation, offline entitlement, model quality, GPU headroom and restore still **UNVERIFIED** |
+| Corrective owner / due criterion | Platform lead to remove remote telemetry and demonstrate local monitoring; security lead to rerun no-egress drill |
+| Release decision | **BLOCKED** until all hard constraints pass; do not compensate with a favorable weighted score |
+| Reopen triggers | Vendor update, new support path, failover change, model/runtime change or new derivative type |
+
+**Learner challenge (30 minutes):** Open the [Architecture & Learning Studio](../learning/index.html). Select **Strict on-premises IP research assistant** with **Single premises only; no data or derivatives may leave**. Compare **Approved managed AI platform** with **On-prem production GPU servers inside the premises**; explain the hard eligibility difference before discussing cost. Then choose **Air-gapped factory operations** and attempt **General internet access including external service endpoints**. Record the rejected connectivity requirement. Finally sketch a hybrid portfolio with a synthetic public-document assistant and a restricted factory assistant: identify the network, support and evaluation interfaces that **must not** cross between them.
+
+**Submission:** A six-row deployment-class matrix with one concrete allowed/prohibited flow per class, a four-row eligibility decision for the fictional workloads, and one RCA/retest entry. State which conclusions are tested, which are vendor assertions, and which require specialist legal review. The Studio is a teaching simulator, not proof of a production configuration.
+
+**Exit check:** Can an in-country managed service satisfy a physical single-premises constraint? **Not when restricted processing leaves that premises.** Is an edge appliance inherently air-gapped? **No.** Can a hybrid portfolio contain both restricted and managed workloads? **Yes, only with verified segregation and no prohibited cross-boundary flow.**
+
+**Next header:** 2.4, *Sovereign AI stack components*. Module 02 remains incomplete until Sections 2.4–2.7, lab, assessment, facilitator solutions, publishing artifacts and both critical reviews are completed.
+
+[^nist-deploy-23]: NIST, *Zero Trust Architecture*, SP 800-207, final August 2020, [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), accessed **20 November 2026**. The short quotation concerns trust and identity, not sovereignty certification.
+[^nist-rmf-deploy-23]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1 and Govern 6.2](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), accessed **20 November 2026**. The source is voluntary risk guidance; the six-class taxonomy is course-authored.
