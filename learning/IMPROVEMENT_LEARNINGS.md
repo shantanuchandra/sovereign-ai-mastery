@@ -1,7 +1,15 @@
 # Sovereign AI Mastery | Improvement learnings
 
 
-## Current authorized execution | 2026-11-19 | Whole-curriculum build
+## Current execution authorization | 2026-11-19 | Complete the full 24-module curriculum
+
+The user explicitly instructed **“go all the way steadily”**, superseding the earlier six-run expiry. The existing **Sovereign AI Curriculum Build** automation (`6aff152149f8819182659a563fac7402`) was updated successfully to run **hourly in Asia/Kolkata**, with no `COUNT` limit. It must stop when all 24 modules, per-header artifacts, practical labs, assessments, facilitator solutions, website integration and two separately recorded module-level reviews are complete. Users can pause it at any time. The hourly schedule is not a promise that all 24 modules are already complete.
+
+**Operating constraints:** Inspect the latest GitHub tree and this log, complete one substantial outstanding TOC header per iteration, validate and commit content and site changes, record exact test/deployment evidence and deficiencies. Do not advance past a failed publishing or sovereignty hard gate. Reviews A and B must be distinct and truthfully scoped; source-level AI self-reviews are not independent human reviews or browser accessibility certifications. Use fictional and synthetic data. Treat live browser, legal review and source-audit limitations as outstanding assurance where not actually performed.
+
+---
+
+## Historical execution agreement | 2026-11-19 | Initial six-run installment (superseded)
 
 **Supersedes the six-hour Dubai-time draft queue below.** The user expanded the scope to the **entire curriculum, all 24 modules and their constituent headers**, and authorized **one GitHub development run per hour for the next six hours**. The task scheduler confirms six exact-schedule occurrences at **21:00, 22:00, 23:00 on 19 November and 00:00, 01:00, 02:00 on 20 November 2026, Asia/Kolkata (UTC+05:30)**. Do not continue after those six occurrences without fresh authorization. The schedule does not imply six whole modules will be completed.
 
@@ -58,6 +66,26 @@ For a selected TOC header:
 | 16:56 | Module 02 / 2.3 | Contrast deployment classes including physical-site rules | Pending only if reviews pass |
 
 **Stop:** No additional work after approximately 17:26 Asia/Dubai on 19 November 2026 without a new request. The queue is a scope and pacing proposal, not an active unattended automation.
+
+## Improvement entry 008 | 2026-11-19 | Module 02 / header 2.1 and dynamic website publication
+
+**Header:** *Sovereignty by scope: national, sectoral, enterprise, workload*. **Source:** [Module 02 draft](../chapters/02-classifications-components-maturity-models.md). **Content commit:** [3b731dbd427201de91262c5083c289941734b485](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/3b731dbd427201de91262c5083c289941734b485). Added approximately **1,814 words** on all four scopes, requirement inheritance, evidence/authority mapping, three fictional UAE workloads, hard premises-only and air-gap gates, root-cause analysis, PM scope-to-claim matrix and a 30-minute learner exercise. Only **2.1** is authored in Module 02; this draft must not be presented as a completed module.
+
+**Publishing infrastructure:** [34dd0067e77f41f0bda46e9c7c3dc5f8a649c649](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/34dd0067e77f41f0bda46e9c7c3dc5f8a649c649) changed `scripts/build_site.py` to discover Markdown chapter sources, publish their routes and give them active sidebar navigation. The legacy Module 05 HTML fallback remains in place. The old publisher had hard-coded only Modules 01 and 05, making a new Markdown chapter invisible on the website. Auto-discovery is the durable fix for the remaining 22+ curriculum iterations.
+
+**Root cause and teaching correction:** The lesson prevents high-level policy language from being laundered into a workload-level assertion. In the fictional exercise, a country-level enterprise default overwrites a single-plant restriction, allowing remote model inference. The direct cause is loss of workload scope/override during policy translation; the process gap is missing issuer, applicability and fail-closed fields. Remediation requires traceable policy scope, workload override, a blocked ineligible design and synthetic egress/recovery retesting. The case does not invent a UAE regulatory rule.
+
+**Primary-source evidence checked 19 November 2026:** OECD.AI [AI Principle 2.2](https://oecd.ai/en/dashboards/ai-principles/P11) frames national AI ecosystem development; NIST [AI RMF 1.0 Map 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) asks that the prospective deployment context be documented. Short exact quotations and explicit limitations appear in the chapter's two footnotes. Neither source establishes the course's scope taxonomy or certifies sovereignty.
+
+**Focused assertions:** Ten initial content checks passed: only Section 2.1 authored, all four scopes, strict single-premises and full disconnection controls, RCA fields, PM artifact, NIST/OECD citations, learning exercise and substantial depth. A fresh GitHub read confirmed **all eight Studio choice labels** in the new exercise match the checked-in deterministic engine. Site builder assertions confirmed chapter auto-discovery, routing and sidebar selection. These targeted connector-driven checks are not an independent source audit.
+
+**CI and deployment:** The content run [44579969598](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44579969598) passed Node adaptive-learning rules, Python builder syntax, Markdown site build and rendered-assets checks, but **Pages Deploy failed**. Its logs showed the `github-pages` artifact uploaded successfully yet the deploy action immediately found zero artifacts, consistent with an artifact API visibility race. An initial polling workflow change [5d6cbc12a5dfeac7388f9c787c2f66afc4a12998](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/5d6cbc12a5dfeac7388f9c787c2f66afc4a12998) accidentally introduced a malformed shell line; the resulting workflow had no jobs. That bug was identified and corrected in [67e3393df24557dc6358e5df6f89b06d3d8d2b41](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/67e3393df24557dc6358e5df6f89b06d3d8d2b41).
+
+**Verified recovery:** The repaired [GitHub Actions run 44580419371](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44580419371) completed **successfully**. The workflow checks the Module 02 generated HTML and its homepage sidebar link, runs JS tests and Python syntax/build checks, waits for the artifact API to list the uploaded Pages asset, then deploys. This verifies GitHub's deployment pipeline, **not** an independently verified live browser rendering or assistive-technology test. A direct external page fetch was attempted but the browsing source could not access the URL, so visual/page-interaction verification remains **NOT COMPLETED**.
+
+**Reviews and next step:** Module 01's two documented source-level AI reviews and earlier successful Pages deployment were confirmed before entering Module 02. Module 02 Reviews A and B are **NOT YET DUE** until its seven curriculum headers and supporting artifacts are complete. Next develop **2.2 Control dimensions: territorial, operational, technological, legal**. Keep single-premises and air-gap constraints fail closed and recheck this log commit's Pages result next iteration.
+
+**Reusable learning:** Authoring a correct chapter is not enough when the publisher only knows fixed module routes. Treat source ingestion, sidebar navigation and rendered-site checks as part of each curriculum increment. CI build success is not Pages success. Debug deployment failures from step logs before guessing; validate workflow-shell syntax when introducing retries. Scope inheritance must preserve the narrowest binding workload boundary without inventing legal authority.
 
 ## Improvement entry 007 | 2026-11-19 | Module 01 / header 1.7 and module-wide critical reviews
 
