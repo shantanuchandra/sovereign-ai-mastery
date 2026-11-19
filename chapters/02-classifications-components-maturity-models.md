@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Sections 2.1–2.5**. Sections 2.6–2.7 and both module-critical reviews are pending |
+| Current publication | **In-progress chapter, Sections 2.1–2.6**. Section 2.7, supporting artifacts and both module-critical reviews are pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -500,8 +500,96 @@ Next select **Air-gapped factory operations** and set **General internet access 
 
 **Exit check:** A downloadable model is not automatically OSI Open Source AI, owned training data or a verified portable platform. Enterprise-owned weights do not prove hosting locality. A licensed third-party model can be conditionally eligible for local hosting if every hard boundary and rights requirement is tested. A physical air gap never permits remote model fallback.
 
-**Next header:** 2.6, *Dependency and autonomy spectrum; why one-size-fits-all labels fail*. Module 02 remains incomplete until 2.6–2.7, lab, assessment/solutions, publishing assets and two distinct critical reviews are complete.
+**Sections 2.1–2.5 complete.** The next section maps dependencies to testable autonomy claims.
 
 [^osi-open-25]: Open Source Initiative, *The Open Source AI Definition 1.0* (adopted October 2024), sections “Preferred form to make modifications” and “Open Source models and Open Source weights”, [official OSI definition](https://opensource.org/ai/open-source-ai-definition), text checked **20 November 2026**. This source does not declare a particular model sovereign or commercially usable.
 [^nist-map-25]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), Map 4.1 and Govern 6.1, [official NIST Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), checked **20 November 2026**. Source addresses third-party technology/legal risk, not sovereignty certification.
 [^nist-scrm-25]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1, updated **1 November 2024**, [official NIST abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), checked **20 November 2026**. Use to justify supplier and dependency review; no jurisdiction-specific legal conclusion.
+
+
+### 2.6 Dependency and autonomy spectrum; why one-size-fits-all labels fail
+
+**Decision first:** Sovereignty is not a binary vendor label. Ask what happens to a *named workload* when its supplier, network, licensing service, key authority or recovery site becomes unavailable. An enterprise may own a model and still be unable to restart it without a vendor licence server. Conversely, a third-party licensed model can be locally operable when its rights, runtime and dependencies are demonstrably compatible with the approved boundary. **Never average away a hard territorial or air-gap failure.**
+
+The following **course-authored autonomy spectrum** is a teaching taxonomy, not an official standard or certification. Use the [ontology](../taxonomy/ONTOLOGY.md) relationships **Workload dependsOn Component**, **Component operatedBy Actor**, **Dependency has FailureMode**, **Test produces Evidence**, and **Evidence supports Claim**. The actual system can score differently across identity, inference, data, recovery and supplier exit.
+
+#### Five autonomy postures
+
+| Posture | What remains possible during supplier disruption? | Minimum proof and limitation |
+|---|---|---|
+| **A0 Provider-bound** | Inference stops when the external endpoint fails | Provider outage test; no claim of local autonomy |
+| **A1 Interface-portable** | Gateway can target a replacement API | Rehearsed migration of prompts, embeddings, policies and access; interface portability does not guarantee model quality |
+| **A2 Locally runnable** | Local model may continue inference without external API | Measured offline run and restart; licence, monitoring and identity may still be remote |
+| **A3 Locally operable** | Inference, retrieval, identity, audit and restore run under local authority for a tested interval | Isolation, expiry, cold-start, backup and operator tests; replacement hardware may still depend on a supplier |
+| **A4 Reconstitutable** | Enterprise can rebuild and substitute critical runtime components from approved artifacts | Export and recovery rehearsal, licences, artifact checks, quality benchmark and supplier revocation |
+
+**Do not treat A0–A4 as a universal maturity score.** A4 exit readiness can coexist with an unlawful processing location, and an air-gapped A3 system may be dependent on a scarce accelerator. Assess **territorial, operational, technological and legal** controls separately, each with **PASS / FAILED / UNVERIFIED** and a test ID. A failed mandatory control yields **REJECTED**, regardless of the autonomy posture.
+
+#### Dependency mapping across four paths
+
+| Path | Dependency edges to inventory | Fault to inject |
+|---|---|---|
+| Request | User → IAM → retrieval/index → embeddings → inference → output | Expired identity token; embedding endpoint unavailable; gateway remote fallback |
+| Control | Admin → secrets → gateway configuration → logs → diagnostics | Supplier support account retained; telemetry collector off site |
+| Recovery | Snapshots → key custody → restore image → runtime licence → local restart | Licence refresh fails after power cycle; backup destination unreachable |
+| Exit | Artifact export → substitute model → rebuild retrieval → evaluate → revoke supplier | Incompatible embedding space; missing redistribution rights; undocumented API |
+
+**Evidence requirement:** For each edge capture owner, operator, physical location, data class, derivative flows, network destination, licence term, failure response, test, date and change trigger. Supplier count is not dependency count: one vendor may control several failure-critical services. Test normal, degraded, maintenance and recovery paths.
+
+#### Fictional UAE industrial portfolio: different outcomes are correct
+
+A **fictional** UAE engineering group proposes one AI contract for three synthetic-data teaching workloads. These are invented policies, not statements of UAE law or real deployments.
+
+| Workload | Named hard constraint | Architecture comparison and decision |
+|---|---|---|
+| **PUBLIC-26**, synthetic public-content assistant | Approved named hosting locations | Managed inference may be **CONDITIONAL**, after endpoint, retention, access, export and outage checks. A0 can be sufficient |
+| **PLANT-26**, restricted factory drawings | **All restricted data and derivatives must stay inside one named physical factory premises**, including prompts, embeddings, logs, evaluation, backup and support | On-site model, local IAM, retrieval, keys and diagnostics is **CONDITIONAL A3** pending tests. A regional managed endpoint outside the factory is **REJECTED**, even if it is in the same country |
+| **OT-26**, disconnected reference | **No inbound or outbound network connectivity**, including remote support, licence checks, telemetry, updates and failover | Disconnected runtime with offline approved media intake is **CONDITIONAL A3/A4**. Any online dependency is **REJECTED** |
+
+A common managed platform is simpler for PUBLIC-26 but cannot be reused for the restricted workflows if traffic crosses prohibited boundaries. A data center owned by the enterprise elsewhere in the UAE still violates the single-factory-premises condition. A segmented portfolio permits reuse of approved non-sensitive policy and code via controlled releases, not live cross-boundary gateways. Evaluate local GPU capacity, power, staff, spares, latency, quality and recovery against managed-service operating costs **only after** screening hard constraints. No invented throughput or AED savings are assumed.
+
+If the only capable model requires cloud inference, offline licence rights are absent, or the site cannot provide minimum compute and safety quality, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Do not relax a factory or air-gap requirement to make a preferred supplier eligible.
+
+#### Failure mode and RCA: locally hosted, remotely licensed
+
+**Fictional synthetic acceptance drill:** PLANT-26 serves a model on its factory GPU. The team disconnects external network access for a planned 72-hour test. Inference works until a simulated power cycle and entitlement expiry. The runtime attempts a supplier licence refresh, the firewall denies it, and the model cannot restart. No production data leak is asserted. The architecture has failed operational continuity even though its inference hardware remains local.
+
+| RCA stage | Observation, owner and correction |
+|---|---|
+| Symptom | **FAILED / BLOCKED**: cold restart impossible without external entitlement; local continuity requirement unmet |
+| Direct cause | Runtime requires an online licence service during restart |
+| Contributing process gap | Procurement tested warm inference but omitted entitlement expiry, reboot, vendor outage and supplier exit |
+| Containment | SRE keeps deny-egress policy, preserves synthetic logs and blocks unauthorized licence exceptions |
+| Solution | Procurement secures lawful offline entitlement or replaces the runtime; platform team retains approved artifacts, keys and restore process locally |
+| Retest | Repeat 72-hour isolation, expiry, cold restart, restore, update and gateway-failure tests with synthetic inputs; capture egress traces and quality/recovery measures |
+| Closure | Dated evidence and data-owner, security and platform sign-off. Without a lawful offline solution, status remains **NOT FEASIBLE** |
+
+**Root cause:** Local model execution was incorrectly treated as local *operability*. The hidden control-plane licensing dependency was never tested under failure. An air-gapped design must never be repaired by opening a network path, even to an in-country provider.
+
+#### PM artifact: autonomy dependency and release register
+
+| Field | Fictional PLANT-26 example |
+|---|---|
+| Claim and authority | AUT-PLANT-26; factory data owner owns the single-premises rule and local continuity requirement |
+| Critical edge | MODEL-RUNTIME-26 → external supplier entitlement service; supplier operates endpoint |
+| Evidence and test | Synthetic 72-hour isolation, expiry, cold-start and restore; versioned firewall, licence and service logs |
+| Result | **FAILED** local restart; no-egress attempt blocked; other lifecycle egress paths **UNVERIFIED** |
+| Correction owner | Procurement to validate licence, SRE to replace or reconfigure runtime, security to retest |
+| Decision | **BLOCKED** until required hard constraints and local continuity pass; do not compensate with favorable portability or cost |
+| Reopen triggers | Licence renewal, new model/runtime, firmware update, vendor support change, gateway fallback, key rotation |
+
+#### Learner challenge (35 minutes)
+
+In the [Architecture & Learning Studio](../learning/index.html), select **Strict on-premises IP research assistant** with **Single premises only; no data or derivatives may leave**. Compare **Approved managed AI platform** with **On-prem production GPU servers inside the premises**. Explain the hard eligibility difference before considering cost. For local compute, select **Model artifacts, serving and data must be enterprise-portable** and design a migration rehearsal with offline licence, tokenizer, embedding compatibility, retrieval access, quality thresholds and supplier credential revocation.
+
+Then select **Air-gapped factory operations** and attempt **General internet access including external service endpoints**. Explain why private links, allowlists and domestic endpoints still fail the no-network rule. Submit five autonomy posture rows, eight critical dependency edges across the four paths, a fictional cold-restart RCA and a testable go/no-go decision. Label simulated versus real evidence; the Studio cannot certify actual networks, licences or compliance. Learner answers belong in the submission; facilitator solutions remain separate.
+
+**Exit check:** Local weights do not guarantee offline continuity. API compatibility does not guarantee migration quality. A domestic data center outside a specified premises does not satisfy the premises-only rule. An air gap cannot depend on any external network service.
+
+**Next header:** 2.7, *Sovereignty maturity, evidence, gaps, and scorecards*. Module 02 still requires its lab, assessment, facilitator solutions, site/visual assets and both distinct review gates.
+
+**Evidence boundary:** The A0–A4 spectrum is course-authored. NIST AI RMF 1.0 Map 4.1 addresses third-party data/software risks.[^nist-autonomy-26] NIST SP 800-161 Rev. 1 addresses cybersecurity supply-chain risks.[^nist-scrm-autonomy-26] NIST SP 800-207 cautions against implicit trust based solely on physical or network location.[^nist-zt-autonomy-26] These sources were reviewed for prior sections on **20 November 2026**; no fresh source fetch or sovereignty certification is claimed in this iteration.
+
+[^nist-autonomy-26]: NIST, *AI Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Previously reviewed 20 November 2026.
+[^nist-scrm-autonomy-26]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022; updated 1 November 2024), [official publication](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Previously reviewed 20 November 2026.
+[^nist-zt-autonomy-26]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official publication](https://csrc.nist.gov/pubs/sp/800/207/final). Previously reviewed 20 November 2026.
