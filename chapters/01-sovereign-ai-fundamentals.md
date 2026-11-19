@@ -47,6 +47,56 @@ A vendor proposes a model endpoint in a nearby cloud region. That may be a credi
 
 **Try the counterfactual:** Change **single premises** to **two approved enterprise campuses** in the [Architecture & Learning Studio](../learning/index.html). Which inter-site connections, support paths and backup destinations would now need evidence? Which single-site assumptions would no longer apply?
 
+
+### 1.2 From digital sovereignty to data, cloud, and AI sovereignty
+
+**Decision first:** Treat these as *nested but non-equivalent control questions*, not four interchangeable labels. A company may control its documents without controlling the cloud administrators, and may control its cloud tenancy without controlling the model provider, training artifacts or inference telemetry. Record the specific boundary that matters before selecting a vendor.
+
+| Layer | Decision the PM must make | Illustrative control and proof | What it does not establish |
+|---|---|---|---|
+| **Digital sovereignty** | Which digital capabilities, infrastructure and critical dependencies must remain governable or replaceable? | Documented authority over identity, networks, software supply chain and exit plans; tested provider migration | That all data or AI operations stay in a chosen territory |
+| **Data sovereignty** | Who may collect, access, process, retain, transfer and delete each data class? | Data-flow inventory, processing locations, encryption/key custody, access logs and deletion tests | Control over model weights, serving runtime or privileged cloud operators |
+| **Cloud sovereignty** | Who operates the infrastructure and control plane, where, and with what administrative privileges? | Region and service configuration, privileged-access audit, backup/support routing, contractual rights, operational exit rehearsal | That a third-party model's telemetry, updates and downstream tools respect the same boundary |
+| **AI sovereignty** | Who can govern the *AI workload lifecycle*, including models, prompts, embeddings, evaluation, inference, agents and monitoring? | Model/license inventory, inference and tool-call tracing, update approvals, reproducible evaluations, operator and vendor dependency tests | Universal independence, regulatory approval or certified sovereignty |
+
+These four definitions are a **course-authored teaching taxonomy**. They are not statutory terms or maturity levels. They overlap: the same access-control defect may undermine data, cloud and AI claims simultaneously. For related entities and relations, consult the [course ontology](../taxonomy/ONTOLOGY.md). A useful chain is **BusinessObjective → Workload → DataAsset / Model / InfrastructureDependency → Control → Test → Evidence → Decision**; each link must have an accountable owner.
+
+#### Worked UAE enterprise decision: a policy assistant (fictional)
+
+A UAE-based enterprise wants to search confidential internal policy documents with retrieval-augmented generation (RAG). The product brief says, “Keep our AI sovereign.” The PM instead separates four requirements:
+
+1. **Digital:** The organization must retain identity administration and be able to export its policy corpus and access rules within an agreed recovery window. *Evidence:* identity configuration, export format and a timed restoration rehearsal.
+2. **Data:** Policy files, extracted text, embeddings, prompts, logs and backups must follow a documented permitted-location and access policy. *Evidence:* a complete data-flow map plus observed destinations during normal operation and recovery.
+3. **Cloud:** Named provider personnel may administer only approved layers under recorded access controls. *Evidence:* privileged-role matrix, support-session records and an operator escalation test.
+4. **AI:** The organization must be able to change the model endpoint without losing retrieval authorization or auditability. *Evidence:* model gateway interface, license review, regression evaluation and a measured substitution test.
+
+**Architecture options:** A foreign-hosted API may minimize initial operations but requires close scrutiny of inference routing, retention, tool calls and exit. An approved in-region managed platform may reduce some location concerns but cannot be assumed to restrict provider support or all telemetry. An enterprise-operated model offers more direct runtime control at the price of compute, patching, evaluation and incident-response ownership. The choice depends on the actual requirement and verified service configuration, not on the provider's “sovereign” branding.
+
+**Physical-boundary override:** If the requirement is **nothing restricted may leave one factory premises**, neither a country-resident managed endpoint nor off-site colocation qualifies. Evaluate local inference, local retrieval, local logs, approved on-site administrators and controlled artifact intake; verify backup, diagnostics and failover. If the requirement is **air-gapped**, disallow *all* inbound and outbound networking, including remote support and automated updates. A premises-only design with a local network is **not** automatically air-gapped. In both cases, an underpowered local device is a feasibility blocker, not permission to silently switch to a cloud API.
+
+#### Failure drill: the cloud region was correct, but the AI claim was not
+
+**Scenario assumption:** The managed inference endpoint is configured in the approved region, but an evaluation service exports sampled prompts to an unapproved analytics destination. **Observed symptom in the fictional acceptance test:** outbound evaluation traffic includes restricted prompt content. **Impact:** the data-location acceptance criterion fails despite correct primary endpoint configuration. **Direct cause:** an evaluation connector used a default remote destination. **Contributing process gap:** the architecture inventory covered inference and storage but omitted evaluation and monitoring. **Owner:** platform engineering for containment and routing; security/privacy reviewers for impact and disposition; PM for the launch gate. **Corrective action:** disable the connector, investigate and contain any transmitted data, inventory all derived-data paths, configure a permitted evaluation destination or remove the feature. **Retest:** trace representative synthetic prompts through inference, evaluation, logs, failover and deletion, and independently inspect destination evidence. **Closure:** recorded, reviewed test results and explicit exception disposition. A configuration change without retesting is **not** evidence of success.
+
+#### PM artifact: four-layer sovereignty requirements register
+
+Create one row per **requirement**, rather than a single “sovereign: yes/no” field:
+
+| Field | Example entry |
+|---|---|
+| Requirement ID / owner | AI-LOC-02 / AI platform lead |
+| Layer and workload stage | AI sovereignty / evaluation and monitoring |
+| Boundary and acceptance test | No restricted prompt, embedding or evaluation payload leaves the approved processing locations; inspect destination traces under normal, failure and support paths |
+| Dependencies | Model service, evaluation connector, observability pipeline, backup target |
+| Current evidence / status | Design diagram only / **UNVERIFIED** |
+| Decision and next action | **Block restricted-data launch** until reviewed runtime evidence is available |
+
+A dependency can support multiple requirements, but **a cloud region setting must never be copied into an AI-lifecycle evidence field as if it proved every path**. Attach dated evidence, a responsible reviewer and a reopening trigger for service or configuration changes.
+
+**Learner challenge:** In the [Architecture & Learning Studio](../learning/index.html), compare (A) an approved-country policy assistant using a managed platform, (B) a premises-only factory assistant, and (C) a disconnected factory assistant. Identify which changes are **data**, **cloud** and **AI** control changes, which are operational feasibility blockers, and which claims remain provisional even after the design looks plausible. Write one acceptance test that would falsify each architecture's most important claim.
+
+**Facilitator check (not a quiz answer key):** A defensible response names prompt derivatives and non-inference flows, rejects off-premises compute for B and all network links for C, and does not turn vendor assertions into a verified sovereignty pass. For the primary-source distinction between governance and sovereignty, the [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) provides risk-management functions, **not** this four-layer sovereignty taxonomy; see the chapter's source ledger in Section 5. No new regulatory applicability or vendor behavior is asserted here.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
