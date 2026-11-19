@@ -1,6 +1,22 @@
 # Sovereign AI Mastery | Improvement learnings
 
 
+## Improvement entry 020 | 2026-11-20 | Module 02 carousel print/accessibility QA contract
+
+**Before / detected gap:** The eight-slide HTML carousel and post were integrated into the site, but PDF output and visual/accessibility QA had never been demonstrated. The earlier Pages integration run [44629371490](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44629371490) was **cancelled**, not passed. A later run [44629418348](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44629418348) completed successfully, covering the then-current site build, not actual PDF output.
+
+**Change:** Created a new six-test, standard-library Python contract for the HTML carousel at [social/module-02/test_carousel.py](../social/module-02/test_carousel.py), commit [0efc87cea49673b63cc69e6c723ff0b174c0497a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/0efc87cea49673b63cc69e6c723ff0b174c0497a). Wired it into [the Pages workflow](../.github/workflows/pages.yml), commit [f6f82ce8c59be2418ac8641f6ccd195af8f226a2](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f6f82ce8c59be2418ac8641f6ccd195af8f226a2), so subsequent builds must enforce the eight question-led slides, unique heading targets, HTML language, focus-visible styling, print page geometry, final-page break suppression, source attribution, boundary rules, and absence of external active scripts/forms.
+
+**Actual checks and limitations:** Inspected the HTML/CSS and source-level assertions: all eight h2 questions were found, required content phrases and print rule pattern were present. The GitHub Actions workflow was updated to **run** the six Python tests; as of this entry the latest observed [run 44638487041](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44638487041) was **queued** for the test-file commit and no completed CI run was yet observed for the updated workflow. **Do not claim the six Python tests passed until CI reports success.** Attempted to retrieve the source to a local Chromium-capable container for a real PDF/visual check, but DNS resolution of `raw.githubusercontent.com` failed (`curl: (6) Could not resolve host`), so the PDF was **not exported**, no PDF page-count/text-extraction result exists, and visual clipping/mobile screen-reader results remain **UNVERIFIED**. The CSS uses `overflow:hidden`, which may clip text at print or mobile sizes; static assertions cannot detect that. A browser/print-render QA run remains mandatory before acceptance.
+
+**Source / scenario policy:** No new external factual claim or source was introduced. The existing Microsoft Learn deployment reference, fictional UAE factory premises-only scenario, no-network air gap, and fail-closed **BLOCKED** disposition are preserved. This change adds QA instrumentation, not an independent technical/security or editorial review.
+
+**Root cause and solution:** Existing integration smoke checks tested whether HTML files existed and links rendered, not whether the eight printable pages preserved semantics and readable content. Added a deterministic structural contract in CI as a first defense. The remaining root risk is **rendering/print layout**, which requires actual Chromium/PDF and assistive-technology inspection. A green static test does not close that gap.
+
+**Review status:** Review A (technical/security/source) **NOT DONE**; Review B (editorial/accessibility/assessment) **NOT DONE**. These must be separately documented and any blockers remediated before Module 03.
+
+**Next:** Check updated CI for the six new tests and Pages deployment; fix any failing assertion. Run an actual browser print-to-PDF, inspect page count, text selection, clipping and keyboard navigation, and document evidence. Then perform distinct Module 02 Reviews A and B.
+
 ## Current execution authorization | 2026-11-19 | Complete the full 24-module curriculum
 
 The user explicitly instructed **“go all the way steadily”**, superseding the earlier six-run expiry. The existing **Sovereign AI Curriculum Build** automation (`6aff152149f8819182659a563fac7402`) was updated successfully to run **hourly in Asia/Kolkata**, with no `COUNT` limit. It must stop when all 24 modules, per-header artifacts, practical labs, assessments, facilitator solutions, website integration and two separately recorded module-level reviews are complete. Users can pause it at any time. The hourly schedule is not a promise that all 24 modules are already complete.
