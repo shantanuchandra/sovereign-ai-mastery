@@ -57,7 +57,7 @@ jobs:
           grep -q 'module-02/CAROUSEL.html' dist/modules/02-classifications-components-maturity-models.html
           grep -q 'module-02/POST.html' dist/modules/02-classifications-components-maturity-models.html
           grep -q 'The eight-slide carousel explains' dist/social/module-02/POST.html
-          grep -q 'Global types' dist/social/module-02/CAROUSEL.html
+          grep -q 'Microsoft Learn, Deployment types for Microsoft Foundry Models' dist/social/module-02/CAROUSEL.html
           if grep -R -l 'Facilitator solutions and marking rubric' dist/modules dist/social/module-02; then
             echo "::error::Facilitator solutions leaked into learner site"
             exit 1
