@@ -331,6 +331,94 @@ Create one record per external dependency, then attach the four sovereignty dime
 [^nist-airmf-thirdparty-15]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), **AI RMF Core, Govern 6.1–6.2, Map 4.1–4.2 and Manage 3.1–3.2**; [official Core text](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). The short quotation above is a fragment of Govern 6.2, verified 19 November 2026.
 [^nist-scrm-15]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, **SP 800-161 Rev. 1**, May 2022, updated 1 November 2024; [official updated final publication](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), abstract. Quotation verified 19 November 2026. This is general supply-chain cybersecurity guidance, not an AI-sovereignty standard.
 
+
+### 1.6 Sovereignty, control, independence, self-sufficiency, and jurisdiction
+
+**Decision first:** A system can keep its data inside a factory while depending on an external service to start, update or recover. It can also be technically isolated without resolving applicable laws or contractual access rights. Evaluate **sovereignty, control, independence, self-sufficiency and jurisdiction separately**. Each term answers a different procurement and architecture question.
+
+The distinction changes what you test. “All data is local” is a processing-location claim. “We can run without the model vendor for 72 hours” is a continuity claim. “No external operator can read the logs” is an access-control claim. “We satisfy applicable legislation” is a legal conclusion that requires an assessment of the actual organization and processing activities. A successful test for one cannot stand in for the others.
+
+#### Five distinct concepts, five different acceptance tests
+
+| Concept | What it means for a defined AI workload | Evidence that could support it | False inference to reject |
+|---|---|---|---|
+| **Sovereignty** | Ability to meet declared territorial, operational, technological and legal/contractual control objectives for the named workload | Scoped claim register, effective controls, dated test evidence and accountable approval | An in-country server proves everything is sovereign |
+| **Control** | Ability to authorize, monitor, restrict, revoke, configure or recover specific actions *now* | Key-custody review, denied-egress test, admin revocation, support-session records | Owning hardware proves the enterprise controls supplier diagnostics |
+| **Independence** | Ability to keep operating or substitute a dependency when a supplier fails, withdraws access or changes terms | Offline cold start, timed failover, model/runtime replacement, restore and measured exit drill | A signed exit clause proves migration is workable |
+| **Self-sufficiency** | Ability to provision and sustain the required capabilities internally for an explicit duration | Compute and energy budget, staff and spares inventory, signed artifacts, recovery rehearsal | An enterprise must fabricate every chip and train every model to make a bounded sovereignty claim |
+| **Jurisdiction** | Potentially relevant legal authority, contractual obligations, dispute forums, disclosure and processing questions | Entity/processor map, processing activity inventory, contracts, governing law, transfer and support-path analysis for counsel | Physical location by itself determines which laws apply |
+
+**These are course-authored distinctions, not official legal definitions or a certification model.** Control is about immediate power. Independence is about functioning when that power is tested by an outage or withdrawal. Self-sufficiency is a resource and capability strategy, and absolute self-sufficiency is usually not a practical enterprise design objective. Jurisdiction raises a separate set of legal and contractual questions.
+
+The [course ontology](../taxonomy/ONTOLOGY.md) makes the distinction concrete: **Workload dependsOn Supplier; Supplier operates Component; Enterprise owns Control; Test evaluates Requirement; Evidence supports Decision**. The relationships are educational modeling choices. A design document cannot skip from the name of a supplier to a verified claim.
+
+#### Why geography and authority cannot be merged
+
+NIST SP 800-207 warns against implicit trust “based solely on their physical or network location.”[^nist-zero-16] Even on-site infrastructure needs identity and authorization controls. NIST AI RMF 1.0 **Govern 2.3** places decisions about deployment risks with executive leadership, and **Govern 6.2** addresses contingency processes for failures involving high-risk third-party AI systems.[^nist-rmf-16] Both are risk/security guidance, not certification of AI sovereignty.
+
+For **potentially applicable EU personal-data processing**, the European Commission describes safeguards “to ensure that the protection travels with the data” for international transfers.[^ec-transfer-16] The European Data Protection Board's **Guidelines 3/2018** address GDPR territorial scope under Article 3.[^edpb-16] Their existence demonstrates why legal scope, international transfers and physical storage must be examined as separate issues. Neither source establishes that GDPR applies to the fictional UAE plant below, or that local storage alone satisfies any EU, UAE or other legal requirement.
+
+A **jurisdiction review request** should record the contracting entity and governing terms; jurisdictions in which people, controllers, processors or service operators act; processing locations, access paths and transfers; the relevant data types; and any request for disclosure. Counsel should determine applicability and required responses. Vendor nationality, a jurisdiction dropdown, or cloud-region selection cannot substitute for that analysis.
+
+#### Worked enterprise scenario: local data, external runtime dependence
+
+**Fictional UAE industrial group:** The group proposes *Factory-Site*, an assistant for restricted plant manuals, and *Corporate-Policy*, an assistant for synthetic staff policies. Factory-Site requires **one physical premises only**. All source text, prompts, embeddings, generated answers, diagnostic archives, telemetry and backups must remain at that site. Corporate-Policy may use approved named locations, subject to its own controls and legal review.
+
+Factory-Site's PM adds an illustrative, fictional requirement: the on-site service must cold-start and process its synthetic acceptance set for **72 hours after all supplier connections are disconnected**. The chosen licensed runtime is assumed to need periodic online entitlement renewal. This is a scenario assumption, **not a claim about a real product**. The group may own every GPU while still failing the independence requirement.
+
+| Architecture candidate | Factory-Site decision | Corporate-Policy decision | Evidence or limitation |
+|---|---|---|---|
+| Local server and model, with an approved offline licence | **CONDITIONAL**, pending testing | Viable but operationally heavier | Licence rights, local cold start, 72-hour capacity/quality test, no-egress evidence and offline restore |
+| Enterprise data center in another city | **REJECT** for single-premises data | Possible if explicitly approved | Geographic authorization, key and operator review, observed support/backup routes |
+| In-country managed model API | **REJECT**: requests leave the factory | **CONDITIONAL** if approved processing and support boundaries are proven | Exact service deployment configuration, runtime traces, logs, failover, contracts and exit terms |
+| Disconnected air-gapped enclave | Appropriate **only when disconnection is actually required** | Extra burden for a flexible synthetic pilot | No inbound/outbound network, controlled removable media, offline updates and local recovery |
+
+For an **air-gapped** requirement, **no inbound or outbound network path** is allowed, including remote support tunnels, licence servers and “temporary” cloud failover. Offline artifact intake needs signature/hash checks, malware review, removable-media custody, rollback images and local logs. Strict **premises-only** processing does not automatically require an air gap: an approved local network can remain in use, while data and derivatives must not leave the physical site.
+
+If the local model is too slow, too inaccurate or cannot restart without an external licence service, report **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Do not silently switch Factory-Site to a managed endpoint, reclassify it as a country-only requirement, or relabel the failing test as an acceptable exception.
+
+#### Failure drill: a disconnected restart exposes a hidden dependency
+
+**Fictional test:** Factory-Site passes its sampled synthetic no-egress checks. The team then disables all supplier links, simulates an expired licence token and attempts a cold restart. The serving service refuses to start because it requires online entitlement renewal. **No data egress is observed in this particular test.** The operational-independence claim fails even though the location claim did not fail in the same way.
+
+| RCA element | Finding and corrective action |
+|---|---|
+| **Symptom and impact** | Cold restart fails during the synthetic offline exercise; the specified 72-hour continuity requirement is **FAILED** |
+| **Direct cause** | Expired online licence token is a startup dependency |
+| **Contributing process gap** | Procurement reviewed rights to deploy but omitted activation/expiry behavior, vendor withdrawal and offline disaster recovery from the dependency inventory |
+| **Containment** | Platform owner blocks restricted-data release, keeps the environment isolated, preserves logs and tests a known-good rollback path |
+| **Corrective solution** | Obtain and verify a permitted offline entitlement, substitute an appropriately licensed local model/runtime, or retain an explicit infeasibility decision |
+| **Retest and closure** | Repeat cold boots after simulated expiry, keep all supplier links disabled, measure the 72-hour synthetic run, test local restore, record licence and version evidence, and obtain review sign-off |
+
+**Root cause:** Supplier dependence was assessed as a procurement-contract issue rather than as an executable startup dependency. The release review mapped physical data flows but did not test **whether the service could operate during supplier unavailability**. A passing firewall rule does not close this failure. Likewise, a passing independence drill does not settle jurisdictional questions.
+
+#### PM artifact: five-claim decision and assurance record
+
+Record five independent questions with owners and evidence states, rather than an aggregate “sovereign score”:
+
+| Claim / accountable owner | Acceptance criterion | Current fictional status |
+|---|---|---|
+| **SOV-16 / PM and data owner** | All restricted data and derivatives remain at the factory in normal, support, backup and failure paths | **UNVERIFIED** for the full lifecycle; a narrow synthetic egress test passed |
+| **CTL-16 / security lead** | Enterprise can revoke vendor access, deny unapproved routes, administer keys and inspect privileged operations | **TEST REQUIRED** |
+| **IND-16 / platform and SRE lead** | Restart and continue the defined workload for 72 hours without supplier connectivity | **FAILED**, demonstrated by the licence-expiry drill |
+| **SELF-16 / operations and procurement** | Local skills, spares, compute, offline artifacts and recovery process cover the accepted scenario | **GAP OPEN** |
+| **JUR-16 / legal and privacy owner** | Entity, processing, transfer, contract and lawful-access questions have documented, specialist-reviewed dispositions | **LEGAL REVIEW PENDING** |
+
+**Release rule:** Any failed hard constraint blocks the intended restricted-data rollout. Do not copy an independent-sounding vendor assertion into a passed evidence field. Record the evidence date, exact software/contract version, reviewer and the event that would reopen the claim.
+
+**Learner challenge (25 minutes):** In the [Architecture & Learning Studio](../learning/index.html), load **Strict on-premises IP research assistant**. Keep **Single premises only; no data or derivatives may leave** and **Local network only; no external egress** fixed. Change the portability dropdown from **Model artifacts, serving and data must be enterprise-portable** to **Low priority for current pilot**. Explain why changing a portability preference does *not* relax the physical location requirement. Add an offline cold-start test that the Studio cannot execute for you.
+
+Next select **Air-gapped factory operations** and change connectivity to **General internet access including external service endpoints**. Predict the hard-block result and state which requirement was violated. Finally change the **jurisdiction** choice to **European Union**. List what a legal reviewer must establish before drawing any conclusion; do not treat the selector as a legal opinion.
+
+**Submission:** A five-row claim record, one failure drill with observation/cause/correction/retest, and a one-paragraph release decision. The advanced learner explains both why a physically local model can still lack independence and why a technically strong architecture may have unresolved legal questions.
+
+**Exit check:** Can an enterprise exercise bounded sovereignty without complete self-sufficiency? **Yes, if** its specific controls and dependencies withstand the required tests. Does owning the physical machine guarantee operational independence? **No.** Does a geographic location decide legal applicability? **No.** Each proposition requires its own evidence.
+
+[^nist-zero-16]: NIST, *Zero Trust Architecture*, **SP 800-207**, abstract (August 2020), [official NIST page](https://csrc.nist.gov/pubs/sp/800/207/final). Short quotation verified **19 November 2026**. Security trust guidance; not a sovereign-AI certification.
+[^nist-rmf-16]: NIST, *AI Risk Management Framework (AI RMF 1.0)*, **NIST AI 100-1** (2023), [AI RMF Core, Govern 2.3 and Govern 6.2](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Official text reviewed **19 November 2026**. Voluntary risk-management guidance.
+[^ec-transfer-16]: European Commission, [*Rules on international data transfers*](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/rules-international-data-transfers_en), section “International transfers of personal data,” paragraph 2. Short quotation verified **19 November 2026**.
+[^edpb-16]: European Data Protection Board, [*Guidelines 3/2018 on the territorial scope of the GDPR (Article 3)*](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3-version_en), adopted version (2019). Official listing found **19 November 2026**. Legal applicability in any actual case remains for counsel.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
