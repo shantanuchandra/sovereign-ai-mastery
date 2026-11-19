@@ -48,6 +48,7 @@ def article_content(path,dest,diagram=False):
       'labs/module-01/README.md':'labs/module-01/index.html',
       'labs/module-02/README.md':'labs/module-02/index.html',
       'social/module-01/POST.md':'social/module-01/POST.html',
+      'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
       'social/module-05/SLIDES.md':'social/module-05/SLIDES.html',
       'social/module-05/POST.md':'social/module-05/POST.html',
@@ -183,7 +184,7 @@ def frame(body,page,title,prefix='',article=False,toc=None):
         if page=='module01' and title=='Module 01':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../learning/index.html">Practice with the adaptive tutor ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
         if page=='module02' and title=='Module 02':
-            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a maturity claim before approving it.</h2><p>Run the synthetic scoring lab and examine its hard-gate evidence.</p><a class="simple-link" href="../labs/module-02/index.html">Open Module 02 lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a></section>'''
+            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a maturity claim before approving it.</h2><p>Run the synthetic scoring lab and examine its hard-gate evidence.</p><a class="simple-link" href="../labs/module-02/index.html">Open Module 02 lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a><a class="simple-link" href="../social/module-02/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-02/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module' and title=='Module 05':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Turn the question into a decision.</h2><p>Try the local lab, then explore the HTML version of the LinkedIn question deck.</p><a class="simple-link" href="../labs/module-05/index.html">Open practical lab ↗</a><a class="simple-link" href="../social/module-05/CAROUSEL.html">Open question deck ↗</a></section>'''
     outer=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>{html.escape(title)} — Sovereign AI Field Guide</title><meta name="description" content="A sourced, annotated book on enterprise sovereign AI product leadership."><link rel="stylesheet" href="{prefix}assets/site.css"></head>
@@ -234,6 +235,7 @@ def main():
       ('labs/module-01/README.md','labs/module-01/index.html','module01','Module 01 lab'),
       ('labs/module-02/README.md','labs/module-02/index.html','module02','Module 02 lab'),
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
+      ('social/module-02/POST.md','social/module-02/POST.html','module02','LinkedIn post draft 02'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module','Module 05 lab'),
@@ -264,7 +266,7 @@ def main():
         prefix='../'*dest.count('/')
         write(DIST/dest,frame(content,page,title,prefix,True,sections))
     # Custom-designed HTML carousels, independent of Markdown rendering.
-    for n in ('01','05'):
+    for n in ('01','02','05'):
         if (ROOT/f'social/module-{n}/CAROUSEL.html').exists():
             shutil.copy2(ROOT/f'social/module-{n}/CAROUSEL.html',DIST/f'social/module-{n}/CAROUSEL.html')
     print('Built',len(list(DIST.rglob('*.html'))),'HTML pages in', DIST)
