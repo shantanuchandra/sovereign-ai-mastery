@@ -1,0 +1,172 @@
+{
+  "lab_version": "1.0",
+  "notice": "Entirely fictional teaching inputs. Simulated evidence status is not independently authenticated.",
+  "workloads": [
+    {
+      "id": "CORP-02",
+      "description": "Synthetic policy drafting using a managed endpoint at an approved named location",
+      "boundary": "named_locations",
+      "required_site": "",
+      "allowed_sites": [
+        "APPROVED-SITE-A"
+      ],
+      "candidate": {
+        "compute_site": "APPROVED-SITE-A",
+        "network": "allowlist",
+        "external_network_path": true,
+        "restricted_offsite_flow": false,
+        "capacity_feasible": true,
+        "offline_licence_available": true
+      },
+      "dimensions": {
+        "territorial": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "Platform lead",
+          "test_id": ""
+        },
+        "operational": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "CISO",
+          "test_id": ""
+        },
+        "technological": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "Model lead",
+          "test_id": ""
+        },
+        "legal_contractual": {
+          "stage": "M0",
+          "evidence": "none",
+          "owner": "Legal",
+          "test_id": ""
+        }
+      }
+    },
+    {
+      "id": "PLANT-02",
+      "description": "Fictional restricted engineering RAG with attempted diagnostic export in a crash drill",
+      "boundary": "single_premises",
+      "required_site": "FACTORY-A",
+      "allowed_sites": [],
+      "candidate": {
+        "compute_site": "FACTORY-A",
+        "network": "isolated",
+        "external_network_path": true,
+        "restricted_offsite_flow": true,
+        "capacity_feasible": true,
+        "offline_licence_available": true
+      },
+      "dimensions": {
+        "territorial": {
+          "stage": "M3",
+          "evidence": "adverse",
+          "owner": "Platform lead",
+          "test_id": "SYNTH-EGRESS-01"
+        },
+        "operational": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "CISO",
+          "test_id": ""
+        },
+        "technological": {
+          "stage": "M3",
+          "evidence": "reviewed",
+          "owner": "Model lead",
+          "test_id": "SYNTH-LOCAL-COLD-START"
+        },
+        "legal_contractual": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "Legal",
+          "test_id": ""
+        }
+      }
+    },
+    {
+      "id": "OT-02",
+      "description": "Fictional physically disconnected reference assistant with prohibited network enabled",
+      "boundary": "air_gapped",
+      "required_site": "OT-FACILITY-C",
+      "allowed_sites": [],
+      "candidate": {
+        "compute_site": "OT-FACILITY-C",
+        "network": "internet",
+        "external_network_path": true,
+        "restricted_offsite_flow": false,
+        "capacity_feasible": true,
+        "offline_licence_available": true
+      },
+      "dimensions": {
+        "territorial": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "OT lead",
+          "test_id": ""
+        },
+        "operational": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "Security lead",
+          "test_id": ""
+        },
+        "technological": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "Model lead",
+          "test_id": ""
+        },
+        "legal_contractual": {
+          "stage": "M0",
+          "evidence": "none",
+          "owner": "Legal",
+          "test_id": ""
+        }
+      }
+    },
+    {
+      "id": "LIC-02",
+      "description": "Fictional factory assistant whose installed model cannot legally cold-start offline",
+      "boundary": "single_premises",
+      "required_site": "FACTORY-A",
+      "allowed_sites": [],
+      "candidate": {
+        "compute_site": "FACTORY-A",
+        "network": "isolated",
+        "external_network_path": false,
+        "restricted_offsite_flow": false,
+        "capacity_feasible": true,
+        "offline_licence_available": false
+      },
+      "dimensions": {
+        "territorial": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "Platform lead",
+          "test_id": ""
+        },
+        "operational": {
+          "stage": "M2",
+          "evidence": "configured",
+          "owner": "CISO",
+          "test_id": ""
+        },
+        "technological": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "Model lead",
+          "test_id": ""
+        },
+        "legal_contractual": {
+          "stage": "M1",
+          "evidence": "asserted",
+          "owner": "Procurement",
+          "test_id": ""
+        }
+      }
+    }
+  ]
+}
