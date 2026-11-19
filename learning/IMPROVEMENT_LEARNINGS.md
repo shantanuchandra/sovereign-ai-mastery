@@ -59,6 +59,24 @@ For a selected TOC header:
 
 **Stop:** No additional work after approximately 17:26 Asia/Dubai on 19 November 2026 without a new request. The queue is a scope and pacing proposal, not an active unattended automation.
 
+## Improvement entry 002 | 2026-11-19 | Module 01 / header 1.2
+
+**Changed file:** `chapters/01-sovereign-ai-fundamentals.md`  
+**Content commit:** `97ec38a51628b3aa8e4387cdb833413152b98646`  
+**Scope:** Expanded TOC header 1.2 into approximately 1,120 words of substantive learner-facing content. Defined and contrasted digital, data, cloud and AI sovereignty as overlapping but non-equivalent control questions, with an ontology chain, fictional UAE policy-assistant case, three architecture choices, premises-only and air-gap overrides, a detailed failed evaluation-connector drill, a PM requirements register and a three-scenario Studio exercise.
+
+**Root cause / educational problem:** A correct cloud-region setting can be mistaken for proof of AI-lifecycle location control. The previously brief chapter lacked a separate explanation of how evaluation, monitoring and derivative data can break an otherwise plausible claim. This section makes the missing connector an explicit acceptance-test failure, identifies the omitted lifecycle inventory as the contributing process gap, and requires containment plus retest.
+
+**Evidence discipline:** This is a course-authored teaching taxonomy, not an official standard. The fictional scenario is explicitly identified as fictional; no new vendor or regulatory claims were introduced. NIST AI RMF is cited only for its risk-management scope; existing Section 5 contains the source ledger. A fresh external-source audit has **not** been performed in this iteration.
+
+**Verification actually performed:** Twelve structural/content assertions passed against the freshly fetched GitHub chapter: one 1.2 header, proper order, all four layers, scenario, premises and air-gap distinctions, RCA, PM register, learner exercise, ontology and Studio links. GitHub Pages CI for the content commit was **waiting** when checked: [workflow run 44555656139](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44555656139). No local Node/Python test suite was executed in this run; the Pages workflow is configured to execute those checks when it starts. Do not treat a queued build as passed.
+
+**Module boundary review A:** NOT YET DUE (1.3–1.7 unfinished).  
+**Module boundary review B:** NOT YET DUE (1.3–1.7 unfinished).  
+**Open risks:** Await CI completion and check deployed rendering. Live browser accessibility, independent source review and all-site link verification remain unperformed.  
+**Reusable lesson:** Track evaluation, monitoring, support, backup and derived-data destinations as first-class architecture dependencies. Keep physical-premises and disconnected-network requirements as hard constraints, even when cloud alternatives are cheaper.  
+**Next:** Confirm CI outcome, then develop **Module 01 / 1.3 Sovereign vs. private vs. secure vs. compliant AI**.
+
 ## Improvement entry 001 | 2026-11-19 | Module 01 / header 1.1
 
 **Changed file:** `chapters/01-sovereign-ai-fundamentals.md`  
