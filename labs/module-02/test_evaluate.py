@@ -90,5 +90,36 @@ class ScoringLabTests(unittest.TestCase):
             evaluate_portfolio({"workloads": items})
 
 
+    def test_expired_evidence_is_unverified(self):
+        item = self.case("CORP-02")
+        item["dimensions"]["territorial"]["evidence"] = "expired"
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "UNVERIFIED")
+        self.assertTrue(any("expired" in gap for gap in result["unverified_claims"]))
+
+    def test_local_capacity_shortfall_is_not_feasible(self):
+        item = self.case("LIC-02")
+        item["candidate"]["offline_licence_available"] = True
+        item["candidate"]["capacity_feasible"] = False
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "NOT_FEASIBLE_UNDER_CURRENT_CONSTRAINTS")
+        self.assertIn("local_or_approved_compute_capacity_unavailable", result["feasibility_gaps"])
+
+    def test_named_location_outside_approved_list_is_blocked(self):
+        item = self.case("CORP-02")
+        item["candidate"]["compute_site"] = "UNAPPROVED-SITE-Z"
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "BLOCKED")
+        self.assertIn("compute_site_not_in_approved_locations", result["hard_gate_failures"])
+
+    def test_disconnected_candidate_still_needs_real_evidence(self):
+        item = self.case("OT-02")
+        item["candidate"]["network"] = "disconnected"
+        item["candidate"]["external_network_path"] = False
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "UNVERIFIED")
+        self.assertNotEqual(result["disposition"], "REVIEW_REQUIRED")
+
+
 if __name__ == "__main__":
     unittest.main()
