@@ -20,6 +20,14 @@
    - **Retest and closure:** After a fix is committed, the claim remains `FAIL` (or open/nonconforming) until a fresh, documented test covers normal, failover and support paths with no prohibited flows. Then the accountable reviewer may change the claim to `PASS` **for the bounded test**, with evidence ID, date and next review. It is never proof of universal sovereignty.
    - **PM decision:** Block an unqualified sovereignty claim; accept a narrowly scoped exception only through an explicit owner, approval, expiry and revalidation plan.
 
+
+7. **Hard-gate versus weighted-score challenge (fictional).**
+   - **Regional managed endpoint: FAIL.** It sends inference and possibly derivatives beyond the mandatory single premises. Its 4.8/5 score is irrelevant because it is not an eligible option. A same-country region does not cure this failure.
+   - **On-site model: UNVERIFIED / NOT APPROVED.** Physical placement is promising but the model-quality threshold, all derivative paths, operator access, backups, local capacity, licenses and recovery must pass documented tests before restricted production.
+   - **Evidence to change status:** Named site and lifecycle inventory; synthetic egress and support/failover tests; task-specific blinded quality/safety benchmark with predeclared acceptance threshold; local cold start and restore; keys/identity and supplier-access review; dated reviewer sign-off. Record actual results and remaining unknowns.
+   - **Air-gap override:** All inbound and outbound network connectivity, including allowlisted support, remote licence activation and cloud failover, is prohibited. Require offline signed artifact intake, removable-media custody, malware review, local logging, restore and rollback drills. If feasible on-site capacity or rights cannot be demonstrated, state **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**, not a relaxed network rule.
+   - **RCA if the managed endpoint was selected:** Direct cause is off-site inference; process cause is treating the mandatory premises boundary as a weighted preference. Correct by hard-gating before option scoring and retesting the full lifecycle.
+
 ## PM memo rubric (20 points)
 
 - Scope and control dimensions (4)
