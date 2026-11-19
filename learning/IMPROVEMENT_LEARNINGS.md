@@ -1,5 +1,20 @@
 # Sovereign AI Mastery | Improvement learnings
 
+
+## Current authorized execution | 2026-11-19 | Whole-curriculum build
+
+**Supersedes the six-hour Dubai-time draft queue below.** The user expanded the scope to the **entire curriculum, all 24 modules and their constituent headers**, and authorized **one GitHub development run per hour for the next six hours**. The task scheduler confirms six exact-schedule occurrences at **21:00, 22:00, 23:00 on 19 November and 00:00, 01:00, 02:00 on 20 November 2026, Asia/Kolkata (UTC+05:30)**. Do not continue after those six occurrences without fresh authorization. The schedule does not imply six whole modules will be completed.
+
+**Sequential curriculum method:** Use `TOC.md` as the authoritative header queue, beginning at **Module 01 / 1.2** since 1.1 was committed. The unit of work is one header and its *actual substantive teaching content*, not a heading-only stub. Continue a header if unfinished rather than advancing blindly. Each header must address concepts, concrete enterprise situations, dependencies, control evidence, architectural alternatives, constraints, PM decisions, and measurable learner practice. Keep claims qualified and sourced. Preserve on-premises and air-gap fail-closed behavior.
+
+**Module release gate:** When the final header of a module is ready, perform (A) a technical/security/source review, then (B) a separate editorial/accessibility/assessment review. Log the specific findings, fixes, and validation; do not move to the next module while blockers remain. Improve the site, labs, learner UI, tests and PM artifact along with the chapter whenever the header's content requires it.
+
+**Every execution:** inspect latest repository state, choose the next incomplete header, make and verify the improvement, check applicable tests and Pages deployment, write a dated entry here with exact commit and unresolved risks, and state the next header. If the release/build check is pending, record it as pending and recheck in the next iteration. Avoid personal or confidential data in this public repo.
+
+**Continuity beyond the six hours:** These first six scheduled runs are a bounded installment of a longer 24-module build. Treat the uncompleted rest of the curriculum as backlog, not as an authorization for unlimited unattended work.
+
+---
+
 **Started:** 2026-11-19, approximately 11:26 Asia/Dubai (UTC+04:00)  
 **Requested working window:** six hours, ending approximately 17:26 Asia/Dubai on 2026-11-19  
 **Requested cadence:** one course header every 30 minutes  
