@@ -25,6 +25,10 @@ def modules():
     assert len(found) == 24, f'Expected 24 modules, found {len(found)}'
     return [(int(n), title) for n,title in found]
 
+def chapter_files():
+    """Published and draft chapter sources; the sidebar can link to any authored module."""
+    return {int(p.name[:2]): p for p in sorted((ROOT/'chapters').glob('[0-9][0-9]-*.md'))}
+
 def render_md(path):
     if shutil.which('pandoc'):
         p=subprocess.run(['pandoc','--from=markdown+footnotes+pipe_tables+fenced_code_blocks+auto_identifiers','--to=html5','--wrap=none'], input=path.read_text(encoding='utf-8'), capture_output=True, text=True, check=True)
@@ -47,6 +51,10 @@ def article_content(path,dest,diagram=False):
       'social/module-05/SLIDES.md':'social/module-05/SLIDES.html',
       'social/module-05/POST.md':'social/module-05/POST.html',
     }
+    routing.update({
+        chapter.relative_to(ROOT).as_posix(): f'modules/{chapter.stem}.html'
+        for chapter in chapter_files().values()
+    })
     outdir=(DIST/dest).parent
     for a in soup.select('a[href]'):
         href=a['href'];parts=urlsplit(href)
@@ -128,9 +136,16 @@ def article_content(path,dest,diagram=False):
     return str(soup),sections
 
 def relroute(num):
-    return 'modules/01-sovereign-ai-fundamentals.html' if num==1 else ('modules/05-laws-regulation-jurisdiction.html' if num==5 else f'curriculum.html#module-{num:02}')
+    authored = chapter_files()
+    if num in authored:
+        return f'modules/{authored[num].stem}.html'
+    if num == 5:
+        return 'modules/05-laws-regulation-jurisdiction.html'
+    return f'curriculum.html#module-{num:02}'
 
 def book_sidebar(page,prefix=''):
+    current_module = int(page[-2:]) if re.fullmatch(r'module\d{2}', page) else (5 if page=='module' else None)
+    current_label = f'{current_module:02}' if current_module is not None else '01'
     links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html')]
     core=''.join(f'<a class="toc-special {"is-active" if page==name else ""}" href="{prefix}{route}">{html.escape(label)}</a>' for name,label,route in links)
     parts=[]; seq=modules(); j=0
@@ -139,13 +154,13 @@ def book_sidebar(page,prefix=''):
         items=[]
         for n,t in seq:
             if lo <= n <= hi:
-                active=(page=='module01' and n==1) or (page=='module' and n==5)
+                active=(current_module==n)
                 items.append(f'<a class="toc-chapter {"is-active" if active else ""}" href="{prefix}{relroute(n)}" title="{html.escape(t,quote=True)}"><span class="chapter-num">{n:02}</span><span class="chapter-text">{html.escape(t)}</span>{"<span class=\"read-dot\" title=\"Chapter ready\"></span>" if n in (1,5) else ""}</a>')
-        opened= ' open' if ((page=='module' and lo<=5<=hi) or (page=='module01' and lo<=1<=hi)) else ''
+        opened= ' open' if (current_module is not None and lo<=current_module<=hi) else ''
         parts.append(f'<details class="toc-part"{opened}><summary><span class="roman">{roman}</span><span>{html.escape(title)}</span><span class="chevron">⌄</span></summary><div class="toc-chapters">{"".join(items)}</div></details>')
     return f'''<aside class="book-sidebar" id="book-sidebar" aria-label="Book table of contents">
       <div class="book-logo"><span class="logo-glyph">S<span>/</span>A</span><span class="logo-copy">THE SOVEREIGN AI<br><strong>FIELD GUIDE</strong></span></div>
-      <div class="sidebar-label"><span>YOUR READING DESK</span><span>{"05" if page=="module" else "01"} / 24</span></div>
+      <div class="sidebar-label"><span>YOUR READING DESK</span><span>{current_label} / 24</span></div>
       <nav class="toc-nav" aria-label="Course contents"><div class="toc-top">{core}</div><div class="toc-heading">TABLE OF CONTENTS <span>24 CHAPTERS</span></div>{''.join(parts)}</nav>
       <div class="sidebar-bottom"><span class="bottom-icon">✦</span><span>Written for the thoughtful<br><strong>AI product leader.</strong></span></div>
     </aside>'''
@@ -213,13 +228,19 @@ def main():
       ('STYLE_GUIDE.md','editorial.html','editorial','Editorial standards'),
       ('CHAPTER_TEMPLATE.md','CHAPTER_TEMPLATE.html','editorial','Chapter template'),
       ('chapters/05-laws-regulation-jurisdiction.md','modules/05-laws-regulation-jurisdiction.html','module','Module 05'),
-      ('chapters/01-sovereign-ai-fundamentals.md','modules/01-sovereign-ai-fundamentals.html','module01','Module 01'),
       ('labs/module-01/README.md','labs/module-01/index.html','module01','Module 01 lab'),
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module','Module 05 lab'),
     ]
+    # Publish every source-authored chapter as soon as it has substantive content.
+    # Module 05 retains its legacy HTML fallback until its Markdown source exists.
+    for number, chapter in chapter_files().items():
+        if number != 5:
+            paths.append((chapter.relative_to(ROOT).as_posix(),
+                          f'modules/{chapter.stem}.html',
+                          f'module{number:02}', f'Module {number:02}'))
     for source,dest,page,title in paths:
         if not (ROOT/source).exists():
             # Temporary compatibility for reference chapters published before
