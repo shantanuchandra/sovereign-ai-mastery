@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Sections 2.1–2.3**. Sections 2.4–2.7 and both module-critical reviews are pending |
+| Current publication | **In-progress chapter, Sections 2.1–2.4**. Sections 2.5–2.7 and both module-critical reviews are pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -292,7 +292,115 @@ A procurement or architecture review should produce this minimum record for **EN
 
 **Exit check:** Can an in-country managed service satisfy a physical single-premises constraint? **Not when restricted processing leaves that premises.** Is an edge appliance inherently air-gapped? **No.** Can a hybrid portfolio contain both restricted and managed workloads? **Yes, only with verified segregation and no prohibited cross-boundary flow.**
 
-**Next header:** 2.4, *Sovereign AI stack components*. Module 02 remains incomplete until Sections 2.4–2.7, lab, assessment, facilitator solutions, publishing artifacts and both critical reviews are completed.
+**Sections 2.1–2.3 complete.** Section 2.4 below extends the deployment comparison into a component-by-component control and evidence map.
 
 [^nist-deploy-23]: NIST, *Zero Trust Architecture*, SP 800-207, final August 2020, [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), accessed **20 November 2026**. The short quotation concerns trust and identity, not sovereignty certification.
 [^nist-rmf-deploy-23]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1 and Govern 6.2](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), accessed **20 November 2026**. The source is voluntary risk guidance; the six-class taxonomy is course-authored.
+
+
+### 2.4 Sovereign AI stack components: from facilities to operations
+
+**Product decision:** Treat the sovereign AI stack as **twelve dependency layers and four cross-cutting control dimensions**, not as a shopping list of locally hosted technology. A facility can be in the permitted geography while an update service, model endpoint, privileged account, evaluation sink or backup crosses the forbidden boundary. Before approving an architecture, name each layer's owner, operator, allowed flows, replaceability and test evidence.
+
+A practical stack spans **physical facilities, chips, compute, network, storage, data, models, platforms, applications, identity and access management (IAM), security, and operations**. IAM, security and operations are not just the final three boxes on an architecture diagram: they cut across every other layer. A PM should not infer that a company must manufacture chips or own buildings to meet a scoped objective. It must show that external dependencies cannot bypass the *specific requirements* for the workload.
+
+#### Twelve layers, twelve evidence questions
+
+| Layer | Component or decision under examination | Control owner and evidence to request | Example of a failed claim |
+|---|---|---|---|
+| **1. Facilities and utilities** | Site, power, cooling, racks, physical access and resilient capacity | Facilities lead: site inventory, access badge test, power-failure drill and repair contracts | Server is in an approved country but outside the *required factory premises* |
+| **2. Chips and firmware** | CPU/GPU or accelerator, boot chain, device firmware and replacement supply | Platform hardware lead: asset origin, firmware/update path, inventory, capacity and failure test | Local inference fails because no replacement accelerator can be obtained in the agreed recovery window |
+| **3. Compute and runtime** | Host OS, hypervisor, containers, scheduler, model execution engine | Platform SRE: administrator map, approved capacity tests, runtime image digest and offline restart | A licence-entitlement call blocks local inference when supplier links are disabled |
+| **4. Network** | Segmentation, routing, DNS, proxy, private links, update and remote-support channels | Network/security leads: deny-by-default rules, observed destinations and change-triggered egress regression | "Isolated" subnet has an unnoticed outbound support tunnel |
+| **5. Storage and recovery** | Object/file/block stores, snapshots, replication, key custody and restore | Storage lead: snapshot destinations, recovery test, retention and deletion evidence | Recovery replicas are copied to an unapproved remote region |
+| **6. Data and derivatives** | Source files, prompts, answers, embeddings, feedback, training or evaluation samples | Data owner: classification, lineage, destination inventory, purpose and deletion test | Evaluation extracts include restricted prompt content despite local inference |
+| **7. Models and artefacts** | Weights, tokenizers, licences, provenance, adaptations and evaluation sets | Model lead: model card/license review, checksum, permitted use and replacement benchmark | A model is downloadable but its licence or runtime cannot support the required offline use |
+| **8. AI platform** | Gateway, RAG pipeline, vector database, orchestration, inference/evaluation APIs | Platform architect: service map, tenant isolation, API access test, logs and versioned policies | A model gateway silently falls back to an external provider |
+| **9. Applications and tools** | Business UI, connectors, agent actions, document ingestion and user authorization | Product owner: end-to-end workflow test, plugin permissions and failure behavior | The app sends a maintenance attachment to an external helpdesk |
+| **10. IAM and secrets** | Users, service accounts, privileged support, keys, tokens and emergency access | IAM/CISO: role matrix, MFA where applicable, revoke/reissue and break-glass drill | Supplier access persists after contract termination |
+| **11. Security and assurance** | Threat modeling, patch and vulnerability management, logging, incident response and testing | CISO: threat model, signed test record, exceptions, incident and recovery exercise | A green encryption checkbox is accepted instead of an egress test |
+| **12. Operations and supplier exit** | Monitoring, change control, backups, support, patch intake, spares, rollback and decommissioning | Operations/procurement: RACI, runbooks, portability rehearsal, support trace and deletion attestation | A vendor update changes the data destination without reapproval |
+
+This is a **course-authored decomposition**. It provides a curriculum map, not an official reference stack or certification. The underlying [ontology](../taxonomy/ONTOLOGY.md) can represent **Workload → dependsOn → Component → operatedBy → Actor**, while **Requirement → addressedBy → Control → testedBy → Test → produces → Evidence** connects architecture to a release decision. A shared component may serve multiple workloads, but a test of one workload does not automatically prove the controls for another.
+
+**Official source boundary:** NIST AI RMF 1.0 *Map 4.1* explicitly includes AI-system component risk arising from “third-party data or software.”[^nist-map-stack24] NIST SP 800-161 Rev. 1, updated 1 November 2024, addresses “identifying, assessing, and mitigating cybersecurity risks throughout the supply chain.”[^nist-scrm-stack24] NIST SP 800-207 states that zero trust does not confer implicit trust “based solely on their physical or network location.”[^nist-zt-stack24] These sources justify component, supplier and identity-risk evaluation; **none** establishes the course's twelve-layer stack or verifies a sovereign-AI deployment.
+
+#### Two maps: data plane versus control plane
+
+The **data plane** carries prompts, retrieved chunks, embeddings, model outputs, evaluation samples and application attachments. The **control plane** installs software, changes network policy, administers keys, supports users, monitors health, backs up data and controls failover. A control-plane action may cause data movement, so inspecting only prompt traffic is insufficient.
+
+\`\`\`text
+DATA PLANE (restricted site)
+User -> Application -> Retrieval index -> Local model -> Response
+                     \-> Local evaluation and audit sink
+
+CONTROL PLANE (restricted site)
+Enterprise IAM -> Admin console -> Runtime / update controls
+Local monitoring -> Local backup -> Local restore
+
+External supplier / cloud / support destination
+    X No restricted data or derivatives may cross this boundary
+    X No unapproved admin or diagnostic channel
+\`\`\`
+
+*Diagram reading:* The crossed paths are requirements, **not proof** that software obeys them. A site-level review traces firmware and model update intake, diagnostics, exception handling and disaster recovery. An air-gapped variant forbids **all inbound and outbound network connectivity**; offline signed media and locally audited maintenance replace online update channels. Physical media and people still need controls.
+
+#### Fictional UAE enterprise: shared governance, separate stack footprints
+
+**Case (fictional UAE industrial group):** Three product teams want a common enterprise AI platform. Their use cases are (A) public/synthetic policy drafting, (B) proprietary factory engineering search and (C) an air-gapped operations reference. The group wants to reuse evaluation code and IAM policies, but **cannot reuse the same remote runtime or monitoring endpoint** for all three.
+
+| Workload | Critical physical and network boundary | Eligible architecture hypothesis | Compulsory residual checks |
+|---|---|---|---|
+| **PUBLIC-24:** policy drafting using synthetic material | Named permitted processing locations, no restricted customer content | Managed inference platform **conditionally eligible** | Endpoint/deployment class, logs, subprocessor/support access, contracts, costs and evaluated output quality |
+| **PLANT-24:** restricted engineering RAG | **One named physical factory premises; no data or derivative exits** | Local compute and local model, index, logs, keys and backup **conditionally eligible** | Capacity, denied egress, runtime entitlement, on-site supplier service, restore and model licence |
+| **OT-24:** disconnected reference assistant | **Air-gapped: no inbound or outbound network** | Fully local, disconnected serving with controlled offline artefacts **conditionally eligible** | Approved removable-media intake, integrity verification, rollback, physical security and safe operation |
+
+**Design option 1, one managed platform:** operationally simpler for PUBLIC-24, **REJECT** for PLANT-24 and OT-24 if traffic leaves their prohibited boundaries. **Option 2, one regional enterprise data center:** may serve less restrictive workloads, but remains off-site for the plant. Owning a distant facility does not satisfy PLANT-24. **Option 3, segmented portfolio:** share non-sensitive policy templates and code through approved, reviewed releases; operate separate local model/data stacks for the restricted workloads. This costs more in hardware, operations and duplicated verification, but is the only eligible *class of design* among these options under the fictional hard boundaries. Eligibility is not proof of a passing implementation.
+
+**Capacity and cost:** Measure tokens/sec or task latency, concurrency, model quality, accelerator headroom, power, equipment replacement, skilled support, update operations and restore objectives using synthetic tests. Do not invent benchmark numbers, cost savings or a “sovereignty premium.” If PLANT-24 cannot meet acceptable model quality on local equipment or OT-24 cannot obtain legally usable offline artefacts, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Neither can silently fall back to the managed API.
+
+#### Failure exercise and RCA: an apparently local stack with an external control plane
+
+**Test observation, fictional:** PLANT-24 performs inference, storage and retrieval on-premises. During a simulated runtime crash, an observability agent packages exception traces with synthetic restricted-label prompt fragments, then attempts HTTPS upload to the supplier's managed diagnostics account. A deny-egress rule blocks the connection. The immediate test does not prove that production data escaped, but it shows a **forbidden management/data flow** and the design cannot pass the physical-site requirement yet.
+
+| RCA step | Finding, owner and required response |
+|---|---|
+| **Symptom and status** | Synthetic diagnostics tried to cross the single-premises boundary; **BLOCKED** for restricted launch |
+| **Direct cause** | Preconfigured observability agent used a remote diagnostic collector |
+| **Contributing process gap** | Stack review mapped database, inference and GPU ownership but excluded control-plane exception reporting and vendor service tools |
+| **Containment** | Platform team retains the outbound deny, disables the agent's remote upload, preserves synthetic trace evidence and checks historical route logs |
+| **Correction** | Switch to a fully local diagnostic sink or remove the agent, approve offline/supervised support, update the component and derivative inventory |
+| **Independent retest** | Replay normal, crash, update, backup, failover and restore scenarios; examine packet/DNS/firewall traces, privileged sessions, local artifacts and actual destination configuration |
+| **Closure** | Dated versioned results reviewed by security and plant data owners; no restricted-data release before the hard boundary passes |
+
+**Root cause:** The team evaluated **where the AI workload executes** but not **where its control plane operates**. An isolated data plane can still be coupled to an externally managed diagnostic system. A blocked connection protects this particular test, but an attempted prohibited route is a design defect that needs remediation and retesting.
+
+#### PM artifact: stack ownership, failure and evidence ledger
+
+For each of the twelve layers, the PM should record **component ID, vendor, legal owner, actual operator, physical location, data/control-plane connections, lifecycle stages, licence/exit rights, mandatory requirement, evidence owner, test ID, evidence date and disposition**.
+
+A concise example for PLANT-24:
+
+| Entry | Decision record |
+|---|---|
+| **Claim** | SITE-PLANT-24: restricted content/derivatives remain inside named plant premises under normal and degraded operation |
+| **Layer and dependency** | 12 / observability agent; supplier-operated diagnostic endpoint is a cross-boundary dependency |
+| **Authority** | Plant data owner sets prohibition; platform owns configuration; security validates paths; procurement owns vendor service terms |
+| **Acceptance test** | Inject synthetic prompt marker, trigger model fault, record all outbound attempts; also verify backup, support and recovery flows |
+| **Observed evidence** | **FAILED / BLOCKED**: attempted HTTPS diagnostics to off-site collector, test version and trace retained |
+| **Solution and closure** | Local-only sink, revised supplier support runbook, regression test and independent sign-off |
+| **Alternative if infeasible** | Reject the proposed supplier component or record unfulfilled requirement; never reclassify the site boundary as “country only” |
+
+**Prioritization rule:** Screen hard placement, network, operational authority, model licence and minimum quality constraints **before** weighting throughput or price. For eligible options, compare total cost and residual dependencies with documented assumptions. Red, amber or green scores cannot compensate for a failed no-egress or air-gap gate.
+
+**Learner challenge (35 minutes):** Start in the [Architecture & Learning Studio](../learning/index.html) with **Strict on-premises IP research assistant**. Keep **Single premises only; no data or derivatives may leave**. Change only compute from **On-prem production GPU servers inside the premises** to **Approved managed AI platform** and predict the hard feasibility result. Return to local compute, then switch operator to **Approved contractor, physically on-site under enterprise control**. Name the additional administrator, support-media and contract evidence required.
+
+Next choose **Air-gapped factory operations** and attempt **General internet access including external service endpoints**. State why neither an allowlist nor a country-resident endpoint would fix the mismatch. Create a **twelve-row stack ledger** for a fictional PLANT-24 pilot. Mark three entries **UNVERIFIED**, one **FAILED**, and propose a falsifiable test for each. Explain why the Studio can suggest a pattern but cannot inspect firmware, verify licences, read actual network logs or certify compliance.
+
+**Exit check:** Does local GPU ownership establish control over all twelve layers? **No.** Is managed compute necessarily wrong for every workload? **No**, only when its actual boundaries conflict with scoped requirements. Does a suitable local model make an air-gapped workload ready? **Not until** offline integrity, capacity, operations, physical security and recovery controls are tested.
+
+**Next header:** 2.5, *Model ownership vs. model hosting vs. platform control*. The complete Module 02 remains a draft until Sections 2.5–2.7, lab, assessment, solutions, website assets and two distinct module-level reviews are completed.
+
+[^nist-map-stack24]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Short direct phrase checked against official NIST AI RMF results **20 November 2026**. This is AI risk mapping, not a sovereign-AI stack specification.
+[^nist-scrm-stack24]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022, updated **1 November 2024**), [official abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Direct phrase checked on the official HTML page **20 November 2026**. General C-SCRM guidance, not a sovereignty certification.
+[^nist-zt-stack24]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final). Direct phrase checked on official HTML **20 November 2026**. The principle concerns authorization and trust rather than sovereign-AI ownership.
