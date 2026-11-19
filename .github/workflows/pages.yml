@@ -34,6 +34,12 @@ jobs:
           node --check learning/studio-ui.mjs
       - name: Check Python builder syntax
         run: python -m py_compile scripts/build_site.py
+      - name: Validate Module 02 scoring lab
+        run: |
+          python -m py_compile labs/module-02/evaluate.py labs/module-02/test_evaluate.py
+          python -m unittest discover -s labs/module-02 -p 'test_*.py' -v
+          python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
+          test -s /tmp/module02-scorecard.json
       - name: Build from Markdown source
         run: python scripts/build_site.py
       - name: Verify rendered diagrams and onboarding
@@ -45,6 +51,8 @@ jobs:
           test -s dist/learning/studio-ui.mjs
           test -s dist/modules/01-sovereign-ai-fundamentals.html
           test -s dist/modules/02-classifications-components-maturity-models.html
+          test -s dist/labs/module-02/index.html
+          grep -q 'score claims, not marketing labels' dist/labs/module-02/index.html
           grep -q 'Sovereignty by scope' dist/modules/02-classifications-components-maturity-models.html
           grep -q '02-classifications-components-maturity-models.html' dist/index.html
           test -s dist/diagrams/module-01-claim-chain.svg
