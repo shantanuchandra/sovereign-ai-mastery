@@ -251,6 +251,86 @@ The inference chain is: *national capability → available suppliers → enterpr
 
 **Source discipline, 19 November 2026:** The scope categories and control dimensions are from the course-authored [ontology](../taxonomy/ONTOLOGY.md). For primary-source background on governance and security evaluation, consult NIST [AI RMF 1.0 Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) (2023) and [SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) (2020). Neither establishes this taxonomy or certifies sovereign AI. This section makes no claim that a particular national program has achieved a stated capacity or that a particular UAE law mandates this architecture.
 
+
+### 1.5 Can a company build or operate sovereign AI without owning everything?
+
+**Decision first: Yes, within a defined workload boundary.** Ownership of every chip, model, library, building or network is neither necessary for every enterprise sovereignty objective nor sufficient to prove one. The enterprise must instead identify the decisions it cannot delegate, the dependencies it can accept, and the evidence that external parties cannot bypass its boundaries. If the required control cannot be secured through operating procedures, architecture and enforceable arrangements, the design is **not qualified**, regardless of the vendor's marketing label.
+
+**Five questions before buying or building:** Who owns the physical asset? Who can operate and reconfigure it? Who can see or export restricted content and derivatives? Who can replace a failed component or supplier? Who has the contractual and technical right to stop or audit the service? Different parties may answer each question. An enterprise that leases a server but controls local access may have stronger site control than one that owns the software but sends all requests to a remote endpoint.
+
+#### Ownership, control and evidence are separate columns
+
+| Dependency | Ownership need not be enterprise-held | Critical control or decision right | Proof and failure condition |
+|---|---|---|---|
+| **Facilities, power and compute** | Building ownership and chip fabrication | Approved processing geography, physical access, boot/firmware authority, capacity and replacement plan | Visit/access record, asset map, configuration inspection, capacity test; **fail** if the only recovery compute is outside a mandatory premises boundary |
+| **Model weights and licenses** | Original model training or intellectual property | Right to run the chosen model in the required environment, retain authorized copies, update and replace it | License and redistribution/usage review, artifact digest, offline install and a substitution rehearsal; **fail** if a license or service restriction prevents the required use |
+| **Serving, retrieval and orchestration** | Every open-source package or serving runtime | Network egress policy, API interfaces, prompt and embedding custody, key and identity authority | Data-flow inventory, denied-egress tests, role review and integration test; **fail** if an unapproved connector sends content elsewhere |
+| **Operations and support** | Every worker need not be an employee | Named administrators, approved location and mode of access, escalation, monitoring and termination rights | Identity access records, supervised support drill, credential revocation test; **fail** if a vendor can independently establish an unapproved remote session |
+| **Backups, observability and exit** | Every storage device or monitoring tool | Destinations, retention and deletion, log access, disaster recovery, restore and export | Traced destinations, restore rehearsal, sample export and deletion evidence; **fail** if required recovery creates forbidden off-site copies |
+
+*Ontology link:* Under the course-authored [sovereignty ontology](../taxonomy/ONTOLOGY.md), **Workload dependsOn Supplier**, **Supplier operates Component**, **Enterprise owns Control**, and **Test produces Evidence for Claim**. These are learning-model relationships, not terms established by a regulator. Ownership of a component does not automatically imply ownership of the relevant control.
+
+The risk-management approach is consistent with **NIST AI RMF 1.0, Govern 6.2**, which calls for “Contingency processes ... to handle failures or incidents” in high-risk third-party AI systems.[^nist-airmf-thirdparty-15] NIST **SP 800-161 Rev. 1**, as updated 1 November 2024, addresses “identifying, assessing, and mitigating cybersecurity risks throughout the supply chain.”[^nist-scrm-15] Neither source creates a sovereign-AI certification, endorses this course's taxonomy, or means every enterprise must own its infrastructure.
+
+#### Architecture choices when an enterprise depends on suppliers
+
+| Deployment option | Legitimate reason to choose it | What must be evidenced | Hard limitation |
+|---|---|---|---|
+| **Enterprise-operated on-site compute; externally sourced hardware/model** | A single facility requires strict site-level control and can operate local inference | Asset and firmware custody, model license, onsite administrators, denied external egress, local backup/restore and offline patch workflow | May be infeasible if local compute, staff, power or disaster recovery cannot meet measured workload demand |
+| **Vendor-owned or leased equipment installed in the enterprise's premises** | The enterprise wants a managed asset lifecycle without transferring restricted processing off-site | Contractual access boundaries, physical/key custody, remote management disabled or constrained, service-media handling, on-site maintenance and exit rights | Ownership by the vendor is acceptable **only if** delegated operations do not violate the stated control requirement |
+| **Managed in-country platform with contractual and runtime controls** | The workload permits named off-premises processing locations and accepts a managed operating model | Exact service/deployment type, prompts/logs/backup destinations, provider support, subcontractors, key custody, failover, portability and applicable legal review | **Cannot satisfy** a non-negotiable single-physical-premises rule when inference or derivatives leave that premises |
+
+**Not all external dependencies are equal.** A spare GPU delivered into the site creates different risks from a support platform that can read prompts or initiate exports. Prioritize by the potential to break a hard requirement, the supplier's decision rights, the blast radius if it fails, and the measured feasibility of an alternative. Supplier nationality or branding alone is not a technical acceptance test.
+
+#### Worked case: the plant owns the controls, not the entire supply chain
+
+**Fictional case: a UAE industrial parts manufacturer.** A maintenance assistant retrieves restricted engineering procedures. The contract for the workload says that documents, prompts, embeddings, outputs, logs and diagnostic bundles must remain inside **one named factory premises**. The manufacturer can procure a server and a licensed, deployable open-weight model, but has neither the budget nor the ability to fabricate chips or train a general-purpose foundation model. Those missing ownership claims do not by themselves disqualify the design.
+
+**Option A, remote managed inference:** Reject for restricted use because requests leave the named premises, even if the provider processes them inside the same country. **Option B, leased on-site server plus an approved local-serving model:** Conditionally viable if capacity, model use rights, vendor access, network policies and every derivative path pass review. **Option C, enterprise-owned on-site server with unsupervised remote support:** Not automatically better than B; the remote support control may still fail.
+
+For Option B, the PM requests a bill of dependencies: physical server and firmware, model and tokenizer artifacts, retrieval index, runtime packages, admin identities, key storage, telemetry agents, backup destinations, maintenance tools and exit procedures. The supplier may replace faulty hardware during an approved **on-site** service visit, while the enterprise retains authority over disks, encryption keys and data-bearing media. If the contract requires the vendor to take restricted drives off-site, that conflicts with the boundary and must be redesigned or the option rejected.
+
+**Air-gap variation:** If an additional rule requires **no inbound or outbound network connectivity**, disable even allowlisted outbound updates and private links. Supply a documented offline software and model intake process with integrity verification, malware assessment, removable-media custody, local logs and tested rollback. On-site compute capacity remains mandatory. A firewall permitting a support tunnel does not constitute an air gap.
+
+**Cost and capacity decision:** Compare acquisition or lease cost, facility power, cooling, staffing, replacement inventory, model throughput, latency and realistic recovery procedures with a managed option. Do not invent production throughput or total cost of ownership. Benchmark representative synthetic workloads on the selected local hardware. If the model cannot meet the measured quality and service requirement locally, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**; do not silently move restricted processing to a cloud API.
+
+#### Failure drill: the supplier's recovery path crosses the boundary
+
+**Synthetic test:** The leased on-site server fails during a controlled maintenance exercise. The supplier's default recovery script launches a remote support tunnel and packages a diagnostic archive containing prompt fragments. The network firewall blocks the upload, but the exercise reveals that the proposed maintenance procedure requests an unauthorized external path.
+
+| RCA element | Owner and disposition |
+|---|---|
+| **Observed impact** | Premises-only support-control acceptance test **FAILS**; investigate whether any data left. A blocked synthetic test is not evidence of a real data breach |
+| **Direct technical cause** | Supplier's recovery script assumes a remote diagnostics endpoint |
+| **Contributing root cause** | Procurement and architecture reviews described equipment location, but omitted vendor break-glass access, service scripts and log bundles from the dependency register |
+| **Immediate containment** | Platform owner keeps remote tunnel denied and quarantines support artifacts; security lead checks firewall/endpoint traces and historical access |
+| **Corrective design** | Vendor and enterprise operations agree an offline, on-site recovery runbook, sanitized local diagnostic bundle, supervised administrator session and explicit data-media handling |
+| **Retest and closure** | Reproduce server failure, repair and rollback using synthetic prompts. Collect network traces, role audit, checksum and on-site restore evidence. Close only on a dated independently reviewed test and supplier contract/runbook acceptance |
+
+**RCA lesson:** Purchasing or leasing a physical asset is not the same as controlling **its support lifecycle**. The fault is not fixed merely by declaring the supplier “trusted” or by leaving the blocking firewall rule in place without testing the revised runbook.
+
+#### PM artifact: delegated-control and exit decision record
+
+Create one record per external dependency, then attach the four sovereignty dimensions and the release gate.
+
+| Field | Example for the fictional plant |
+|---|---|
+| **Requirement / owner** | SITE-15 / platform owner: no restricted derivative or supplier-session export may leave the factory |
+| **Supplier dependency** | Leased GPU server, firmware update utility, on-site support contractor and licensed model artifact |
+| **Who can decide what** | Enterprise: data keys, workload policy, access grants, outbound routes, recovery approval; supplier: hardware repair **only under approved on-site controls** |
+| **Verification / evidence** | Contract and access matrix, asset inventory, offline-update receipt, failure/recovery egress trace, model license review, timed model-replacement drill |
+| **Exit path / trigger** | Revoke supplier credentials, recover and verify media, export authorized model/data artifacts, substitute compatible runtime; trigger on support-policy change, outage or contract exit |
+| **Launch decision** | **CONDITIONAL**, blocked until premises egress, supplier recovery, capacity and rights tests are accepted |
+
+**Rehearse, do not merely promise, exit:** Set an agreed recovery objective, disconnect a fictional supplier dependency, and demonstrate that the team can restore the service or document the exact limitation. Log measured migration effort, artifacts needed, license restrictions, safety/quality regressions and residual dependencies. An untested contractual promise of portability is not demonstrated independence.
+
+**Learner challenge (30 minutes):** Open the [Architecture & Learning Studio](../learning/index.html) and choose **Strict on-premises IP research assistant**. Compare enterprise-operated local compute with the same workload on **Approved managed AI platform** while holding **Single premises only; no data or derivatives may leave** constant. Identify which option is blocked and which supplier-owned components might still be acceptable onsite. Next choose **Air-gapped factory operations** and outline a fully offline vendor-support and model-update process. For each scenario submit a three-line claim register: (1) non-negotiable boundary, (2) externally sourced dependency and delegated rights, and (3) evidence and failure gate.
+
+**Exit question:** Can an enterprise make a defensible sovereign-AI claim using rented servers, supplier-sourced chips and licensed model weights? **Potentially yes**, for a specifically bounded workload, if the crucial controls and tests demonstrate that outside suppliers cannot violate its requirements. Can it claim unrestricted sovereignty simply because the equipment sits inside its premises? **No.** The conclusion is a **conditional, evidence-limited architecture decision**, not legal compliance or certification.
+
+[^nist-airmf-thirdparty-15]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), **AI RMF Core, Govern 6.1–6.2, Map 4.1–4.2 and Manage 3.1–3.2**; [official Core text](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). The short quotation above is a fragment of Govern 6.2, verified 19 November 2026.
+[^nist-scrm-15]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, **SP 800-161 Rev. 1**, May 2022, updated 1 November 2024; [official updated final publication](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), abstract. Quotation verified 19 November 2026. This is general supply-chain cybersecurity guidance, not an AI-sovereignty standard.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
