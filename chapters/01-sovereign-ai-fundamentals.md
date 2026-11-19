@@ -170,6 +170,87 @@ Create four records, each with owner, claim boundary, acceptance test, evidence 
 [^nist-controls-13]: NIST, *Security and Privacy Controls for Information Systems and Organizations*, SP 800-53 Rev. 5 (2020), [official control catalog](https://csrc.nist.gov/pubs/sp/800/53/r5/final). Source checked 19 November 2026.
 [^nist-airmf-13]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1, Section 3, trustworthy AI characteristics (2023), [official NIST text](https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/). Source checked 19 November 2026.
 
+
+### 1.4 National sovereignty versus enterprise-level sovereign AI
+
+**Decision first:** A national AI sovereignty strategy and an enterprise sovereign-AI workload answer different questions. National programs concern capability, institutions and strategic dependencies across a jurisdiction. Enterprise claims concern **who can control a specified workload** and whether that authority can be demonstrated. A domestic data center is not proof of a particular company's operational sovereignty. Conversely, a company can establish bounded sovereign-AI controls without manufacturing its own chips or owning a national cloud.
+
+The [course-authored ontology](../taxonomy/ONTOLOGY.md) separates **scope** (national, sectoral, enterprise, workload) from **control dimensions** (territorial, operational, technological, legal/contractual). These are analytical categories, **not** a government certification or a statement of UAE legal obligations.
+
+| Scope | Accountable decision-makers | Unit of analysis | Appropriate evidence |
+|---|---|---|---|
+| **National** | Relevant state institutions, within their mandates | National capability, infrastructure, institutions, strategic dependencies | Dated program outcomes, supplier dependencies, operational resilience and independent verification |
+| **Sectoral** | Sector participants and competent authorities, as applicable | Shared sector systems and governance | Applicable obligations, contracts, controls and system-level assurance |
+| **Enterprise** | Board, executives, security, data and platform owners | Organization-wide AI estate and supplier relationships | Decision-rights matrix, vendor contracts, key custody, operator access and tested exit |
+| **Workload** | Delegated business and control owners | One AI workflow across its lifecycle | Prompt/embedding/log destinations, access tests, backups, support paths and evidence of failure handling |
+
+**Not a hierarchy of quality:** A country may offer domestic AI infrastructure while a particular customer still permits remote vendor support. An enterprise may use third-party infrastructure while retaining enforceable contractual and technical rights for its defined requirements. A company can apply a flexible policy to public marketing copy and a strict physical-site policy to confidential industrial documents.
+
+#### National capability is not the same as enterprise decision rights
+
+National capability questions include who can access compute, develop and maintain models, sustain energy and network supply, train specialists, and manage dependencies during disruptions. They concern strategic resilience at a scale beyond any one deployment. A government announcement is evidence of **intent**, not proof of achieved capacity or customer-specific controls.
+
+Enterprise decision rights ask who can approve a processing destination, revoke a privileged operator, hold keys, inspect telemetry, stop a service, export model and data artifacts, and recover during supplier failure. The party paying a provider is not necessarily the party with technical power to execute these actions.
+
+| Decision | National-scale question | Enterprise acceptance evidence |
+|---|---|---|
+| Compute | What capacity is available to priority institutions? | Reserved quota, workload benchmark, failover drill |
+| Operator | Who may govern or operate strategic services? | Named administrators, support access and revocation test |
+| Location | What processing and infrastructure geography is sought? | Stage-by-stage egress trace, backup and evaluation destinations |
+| Models | What domestic model capabilities and dependencies exist? | License, weight custody, substitution and serving test |
+| Continuity | Can critical capabilities survive disruption? | Restore rehearsal, exit clauses, portable artifacts and migration timing |
+
+A national or provider label cannot replace any row's enterprise evidence. Actual regulatory applicability must be assessed for the specific entity, sector, data and processing activity by the responsible legal/privacy specialists; this table does not purport to interpret a particular UAE law.
+
+#### Worked UAE decision: two assistants, two different boundaries
+
+**Fictional scenario:** A UAE manufacturer has a public-product translation assistant and a restricted factory-maintenance assistant. A domestically hosted managed AI service is available. The first workload may use approved managed compute after security, contract and cost review. The second has a non-negotiable rule: **no restricted documents, prompts, embeddings, answers, logs, telemetry, backups or diagnostic artifacts may leave one named plant premises**.
+
+The PM compares three options:
+
+1. **Managed in-country inference for both:** A plausible option for public content, but **reject for the factory**. Domestic geography does not make a remote data center part of the plant.
+2. **Managed service for public content, enterprise-run on-site model and retrieval for factory:** **Conditionally preferred** if local compute, quality, maintenance, privileged access, backup, telemetry and egress tests pass. This carries higher equipment and operating responsibilities.
+3. **Enterprise-owned regional data center for both:** May provide greater operational authority, but **reject for the factory** if the regional center is not on the named premises. Ownership does not erase the location requirement.
+
+**Cost and reliability trade-off:** The on-site candidate needs a measured model-quality benchmark, concurrency and latency targets, power and cooling assessment, maintenance staffing, update and recovery plan. Do not invent a five-year TCO or claim a capacity level without measurements. If the hardware cannot serve the required workload, report **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**, rather than silently switching to cloud inference.
+
+**Air-gap override:** If the factory instead requires a physically disconnected network, even an approved outbound allowlist, temporary support tunnel or remote-monitoring channel is prohibited. Model updates require approved offline artifact intake, signature/integrity verification, removable-media custody and rollback rehearsal. A local network with egress filtering is not an air gap.
+
+#### Ontology: map national context to workload evidence
+
+The following relationships extend the course's [ontology](../taxonomy/ONTOLOGY.md): **NationalObjective influences SupplierEcosystem; EnterpriseGovernance authorizes Workload; Workload dependsOn Supplier; Requirement appliesTo Workload; Test verifies Requirement.** They are course-authored, not normative ontology terms.
+
+The inference chain is: *national capability → available suppliers → enterprise workload*. A **separate** chain is required for assurance: *enterprise requirement → control owner → implementation → test → dated evidence*. An infrastructure announcement cannot jump from the first chain to the final node of the second. **Invariant:** Evidence is valid only for the named workload, version, lifecycle stages, test conditions and review date.
+
+#### Failure drill: “domestic cloud” was mistaken for “factory sovereign”
+
+**Symptom (fictional design review):** Procurement labels the factory assistant sovereign because the model endpoint is in the same country. The system diagram reveals prompts leave the plant for remote inference, and a provider support path can access diagnostic metadata.
+
+**Impact:** The premises-only acceptance criterion **FAILS** before restricted-data launch. The **direct cause** is an off-premises inference destination. The **contributing process gap** is an approval checklist that tested national location but not the enterprise's physical boundary, derived data or support flows.
+
+**Containment and ownership:** The PM blocks restricted-data onboarding; platform engineering disables the remote path and assesses an on-site alternative; security examines egress, privileged access and incident handling; legal/privacy separately determine applicable obligations. **Correction:** Replace the route with feasible on-site serving, update the full data-flow inventory and contracts, or explicitly record an unsatisfied requirement.
+
+**Retest and closure:** Send synthetic restricted-label strings through normal inference, retrieval, evaluation, diagnostics, simulated failure and restore. Inspect DNS, firewall and packet traces, operator sessions and local backup destinations. Close only with dated artifacts, reviewed results and named sign-off. Changing a presentation slide or cloud region is not remediation.
+
+#### PM artifact: scope-to-authority decision memo
+
+| Decision field | Fictional factory-assistant entry |
+|---|---|
+| Scope and claim owner | Workload / factory operations executive; enterprise platform lead owns technical proof |
+| National context | Domestic managed compute available, but not accepted as a site-level substitute |
+| Hard boundary | No restricted content or derivative leaves plant premises; air gap only if separately required |
+| Decision rights | Data owner classifies; security validates controls; operations accepts service levels; PM owns release gate |
+| Options | Domestic managed endpoint: **REJECT**; regional enterprise data center: **REJECT**; on-site serving: **CONDITIONAL** |
+| Evidence | Egress test, operator review, restore drill, model-quality benchmark, dated reviewer sign-off |
+| Economics | Compare equipment, power, staff, maintenance and resilience with managed-service costs; record unknowns |
+| Release disposition | **NO RESTRICTED-DATA RELEASE** until hard constraints pass |
+
+**Learner challenge (25 minutes):** Open the [Architecture & Learning Studio](../learning/index.html). First set location to **Selected country only** with **Approved managed AI platform** compute for a synthetic-data assistant. Then set location to **Single premises only; no data or derivatives may leave**, leaving managed compute unchanged. Explain why country-level infrastructure cannot meet the second boundary. Next use **On-prem production GPU servers inside the premises** with **Local network only; no external egress**. List three pieces of evidence still required for operator, backup and support control. Finally compare **Single premises, physically air-gapped (no network)** with **Air-gapped: no inbound or outbound network**. Draft a memo that names each decision authority and one falsifiable test per claim. The Studio is a teaching aid, not a certification.
+
+**Exit check:** Can an enterprise achieve a bounded sovereign-AI posture without owning national infrastructure? **Yes, if** it can demonstrate the decision rights and controls needed for its scoped objectives. Does national infrastructure automatically make an enterprise workload sovereign? **No.** The next section (1.5) examines control without owning every stack component.
+
+**Source discipline, 19 November 2026:** The scope categories and control dimensions are from the course-authored [ontology](../taxonomy/ONTOLOGY.md). For primary-source background on governance and security evaluation, consult NIST [AI RMF 1.0 Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) (2023) and [SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) (2020). Neither establishes this taxonomy or certifies sovereign AI. This section makes no claim that a particular national program has achieved a stated capacity or that a particular UAE law mandates this architecture.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
