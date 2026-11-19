@@ -59,6 +59,22 @@ For a selected TOC header:
 
 **Stop:** No additional work after approximately 17:26 Asia/Dubai on 19 November 2026 without a new request. The queue is a scope and pacing proposal, not an active unattended automation.
 
+## Improvement entry 004 | 2026-11-19 | Module 01 / header 1.4
+
+**Header completed:** National sovereignty versus enterprise-level sovereign AI. **Content commit:** [`91393b69e2ad5de86233f414c1747b755c1a3a20`](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/91393b69e2ad5de86233f414c1747b755c1a3a20). **File:** `chapters/01-sovereign-ai-fundamentals.md`. Added approximately 1,513 words of substantive learner content distinguishing national, sectoral, enterprise and workload scope, national capabilities versus enterprise decision rights, a four-column comparison, a fictional UAE manufacturer's two-workload architecture choice, physical-premises and air-gap overrides, ontology relations, failure drill, PM decision memo and Studio exercise.
+
+**Before / educational defect:** The chapter already introduced enterprise-level sovereignty, but did not separately show why domestic compute capacity or national policy goals cannot prove that a company's restricted workload meets its specific boundary. **Root cause:** Scope conflation, compounded by procurement approval based on geography rather than testable enterprise control. The fictional RCA names off-premises inference as the direct cause and an incomplete approval checklist as the contributing process failure. Remediation requires local serving or explicit failure disposition, plus synthetic egress, support, backup and recovery tests before sign-off.
+
+**Evidence discipline:** Reviewed the existing `TOC.md`, `STYLE_GUIDE.md`, `CHAPTER_TEMPLATE.md`, current chapter, `taxonomy/ONTOLOGY.md` and this log. Sources referenced: course-authored ontology (not an official standard), NIST AI RMF 1.0 Core (2023) and NIST SP 800-207 (2020), with direct links and limits of inference. No real national-program achievement, regulatory mandate or vendor certification was asserted. The UAE example and all failure evidence are explicitly fictional.
+
+**Validation:** Ten in-memory structural/content checks **passed before commit**: exact heading once; sequential 1.3→1.4→Section 2 order; all four scope classes; premises and physical disconnection constraints; direct cause, contributing process gap and retest; PM decision memo; learner exercise; ontology links; NIST references; and preservation of all 14 numbered core sections. GitHub API update returned the content commit above. These are targeted checks, **not** local test-suite execution. At the initial post-commit check, the Actions API had not yet listed a run for this commit; deployment/test result was **NOT YET VERIFIED**. Recheck Actions before claiming the latest build passed. Previous [Pages workflow 44564160550](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44564160550) completed successfully for the prior log commit, not this new chapter content.
+
+**Review A (technical/security/source):** NOT COMPLETED; due after Module 01 sections 1.5–1.7. **Review B (editorial/accessibility/assessment):** NOT COMPLETED; must be separate from A. No browser/assistive-technology audit or independent legal/source review was performed this iteration.
+
+**Reusable lesson:** Never allow national infrastructure claims to satisfy a narrower enterprise physical-site constraint by implication. Track authority, evidence scope, workload lifecycle and feasibility separately. An enterprise-owned regional data center still fails a single-plant requirement when off-site. Explicitly block, rather than silently downgrade, an impossible on-site or air-gapped design.
+
+**Next:** Verify the latest Pages run and develop **Module 01 / Section 1.5: Can a company build or operate sovereign AI without owning everything?** Continue one header per increment; do not advance to Module 02 without both completed module reviews.
+
 ## Improvement entry 003 | 2026-11-19 | Module 01 / header 1.3
 
 **Scope:** One complete TOC header: *Sovereign vs. private vs. secure vs. compliant AI*. Continue from the completed 1.1 and 1.2 headings; do **not** advance to Module 02.  
