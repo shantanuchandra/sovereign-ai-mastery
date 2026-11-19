@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Sections 2.1–2.6**. Section 2.7, supporting artifacts and both module-critical reviews are pending |
+| Current publication | **Teaching headers 2.1–2.7 drafted; module not released**. Dedicated lab, assessment/solutions, publishing artifacts and both critical reviews remain pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -586,10 +586,114 @@ Then select **Air-gapped factory operations** and attempt **General internet acc
 
 **Exit check:** Local weights do not guarantee offline continuity. API compatibility does not guarantee migration quality. A domestic data center outside a specified premises does not satisfy the premises-only rule. An air gap cannot depend on any external network service.
 
-**Next header:** 2.7, *Sovereignty maturity, evidence, gaps, and scorecards*. Module 02 still requires its lab, assessment, facilitator solutions, site/visual assets and both distinct review gates.
+**Section 2.6 complete.** The autonomy spectrum above feeds the evidence-driven maturity and release gates in Section 2.7 below.
 
 **Evidence boundary:** The A0–A4 spectrum is course-authored. NIST AI RMF 1.0 Map 4.1 addresses third-party data/software risks.[^nist-autonomy-26] NIST SP 800-161 Rev. 1 addresses cybersecurity supply-chain risks.[^nist-scrm-autonomy-26] NIST SP 800-207 cautions against implicit trust based solely on physical or network location.[^nist-zt-autonomy-26] These sources were reviewed for prior sections on **20 November 2026**; no fresh source fetch or sovereignty certification is claimed in this iteration.
 
 [^nist-autonomy-26]: NIST, *AI Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Map 4.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Previously reviewed 20 November 2026.
 [^nist-scrm-autonomy-26]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022; updated 1 November 2024), [official publication](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Previously reviewed 20 November 2026.
 [^nist-zt-autonomy-26]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official publication](https://csrc.nist.gov/pubs/sp/800/207/final). Previously reviewed 20 November 2026.
+
+
+### 2.7 Sovereignty maturity, evidence, gaps, and scorecards
+
+**Decision first:** A sovereignty maturity score is a **diagnostic aid**, not permission to release a workload. The PM must first evaluate the binding requirements, especially physical processing boundaries, no-network conditions, operator rights and applicable obligations. A confirmed failure of any non-negotiable requirement results in **BLOCKED** or **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Only eligible candidates should be compared on capability, maturity, cost or portability.
+
+A defensible scorecard has **two separate outputs**: (1) a **release disposition** based on hard gates and evidence, and (2) a **maturity profile** showing how consistently controls are defined, exercised, reviewed and maintained. Presenting only a total percentage conceals important gaps. These scales are **course-authored educational models**, not a NIST maturity level, national standard, legal determination or certification.
+
+#### M0–M4: a capability progression, not a certificate
+
+| Maturity stage | What the workload team can actually demonstrate | Minimum evidence expected | What remains unproven |
+|---|---|---|---|
+| **M0: Undefined** | Scope, control owners or boundaries are absent or contradictory | Workload inventory, outstanding discovery questions | Any sovereignty or compliance assurance |
+| **M1: Declared** | Requirements and architecture assertions are recorded and approved in principle | Signed requirement register, deployment diagrams, named vendors and owners | That runtime behavior matches the diagram |
+| **M2: Implemented** | Controls exist in a reproducible configuration | Configuration snapshots, policy/routing files, role assignments, contract/licence review | That normal, failure, support and recovery paths pass tests |
+| **M3: Verified** | Acceptance tests for applicable hard constraints have passed in the precise tested configuration | Dated synthetic test traces, reviewer sign-off, version/scope IDs, model-quality and restore results | That controls remain effective after updates or changed operations |
+| **M4: Sustained** | Repeated monitoring and change-triggered retests demonstrate continuing control | Change-control records, regression runs, access revocation exercises, incident/exit drills, evidence renewal cadence | Absolute risk elimination or universal legal compliance |
+
+**Scoring rule:** Record a maturity stage **per required control dimension** (territorial, operational, technological, legal/contractual). Mark **UNKNOWN** when there is insufficient evidence; never treat UNKNOWN as M0 or as a passing M3. Compute a single *minimum stage* only over dimensions with valid evidence, alongside a conspicuous **coverage count**. It is invalid to report “M3 overall” when the legal/contractual column is UNKNOWN or the territorial column has a failed hard gate. For board reporting, prefer four labeled dimension stages plus an explicit disposition.
+
+The [course ontology](../taxonomy/ONTOLOGY.md) represents the evidence chain: **Workload has Requirement; Requirement constrains Dependency; Control enforces Requirement; Test probes Control; Evidence records Test; Reviewer assesses Evidence; Decision appliesTo Workload**. This is a course-authored representation. Distinguish artifact existence (M1–M2), observed operation (M3) and repeated assurance (M4); the same supplier contract or diagram cannot advance the score through all stages.
+
+#### Evidence states are not maturity stages
+
+A **maturity stage** describes a process capability, while an **evidence state** describes what has actually been demonstrated for a *specific claim*. Use both fields. For every requirement, maintain:
+
+| Evidence state | Interpretation for release | Example source artifact |
+|---|---|---|
+| **NOT PROVIDED** | Treat the claim as **UNVERIFIED**; request the missing record | No export of routing policy, contract or test trace |
+| **ASSERTED / DESIGN ONLY** | Supplier promise or architecture draft; not runtime proof | Vendor response, target diagram or checklist |
+| **CONFIGURED** | Team reviewed a current setting; behaviors outside that setting remain untested | Dated gateway policy, IAM permissions, egress rule |
+| **TESTED / NOT REVIEWED** | A test produced logs but acceptance criteria or independence of review are pending | Packet trace and test run ID without signed disposition |
+| **VERIFIED FOR SCOPE** | Named reviewer accepted reproducible results, relevant model/version, workload, time and conditions | Signed acceptance record with test vectors and observed destinations |
+| **ADVERSE / EXPIRED** | A known failure or a stale/out-of-scope result means the claim cannot be treated as verified | Prohibited egress trace; evidence predates gateway update |
+
+An **expired** evidence record is not the same as a test proving a defect. It means **re-verification is required**; a confirmed **ADVERSE** result means the applicable hard gate is **FAILED**. Keep these distinctions visible. A reviewer may never certify unseen tests merely because a vendor chose the label “independently validated.”
+
+NIST AI RMF 1.0 Section 5 states that its Core actions “do not constitute a checklist”.[^nist-rmf-score27] In *Measure 1.1* it calls for documenting risks that cannot be measured, and *Measure 1.3* discusses assessment by internal experts not responsible for front-line development or independent assessors. These points support recording unknowns, review roles and limits of inference. They do **not** establish this M0–M4 scale. NIST SP 800-161 Rev. 1 discusses how supply-chain risk can be amplified by an organization's “decreased visibility” into technology acquisition and development.[^nist-scrm-score27] This supports explicit evidence gaps for provider operations, without converting a questionnaire into proof.
+
+#### Worked enterprise example: three distinct maturity profiles
+
+**Fictional UAE industrial group:** Its portfolio contains **CORP-27**, a synthetic policy assistant allowed to use verified named processing locations; **PLANT-27**, a maintenance RAG assistant with restricted artifacts confined to one physical factory premises; and **OT-27**, an operations reference required to be physically air-gapped. No real company, law, supplier configuration or breach is asserted.
+
+| Workload / design | Territorial evidence | Operational evidence | Technological evidence | Legal/contractual review | Release disposition |
+|---|---|---|---|---|---|
+| **CORP-27: managed endpoint using only synthetic data** | M2; deployment settings inspected, telemetry/failover not reviewed | M1; vendor admin authority declared | M2; API and exit design documented | UNKNOWN; specialist review pending | **UNVERIFIED**, not a “sovereign M2 pass” |
+| **PLANT-27: enterprise-operated model and index on the factory site** | **ADVERSE**; synthetic crash trace shows off-site diagnostic upload | M2; approved role matrix but no revoke drill | M3; local cold start and quality suite accepted for specified version | M1; relevant support terms identified | **BLOCKED** regardless of the relatively strong model result |
+| **OT-27: disconnected local model and local backup** | M3; physical/network isolation test accepted for tested configuration | M2; offline media access controls configured | M1; restore and rollback only planned | UNKNOWN; licence and supplier conditions not reviewed | **UNVERIFIED / NOT READY** until missing hard controls are tested |
+
+**Interpret the table correctly:** CORP-27 may eventually be appropriate for its synthetic use case despite a lower maturity profile than PLANT-27 on model execution. PLANT-27 is ineligible because the site boundary failed. OT-27 has a plausible no-network design but lacks tested recovery and reviewed licence rights. A spreadsheet average of these results would be nonsensical. Maturity is evaluated **per workload and time**, not inherited from an enterprise platform purchase.
+
+**Physical boundary is not negotiable through scoring.** For PLANT-27, nothing restricted may leave its *specific* factory premises: source documents, prompts, embeddings, outputs, adaptations, evaluation samples, telemetry, crash traces, support bundles or backups. An endpoint in the same country but outside the plant is still off-premises. For OT-27, **air-gapped means no inbound or outbound network connectivity**. A firewall with an approved outbound allowlist or a temporary remote maintenance tunnel is not a physical air gap.
+
+**When local capacity fails:** A team must measure approved workloads, latency, concurrent usage, quality and restore demand on permissible hardware. If the design cannot meet the minimum product criteria with available local models and licences, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Never quietly move restricted inference to managed compute and call the higher quality a compensating score.
+
+#### Failure drill: a stale M3 badge hides a changed telemetry destination
+
+**Fictional sequence:** In week 1, PLANT-27 passes a narrowly scoped network test and the team records a green *territorial M3* label. In week 3, an observability upgrade enables a remote crash collector. A synthetic prompt marker appears in a DNS/proxy trace during a simulated exception. The dashboard still shows the old M3 value because evidence was not linked to software version or revalidation triggers.
+
+| RCA requirement | Finding and corrective action |
+|---|---|
+| **Symptom and impact** | A controlled crash produces attempted restricted-data egress; **territorial hard gate FAILED**, restricted-data release **BLOCKED** |
+| **Direct cause** | Upgraded agent configuration changed the diagnostic collector from local to remote |
+| **Contributing process gap** | Scorecard stored “M3 verified” without workload/version/date validity, destination inventory or a rule that invalidates evidence on change |
+| **Containment** | Platform owner disables remote collector and holds the release; security preserves synthetic traffic evidence and assesses historical paths |
+| **Corrective design** | Local-only diagnostics, explicit deny-by-default egress, change-control webhook/manual approval, a versioned evidence link and documented retest owners |
+| **Retest** | Simulate normal inference, crashes, support, model updates, backup/restore and deletion. Inspect DNS/proxy/packet evidence, IAM privileges and actual sink configuration |
+| **Closure** | Signed, dated results for the precise deployed version; clear ticket for the original adverse finding; independent reviewer disposition and updated maturity/claim status |
+
+**Root cause:** The organization treated a past *verified state* as a permanent *attribute of the product*. M3 must be tied to a version, scope, test date and review condition. A fixed configuration is not a passing test. **M4** requires evidence renewal and monitoring, not merely more dashboard color.
+
+#### PM artifact: a release-first maturity scorecard
+
+Build one record per material claim and join it to the four-dimension dashboard. A sample for fictional PLANT-27:
+
+| Decision field | Example |
+|---|---|
+| **Workload, owner and authority** | PLANT-27 / plant data owner; platform and security evidence owners |
+| **Non-negotiable requirement** | SITE-27: no restricted input or derivative may exit one named factory premises in any lifecycle path |
+| **Current hard-gate result** | **FAILED** on synthetic remote diagnostic trace; launch **BLOCKED** |
+| **Dimension profile** | Territorial: prior M3 **invalidated** by adverse test; Operational: M2; Technological: M3 for tested version; Legal/contractual: M1, still requires specialist review |
+| **Evidence record** | Workload ID, version/build hash, test ID, date/time, environment, allowed destinations, measured observations, reviewer and source link |
+| **Gap ticket** | GAP-27 / platform lead / remove collector and retest; add cross-path egress regression and change-triggered evidence invalidation |
+| **Expected closure** | Accepted no-egress tests including failure and recovery paths, reviewed source/contract restrictions, named decision-maker's signed disposition |
+| **Reopen when** | Model, gateway, support contract, location, telemetry, backup, licence, network or site requirement changes |
+
+For prioritization, first classify each gap as **hard-gate blocker, required assurance gap, or optional optimization**. Within each class, rank by impact, exposure, affected workloads, reversibility, delivery cost and testability. Record an accountable owner and date for remediation. A score of 86/100, a high NIST mapping score or a provider's marketing claim never waives a failed physical-site rule.
+
+**Suggested board view:** Display for each workload **release disposition**, **four dimension stages or UNKNOWN**, **number of required claims with verified evidence**, **hard-gate failures**, **highest-priority open gap**, **last tested version**, and **next review trigger**. Avoid colors as the only status indicator; use literal statuses such as BLOCKED, UNVERIFIED, VERIFIED FOR SCOPE and NOT FEASIBLE. Score histories are useful for improvement, not an assertion that risk has disappeared.
+
+#### Learner challenge (40 minutes)
+
+In the [Architecture & Learning Studio](../learning/index.html), load **Strict on-premises IP research assistant** with **Single premises only; no data or derivatives may leave** and **On-prem production GPU servers inside the premises**. Change the evidence dropdown among **Architecture and contracts only**, **Runtime logs captured, no completed acceptance review**, and **A test reportedly violated a requirement**. For each state, describe what additional independent checks and release actions are needed. The Studio's evidence labels are teaching inputs, not genuine runtime test records.
+
+Next load **Air-gapped factory operations**. Change connectivity from **Air-gapped: no inbound or outbound network** to **General internet access including external service endpoints**. State the hard failure before discussing maturity. Return to full disconnection and propose three offline acceptance tests: media integrity, clean model restart and local restore without an internet path. Finally compare a managed **Employee knowledge and policy assistant** using synthetic data and **Approved managed AI platform** compute; explain why this candidate can have a different maturity profile and still be considered for its own stated boundary.
+
+**Submission:** A three-workload scorecard with four separate dimension ratings (or UNKNOWN), explicit evidence states, a hard-gate result, a remediation plan and a dated reviewer field. Include an RCA for the stale evidence badge and explain why the score is not certification. Keep answers out of this learner source and use synthetic data only; facilitator solutions belong in a separate assessment artifact.
+
+**Exit check:** Can a maturity average release a workload with a confirmed premises violation? **No.** Does M3 prove indefinite assurance? **No**, evidence is valid only for the tested scope and version until a material change or review expiration. Does a physically disconnected system automatically meet operational and recovery objectives? **No.** Is UNKNOWN evidence a pass? **No.**
+
+**Module 02 content checkpoint:** All seven TOC teaching headers are now drafted. This is **not** module publication acceptance. The dedicated hands-on scoring lab, five-question assessment and scenario, separate facilitator solutions, HTML/social teaching assets, technical/security/source Review A, editorial/accessibility/assessment Review B, and remediation of any blocking findings remain required **before Module 03**.
+
+[^nist-rmf-score27]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Section 5, Measure 1.1–1.3 and Manage 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Exact short quotation and subcategory text checked **20 November 2026**. This source is voluntary AI risk-management guidance; the maturity stages, status codes and release gates above are course-authored.
+[^nist-scrm-score27]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022, updated **1 November 2024**), [official publication and abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Short quotation from the abstract checked **20 November 2026**. Supply-chain risk guidance, not a measure of sovereignty maturity.
