@@ -419,6 +419,100 @@ Next select **Air-gapped factory operations** and change connectivity to **Gener
 [^ec-transfer-16]: European Commission, [*Rules on international data transfers*](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/rules-international-data-transfers_en), section “International transfers of personal data,” paragraph 2. Short quotation verified **19 November 2026**.
 [^edpb-16]: European Data Protection Board, [*Guidelines 3/2018 on the territorial scope of the GDPR (Article 3)*](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3-version_en), adopted version (2019). Official listing found **19 November 2026**. Legal applicability in any actual case remains for counsel.
 
+
+### 1.7 Benefits, myths, limitations, and risk-based trade-offs
+
+**Decision first:** Sovereignty controls are worthwhile when they reduce a *specific unacceptable dependency or exposure* at a justifiable cost. They do not automatically improve model quality, security, legal compliance or business outcomes. A product leader should approve the **least complex architecture that passes every hard requirement**, then compare feasible options on quality, resilience, operating burden, exit capability and measured cost. If no option passes, the decision is **BLOCKED**, not “use the closest cloud region.”
+
+This is a **course-authored decision method**, not a regulatory scoring framework. The [ontology](../taxonomy/ONTOLOGY.md) distinguishes **Workload → Requirement → Control → Test → Evidence** from **Workload → Dependency → FailureMode → Mitigation**. Benefits are hypotheses until observed for the particular workload.
+
+#### Benefits are conditional outcomes, not features on a brochure
+
+| Potential benefit | Mechanism and when it is credible | Evidence required | What could reverse the decision |
+|---|---|---|---|
+| **Tighter data custody** | On-site processing and controlled derivative paths can reduce exposure to unauthorized external processors | Full lifecycle map, support/backup/telemetry inventory, denied-egress and restore traces | An off-site diagnostic, support or failover path remains |
+| **Operational authority** | Enterprise-held keys, identity policies and access termination rights can narrow supplier privileges | Privileged access review, credential-revocation drill, audit logs | Vendor retains undisclosed break-glass access |
+| **Continuity and exit** | Locally runnable models and rehearsed migrations can limit dependence on a single service | Offline cold start, license inspection, export and replacement rehearsal | Local skills, capacity, activation or patch supply cannot sustain operation |
+| **Fit to a restrictive workload** | Narrow models and retrieval over approved sources may serve a defined task within a fixed site | Task-specific quality and safety evaluation with synthetic data; resource and latency measurements | Required accuracy or safety threshold cannot be achieved on permitted compute |
+| **Governance transparency** | A dated, testable claim register gives procurement, risk and operations a shared decision trail | Owner, version, evidence IDs, failed cases, residual risk acceptance | The register is merely vendor attestations or undated screenshots |
+
+**The benefit is not guaranteed by the deployment class.** NIST AI RMF 1.0 describes its purpose as helping organizations “manage the many risks of AI” and says the framework is **voluntary**.[^nist-benefits-17] Its **Measure 2.5** requires demonstrated validity/reliability, and **Measure 2.7** calls for documented security/resilience evaluation.[^nist-measure-17] Those are separate evaluations: a location pass does not establish either. NIST SP 800-207's zero-trust approach also rejects implicit trust “based solely on their physical or network location.”[^nist-zt-17] These primary sources inform the test discipline, but do not endorse this course's sovereignty categories or certify a specific deployment.
+
+#### Six myths that lead to bad architecture decisions
+
+| Myth | Correction and PM consequence |
+|---|---|
+| **“Country-local means sovereign.”** | Country location may meet one territorial objective. Check administrator access, inference, logs, failover, contracts and model dependencies independently. |
+| **“On-prem means secure.”** | A local service still needs identity, vulnerability management, backup security, monitoring and tested recovery. |
+| **“Open weights mean independent.”** | Inspect actual usage rights, runtime activation, serving stack, data portability, updates and available expertise. |
+| **“Owning everything is necessary.”** | Supplier-owned equipment can be acceptable when the required controls, site restrictions, access rights and exit path are proven. |
+| **“Air gap solves every risk.”** | Physical disconnection removes network routes but adds removable-media, patch-delay, insider, local recovery and capacity risks. It is not a substitute for access control or model evaluation. |
+| **“A weighted sovereignty score can offset a failed hard rule.”** | A score may rank feasible designs, but cannot compensate for prohibited off-premises processing, an unapproved operator or a missing air-gap requirement. |
+
+#### Fictional UAE decision: three assistants, three legitimate answers
+
+A UAE industrial group considers **Public-FAQ**, **Corporate-Policy** and **Plant-Restricted**. All names, requirements, costs and outcomes here are hypothetical. The group does not assume any UAE law requires the deployment patterns below.
+
+- **Public-FAQ:** Synthetic public content; no strict processing geography; managed inference may be acceptable if quality, reliability, security and cost are verified. Buying local GPUs solely to claim sovereignty would introduce an unproven business cost.
+- **Corporate-Policy:** Internal content; only named processing locations and approved operators are permitted. Compare a managed in-country service against enterprise-controlled compute, but obtain runtime evidence of inference, telemetry, support and failover destinations. A regional endpoint label alone is insufficient.
+- **Plant-Restricted:** Proprietary procedures; **single named physical premises**, with *all* documents, prompts, embeddings, generated outputs, logs, support bundles, evaluation data and backups remaining on-site. Off-premises inference, even in the same country, **fails**. The product team may consider on-site GPU serving, local retrieval and local backups, subject to performance, licensing, support and restore tests.
+
+**Physical air-gap override:** If Plant-Restricted also requires **no inbound or outbound network connection**, an outbound allowlist, private link, vendor remote support tunnel or emergency cloud failover is **not permitted**. Model and patch updates need controlled offline intake, cryptographic integrity checks, removable-media custody, malware screening, rollback and a local restore exercise. A local network with egress filtering is *not* a physical air gap. If on-site hardware cannot meet measured demand, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** rather than downgrading the requirement.
+
+#### Compare only options that satisfy non-negotiable requirements
+
+**Stage 1: hard-gate each option** against territorial boundary, authorized operators, permitted network connectivity, rights to run and recover, and the minimum quality/safety/service criteria. Mark **PASS**, **FAIL** or **UNVERIFIED** with dated evidence. Treat **FAIL** and **UNVERIFIED** as ineligible for restricted production release; unresolved questions are not zero-risk.
+
+**Stage 2: compare eligible options** using a *declared, course-authored* decision matrix. The following weights are **illustrative, not normative**; change them only with documented stakeholder approval. Score each feasible option from 1 (poor) to 5 (strong) using observed evidence, and keep unknowns unscored.
+
+| Feasible-option criterion | Illustrative weight | Measurement method |
+|---|---:|---|
+| Task quality and safety | 30% | Blind synthetic benchmark, error severity, reviewer acceptance |
+| Availability and recoverability | 25% | Cold start, fault injection, restore time and data-loss tests |
+| Five-year operating economics | 20% | Hardware/lease, power, cooling, people, maintenance, support, migration, depreciation; show ranges |
+| Supplier exit and portability | 15% | Timed model/runtime substitution, export rights, dependency inventory |
+| Operator burden and change lead time | 10% | Staff hours, patch turnaround, incident response and approved change cycle |
+
+**Illustrative calculation:** For a feasible design with scores 4, 3, 2, 4 and 3 respectively, the weighted result is **3.25/5**. That number compares options under the same assumptions; it **does not measure “sovereignty,” compliance or risk acceptability**. Never score an option that failed the premises-only gate as if its cheap price could rescue it. Costs, throughput and availability must be measured, not invented.
+
+#### Failure drill: the weighted winner was not eligible
+
+**Fictional review finding:** Procurement gives a regional managed endpoint high marks for cost and uptime, selects it for Plant-Restricted and cites a composite score. Security later finds the design sends prompts off the factory premises. No real incident or data disclosure is asserted.
+
+| RCA element | Evidence, cause and corrective action |
+|---|---|
+| **Observed failure** | Proposed architecture **FAILS** the physical-premises requirement; block restricted-data onboarding |
+| **Direct cause** | The selected inference endpoint is outside the named plant |
+| **Contributing root cause** | The option-scoring sheet included geography as a soft weighted criterion instead of a hard eligibility gate |
+| **Containment and owner** | PM suspends release; platform and security map all processing/derivative paths; procurement freezes approval |
+| **Solution** | Introduce mandatory site, connectivity, privileged-access, license and quality gates *before* economic scoring; evaluate on-site serving without promising feasibility |
+| **Retest and closure** | With synthetic restricted-label requests, inspect DNS/firewall/packet traces, local logs, diagnostics, backups, failover and restore; review model quality and capacity. Close only with dated evidence, named sign-off and a feasible option |
+
+**Lesson:** A high score on an ineligible architecture is a spreadsheet error with real governance consequences. Root-cause remediation is to change the decision process, not merely to add another checkbox after procurement has selected a vendor.
+
+#### PM artifact: one-page risk-based architecture decision
+
+| Decision field | Fictional Plant-Restricted recommendation |
+|---|---|
+| Workload and boundary | Restricted factory manuals; all derivatives remain on one physical site |
+| Business outcome | Reduce time to find approved procedures without violating site controls; establish baseline and target during pilot |
+| Mandatory gates | Premises-only inference/retrieval/evaluation/backup/support; named admins; valid local model license; quality and recovery thresholds |
+| Candidates | Regional managed API: **FAIL**; local serving: **UNVERIFIED**, pending benchmark and full lifecycle test |
+| Economic comparison | **Deferred** until at least one candidate is eligible; collect actual 5-year TCO assumptions and ranges |
+| Risks and owners | Platform: local capacity/restore; security: access/egress; legal: contract/licensing; operations: offline maintenance; PM: decision record |
+| Release decision | **NO RESTRICTED-DATA LAUNCH** until hard-gate evidence passes and residual risks are accepted by authorized owners |
+| Reopen triggers | Vendor support change, new model/runtime, altered premises, new telemetry exporter, license change or failed retest |
+
+**Learner challenge (35 minutes):** Use the [Architecture & Learning Studio](../learning/index.html) with **Strict on-premises IP research assistant**. Keep **Single premises only; no data or derivatives may leave** and select **Approved managed AI platform**. Explain why a good quality/cost score cannot make this configuration eligible. Change to **On-prem production GPU servers inside the premises** with **Local network only; no external egress** and list the evidence still missing before launch. Next select **Air-gapped factory operations** and try **General internet access including external service endpoints**; describe the conflict and a fully offline update/restore path. Finally evaluate a fictional public-data assistant with no strict location requirement and explain when managed inference is a rational choice.
+
+**Submit:** (1) a three-workload hard-gate matrix, (2) a weighted comparison of *only eligible* candidates using stated synthetic assumptions, (3) a one-page PM decision with one RCA and retest, and (4) a paragraph explaining which sovereignty benefit was actually measured. The Studio generates educational hypotheses, not compliance findings or production evidence.
+
+**Exit test:** When does sovereignty add value? When a defined control or continuity objective matters and its benefit can be demonstrated. When does it not? When the architecture adds cost or operational risk without improving the workload's required outcome. What happens if the only available architecture violates a hard physical or air-gap constraint? **Block or declare infeasibility; never silently relax the requirement.**
+
+[^nist-benefits-17]: NIST, [*Artificial Intelligence Risk Management Framework (AI RMF 1.0)*](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10), NIST AI 100-1, **published 26 January 2023**, official abstract. Short quoted phrase and voluntary status checked **19 November 2026**. This is general risk guidance, not a sovereignty standard.
+[^nist-measure-17]: NIST, [*AI RMF Core*](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), **Measure 2.5 and 2.7**, AI RMF 1.0 (2023), checked **19 November 2026**. These outcomes concern validity, reliability, security and resilience; they do not certify a deployment.
+[^nist-zt-17]: NIST, [*Zero Trust Architecture*](https://csrc.nist.gov/pubs/sp/800/207/final), **SP 800-207**, published **11 August 2020**, abstract, checked **19 November 2026**. Short quoted phrase supports identity and resource-centric security assessment, not a claim of sovereign AI.
+
 ## 2. Learning objectives
 
 After this chapter, you should be able to:
