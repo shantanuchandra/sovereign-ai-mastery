@@ -7,7 +7,7 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **In-progress chapter, Section 2.1**. Sections 2.2–2.7 and both module-critical reviews are pending |
+| Current publication | **In-progress chapter, Sections 2.1–2.2**. Sections 2.3–2.7 and both module-critical reviews are pending |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
 | Sources reviewed | 19 November 2026 |
@@ -107,7 +107,102 @@ Submit a **three-row scope matrix** identifying national/sector *context* where 
 
 **Acceptance:** No premises-only or air-gapped requirement is silently weakened, no unsupported law or vendor guarantee is introduced, and every missing piece of evidence has a named next action.
 
-**Next header:** 2.2, *Control dimensions: territorial, operational, technological, legal*. Module 02 remains a draft until its other headers, lab, solutions and two distinct reviews are completed.
+**2.1 completed.** The four scopes above establish whose objectives apply. Section 2.2 below tests which control dimensions can actually enforce them.
 
 [^oecd-scope-21]: OECD.AI, *Fostering an inclusive AI-enabling ecosystem* (AI Principle 2.2), [official principle and rationale](https://oecd.ai/en/dashboards/ai-principles/P11). Exact quotation verified **19 November 2026**. A national policy principle, not an enterprise sovereignty certification.
 [^nist-scope-21]: NIST, *AI Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [AI RMF Core, Map 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Exact quotation verified **19 November 2026**. Risk-context guidance, not the source of the course-authored scope taxonomy.
+
+
+### 2.2 Control dimensions: territorial, operational, technological, legal
+
+**Product decision:** Treat territorial, operational, technological and legal/contractual controls as **four independently testable dimensions**. An enterprise can score well on one and fail a non-negotiable requirement in another. Never average a hard failure into a reassuring “sovereignty percentage.” First reject configurations that cannot satisfy mandatory boundaries; only then compare eligible alternatives for cost, quality and delivery speed.
+
+The dimensions below are part of the [course-authored ontology](../taxonomy/ONTOLOGY.md), not an official regulatory framework or a provider certification. Their purpose is to help an AI PM turn an ambiguous request such as “we need sovereign AI” into a procurement decision with a named owner, observable test and evidence state.
+
+#### Four dimensions, four different failure paths
+
+| Dimension | What the enterprise is trying to govern | An observable acceptance test | A misleading shortcut |
+|---|---|---|---|
+| **Territorial** | Where restricted inputs, outputs, embeddings, model adaptations, evaluation traces, telemetry, logs, backups and replicas are processed, accessed or retained | Use synthetic markers to trace inference, retrieval, evaluation, monitoring, support, failover, restore and deletion to **approved destinations**; review packet and service records | “Our primary database is in-country, so the entire AI lifecycle is resident” |
+| **Operational** | Who can deploy, configure, read, suspend, override, support, recover or export the workload and its data | Review privileged accounts and break-glass authority; revoke vendor access; simulate supervised maintenance and recovery; inspect audit trails | “The enterprise owns the server, so the supplier cannot administer it” |
+| **Technological** | Ability to operate, inspect and replace critical models, serving systems, keys, integrations and supplier dependencies when necessary | Review model and artifact rights; prove offline cold-start where required; replace a model/runtime; test compatibility, quality, exit and rollback | “The weights are available, so an executable provider-exit plan exists” |
+| **Legal / contractual** | Which actual processing activities, entities, contract terms, disclosure obligations and regulator questions require a specialist decision | Map processors, service terms, subprocessors, access and transfers; obtain counsel's applicability review and accountable sign-off | “A region selector or a generic compliance badge proves the workload meets every legal requirement” |
+
+**Interpretation:** The territorial dimension is not merely *storage* geography. The operational dimension is not merely employee access to the UI. Technological autonomy does not require fabricating chips, but a claimed replacement option must be demonstrated. Legal scope cannot be inferred from the location dropdown; applicable obligations depend on facts reviewed by qualified owners.
+
+NIST's **AI RMF 1.0 Core** describes the four functions “govern, map, measure, and manage,” which support a risk-review process across the AI lifecycle. Its actions **“do not constitute a checklist”**, and its functions are *not* the four sovereignty dimensions above.[^nist-core-dim22] NIST **SP 800-207** states that zero trust grants no implicit trust “based solely on their physical or network location.” That principle explains why an on-site system must still be tested for privileged access, without turning NIST security guidance into a sovereignty certification.[^nist-zt-dim22]
+
+#### Model the boundaries explicitly
+
+For each workload, draw four overlays over the same architecture. The **territorial overlay** traces data and derivatives across inference, retrieval, evaluation, logs and failure recovery. The **operational overlay** traces people, service identities, support tools and authority to override controls. The **technological overlay** traces deployment artifacts, model rights, licence checks, dependencies and migration paths. The **legal overlay** records entities, activities, contracts and questions referred for review.
+
+**Concrete topology (fictional factory assistant):**
+
+```text
+[On-site user] -> [Enterprise identity gateway] -> [Local RAG / model runtime]
+                             |                           |
+                      [Local audit log]          [On-site vector index]
+                             |                           |
+                     [Local backups]         [Offline approved updates]
+                             |
+                  [Supervised maintenance]
+```
+
+*Reading the diagram:* Every arrow is a hypothesis to verify. The diagram does not prove that telemetry, operating-system diagnostics, licence checks, network tunnels or backup destinations are local. List those as independent dependencies and confirm them by testing and review.
+
+**Invariant:** A requirement of **one physical premises** means *all restricted material and derivatives stay on that premises*. An approved country or region is a different, weaker geographic boundary for this purpose. An **air-gapped** requirement is stronger still: **no inbound or outbound network paths**, including allowlisted vendor support, update channels or remote analytics. An on-site server with unrestricted internet is not automatically an air gap or a proved premises-contained design.
+
+#### Worked UAE enterprise use case: four dimensions produce different decisions
+
+**Scenario (fictional):** A UAE industrial group has a public-policy drafting assistant, an engineering maintenance copilot, and a disconnected operations reference system. The group wants shared governance, but their mandatory boundaries differ. No real regulator or customer event is represented here.
+
+| Fictional workload | Territory | Operations | Technology | Legal and contract questions |
+|---|---|---|---|---|
+| **PUB-22**, synthetic or public policy text | Named processing locations permitted subject to review | Provider administration may be considered with controls | A managed model can be acceptable if exit risk is explicitly evaluated | Verify data rights, contractual terms and actual applicability; **no compliance claim** |
+| **PLANT-22**, restricted plant drawings and manuals | **One named physical premises; no restricted derivatives may leave** | Enterprise operators or approved **on-site** contractor under enterprise control | On-site capacity, runnable model, controlled updates and tested restore required | Review supplier support/media terms and any applicable laws separately |
+| **OT-22**, disconnected synthetic operational procedures | One named air-gapped facility | No remote support; approved local operators | Offline model serving, media custody, integrity checks and local rollback | Review offline service and software licence terms, without implying legal clearance |
+
+**Candidate A: managed in-country model endpoint.** It may be an efficient option for PUB-22 if named processing locations, operations, logs, retention and contractual boundaries pass review. It **fails PLANT-22** if inference leaves the factory, regardless of national location. It **fails OT-22** because any network connection to that endpoint contradicts air-gap isolation.
+
+**Candidate B: enterprise-owned regional data center.** Ownership may strengthen some operational controls, but a data center away from PLANT-22's specific physical premises still violates its territorial rule. For OT-22 it also fails unless the required disconnected boundary is met by a specifically approved local architecture.
+
+**Candidate C: on-site model and retrieval with local telemetry.** This is *conditionally eligible* for PLANT-22 if the hardware meets measured quality/capacity needs, enterprise access controls work, supplier support paths remain permitted, and every derivative and recovery path stays onsite. It does not become “fully sovereign” merely by being installed.
+
+**Candidate D: fully disconnected local enclave.** This is *conditionally eligible* for OT-22 if a secure offline artifact intake process, on-site administrator access, backups and physical-media testing work. If no suitable local compute or permitted model licence is available, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**, rather than quietly introducing a cloud API.
+
+#### Failure drill and RCA: local inference, remote evaluation
+
+**Fictional acceptance test:** PLANT-22 uses on-premises inference and storage. An evaluation feature, enabled after an update, asynchronously exports sampled prompt-output pairs to a remote analytics account. A synthetic restricted-label marker appears in a firewall trace destined outside the factory. Local serving is functioning, but the **territorial hard requirement fails**. Operational and technological review remain separate; do not mark them failed or passed without their own tests.
+
+| RCA stage | Observation, owner and correction |
+|---|---|
+| **Impact / status** | Synthetic trace shows prohibited egress in the tested configuration; **BLOCKED** for restricted deployment, not a statement that production data actually leaked |
+| **Direct cause** | Evaluation connector defaulted to a remote sink after the software update |
+| **Contributing process gap** | Release checklist inventoried primary inference and databases, but not evaluation, diagnostics or third-party observability |
+| **Immediate containment** | Platform owner disables the connector and outbound route; security owner preserves test artifacts and investigates historical destinations |
+| **Corrective design** | Use a validated local evaluation pipeline or remove the connector; require dependency inventory, explicit deny-by-default egress, update controls and change-triggered retests |
+| **Verification and closure** | Replay synthetic prompts under normal, failure, restore and support conditions. Capture network and privileged-access evidence; review versioned configuration and dated results. Close only with owner sign-off and a documented disposition |
+
+**Root cause:** The organization treated a territorial *architecture diagram* as evidence that all lifecycle operations met the boundary. The failed test exposes a gap between intended topology and observed runtime behavior. No amount of strong model portability or favorable legal advice fixes that physical-site egress failure.
+
+#### PM artifact: four-dimension evidence register
+
+Record a **separate status and owner for each dimension**. Here is a draft acceptance set for fictional PLANT-22:
+
+| Claim ID / owner | Falsifiable criterion | Evidence state and release consequence |
+|---|---|---|
+| **TERR-22 / platform + data owner** | No restricted content or derivative leaves named plant premises across all lifecycle and recovery paths | **FAILED**: synthetic evaluation egress; **release blocked** until corrected and retested |
+| **OPER-22 / CISO** | Only approved enterprise/on-site operators can administer model, data, keys, recovery and support; revoked identities cannot reconnect | **UNVERIFIED**: run access/revocation and supplier drill |
+| **TECH-22 / architecture owner** | A suitably licensed local model can run within capacity limits, cold-start offline if needed and be replaced without lost access controls | **UNVERIFIED**: demonstrate substitution, licences, benchmark and rollback |
+| **LEGAL-22 / counsel + procurement** | Applicable obligations, processor roles, contracts, access, transfer and deletion terms have specialist review and documented disposition | **REVIEW REQUIRED**: architecture and location do not establish legal compliance |
+
+**Release logic:** Fail a hard territorial or air-gap constraint and the result is **BLOCKED**, even if an optional weighted score looks attractive. When evidence is incomplete, use **UNVERIFIED** rather than **PASS**. An unfavorable controlled test requires correction and retesting. If the site cannot supply suitable compute, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** instead of substituting remote inference. Do not copy “NIST-aligned,” “in-country” or “private cloud” into a verified sovereignty status.
+
+**Learner challenge (30 minutes):** Use the [Architecture & Learning Studio](../learning/index.html) with synthetic inputs. Start from **Strict on-premises IP research assistant**. Keep **Single premises only; no data or derivatives may leave** and **On-prem production GPU servers inside the premises** selected, but change operator authority from **Enterprise employees administer all layers** to **Approved contractor, physically on-site under enterprise control**. Which dimension changed, and what new supervised-support test is needed? Next change compute to **Approved managed AI platform** and predict the mandatory blocker. Finally select **Air-gapped factory operations**, change connectivity from **Air-gapped: no inbound or outbound network** to **General internet access including external service endpoints**, and explain why the engine should reject the candidate before any vendor ranking.
+
+**Submission:** Provide a four-row register with claim, test, evidence owner, release status and one corrective action; add a one-paragraph architecture decision explaining why none of the four dimensions may substitute for another. The Studio is a deterministic educational simulator. It does **not** inspect real environments, validate supplier assertions or determine regulatory compliance.
+
+**Next header:** 2.3, *Deployment classes: public, managed sovereign, private, hybrid, air-gapped, edge*. The module remains in progress until all seven headers, lab, solutions, website outputs and both separate module reviews are complete.
+
+[^nist-core-dim22]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, **NIST AI 100-1** (2023), [AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Official HTML checked **19 November 2026**; the quoted function names and checklist limitation appear near the opening of Section 5. This source does not establish the course-authored four-dimension taxonomy.
+[^nist-zt-dim22]: NIST, *Zero Trust Architecture*, **SP 800-207**, abstract (August 2020), [official final publication](https://csrc.nist.gov/pubs/sp/800/207/final). Official abstract checked **19 November 2026**; the quotation concerns physical/network trust, not AI sovereignty.
