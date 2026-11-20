@@ -532,3 +532,23 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Preserve failing acceptance criteria while first improving observability. Distinguish print visibility, extracted text and source DOM; do not equate a source-level check with actual exported PDF quality.
 
 **Next:** Inspect new workflow's extracted page text, repair the true print/export cause, rerun browser and PDF checks, then complete technical/security/source and editorial/accessibility/assessment reviews with honest provenance.
+
+## Improvement entry 025 | 2026-11-20 | Module 02 browser QA syntax repair
+
+**Failed QA first:** [Pages run 44664133583](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44664133583) failed before PDF assertions could execute. The workflow log shows `SyntaxError: unexpected character after line continuation character` on line 67 of `social/module-02/test_rendered_carousel.py`.
+
+**Root cause:** The prior diagnostic edit accidentally inserted literal backslash-n characters (`\\n`) into executable Python instead of newline characters. This is a test-harness defect, not evidence that the original PDF footer defect was repaired.
+
+**Change and actual commit:** [f024a276c57b8ff74ec8641df1df4ea066cd5503](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f024a276c57b8ff74ec8641df1df4ea066cd5503) replaces the two erroneous literal sequences with actual newlines, retaining the footer assertion and diagnostic text.
+
+**Checks performed:** Inspected failed workflow step and decoded job log; read the exact file from GitHub; confirmed both malformed literal sequences and submitted a SHA-guarded file update. No local Python compile or Chromium execution was performed. New CI status is not yet certified.
+
+**Deployment:** The preceding run failed prior to site build/deployment. New workflow status pending separate inspection; do not claim published success.
+
+**Review A / Review B:** Both **NOT COMPLETED**. No independent human or different-model review performed.
+
+**Unresolved risks:** Original missing PDF footer assertion, visual print clipping, mobile accessibility, source accuracy and module-wide review gates remain open. Module 03 remains gated.
+
+**Reusable lesson:** Validate syntax on diagnostic test edits before triggering expensive browser installation; retain strict assertions and distinguish harness failures from product defects.
+
+**Next:** Verify corrected workflow output; diagnose actual PDF page-1 footer; remediate and retest before Module 02 reviews.
