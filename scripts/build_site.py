@@ -47,6 +47,7 @@ def article_content(path,dest,diagram=False):
       'chapters/01-sovereign-ai-fundamentals.md':'modules/01-sovereign-ai-fundamentals.html',
       'labs/module-01/README.md':'labs/module-01/index.html',
       'labs/module-02/README.md':'labs/module-02/index.html',
+      'labs/module-03/README.md':'labs/module-03/index.html',
       'social/module-01/POST.md':'social/module-01/POST.html',
       'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
@@ -184,6 +185,8 @@ def frame(body,page,title,prefix='',article=False,toc=None):
         body=f'''<div class="read-content-header"><div class="book-eyebrow">THE LIBRARY <span>/</span> {html.escape(title)}</div><div class="reading-tools"><span class="chapter-status">CHAPTER IN PROGRESS</span><span class="reading-time">READ / ANNOTATE / REVISIT</span></div></div><div class="prose" data-annotatable="true" data-page-id="{html.escape(page)}">{body}</div><nav class="on-page"><div class="section-number">IN THIS CHAPTER</div>{toc_lines}</nav>'''
         if page=='module01' and title=='Module 01':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../learning/index.html">Practice with the adaptive tutor ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
+        if page=='module03' and title=='Module 03':
+            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Verify the requirement before buying the architecture.</h2><p>Evaluate fictional enterprise constraints, trace controls to evidence and explain the release decision.</p><a class="simple-link" href="../labs/module-03/index.html">Open Module 03 lab ↗</a><a class="simple-link" href="../learning/index.html">Practice in Architecture Studio ↗</a></section>'''
         if page=='module02' and title=='Module 02':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a maturity claim before approving it.</h2><p>Run the synthetic scoring lab and examine its hard-gate evidence.</p><a class="simple-link" href="../labs/module-02/index.html">Open Module 02 lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a><a class="simple-link" href="../social/module-02/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-02/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module' and title=='Module 05':
@@ -235,6 +238,7 @@ def main():
       ('chapters/05-laws-regulation-jurisdiction.md','modules/05-laws-regulation-jurisdiction.html','module','Module 05'),
       ('labs/module-01/README.md','labs/module-01/index.html','module01','Module 01 lab'),
       ('labs/module-02/README.md','labs/module-02/index.html','module02','Module 02 lab'),
+      ('labs/module-03/README.md','labs/module-03/index.html','module03','Module 03 requirements lab'),
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
       ('social/module-02/POST.md','social/module-02/POST.html','module02','LinkedIn post draft 02'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
