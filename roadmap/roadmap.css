@@ -249,3 +249,26 @@ select { padding: .35rem .45rem; min-height: 2rem; font: inherit; color: inherit
 .kickoff-inner { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1.1rem; padding-block: .85rem; font-size: .87rem; }
 .kickoff p { color: var(--subtle); flex: 1 1 25rem; }
 .kickoff a { color: var(--accent); font-size: .8rem; font-weight: 650; text-underline-offset: .23em; }
+.flow-layer > summary,#schedule > summary {cursor:pointer}
+.flow-heading {list-style:none; align-items:center; margin:0}
+.flow-heading::-webkit-details-marker {display:none}
+.flow-heading small,.chart-name small {display:block;color:var(--subtle);font-weight:450}
+.flow-heading::after {content:'+';margin-left:auto;font:1.35rem var(--mono)}
+.flow-layer[open] > summary::after {content:'−'}
+.flow-layer[open] > summary {padding-bottom:1rem;border-bottom:1px solid var(--line);margin-bottom:1rem}
+.comparison {overflow:auto; border:1px solid var(--line); border-radius:var(--radius);background:var(--surface)}
+.comparison table {width:100%;border-collapse:collapse;min-width:700px}
+.comparison th,.comparison td {text-align:left;vertical-align:top;padding:1rem;border-bottom:1px solid var(--line);font-size:.87rem}
+.comparison thead {background:var(--tint)}
+.comparison th:first-child {min-width:8rem;position:sticky;left:0;background:var(--surface)}
+#schedule > summary {padding:1rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);font-weight:700}
+#schedule[open] > summary {margin-bottom:.75rem}
+#schedule-links,.work-key {display:flex;flex-wrap:wrap;gap:.5rem}
+#schedule-links a {padding:.35rem .6rem;border:1px solid var(--line);border-radius:.4rem}
+#schedule-links a[aria-current] {background:var(--text);color:var(--surface)}
+.day-track {display:grid;grid-template-columns:repeat(90,1fr);align-items:stretch}
+.day-track .off {background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line) 3px 5px)}
+.day-track .active {background:var(--ink);align-self:center;height:1rem}
+.work-key,.calendar-note {padding:.75rem 1rem;font-size:.8rem}
+.work-key span {display:inline-flex;gap:.3rem;align-items:center}
+.work-key i {width:.75rem;height:.75rem;border-radius:2px}

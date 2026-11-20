@@ -83,16 +83,14 @@
           <p>Follow the same customer task through the experience, the request path, and the release decision.</p>
         </div>
         <div class="blueprint">
-          <section class="flow-layer" aria-labelledby="experience-heading">
-            <div class="flow-heading"><span>1</span><h3 id="experience-heading">Customer experience</h3></div>
+          <details class="flow-layer" open><summary class="flow-heading"><span>1</span><div><h3>Customer experience</h3><small>See how a user verifies and shares the answer.</small></div></summary>
             <ol class="flow-sequence">
               <li class="flow-node" id="flow-ask"><strong>Ask which documents are missing</strong><a class="flow-link" href="#flow-identity">Follow the request <span aria-hidden="true">↓</span></a></li>
               <li class="flow-node" id="flow-verify"><strong>Verify the checklist against cited sources</strong></li>
               <li class="flow-node"><strong>Hand off the work if shared context helps</strong></li>
             </ol>
-          </section>
-          <section class="flow-layer" aria-labelledby="request-heading">
-            <div class="flow-heading"><span>2</span><h3 id="request-heading">How Jean handles the request</h3></div>
+          </details>
+          <details class="flow-layer"><summary class="flow-heading"><span>2</span><div><h3>How Jean handles the request</h3><small>Trace permissions, model routing and the evidence behind the answer.</small></div></summary>
             <ol class="flow-sequence">
               <li class="flow-node" id="flow-identity"><strong>Jean establishes identity and optional Mate context</strong></li>
               <li class="flow-node flow-decision"><strong>Governance Gateway applies customer policy</strong></li>
@@ -111,9 +109,8 @@
                 <div class="flow-node flow-hold"><strong>Stop or request review</strong></div>
               </div>
             </div>
-          </section>
-          <section class="flow-layer" aria-labelledby="release-heading">
-            <div class="flow-heading"><span>3</span><h3 id="release-heading">How the deployment earns approval</h3></div>
+          </details>
+          <details class="flow-layer"><summary class="flow-heading"><span>3</span><div><h3>How the deployment earns approval</h3><small>Inspect the launch criteria and the path back to testing.</small></div></summary>
             <ol class="flow-sequence">
               <li class="flow-node"><strong>Version the release candidate</strong></li>
               <li class="flow-node"><strong>Run held-out Synthia regressions</strong></li>
@@ -134,28 +131,22 @@
                 <div class="flow-node flow-hold"><strong>Fix or narrow scope, then retest</strong><a class="flow-link" href="#flow-tests">Loop back to release tests <span aria-hidden="true">↶</span></a></div>
               </div>
             </div>
-          </section>
+          </details>
         </div>
       </div>
     </section>
     <section class="section tinted" id="scenarios">
       <div class="wrap">
         <div class="section-head"><p class="kicker">Scenario planning</p><h2>Plan around the first live cohort.</h2><p>Staff the average case. Switch paths when customer access, release readiness, or the observation window changes.</p></div>
-        <fieldset class="choice" id="scenario-control">
-          <legend>Choose a delivery scenario</legend>
-          <label><input type="radio" name="scenario" value="best">Best case</label>
-          <label><input type="radio" name="scenario" value="average" checked>Average case</label>
-          <label><input type="radio" name="scenario" value="worst">Worst case</label>
-        </fieldset>
-        <div id="scenario-summary" aria-live="polite"></div>
+        <div id="scenario-summary" class="comparison" tabindex="0" role="region" aria-label="Compare the three delivery scenarios"></div>
         <noscript><p>Best case targets live use on days 42–50, average case on days 57–70, and worst case holds launch while a required approval, dependency, or control remains open.</p></noscript>
       </div>
     </section>
     <section class="wrap section" id="timeline">
-      <div class="section-head"><p class="kicker">90-day Gantt</p><h2>What ships, and when.</h2><p>The timeline follows the selected scenario. Select a feature to jump to its actions, success measure, and rationale.</p></div>
-      <div class="chart-frame">
+      <div class="section-head"><p class="kicker">90-day Gantt</p><h2>What ships, and when.</h2><p>Planning assumption · 23 November 2026 to 20 February 2027. The 90 calendar days contain 62 scheduled workdays. The team works Monday to Friday.</p></div>
+      <details id="schedule"><summary>View delivery timeline</summary><div class="chart-frame">
         <div class="chart-top">
-          <div class="chart-context"><p id="chart-scenario">Average case</p><a href="#scenarios">Change scenario</a></div>
+          <div class="chart-context"><p id="chart-scenario">Average case</p><nav id="schedule-links" aria-label="Scenario timelines"></nav></div>
           <div class="filters">
             <label for="priority-filter">Priority</label>
             <select id="priority-filter">
@@ -169,12 +160,11 @@
         <div class="chart-scroll" tabindex="0" role="region" aria-label="Gantt chart. Scroll horizontally for all days.">
           <div id="gantt"></div>
         </div>
-        <ul class="legend" aria-label="Timeline key">
-          <li><i class="p0"></i>P0 · Release</li><li><i class="p1"></i>P1 · Conditional</li><li><i class="p2"></i>P2 · Discovery</li>
-        </ul>
+        <div class="work-key" id="work-key"></div>
+        <p class="calendar-note">Hatched days are off. Private-sector holidays in this window are 2–3 December and 1 January. Colours identify proposed engineering responsibilities and delivery activities. Bars show working dates within each feature window.</p>
         <p id="deferred" class="deferred"></p>
       </div>
-      <div class="gates">
+      </details><div class="gates">
         <article><span>DAY 14</span><h3>Confirm the pilot</h3><p>Name the sponsor, source, operators, eligible users and approval owner.</p></article>
         <article><span>DAY 28</span><h3>Prove one request</h3><p>Verify the source, two permission roles, one route and one auditable decision. Agree on the baseline and acceptance bar.</p></article>
         <article><span id="ready-day">DAYS 57–70</span><h3>Decide on live use</h3><p>Go, narrow the scope, or hold. Customer Security and IT accept the evidence for the selected scope.</p></article>
