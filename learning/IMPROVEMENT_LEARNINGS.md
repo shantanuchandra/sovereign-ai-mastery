@@ -712,3 +712,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Lesson:** Root CSS zoom and reduced effective layout viewport are different tests. A root transform can inflate scroll width without revealing content clipping. Preserve explicit reflow assertions and record the proxy's limits. No production premises-only or air-gap guarantee is inferred from synthetic UI tests.
 
 **Next header:** Continue Module 02 gate remediation and verify new CI; do not begin Module 03 / 3.1 until release blockers close.
+
+
+## Improvement entry 035 | 2026-11-20 | Module 02 B-04 named-region accessibility assertions
+
+**Prior CI evidence:** [Pages run 44736239628](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44736239628) completed **success** on commit `73f1b9960ad203fdfc22fd6a06d748bccf89f52f`, validating the preceding 195px reflow-proxy revision within the workflow. The standalone test commit was cancelled; do not count it as a separate pass.
+
+**Actual implementation commit:** [669d04b3319d6fae65010335484881658de76752](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/669d04b3319d6fae65010335484881658de76752) extends `social/module-02/test_rendered_carousel.py` to assert an English document language, one main landmark, labeled deck navigation and named controls, and eight visible question headings with unique IDs matching each slide's `aria-labelledby`. Existing keyboard-order, narrow-viewport, PDF page and extraction checks remain.
+
+**Checks actually performed:** Read TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, both Module 02 review records, improvement history, carousel HTML and browser-test source; queried GitHub Actions for the previous successful deployment; checked the insertion against the current fetched test blob and GitHub accepted the update. **New test execution, manual screenshot inspection, accessibility-tree inspection and PDF tagging inspection NOT PERFORMED in this iteration.**
+
+**Review/gate:** B-04 semantic DOM coverage improved, **OPEN** pending CI and real assistive-technology or accessibility-tree inspection. B-01 visual mobile/PDF inspection, B-02 independent blind calibration and B-05 sample marking remain OPEN. Review A source audit, interactive negative-case evidence and PDF visual inspection remain OPEN. Reviews A and B **NOT SIGNED OFF**; independent human/different-model review **NOT COMPLETED**. The public repository contains synthetic-only scenarios; a passing DOM assertion cannot prove premises-only isolation or an air gap.
+
+**Deployment:** The prior run passed; this new test commit and the log commit are **NOT VERIFIED DEPLOYED** until their GitHub Pages workflow concludes.
+
+**Improvement lesson:** Check explicit accessible-name relationships in addition to text extraction and geometric overflow. Do not equate semantic DOM tests with actual reading order, focus visibility, screen-reader behavior or tagged PDF.
+
+**Next header:** Remain at Module 02 QA: inspect new CI, actual browser/mobile/PDF evidence, primary-source ledger and interactive hard-gate behavior before releasing Module 03 / **3.1 What enterprise problems justify sovereignty investments?**
