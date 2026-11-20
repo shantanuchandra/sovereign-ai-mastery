@@ -52,8 +52,18 @@ class Module03SocialContract(unittest.TestCase):
         self.assertEqual(len(self.dom.headings), 8)
         self.assertTrue(all(h.strip().endswith("?") for h in self.dom.headings))
         self.assertTrue(all(ref in self.dom.ids for ref in self.dom.references))
+        # Each slide must name its own question heading, not an unrelated ID.
+        for index, section in enumerate(self.dom.sections, start=1):
+            self.assertEqual(section.get("aria-labelledby"), f"q{index}")
+            self.assertIn(f'<h2 id="q{index}">', self.html)
+        self.assertEqual(len(self.dom.references), 8)
+        self.assertEqual(len(set(self.dom.references)), 8)
         self.assertEqual([s.get("id") for s in self.dom.sections],
                          [f"slide-{i}" for i in range(1, 9)])
+
+    def test_no_duplicate_dom_ids(self):
+        ids = re.findall(r'\\bid="([^"]+)"', self.html)
+        self.assertEqual(len(ids), len(set(ids)), "duplicate DOM IDs")
 
     def test_language_mobile_and_print_basics(self):
         for token in ('lang="en"', 'name="viewport"', '@media print', '@page',
