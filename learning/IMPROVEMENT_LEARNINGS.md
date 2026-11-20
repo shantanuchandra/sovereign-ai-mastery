@@ -902,3 +902,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Workload classification needs independent sensitivity, continuity and consequence axes, plus classification inheritance across diagnostics and backups. A blocked attempted egress is still a defect requiring remediation, not proof the design was correct.
 
 **Next header:** **3.3 Security and compliance requirements vs. additional sovereignty objectives**. Continue sequentially without repeating 3.1–3.2.
+
+
+## Improvement entry 046 | 2026-11-21 | Module 03 section 3.6 investment frameworks
+
+**Current-state check:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 current chapter and improvement history; inspected QA directory (only Module 02 review records present) and current GitHub Pages workflow listing. Confirmed sections 3.1–3.5 already existed, so selected next incomplete TOC heading **3.6 Decision frameworks, investment priorities, and alternatives**. Existing Module 02 review status is bounded self-review, not independently certified.
+
+**Implementation:** [5d5f7ad1d95f57d2841c836e90012cc764e07fa9](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/5d5f7ad1d95f57d2841c836e90012cc764e07fa9) adds approximately 11.9k characters of learner-facing 3.6 material. Includes fictional Gulf Works Group UAE portfolio, signed-authority G1–G6 hard-gate method, architecture comparison and non-AI alternative, premises-only and physical air-gap fail-closed constraints, weighted 72-vs-56 example with explicit arithmetic and sensitivity, five-year cost inputs, prioritized four-week roadmap, timeout/telemetry RCA, PM ADR-03-06, and spoiler-free learner challenge. No facilitator answer key was placed in the learner chapter. No new external legal or vendor fact/date claimed verified.
+
+**Checks actually performed:** GitHub fetch_file established current chapter blob SHA and 3.6 absence; update_file accepted the SHA-protected replacement and returned the implementation commit. Re-read template and recent workflow metadata. Arithmetic of weighted example was manually calculated from the displayed inputs. **No local Python, browser, Markdown build, security network test, PDF visual check, learner assessment or independent review executed** in this iteration.
+
+**CI/deployment:** Latest visible GitHub Pages workflow [44801403925](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44801403925) completed **success** on older commit `46c2498afd2eff5b8c848254ebe514c002dc3c0b`. No workflow for the new 3.6 commit was visible at the time checked. Therefore **new content CI and deployment NOT VERIFIED**. A prior green run does not validate the new chapter.
+
+**Risks and gates:** Section 3.7, Module 03 lab, five-question assessment plus scenario, separate facilitator solutions, HTML social deck/POST, source and accessibility audits, and distinct technical/security/source and editorial/accessibility/assessment reviews remain pending. These are not independent human/model reviews and do not establish production or physical isolation assurance. The public repository remains synthetic-data-only.
+
+**Improvement lesson:** A weighted scorecard is useful only after hard-gate filtering. Show exact arithmetic, mark unknown evidence as no-release, and include non-AI baselines and failure-path retests so a cheap or impressive hosted model cannot displace a binding premises or air-gap condition.
+
+**Next header:** **3.7 Requirements traceability, success metrics, and governance**. On completion batch remaining module artifacts and two separately recorded critical self-reviews with honest limitations and CI evidence.
