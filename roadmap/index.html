@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A 90-day Metis Jean product roadmap for proving adoption, customer impact, and a repeatable sovereign AI deployment.">
+  <title>Metis Jean | The first 90 days</title>
+  <link rel="stylesheet" href="roadmap.css">
+  <script type="module" src="roadmap.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="../"><b>S<span>/</span>A</b> Sovereign AI Field Guide</a>
+      <nav aria-label="Roadmap sections">
+        <a href="#adoption">Adoption</a>
+        <a href="#scenarios">Scenarios</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#priorities">Priorities</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">METIS JEAN / PROPOSED 90-DAY ROADMAP</p>
+          <h1>From first result<br>to <em>repeat use.</em></h1>
+          <p class="deck">Make the first deployment a success. Prove that a customer saves meaningful time and resources on a recurring job, then see whether a colleague can get the same value through the product.</p>
+          <a class="primary" href="#timeline">Explore the 90-day timeline <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="brief" aria-label="Quarter at a glance">
+          <p class="kicker">THE QUARTER IN FOCUS</p>
+          <p class="stage">0 <span>→</span> 1</p>
+          <dl>
+            <div><dt>First release</dt><dd>One read-only workflow</dd></div>
+            <div><dt>Capacity</dt><dd>10 shared developers</dd></div>
+            <div><dt>Primary signal</dt><dd>Repeat use with verified savings</dd></div>
+            <div><dt>Next decision</dt><dd>Whether the evidence supports 1 → 10</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+    <section class="wrap section" id="adoption">
+      <div class="section-head"><p class="kicker">01 / ADOPTION AND VALUE</p><h2>One result earns the next user.</h2>
+        <p>A reviewer gets a cited checklist for a recurring document review, verifies it, and shares it with a colleague who has access. The colleague opens the evidence and reuses the task on their own case. That second verified run is the first sign that value can travel without the product team.</p>
+      </div>
+      <ol class="loop">
+        <li><span>01</span><h3>Get a verified result</h3><p>Run the task, check the evidence, and record time and effort against the manual baseline.</p></li>
+        <li><span>02</span><h3>Share it with a colleague</h3><p>Share a link inside the customer’s approved environment. Check the recipient’s access when they open it.</p></li>
+        <li><span>03</span><h3>Reuse the workflow</h3><p>Start a fresh run from the shared result using the recipient’s own permissions and inputs.</p></li>
+        <li><span>04</span><h3>Return when the job recurs</h3><p>Measure independent completion and whether the savings persist. Use that evidence in the sponsor’s continuation discussion.</p></li>
+      </ol>
+      <div class="metrics">
+        <article id="adoption-measure"><p class="kicker">A / PRIMARY · VALUE-BACKED ADOPTION</p><h3>Repeat users with verified savings</h3><p>Report the share and count of eligible pilot users who complete a verified task on at least two distinct work cycles while meeting the agreed savings bar. An eligible user has access and at least two real opportunities in the observation window. Agree on the target share and minimum observation window by day 28.</p></article>
+        <article id="impact-measure"><p class="kicker">I / WORKFLOW IMPACT</p><h3>Time and resources saved</h3><p>Compare like-for-like manual and assisted cases. Include citation review, correction, fallback and operator effort. Track median active minutes, rework and cost per verified result. Illustrative target: 30% less active time with no increase in material rework.</p></article>
+        <article id="governance-measure"><p class="kicker">G / GOVERNANCE AND QUALITY</p><h3>A release the customer can trust</h3><p>Illustrative acceptance: 18 of 20 workflow cases pass, including valid abstentions. Every mandatory access, routing and policy case must pass. Customer IT demonstrates recovery and Security verifies the audit evidence.</p></article>
+        <article id="repeatability-measure"><p class="kicker">R / PRODUCT REPEATABILITY</p><h3>A deployment a second operator can run</h3><p>Track critical steps reproduced from versioned instructions, operator hours and undocumented interventions. Freeze the step list and thresholds with the pilot owner by day 28.</p></article>
+      </div>
+      <p class="band"><strong>Track the loop:</strong> verified result → share → authorised open → independent reuse → repeat use. Report counts and conversion between each step, using approved metadata. Track the sponsor’s willingness to fund continuation as a downstream commercial signal.</p>
+    </section>
+    <section class="section tinted" id="scenarios">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">02 / SCENARIO PLANNING</p><h2>Plan around the first live cohort.</h2><p>Staff the average case. Switch paths when customer access, release readiness, or the observation window changes.</p></div>
+        <fieldset class="choice" id="scenario-control">
+          <legend>Choose a delivery scenario</legend>
+          <label><input type="radio" name="scenario" value="best">Best case</label>
+          <label><input type="radio" name="scenario" value="average" checked>Average case</label>
+          <label><input type="radio" name="scenario" value="worst">Worst case</label>
+        </fieldset>
+        <div id="scenario-summary" aria-live="polite"></div>
+        <noscript><p>Best case targets live use on days 42–50, average case on days 57–70, and worst case holds launch while a required approval, dependency, or control remains open.</p></noscript>
+      </div>
+    </section>
+    <section class="wrap section" id="timeline">
+      <div class="section-head"><p class="kicker">03 / 90-DAY GANTT</p><h2>What ships, and when.</h2><p>The timeline follows the selected scenario. Select a feature to jump to its actions, success measure, and rationale.</p></div>
+      <div class="chart-frame">
+        <div class="chart-top">
+          <p id="chart-scenario">Average case</p>
+          <div class="filters">
+            <label for="priority-filter">Priority</label>
+            <select id="priority-filter">
+              <option value="all">All priorities</option>
+              <option value="P0">P0 · Release</option>
+              <option value="P1">P1 · Conditional</option>
+              <option value="P2">P2 · Discovery</option>
+            </select>
+          </div>
+        </div>
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="Gantt chart. Scroll horizontally for all days.">
+          <div id="gantt"></div>
+        </div>
+        <ul class="legend" aria-label="Timeline key">
+          <li><i class="p0"></i>P0 · Release</li><li><i class="p1"></i>P1 · Conditional</li><li><i class="p2"></i>P2 · Discovery</li>
+        </ul>
+        <p id="deferred" class="deferred"></p>
+      </div>
+      <div class="gates">
+        <article><span>DAY 14</span><h3>Confirm the pilot</h3><p>Name the sponsor, source, operators, eligible users and approval owner.</p></article>
+        <article><span>DAY 28</span><h3>Prove one request</h3><p>Verify the source, two permission roles, one route and one auditable decision. Agree on the baseline and acceptance bar.</p></article>
+        <article><span id="ready-day">DAYS 57–70</span><h3>Decide on live use</h3><p>Go, narrow the scope, or hold. Customer Security and IT accept the evidence for the selected scope.</p></article>
+        <article><span>DAY 90</span><h3>Choose what to fund</h3><p>Review repeat use, verified savings, independent reuse and operating effort with the sponsor.</p></article>
+      </div>
+    </section>
+    <section class="section tinted" id="priorities">
+      <div class="wrap">
+        <div class="section-head"><p class="kicker">04 / FEATURE PRIORITIES</p><h2>Every priority has a reason and a test.</h2><p>Two delivery tracks share the ten developers: customer workflow and deployment readiness. Reserve capacity for evaluation and instrumentation within those tracks. Confirm availability with Engineering at kickoff.</p></div>
+        <table class="feature-table">
+          <thead><tr><th scope="col">Priority and feature</th><th scope="col">Actions</th><th scope="col">Success measure</th><th scope="col">Why this is a priority</th></tr></thead>
+          <tbody id="features"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="wrap section" id="day90">
+      <div class="section-head"><p class="kicker">05 / DAY-90 DECISION</p><h2>What would justify moving toward 1 → 10?</h2></div>
+      <div class="decisions">
+        <article><h3>Repeat use + savings + peer reuse</h3><p>Agree on paid continuation or a funded next step with the sponsor. Test the same workflow with a second willing customer and measure the deployment effort again.</p></article>
+        <article><h3>Value without peer reuse</h3><p>Watch where recipients drop off between the shared result and their own first run. Improve discovery, access or reuse before expanding the workflow catalogue.</p></article>
+        <article><h3>Repeat use without verified savings</h3><p>Inspect review, corrections and support effort. Narrow or revise the workflow and repeat the baseline comparison before investing in acquisition.</p></article>
+      </div>
+      <details class="operating">
+        <summary>Service blueprint, release gates and kickoff questions</summary>
+        <div class="detail-grid">
+          <div><h3>Service blueprint</h3><ol><li>The user asks, checks citations and shares the result.</li><li>The colleague opens permitted evidence and runs a new case.</li><li>Behind the scenes, Jean retrieves current evidence, Simon routes inference, and the Gateway applies policy and records the decision.</li><li>IT rehearses recovery. Product compares outcomes and operating effort against baseline.</li></ol></div>
+          <div><h3>Release and impact evidence</h3><ul><li>Go when workflow, control and recovery evidence meets the agreed bar.</li><li>Go with reduced scope when the sponsor accepts the remaining value and the scoped release passes all mandatory tests.</li><li>Hold on failed mandatory checks or pending approval. Record the owner and decision date.</li><li>Open the customer AI impact assessment in discovery. Update it at release and after live use, including rework, incidents, sample size and the observation window.</li></ul></div>
+          <div><h3>Questions to resolve by day 14</h3><ul><li>Which customer has a sponsor, an approved source and recurring work we can observe?</li><li>What savings would change the team’s default way of working?</li><li>Can recipients open a shared result and run a new case under their own permissions?</li><li>How much capacity is protected, and who can make a scope decision when a dependency slips?</li></ul></div>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer class="mast"><div class="wrap mast-inner"><a class="brand" href="../">← Sovereign AI Field Guide</a><a href="#main">Back to top ↑</a></div></footer>
+</body>
+</html>

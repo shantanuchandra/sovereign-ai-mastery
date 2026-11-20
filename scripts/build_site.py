@@ -149,7 +149,7 @@ def relroute(num):
 def book_sidebar(page,prefix=''):
     current_module = int(page[-2:]) if re.fullmatch(r'module\d{2}', page) else (5 if page=='module' else None)
     current_label = f'{current_module:02}' if current_module is not None else '01'
-    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html')]
+    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html'),('roadmap','90-day product roadmap','roadmap/')]
     core=''.join(f'<a class="toc-special {"is-active" if page==name else ""}" href="{prefix}{route}">{html.escape(label)}</a>' for name,label,route in links)
     parts=[]; seq=modules(); j=0
     for roman,title,range_text in PART_NAMES:
@@ -221,7 +221,7 @@ def main():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
     shutil.copytree(ROOT/'site/assets', DIST/'assets')
-    for name in ['diagrams','labs','social','onboarding','learning']:
+    for name in ['diagrams','labs','social','onboarding','learning','roadmap']:
         if (ROOT/name).exists():
             shutil.copytree(ROOT/name, DIST/name, ignore=shutil.ignore_patterns('__pycache__','*.pyc','tests'))
     (DIST/'taxonomy').mkdir(exist_ok=True)
