@@ -56,6 +56,35 @@ Fill one row per workload. You may use this Markdown table in a private or synth
 
 **Decision rubric:** A valid memo refuses to rank a hard-failing design by cost or an average maturity score. Missing evidence stays `UNVERIFIED`; a known adverse test is `BLOCKED`. Rights and jurisdictional applicability are reviewed by appropriate specialists, not inferred from Python or site selectors.
 
+
+## Evidence-first submission: prediction, observation and counterfactual
+
+**Submit your own evidence, not the table of expected dispositions above.** For each of experiments 2–5, copy the input into a local scratch file, run the evaluator before and after the single stated change (experiment 4 deliberately changes two linked fields), and attach a redacted input diff plus both JSON outputs. Work only with the repository's synthetic records. Do not commit local workplace information or tokens.
+
+Use this blank worksheet for **each experiment**. Preserve the original output unchanged even if the result contradicts your prediction.
+
+| Field | Learner entry |
+|---|---|
+| Experiment and fictional workload ID | [ ] |
+| Hard boundary and accountable owner | [ ] |
+| Baseline input file/hash and exact command | [ ] |
+| Hypothesis: expected disposition **before** running changed input | [ ] |
+| Input field(s) changed; before → after (minimal JSON diff) | [ ] |
+| Baseline observed disposition and relevant hard-gate fields | [ ] |
+| Changed observed disposition and relevant hard-gate fields | [ ] |
+| Predicted vs observed: agreement, mismatch, explanation | [ ] |
+| Evidence state: simulated claim vs actual independently observed control | [ ] |
+| Counterfactual: revert exactly one change; predict and then record result | [ ] |
+| Failure mode, direct cause and contributing process gap | [ ] |
+| Containment, corrective action, named reviewer and reproducible retest | [ ] |
+| Release decision: BLOCKED / NOT FEASIBLE / UNVERIFIED / REVIEW REQUIRED, with justification | [ ] |
+
+**Counterfactual discipline:** For OT-02, after testing both disconnected network and removal of the external path, restore *only* the external path and rerun. Record whether a disconnected label can mask a prohibited control route. For PLANT-02, change only the compute site while holding the physical-premises requirement fixed. These are **modeled** negative cases: the evaluator cannot demonstrate that a real switch, management interface, telemetry collector, backup path or removable-media process is isolated.
+
+**Evidence quality test:** A reviewer should be able to reproduce your output using the named synthetic input and command, identify which field caused the transition, and distinguish a simulated state from verified operational evidence. If you cannot reproduce a transition, mark it **UNRESOLVED**; do not silently edit your observation to match the expected table. The final memo must explicitly refuse off-premises fallback for premises-only data and any inbound/outbound route for an air gap, including under degraded, support and recovery conditions.
+
+**Assessment boundary:** This worksheet is a learner submission contract, not an answer key or an automated compliance certificate. The facilitator should mark the causal explanation and retest evidence separately from whether the learner guessed the disposition correctly. Blind marking and learner comprehension calibration remain unperformed until a recorded review occurs.
+
 ## Failure investigation and root-cause analysis
 
 *Fictional symptom:* A procurement scorecard says “M3 territorial”, because the model is on a local GPU. During a simulated model crash, a telemetry agent attempts to send a synthetic restricted marker off the premises.
