@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="850" viewBox="0 0 1120 850" role="img" aria-labelledby="title desc">
+<title id="title">Enterprise workload classification and fail-closed architecture gates</title>
+<desc id="desc">Inventory each workload and derivative, assign sensitivity, criticality and impact with owners, then check named physical or network prohibitions. The hard-boundary branch rejects incompatible paths, and the other branch screens approved candidates. Both lead to a mandatory decision: if no architecture meets all hard gates, stop and record not feasible; otherwise compare recovery, task quality, cost and exit, and prepare an evidence-backed conditional decision.</desc>
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 Z" fill="#335b54"/></marker>
+  <style>
+    .bg{fill:#f8f5ec}.node{fill:#ffffff;stroke:#31594f;stroke-width:2}.decision{fill:#e8f3ef;stroke:#31594f;stroke-width:2}.deny{fill:#fff1e9;stroke:#a24d2d;stroke-width:2}.stop{fill:#a24d2d;stroke:#a24d2d;stroke-width:2}.text{font:600 19px Arial,Helvetica,sans-serif;fill:#19342f}.small{font:15px Arial,Helvetica,sans-serif;fill:#405a53}.tag{font:700 15px Arial,Helvetica,sans-serif;fill:#735044}.white{font:700 18px Arial,Helvetica,sans-serif;fill:white}.edge{fill:none;stroke:#335b54;stroke-width:2.7;marker-end:url(#arrow)}.label{font:700 16px Arial,Helvetica,sans-serif;fill:#2a5148}
+  </style>
+</defs>
+<rect class="bg" x="0" y="0" width="1120" height="850" rx="16"/>
+<text x="560" y="43" text-anchor="middle" class="text" style="font-size:26px">Classify workload, enforce hard boundaries, then compare value</text>
+<text x="560" y="70" text-anchor="middle" class="small">Course-authored decision flow. Each arrow represents a claim to validate with evidence.</text>
+<rect class="node" x="358" y="95" rx="13" width="404" height="65"/><text x="560" y="123" text-anchor="middle" class="text">Inventory workload and derivatives</text><text x="560" y="145" text-anchor="middle" class="small">Prompts, retrieval, outputs, logs, backups</text>
+<path class="edge" d="M560 160 V192"/>
+<rect class="node" x="358" y="193" rx="13" width="404" height="68"/><text x="560" y="221" text-anchor="middle" class="text">Assign S, C and I, with owners</text><text x="560" y="245" text-anchor="middle" class="small">Sensitivity · criticality · impact</text>
+<path class="edge" d="M560 261 V299"/>
+<polygon class="decision" points="560,300 755,362 560,424 365,362"/><text x="560" y="356" text-anchor="middle" class="text">Named site or network</text><text x="560" y="379" text-anchor="middle" class="text">prohibition?</text>
+<path class="edge" d="M366 362 H203 V454"/><text x="277" y="351" text-anchor="middle" class="label">YES</text>
+<path class="edge" d="M754 362 H922 V454"/><text x="842" y="351" text-anchor="middle" class="label">NO</text>
+<rect class="deny" x="35" y="457" rx="13" width="343" height="86"/><text x="206" y="489" text-anchor="middle" class="text">Reject incompatible routes</text><text x="206" y="513" text-anchor="middle" class="small">Location, support, egress, offline rights</text><text x="206" y="532" text-anchor="middle" class="small">No compensating maturity score</text>
+<rect class="node" x="741" y="457" rx="13" width="343" height="86"/><text x="913" y="489" text-anchor="middle" class="text">Screen eligible architectures</text><text x="913" y="513" text-anchor="middle" class="small">Only allowed managed or private paths</text><text x="913" y="532" text-anchor="middle" class="small">Verify operators and evidence</text>
+<path class="edge" d="M206 543 V584 H474 V604"/><path class="edge" d="M913 543 V584 H647 V604"/>
+<polygon class="decision" points="560,594 717,652 560,708 403,652"/><text x="560" y="647" text-anchor="middle" class="text">Any architecture passes</text><text x="560" y="671" text-anchor="middle" class="text">all hard gates?</text>
+<path class="edge" d="M404 652 H198 V736"/><text x="304" y="643" text-anchor="middle" class="label">NO</text>
+<path class="edge" d="M716 652 H912 V736"/><text x="818" y="643" text-anchor="middle" class="label">YES</text>
+<rect class="stop" x="30" y="739" rx="12" width="351" height="72"/><text x="205" y="769" text-anchor="middle" class="white">STOP: NOT FEASIBLE</text><text x="205" y="794" text-anchor="middle" class="white" style="font-size:15px">under current constraints</text>
+<rect class="node" x="731" y="739" rx="12" width="356" height="72"/><text x="909" y="767" text-anchor="middle" class="text">Compare eligible options</text><text x="909" y="789" text-anchor="middle" class="small">Recovery, quality, costs, exit; verify</text>
+</svg>
