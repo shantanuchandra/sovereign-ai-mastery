@@ -64,7 +64,7 @@ def main() -> int:
             for i, text in enumerate(page_text):
                 assert len(text) > 120, f"PDF page {i + 1} has little extractable text ({len(text)} chars)"
                 assert f"{i + 1:02d} / 08" in text, f"Missing slide number on PDF page {i + 1}"
-                assert "DECISION TEST" in text, (
+                assert "DECISIONTEST" in "".join(text.split()), (
                     f"Missing decision footer on PDF page {i + 1}; extracted text follows "
                     f"(first 1200 chars): {text[:1200]!r}"
                 )
