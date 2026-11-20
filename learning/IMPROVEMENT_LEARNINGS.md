@@ -642,3 +642,23 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Exercise every selectable connectivity class, not just one baseline; separate the presence of a route from observed restricted-data egress and preserve hard-gate precedence. Do not treat simulated controls as real infrastructure assurance.
 
 **Next:** Verify current CI, inspect Studio UI negative-case behavior and PDF visual accessibility, complete A-01 source ledger, then close both Module 02 gates before starting **3.1 What enterprise problems justify sovereignty investments?**
+
+## Improvement entry 031 | 2026-11-20 | Module 02 A-03 Studio rule-path negative tests
+
+**Prior status:** GitHub Pages [run 44702826726](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44702826726) for prior log commit `c3427e6c6a8471000bd1370a11b503a074314d26` completed **success**. The earlier test-only run 44702807627 was cancelled; it must not be counted as passing on its own.
+
+**Actual implementation commit:** [148754820374eb6b0b6106ad30d452b796731a64](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/148754820374eb6b0b6106ad30d452b796731a64). Appended three Node test cases in `learning/tests/engine.test.mjs`: (1) enumerate all connectivity × operating-authority options for the air-gapped Studio preset; (2) enumerate all evidence labels × lifecycle stages against four off-site compute choices for premises-only; (3) enumerate forbidden external connectivity × evidence labels for on-site compute. Assertions require BLOCKED and gated pattern for incompatible configurations, with no PASS evidence.
+
+**Checks actually performed:** Read the current TOC, style guide, chapter template, both Module 02 review records, improvement history, Studio engine, UI and existing Node tests. Confirmed the preceding workflow's conclusion using the GitHub Actions API. Inspected the new test source and its use of existing `LABELS` and `PRESETS`. **New tests not yet confirmed executing successfully** at the time of this entry. No local Node runner, live browser UI, visual PDF or independent review was performed.
+
+**Scenario and policy:** All tests use fictional synthetic selections, not actual traffic or legal applicability. Premises-only requires on-site compute and no restricted derivatives leaving the physical premises; an air gap forbids inbound and outbound network connections. Neither a higher maturity label nor an unreviewed evidence declaration waives a hard boundary.
+
+**Review A:** A-03 coverage expanded at deterministic engine level, **OPEN** until successful CI and observed browser/UI path verification. A-01 primary-source claim audit and A-04 visual PDF inspection remain open. A-02 production assurance is not established. **NOT SIGNED OFF.**
+
+**Review B:** B-01 visual/mobile and reading-order review remains blocking; B-02 blind calibration, B-04 accessibility-tree checks and B-05 causal assessment remain open. B-03 case crosswalk exists but awaits rendered confirmation. **NOT SIGNED OFF.** No independent human/different-model review claimed.
+
+**Deployment:** Test change and this log update are not yet verified deployed. A later workflow result must be inspected before declaring a pass.
+
+**Improvement lesson:** Test combinatorial UI selection space rather than only a named preset. Keep release stage and self-declared evidence from turning a blocked architecture into an approved one.
+
+**Next:** Verify CI and fix any failing Studio matrix assertions; run actual interactive UI negative-case checks and visual accessibility review; complete A-01 source ledger; close both reviews before beginning Module 03 / 3.1.
