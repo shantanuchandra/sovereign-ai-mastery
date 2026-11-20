@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Sections 3.1–3.6 drafted; Section 3.7, lab, assessment, solutions, social and critical reviews pending** |
+| Current progress | **Teaching sections 3.1–3.7 drafted; lab, assessment, separate solutions, social assets and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -587,7 +587,116 @@ Submit a one-page record containing: workload ID; signed requirement issuer and 
 
 **Source boundary:** All company details, scores, constraints, budgets, outcomes and failure events above are **fictional educational assumptions**. No external vendor performance, legal applicability or production control is newly verified in this section. The earlier chapter's NIST risk-governance references remain contextual, not endorsements of this course-authored decision algorithm. These test designs are **not executed tests**.
 
-**Next header:** 3.7 Requirements traceability, success metrics, and governance. Then complete Module 03's lab, assessment, separate solutions, teaching assets and two distinct bounded critical reviews before Module 04.
+
+### 3.7 Requirements traceability, success metrics, and governance
+
+**Executive decision:** A sovereignty strategy is release-ready only when the team can trace **every binding requirement to a deployed control, a failing test, dated evidence and an authorized owner**, and can demonstrate that business outcomes justify the remaining cost and operating constraints. A dashboard with all-green labels is not acceptance. **A single confirmed premises or air-gap violation blocks the affected workload**, even if availability, accuracy and ROI look strong.
+
+Module 03 now joins the investment case (3.1), risk triage (3.2), separate security and sovereignty duties (3.3), stakeholder authority (3.4), test contracts (3.5) and eligible-alternative ranking (3.6) into one **course-authored requirements governance system**. This is a reusable PM operating model, **not** a regulator's mandatory sovereignty scoring methodology.
+
+#### Traceability graph: no orphan requirement, control or test
+
+Use IDs and versions rather than a spreadsheet tab titled “compliant.” The [course ontology](../taxonomy/ONTOLOGY.md) relates **BusinessProcess → experiences → RiskEvent → motivates → Requirement → enforcedBy → Control → implementedBy → Component → challengedBy → Test → produces → Evidence → assessedBy → Reviewer → informs → ReleaseDecision**. The arrows are a **course-authored learning graph**. Actual artifacts may be stored in a requirements tool, source control, ticketing system or evidence repository, but they must retain links and revision history.
+
+| Traceability object | Minimum accountable fields | Example, fictional UAE enterprise |
+|---|---|---|
+| **Business objective / risk** | ID, sponsor, baseline, consequence, relevant activity | OBJ-37: technicians locate approved procedures without unauthorized transfer of engineering IP |
+| **Binding requirement** | ID/version, exact workload and derivative scope, issuing authority, exception rule, priority | REQ-SITE-37/v1: restricted material and derivatives remain within physical FACTORY-A |
+| **Implementing control** | Named service, configuration version, operator, dependency and change owner | CTRL-GATE-37: local model gateway, no remote fallback, configuration digest |
+| **Acceptance tests** | Positive and negative fixtures, expected behavior, environment, case IDs, reviewer | TEST-TO-37: synthetic timeout; zero prohibited external connection attempts |
+| **Evidence** | Timestamp, run/build hash, environment and observed result, access/retention status | EVID-37: synthetic gateway, DNS and proxy trace, with controlled marker |
+| **Decision** | PASS/FAIL/UNVERIFIED, approving owner, residual issues, expiry and reopen condition | DEC-37: BLOCKED after an attempted offsite fallback; reopen on corrected gateway/retest |
+
+**Completeness rules:** Every *mandatory* requirement needs at least one control and one meaningful acceptance test; every test must identify the requirement and the observed build; every release decision must list the unmet or unreviewed requirements. A control reused by multiple workloads must be tested against each workload's own physical and legal boundary. Reuse code or policy templates when appropriate, **not one workload's evidence as another's proof**.
+
+#### Separate business metrics, control metrics, and evidence freshness
+
+A PM should maintain three scorecards, with explicit measured-versus-target columns. These are example indicators, **not fabricated measured outcomes**.
+
+| Metric category | Example definition, owner | What would justify a claim? | Dangerous misuse |
+|---|---|---|---|
+| **Business usefulness** | Document search task completion and median time saved, product owner | Synthetic evaluation followed by authorized users' task tests against an agreed baseline | Claiming value from pilot usage without comparing non-AI search |
+| **Quality and safety** | Answer support accuracy, inappropriate-action/abstention rate, safety lead | Repeatable, labelled test set, failure severity and review of safety-critical mistakes | A high average benchmark concealing one unsafe failure |
+| **Continuity** | Recovery time objective (RTO), recovery point objective (RPO), successful rollback, operations lead | Dated cold-start and restore under loss of required services | Inferring offline viability from an online development environment |
+| **Territorial assurance** | Number of prohibited destination attempts, derivative flow coverage, data owner + CISO | Synthetic traffic across normal, timeout, update, support, backup, restore with packet/DNS/proxy evidence | Calling a firewall's **blocked** external attempt a passed application no-egress route test |
+| **Operational authority** | Privileged identities tested, vendor access revoked, IAM owner | Negative service-account, vendor-session and emergency-access tests | Treating an IAM policy document as observed revocation |
+| **Portability and dependency** | Ability to replace model/runtime or operate without supplier activation, CTO | Permitted artifact licence, offline cold start, quality and rollback delta | Assuming open weights imply unrestricted licence, hosting independence or suitable model quality |
+| **Evidence freshness** | Mandatory claims reviewed for exact version, with last test date and change triggers, governance lead | Linked test results and reviewer sign-off, periodically reopened on material change | Summarizing UNKNOWN evidence as green or averaging it away |
+
+**The release gate is binary for mandatory constraints, not a weighted KPI.** A scorecard may show a rising share of reviewed controls or improving task time while the actual deployment remains **BLOCKED**. When a requirement is **UNKNOWN**, show the missing evidence and keep the release disposition **UNVERIFIED / REVIEW REQUIRED** until an authorized reviewer resolves it. When no feasible architecture can meet a strict boundary and minimum task or safety threshold, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** rather than choosing an attractive ineligible option.
+
+#### Three fictional workloads, one portfolio dashboard
+
+The following is a **teaching-only UAE industrial portfolio**. FACTORY-A, the workloads, cost assumptions, test statuses and board decisions are invented. They do not describe an actual company, law, supplier, audit or production data transfer.
+
+| Workload and outcome target | Mandatory requirement | Sample evidence state (fictional) | Initial disposition |
+|---|---|---|---|
+| **POLICY-37:** Reduce time locating public/synthetic HR policy passages | Only permitted named processing locations, approved supplier roles and scoped retention | Exact deployment evidence **NOT PROVIDED**; response quality **TESTED / NOT REVIEWED**; supplier terms **ASSERTED** | **UNVERIFIED**, managed endpoint a conditional candidate |
+| **DESIGN-37:** Retrieve restricted engineering procedures | **All restricted sources and derivatives stay inside FACTORY-A**, during normal and degraded states | Synthetic crash trace shows offsite diagnostics **attempted and denied**; local GPU quality suite passed | **BLOCKED** due to failed site routing acceptance, regardless of quality |
+| **OT-37:** Search approved offline operating guidance | **No inbound or outbound network** at any lifecycle stage | Isolation setting **CONFIGURED**; physical ports, media intake, restore and offline licence rights **NOT REVIEWED** | **UNVERIFIED**, no claim that a physical air gap was demonstrated |
+
+**Case distinction:** A denied offsite request is not automatically an actual breach. The network deny control may be working, while the application's route configuration **fails** the site's forbid-all-offsite-attempts criterion. A local GPU also says nothing conclusive about evaluation data, crash telemetry, diagnostics, model updates, backup, vendor support or remote administrators. An allowlisted country-resident endpoint is **not** inside FACTORY-A. For OT-37, even a private network, modem, online activation or emergency remote-support link violates the **physical air-gap** requirement.
+
+**Priority implication:** First fix hard territorial and air-gap blockers, then close mandatory evidence gaps, then compare cost/quality and optional autonomy benefits **among eligible alternatives**. If the platform cannot meet required quality, offline rights or recovery with any permitted design, document the infeasibility and propose a manual/non-AI fallback; do not silently relax the site or disconnected-operation rule.
+
+#### Change governance: approvals expire when dependencies move
+
+One new logging agent can invalidate a previously accepted claim without moving the primary model. The PM therefore owns a **change-trigger matrix**:
+
+| Change class | Records that become stale | Required action before affected workload is released |
+|---|---|---|
+| Model, tokenizer, adapter or runtime update | Licence/quality/latency, routing, safety, portability | Versioned evaluation, cold-start/fallback, exit rights and approved rollback |
+| Gateway, model provider, DNS, egress or failover | Location, security, diagnostics, resilience | Normal and degraded traffic retest, route config hash, reviewer disposition |
+| Backup, support, monitoring or subcontractor change | Derivative locality, access roles, contract/supplier risk | Data-flow map, retention/destination and privileged-session negative tests |
+| Physical site, network adapter or OT media-intake change | Named premises or air-gap claim | Facility/network inspection, offline recovery and approved change authority |
+| Contract, policy or applicable legal interpretation | Issuer, constraint scope, exceptions and data handling | Specialist determination, signed requirement version, reclassification and tests |
+
+NIST AI RMF 1.0's Core states that its actions “do not constitute a checklist.”[^nist-rmf-gov37] Its **GOVERN 1.5** calls for “Ongoing monitoring and periodic review” with appropriate responsibility.[^nist-rmf-gov37] Those are useful risk-governance ideas for monitoring evidence validity, **not** claims that NIST endorses the course's six-node release model or verifies any UAE workload. NIST SP 800-207 makes clear there is no automatic implicit trust from physical/network location.[^nist-zero37] Thus a local site still needs privileged-access and zero-trust tests.
+
+**A good governance review asks:** What changed since the last accepted test? Which signed obligation applies now? Has any new actor or derivative crossed the boundary? Can we reproduce the reported result with the present build? Who has the authority to approve an exception? If the answer is missing, the claim is **UNVERIFIED**, not assumed safe because last month's chart is green.
+
+#### Worked failure RCA: the scorecard that survived a changed gateway
+
+**Synthetic event, not a real customer incident:** DESIGN-37 originally passed an on-site test for the then-current gateway. A later software update adds a hosted fallback and a cloud diagnostics collector. During a synthetic timeout, the gateway attempts to contact the hosted endpoint and the firewall blocks it. The PM dashboard still shows “territorial verified” because evidence is not linked to build hashes or reapproval triggers.
+
+| RCA stage | Root-cause chain and owner | Corrective response |
+|---|---|---|
+| **Symptom and decision** | Attempted prohibited offsite route; data owner declares the current physical-site acceptance **FAILED / BLOCKED** | Freeze restricted rollout and preserve synthetic traces |
+| **Direct technical cause** | Updated gateway/diagnostics introduced remote destinations | Remove those destinations, enforce denied egress and local-only collector |
+| **Contributing governance cause** | Dashboard reused old evidence across a gateway version without invalidation | Link requirement, route and test to precise build, expiry date, change ticket and approver |
+| **Containment and investigation** | Platform rolls back; security checks historical destinations, actual delivery and other paths; legal evaluates any duty separately | Do not announce a real breach without evidence; retain sanitized logs |
+| **Negative retest** | Replay normal, timeout, crash, supplier helpdesk, backup, model patch and restore; observe packet/DNS/proxy and operator accounts | Zero prohibited *attempts* under the signed routing requirement, local recovery, licences, safe task quality |
+| **Closure and ownership** | CTO supplies corrected build, CISO reviews security, plant owner accepts location, counsel/procurement resolves terms, PM records outcome | Signed bounded decision with date/version and reopen triggers |
+
+**Root cause:** The product team converted a *historical test result* into a *permanent property of the platform*. The fix is version-scoped requirements traceability and change-triggered regression, not a higher weighted sovereignty score. A strong control program can still be **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** if capable locally licensed models, offline restoration or safe service objectives cannot be delivered.
+
+#### PM artifact: ready-for-gate board pack
+
+Produce a concise **three-page synthetic executive pack**, with links to test evidence rather than pages of vendor marketing.
+
+| Pack page | Required contents | Decision it enables |
+|---|---|---|
+| **1. Workload/value statement** | Business problem, named sponsor, classification S/C/I, signed physical/network constraints, non-AI alternative, benefit/cost assumptions and uncertainty | Is there a valid case for investment and is the workload eligible for proposed architectures? |
+| **2. Traceability and evidence matrix** | Requirement ID/version → control → test → observed evidence → reviewer; include normal and degraded paths, derivative destinations, supplier rights and five highest-priority gaps | Which hard gates fail or lack reviewed evidence? |
+| **3. Release and roadmap** | PASS/FAIL/UNVERIFIED per gate, exact build/site, accountable approver, 30/60/90-day priorities, recovery and rollback, retest triggers | Conditional GO, BLOCKED, NOT FEASIBLE or return for evidence? |
+
+For a useful 30/60/90-day roadmap, **days 1–30** establish scope/authorities and eliminate obvious offsite dependencies; **31–60** build/test approved local/managed candidates with synthetic data, including negative scenarios; **61–90** rehearse recovery, supplier exit and sign-off for tested scope. These are **illustrative phases**, not promises that a plant can be ready in ninety days. An enterprise can stop or replan when feasibility fails.
+
+#### Learner challenge (50 minutes): build the board's actual release evidence
+
+1. Starting from [Sections 3.1–3.6](#1-executive-brief-what-enterprise-problem-justifies-the-investment), create **three traceability chains** for POLICY-37, DESIGN-37 and OT-37. Label the business sponsor, requirement issuer, control implementer, test observer and approving authority separately.
+2. Define **four leading indicators** (for example, unreviewed site-flow count, coverage of failure-injection tests, revoked supplier identity tests, and stale evidence count) and **two outcome metrics** (task effectiveness and safe recovery). Give units, baseline to measure, target-setting owner and a falsifiable test plan. Do not fabricate measured values.
+3. Use the [Architecture & Learning Studio](../learning/index.html) with **Strict on-premises IP research assistant** and **Single premises only; no data or derivatives may leave**. Compare **On-prem production GPU servers inside the premises** with **Approved managed AI platform**. Name exactly which hard gate can be simulated and what real packet traces or signed terms the Studio cannot inspect.
+4. Load **Air-gapped factory operations**. Attempt **General internet access including external service endpoints** and explain why an allowlist cannot repair the air gap. Restore **Air-gapped: no inbound or outbound network** and propose a physical/offline acceptance drill.
+5. Produce a mock three-page board pack and a one-paragraph **BLOCKED** release memo for DESIGN-37 after the gateway change. Include the direct cause, process-level RCA, corrective action, version-scoped retest and authorized sign-offs. Finish by recording a non-AI alternative for an infeasible design.
+
+**Submission:** A dated requirement-to-control traceability table, a four-dimension evidence scorecard, a 30/60/90-day prioritized action roadmap, six defined metrics and an explicit go/no-go decision. All content must use fictional or synthetic inputs. The learner-facing assignment does not include the worked facilitator answer.
+
+**Module 03 content checkpoint:** All **seven TOC teaching headers 3.1–3.7 are drafted**. This is **not** a final module release. The reproducible requirements-to-controls lab, five-question assessment and decision scenario, separate facilitator solutions, public HTML/portrait PDF social carousel and post, accessibility checks, and two **distinct module-wide technical/source and editorial/assessment reviews** remain required **before Module 04**.
+
+[^nist-rmf-gov37]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core §5 and GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Short quoted strings and context were previously examined in Module 03 section 3.5; no new source retrieval is asserted here. This risk guidance does not prescribe the course-authored traceability or veto structure.
+[^nist-zero37]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final). The principle of no implicit trust from location is used as context, not as jurisdictional sovereignty certification.
+
 
 
 [^nist-core-35]: NIST, *AI Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [Core §5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact excerpt checked on the official issuer HTML on **21 November 2026**. The teaching control matrix is course-authored.
