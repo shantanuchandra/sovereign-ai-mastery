@@ -55,7 +55,7 @@ class Module03AssessmentContract(unittest.TestCase):
     def test_fictional_and_no_certificate_claims(self):
         self.assertIn("fictional", self.chapter.lower())
         self.assertIn("fictional", self.key.lower())
-        self.assertIn("not a real", self.key.lower())
+        self.assertIn("not an actual supplier", self.key.lower())
         self.assertIn("REVIEW_REQUIRED", self.key)
 
 
