@@ -82,6 +82,7 @@ def article_content(path,dest,diagram=False):
     source_key=path.relative_to(ROOT).as_posix()
     diagram_assets={
       'chapters/01-sovereign-ai-fundamentals.md': ('diagrams/module-01-claim-chain.svg','Sovereignty claim evidence chain'),
+      'chapters/03-enterprise-sovereignty-requirements-strategy.md': ('diagrams/module-03-workload-gates.svg','Workload classification by sensitivity, criticality and impact, followed by fail-closed physical and network architecture gates'),
       'taxonomy/ONTOLOGY.md': ('diagrams/sovereignty-ontology.svg','Enterprise sovereignty ontology showing relationships between claims, controls and evidence'),
       'chapters/05-laws-regulation-jurisdiction.md': ('diagrams/module-05-control-graph.svg','Legal control and evidence graph')
     }
