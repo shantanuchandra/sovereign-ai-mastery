@@ -121,5 +121,54 @@ class ScoringLabTests(unittest.TestCase):
         self.assertNotEqual(result["disposition"], "REVIEW_REQUIRED")
 
 
+    def test_air_gap_all_connected_network_classes_fail_closed(self):
+        # Exercise every selectable network class, including a private support link.
+        for network in ("isolated", "allowlist", "private_links", "internet"):
+            with self.subTest(network=network):
+                item = self.case("OT-02")
+                item["candidate"]["network"] = network
+                item["candidate"]["external_network_path"] = False
+                result = evaluate_case(item)
+                self.assertEqual(result["disposition"], "BLOCKED")
+                self.assertIn("air_gap_has_network_connectivity", result["hard_gate_failures"])
+
+    def test_air_gap_disconnected_label_cannot_hide_support_route(self):
+        item = self.case("OT-02")
+        item["candidate"].update(network="disconnected", external_network_path=True)
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "BLOCKED")
+        self.assertIn("air_gap_has_external_network_path", result["hard_gate_failures"])
+
+    def test_premises_only_rejects_offsite_derivative_even_with_local_compute(self):
+        item = self.case("LIC-02")
+        item["candidate"].update(
+            compute_site="FACTORY-A", restricted_offsite_flow=True,
+            offline_licence_available=True, network="isolated"
+        )
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "BLOCKED")
+        self.assertIn("restricted_data_or_derivative_off_premises", result["hard_gate_failures"])
+
+    def test_hard_boundary_failure_overrides_all_reviewed_maturity_claims(self):
+        item = self.case("OT-02")
+        for index, dimension in enumerate(item["dimensions"].values()):
+            dimension.update(stage="M4", evidence="reviewed", test_id=f"SYNTH-{index}")
+        item["candidate"].update(network="private_links", external_network_path=True)
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "BLOCKED")
+        self.assertEqual(result["scenario_reported_coverage"], "4/4")
+
+    def test_premises_only_external_route_without_reported_restricted_flow_is_unverified(self):
+        # A route's existence is not proof of restricted-data egress, nor approval.
+        item = self.case("LIC-02")
+        item["candidate"].update(
+            external_network_path=True, restricted_offsite_flow=False,
+            offline_licence_available=True
+        )
+        result = evaluate_case(item)
+        self.assertEqual(result["disposition"], "UNVERIFIED")
+        self.assertNotEqual(result["disposition"], "REVIEW_REQUIRED")
+
+
 if __name__ == "__main__":
     unittest.main()
