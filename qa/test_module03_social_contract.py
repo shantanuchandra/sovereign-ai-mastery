@@ -62,7 +62,7 @@ class Module03SocialContract(unittest.TestCase):
                          [f"slide-{i}" for i in range(1, 9)])
 
     def test_no_duplicate_dom_ids(self):
-        ids = re.findall(r'\\bid="([^"]+)"', self.html)
+        ids = re.findall(r'\bid="([^"]+)"', self.html)
         self.assertEqual(len(ids), len(set(ids)), "duplicate DOM IDs")
 
     def test_language_mobile_and_print_basics(self):
