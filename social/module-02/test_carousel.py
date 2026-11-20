@@ -103,6 +103,15 @@ class CarouselContract(unittest.TestCase):
         self.assertNotRegex(self.source, r"<form\b")
         self.assertNotRegex(self.source, r"(?i)(?:api[_-]?key|bearer\s+[a-z0-9])")
 
+    def test_mobile_readability_reflow_contract(self):
+        # Source-level guard only; rendered 200% zoom and keyboard QA still required.
+        mobile = self.source.split("@media(max-width:620px)", 1)[1].split("@media(max-width:400px)", 1)[0]
+        self.assertIn("aspect-ratio:auto", mobile)
+        self.assertIn("height:auto", mobile)
+        self.assertIn("overflow:visible", mobile)
+        self.assertIn("font-size:12px", mobile)
+        self.assertIn("clamp(14px,3.6vw,17px)", mobile)
+
     def test_overflow_is_documented_as_unverified(self):
         # An overflow-hidden slide can clip text; static tests do not establish fit.
         self.assertIn("overflow:hidden", self.source)
