@@ -128,15 +128,15 @@ const features = [
 ];
 
 const scenarioOrder = Object.keys(scenarios);
-const periodEnds = [14, 28, 42, 56, 70, 84, 90];
+const tickOffsets = [0, 14, 28, 42, 56, 70, 84];
 const state = { scenario: 'average', filter: 'all' };
 const byId = (id) => document.getElementById(id);
 const priorityClass = (priority) => priority.toLowerCase();
 
 const measureLinks = {
-  A: ['adoption-measure', 'Adoption'],
-  I: ['impact-measure', 'Impact'],
-  G: ['governance-measure', 'Governance and quality'],
+  A: ['adoption-measure', 'Adoption and AI impact'],
+  I: ['impact-measure', 'Time and cost savings'],
+  G: ['governance-measure', 'Quality and governance'],
   R: ['repeatability-measure', 'Repeatability'],
   S: ['recovery-security-measure', 'Recovery and Security'],
   P: ['peer-growth-measure', 'Peer-led growth'],
@@ -170,11 +170,20 @@ const types = {
 };
 const owners = {continuity:'product',answers:'product',connector:'platform',routing:'platform',gateway:'policy',synthia:'eval',sharing:'product',reuse:'product',launch:'pilot',impact:'analysis',authoring:'policy',dashboard:'product','next-connector':'analysis',discovery:'analysis',twin:'analysis'};
 const holidays = new Set(['2026-12-02','2026-12-03','2027-01-01']);
-const calendar = Array.from({length:90}, (_, i) => {
-  const date = new Date(Date.UTC(2026,10,23+i));
-  return {day:i+1, label:date.toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}),
-    off:[0,6].includes(date.getUTCDay()) || holidays.has(date.toISOString().slice(0,10))};
+const calendar = Array.from({ length: 90 }, (_, i) => {
+  const date = new Date(Date.UTC(2026, 10, 23 + i));
+  const iso = date.toISOString().slice(0, 10);
+  return {
+    day: i + 1,
+    iso,
+    label: date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }),
+    off: [0, 6].includes(date.getUTCDay()) || holidays.has(iso),
+  };
 });
+const ticks = tickOffsets.map(start => {
+  const { iso, label } = calendar[start];
+  return `<time datetime="${iso}">${label}</time>`;
+}).join('');
 const timelineLink = key => '#timeline-'+key;
 function renderGantt() {
   const index = scenarioOrder.indexOf(state.scenario);
@@ -191,7 +200,6 @@ function renderGantt() {
       launch.range=[first+1,90];
     }
   }
-  const ticks=periodEnds.map((end,i)=>'<span>'+calendar[i?periodEnds[i-1]:0].label+'</span>').join('');
   byId('gantt').innerHTML='<div class="chart-row chart-header"><strong>Priority and work</strong><div class="ticks">'+ticks+'</div></div>'+rows.map(r=>{
     const [name,color]=types[r.type];
     const cells=calendar.map(c=>'<i class="'+(c.off?'off':c.day>=r.range[0] && c.day<=r.range[1]?'active':'')+'" title="'+c.label+' · '+(c.off?'Off':name)+'"></i>').join('');
@@ -215,7 +223,13 @@ function renderScenario(){
 function followLink(){
   const id=location.hash.slice(1);
   const key=scenarioOrder.find(k=>'timeline-'+k===id);
-  if(key){state.scenario=key;renderScenario();byId('schedule').open=true;byId('timeline').scrollIntoView();}
+  if (key) {
+    state.scenario = key;
+    renderScenario();
+    byId('schedule').open = true;
+    byId('gantt').parentElement.scrollLeft = 0;
+    byId('timeline').scrollIntoView();
+  }
   const node=byId(id);
   if (node?.matches('.workflow-access')) {
     node.open = true;

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A 90-day Metis Jean product roadmap for proving adoption, customer impact, and a repeatable sovereign AI deployment.">
   <title>Metis Jean | 90-day product strategy</title>
-  <link rel="stylesheet" href="roadmap.css?v=4">
-  <script type="module" src="roadmap.mjs?v=4"></script>
+  <link rel="stylesheet" href="roadmap.css?v=5">
+  <script type="module" src="roadmap.mjs?v=5"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -44,7 +44,7 @@
           <div class="brief-head"><h2 id="brief-title">The first 90 days</h2><span class="stage">0 → 1</span></div>
           <div class="brief-metric">
             <p>Primary metric</p>
-            <a href="#adoption-measure">Repeat adoption with verified savings <span aria-hidden="true">→</span></a>
+            <a href="#adoption-measure">Repeat use and measured savings <span aria-hidden="true">→</span></a>
           </div>
           <dl>
             <div><dt>First release</dt><dd>One read-only workflow</dd></div>
@@ -69,16 +69,30 @@
       </ol>
       <section aria-labelledby="success-metrics-title">
         <h3 id="success-metrics-title">Success Metrics</h3>
-        <div class="metrics">
-          <article id="adoption-measure"><p class="kicker">A / PRIMARY · VALUE-BACKED ADOPTION</p><h3>Repeat users with verified savings</h3><p>Report the share and count of eligible pilot users who complete a verified task on at least two distinct work cycles while meeting the agreed savings bar. An eligible user has access and at least two real opportunities in the observation window. Agree on the target share, cost threshold and minimum observation window by day 28. Use the staff-time target and the customer-approved cost threshold to assess each repeat user.</p></article>
-          <article id="impact-measure"><p class="kicker">I / WORKFLOW IMPACT</p><h3>Staff time and operating-cost savings</h3><p><strong>Verified pilot savings:</strong> Pilot verification is pending. The planning case below assumes 6 minutes (30%) and AED 10 (25%) saved per verified checklist. The Product Lead and customer workflow owner will sign off on the measured figures for the Day 90 readout.</p><p><strong>Pilot target:</strong> 30% less median active staff time per verified checklist, with no increase in material rework. Include citation review, corrections, fallback and operator time. Count staff cost plus applicable model and tooling charges in the operating-cost comparison.</p></article>
-          <article id="governance-measure"><p class="kicker">G / GOVERNANCE AND QUALITY</p><h3>Checklist acceptance and evidence</h3><p>At least 18 of 20 pre-agreed workflow cases pass, including correct abstentions. Citations support every material claim in an accepted answer.</p></article>
-          <article id="repeatability-measure"><p class="kicker">R / PRODUCT REPEATABILITY</p><h3>A deployment a second operator can run</h3><p>Track critical steps reproduced from versioned instructions, operator hours and undocumented interventions. Freeze the step list and thresholds with the pilot owner by day 28.</p></article>
-          <article id="recovery-security-measure"><p class="kicker">S / MANDATORY RELEASE GATE</p><h3>Recovery and Security</h3><p><strong>Recovery.</strong> Customer IT restores the last approved release within 30 minutes of starting rollback and reruns the required workflow and security checks.</p><p><strong>Security.</strong> Every mandatory RBAC, routing, policy and outage test passes, with zero unauthorised disclosures in the acceptance suite. Customer Security reconstructs sampled decisions from the audit log and signs off before launch.</p></article>
-        </div>
-        <section class="savings-example" aria-labelledby="savings-example-title">
+        <table class="success-table" aria-labelledby="success-metrics-title">
+          <thead><tr><th scope="col">Success measure</th><th scope="col">Evidence by Day 90</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Customer-approved live deployment</th>
+              <td>One recurring read-only workflow is live in the agreed environment. The sponsor accepts the workflow, Security approves the test and audit evidence, and customer IT accepts the handoff.</td>
+            </tr>
+            <tr id="adoption-measure">
+              <th scope="row">Adoption and AI impact</th>
+              <td>Report the number and share of eligible users who complete a verified checklist in at least two work cycles and meet the savings target. Compare similar manual and Jean-assisted cases for time, rework and cost per verified checklist. Include review time, support effort, the case count and measurement dates.</td>
+            </tr>
+            <tr id="governance-measure">
+              <th scope="row">Quality, governance and recovery</th>
+              <td><p>At least 18 of 20 customer cases pass. Citations back up each key claim. Jean says when evidence is missing.</p><p id="recovery-security-measure"><strong>Recovery and Security.</strong> All mandatory access, routing, policy and outage checks pass, with zero unauthorised disclosures in testing. Security can trace sample decisions in the audit log. Customer IT rolls back within 30 minutes and checks that the workflow and controls still work.</p></td>
+            </tr>
+            <tr id="repeatability-measure">
+              <th scope="row">Repeatability</th>
+              <td>A second operator follows the release instructions with documented customer inputs in a clean test environment. Report the share of critical steps they complete, how long it takes and where they need undocumented help.</td>
+            </tr>
+          </tbody>
+        </table>
+        <section id="impact-measure" class="savings-example" aria-labelledby="savings-example-title">
           <h4 id="savings-example-title">Assumed savings per verified checklist</h4>
-          <p>Planning assumptions for the average case. Measure 20 matched cases (20 manual runs and 20 Jean-assisted runs) from 1 to 12 February 2027. The table uses assumed medians, AED 120 per staff hour and AED 2 in additional Jean model and tooling costs per checklist.</p>
+          <p>For the average case, the plan is to compare 20 matched cases from 1 to 12 February 2027, with one manual and one Jean-assisted run per case. The figures below are assumed medians. Staff time costs AED 120 per hour, with AED 2 in model and tooling costs per Jean checklist.</p>
           <div class="savings-table">
             <table>
               <thead><tr><th scope="col">Measure</th><th scope="col">Manual</th><th scope="col">Jean-assisted</th><th scope="col">Assumed savings</th></tr></thead>
@@ -88,7 +102,7 @@
               </tbody>
             </table>
           </div>
-          <p>At Day 90, report both medians, absolute and percentage savings, the matched case count, the observation dates and material rework. If the pilot is held or the matched sample is insufficient, record that status and the date of the next readout.</p>
+          <p>The pilot target is 30% less staff time with no increase in material rework. By Day 28, agree on the cost threshold, repeat-user target and minimum measurement window. Eligible users have access and at least two chances to use the workflow. For Day 90, the Product Lead and customer workflow owner sign off on the measured savings. If there are too few cases, record the next review date.</p>
         </section>
         <p class="band" id="peer-growth-measure"><strong>Peer-led growth.</strong> Track Colleague A’s verified result → share → Colleague B’s authorised open → independent verified run → repeat verified run. Report distinct recipients and conversion at each step using approved metadata. Track the sponsor’s willingness to fund continuation as a downstream commercial signal.</p>
       </section>
@@ -183,7 +197,7 @@
       </div>
     </section>
     <section class="wrap section" id="timeline">
-      <div class="section-head"><p class="kicker">90-day Gantt</p><h2>What ships, and when.</h2><p>Planning assumption · 23 November 2026 to 20 February 2027. The 90 calendar days contain 62 scheduled workdays. The team works Monday to Friday.</p></div>
+      <div class="section-head"><p class="kicker">90-day Gantt</p><h2>What ships, and when.</h2><p>Day 1 is <time datetime="2026-11-23">23 November 2026</time>. The plan runs through <time datetime="2027-02-20">20 February 2027</time> and includes 62 scheduled workdays.</p></div>
       <details id="schedule"><summary>View delivery timeline</summary><div class="chart-frame">
         <div class="chart-top">
           <div class="chart-context"><p id="chart-scenario">Average case</p><nav id="schedule-links" aria-label="Scenario timelines"></nav></div>
@@ -198,11 +212,11 @@
             </select>
           </div>
         </div>
-        <div class="chart-scroll" tabindex="0" role="region" aria-label="Gantt chart. Scroll horizontally for all days.">
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="Gantt chart from 23 November 2026 to 20 February 2027. Scroll horizontally for all days.">
           <div id="gantt"></div>
         </div>
         <div class="work-key" id="work-key"></div>
-        <p class="calendar-note">Hatched days are off. Private-sector holidays in this window are 2–3 December and 1 January. Colours identify proposed engineering responsibilities and delivery activities. Bars show working dates within each feature window.</p>
+        <p class="calendar-note">The team works Monday to Friday. Hatched days are off, including 2–3 December and 1 January. Colours identify proposed engineering responsibilities and delivery activities. Bars show working dates within each feature window.</p>
         <p id="deferred" class="deferred"></p>
       </div>
       </details><div class="gates">
