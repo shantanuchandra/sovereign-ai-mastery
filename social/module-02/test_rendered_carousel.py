@@ -53,6 +53,32 @@ def main() -> int:
                 clipped = [m for m in metrics if m["overflowX"] > 2 or m["overflowY"] > 2]
                 assert not clipped, f"Clipped slide content at {width}px: {clipped}"
 
+            # Keyboard navigation: the first two controls must be reachable in DOM order.
+            page.set_viewport_size({"width": 390, "height": 900})
+            page.keyboard.press("Tab")
+            first = page.evaluate("document.activeElement?.tagName + ':' + (document.activeElement?.getAttribute('href') || '')")
+            assert first.startswith("A:"), f"Expected chapter link first in tab order, got {first!r}"
+            page.keyboard.press("Tab")
+            second = page.evaluate("document.activeElement?.tagName")
+            assert second == "BUTTON", f"Expected print button second in tab order, got {second!r}"
+
+            # Chromium CSS zoom is a reproducible stress test, NOT a substitute
+            # for manual browser 200% zoom or assistive-technology inspection.
+            page.evaluate("document.documentElement.style.zoom = '2'")
+            zoom_metrics = page.evaluate("""() => ({
+                docOverflowX: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+                slides: [...document.querySelectorAll('section.slide')].map((slide, index) => ({
+                    index: index + 1,
+                    overflowX: slide.scrollWidth - slide.clientWidth,
+                    overflowY: slide.scrollHeight - slide.clientHeight
+                }))
+            })""")
+            assert zoom_metrics["docOverflowX"] <= 2, f"Horizontal document overflow at CSS 200% zoom: {zoom_metrics}"
+            assert all(m["overflowX"] <= 2 and m["overflowY"] <= 2 for m in zoom_metrics["slides"]), (
+                f"Slide clipping at CSS 200% zoom: {zoom_metrics}"
+            )
+            page.evaluate("document.documentElement.style.zoom = '1'")
+
             # Export actual PDF, not merely inspect @page rules.
             page.set_viewport_size({"width": 1280, "height": 900})
             page.emulate_media(media="print")
