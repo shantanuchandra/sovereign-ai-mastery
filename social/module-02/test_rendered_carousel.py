@@ -64,7 +64,8 @@ def main() -> int:
             for i, text in enumerate(page_text):
                 assert len(text) > 120, f"PDF page {i + 1} has little extractable text ({len(text)} chars)"
                 assert f"{i + 1:02d} / 08" in text, f"Missing slide number on PDF page {i + 1}"
-                assert "DECISION TEST" in text, f"Missing decision footer on PDF page {i + 1}"
+                assert "DECISION TEST" in text, (\n                    f"Missing decision footer on PDF page {i + 1}; extracted text follows "
+                    f"(first 1200 chars): {text[:1200]!r}"\n                )
             print(f"PASS: 8 PDF pages with extractable text; 8 slide headings; no measured slide overflow at 1280/390/320px.")
             print(f"PDF test artifact was temporary at {pdf_path}; not published or claimed visually reviewed.")
             return 0
