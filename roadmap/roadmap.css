@@ -265,7 +265,7 @@ select { padding: .35rem .45rem; min-height: 2rem; font: inherit; color: inherit
 #schedule[open] > summary {margin-bottom:.75rem}
 #schedule-links,.work-key {display:flex;flex-wrap:wrap;gap:.5rem}
 #schedule-links a {padding:.35rem .6rem;border:1px solid var(--line);border-radius:.4rem}
-#schedule-links a[aria-current] {background:var(--text);color:var(--surface)}
+#schedule-links a[aria-current] {background:var(--button);color:var(--button-ink)}
 .day-track {display:grid;grid-template-columns:repeat(90,1fr);align-items:stretch}
 .day-track .off {background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line) 3px 5px)}
 .day-track .active {background:var(--ink);align-self:center;height:1rem}
