@@ -46,6 +46,8 @@ jobs:
           python -m unittest discover -s labs/module-03 -p 'test_*.py' -v
           python labs/module-03/evaluate.py labs/module-03/cases.json > /tmp/module03-decisions.json
           test -s /tmp/module03-decisions.json
+      - name: Validate Module 03 assessment contract
+        run: python -m unittest discover -s qa -p 'test_module03_assessment_contract.py' -v
       - name: Validate Module 02 release content contract
         run: python -m unittest discover -s qa -p 'test_module02_release_contract.py' -v
       - name: Validate Module 02 carousel static print and accessibility contract
