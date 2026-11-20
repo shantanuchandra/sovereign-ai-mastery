@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A 90-day Metis Jean product roadmap for proving adoption, customer impact, and a repeatable sovereign AI deployment.">
-  <title>Metis Jean | The first 90 days</title>
-  <link rel="stylesheet" href="roadmap.css">
-  <script type="module" src="roadmap.mjs"></script>
+  <title>Metis Jean | 90-day product strategy</title>
+  <link rel="stylesheet" href="roadmap.css?v=3">
+  <script type="module" src="roadmap.mjs?v=3"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -19,9 +19,10 @@
       </div>
       <nav aria-label="Roadmap sections">
         <a href="#adoption">Adoption</a>
-        <a href="#scenarios">Scenarios</a>
+        <a href="#workflow">Workflow</a>
         <a href="#timeline">Timeline</a>
         <a href="#priorities">Priorities</a>
+        <a href="#day90">Day 90</a>
       </nav>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark theme" hidden><span aria-hidden="true">◐</span> <span id="theme-label">Dark</span></button>
     </div>
@@ -29,24 +30,33 @@
   <main id="main">
     <section class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <p class="kicker">Metis Jean · Proposed 90-day roadmap</p>
-          <h1>From first result<br>to <em>repeat use</em></h1>
-          <p class="deck">Make the first deployment a success. Prove that a customer saves meaningful time and resources on a recurring job, then see whether a colleague can get the same value through the product.</p>
-          <a class="primary" href="#timeline">Explore the 90-day timeline <span aria-hidden="true">↓</span></a>
+        <div class="hero-copy">
+          <p class="kicker">Metis Jean · 90-day product strategy</p>
+          <h1>A first deployment <em>worth repeating.</em></h1>
+          <p class="deck">Start with one recurring customer workflow. Prove that Jean saves time and resources, that a colleague can repeat the result, and that the customer’s team can operate the deployment.</p>
+          <div class="hero-actions">
+            <a class="primary" href="#workflow">See the workflow <span aria-hidden="true">↓</span></a>
+            <a class="secondary" href="#timeline">View the roadmap <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="byline">Prepared by <strong>Shantanu Chandra</strong></p>
         </div>
-        <aside class="brief" aria-label="Quarter at a glance">
-          <p class="kicker">Quarter at a glance</p>
-          <p class="stage">0 <span>→</span> 1</p>
+        <aside class="brief" aria-labelledby="brief-title">
+          <div class="brief-head"><h2 id="brief-title">The first 90 days</h2><span class="stage">0 → 1</span></div>
+          <div class="brief-metric">
+            <p>Primary metric</p>
+            <a href="#adoption-measure">Repeat adoption with verified savings <span aria-hidden="true">→</span></a>
+          </div>
           <dl>
             <div><dt>First release</dt><dd>One read-only workflow</dd></div>
             <div><dt>Capacity</dt><dd>10 shared developers</dd></div>
-            <div><dt>Primary signal</dt><dd>Repeat use with verified savings</dd></div>
-            <div><dt>Next decision</dt><dd>Whether the evidence supports 1 → 10</dd></div>
+            <div><dt>Day-90 decision</dt><dd>Continue, refine, or test a second deployment</dd></div>
           </dl>
         </aside>
       </div>
     </section>
+    <div class="kickoff">
+      <div class="wrap kickoff-inner"><strong>Decision at kickoff</strong><p>Choose one design partner and protect engineering capacity for a single read-only workflow.</p><a href="#day90">See the day-90 decision <span aria-hidden="true">→</span></a></div>
+    </div>
     <section class="wrap section" id="adoption">
       <div class="section-head"><p class="kicker">Adoption and value</p><h2>One result earns the next user.</h2>
         <p>A reviewer gets a cited checklist for a recurring document review, verifies it, and shares it with a colleague who has access. The colleague opens the evidence and reuses the task on their own case. That second verified run is the first sign that value can travel without the product team.</p>
@@ -65,6 +75,69 @@
       </div>
       <p class="band"><strong>Track the loop:</strong> verified result → share → authorised open → independent reuse → repeat use. Report counts and conversion between each step, using approved metadata. Track the sponsor’s willingness to fund continuation as a downstream commercial signal.</p>
     </section>
+    <section class="section tinted" id="workflow" aria-labelledby="workflow-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Illustrative pilot · Missing documents</p>
+          <h2 id="workflow-heading">From question to controlled launch</h2>
+          <p>Follow the same customer task through the experience, the request path, and the release decision.</p>
+        </div>
+        <div class="blueprint">
+          <section class="flow-layer" aria-labelledby="experience-heading">
+            <div class="flow-heading"><span>1</span><h3 id="experience-heading">Customer experience</h3></div>
+            <ol class="flow-sequence">
+              <li class="flow-node" id="flow-ask"><strong>Ask which documents are missing</strong><a class="flow-link" href="#flow-identity">Follow the request <span aria-hidden="true">↓</span></a></li>
+              <li class="flow-node" id="flow-verify"><strong>Verify the checklist against cited sources</strong></li>
+              <li class="flow-node"><strong>Hand off the work if shared context helps</strong></li>
+            </ol>
+          </section>
+          <section class="flow-layer" aria-labelledby="request-heading">
+            <div class="flow-heading"><span>2</span><h3 id="request-heading">How Jean handles the request</h3></div>
+            <ol class="flow-sequence">
+              <li class="flow-node" id="flow-identity"><strong>Jean establishes identity and optional Mate context</strong></li>
+              <li class="flow-node flow-decision"><strong>Governance Gateway applies customer policy</strong></li>
+            </ol>
+            <div class="flow-branches">
+              <div class="flow-branch">
+                <p class="branch-label branch-go">Allowed</p>
+                <ol class="flow-sequence">
+                  <li class="flow-node"><strong>Simon chooses a permitted model and tools</strong></li>
+                  <li class="flow-node"><strong>Jean retrieves permitted evidence and checks the answer</strong></li>
+                  <li class="flow-node"><strong>Outbound policy check, cited answer, and audit record</strong><a class="flow-link" href="#flow-verify">Return to checklist verification <span aria-hidden="true">↑</span></a></li>
+                </ol>
+              </div>
+              <div class="flow-branch">
+                <p class="branch-label branch-hold">Blocked or review required</p>
+                <div class="flow-node flow-hold"><strong>Stop or request review</strong></div>
+              </div>
+            </div>
+          </section>
+          <section class="flow-layer" aria-labelledby="release-heading">
+            <div class="flow-heading"><span>3</span><h3 id="release-heading">How the deployment earns approval</h3></div>
+            <ol class="flow-sequence">
+              <li class="flow-node"><strong>Version the release candidate</strong></li>
+              <li class="flow-node"><strong>Run held-out Synthia regressions</strong></li>
+              <li class="flow-node" id="flow-tests"><strong>Run customer acceptance, policy, and rollback tests</strong><a class="flow-link" href="#flow-identity">Exercise the request path <span aria-hidden="true">↑</span></a></li>
+              <li class="flow-node flow-decision"><strong>Mandatory gates pass?</strong></li>
+            </ol>
+            <div class="flow-branches">
+              <div class="flow-branch">
+                <p class="branch-label branch-go">Yes</p>
+                <ol class="flow-sequence">
+                  <li class="flow-node"><strong>Launch to named users</strong></li>
+                  <li class="flow-node"><strong>Measure workflow impact and rehearse repeat deployment</strong></li>
+                  <li class="flow-node flow-result"><strong>Customer accepts, extends, or pauses</strong></li>
+                </ol>
+              </div>
+              <div class="flow-branch">
+                <p class="branch-label branch-hold">No</p>
+                <div class="flow-node flow-hold"><strong>Fix or narrow scope, then retest</strong><a class="flow-link" href="#flow-tests">Loop back to release tests <span aria-hidden="true">↶</span></a></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
     <section class="section tinted" id="scenarios">
       <div class="wrap">
         <div class="section-head"><p class="kicker">Scenario planning</p><h2>Plan around the first live cohort.</h2><p>Staff the average case. Switch paths when customer access, release readiness, or the observation window changes.</p></div>
@@ -82,7 +155,7 @@
       <div class="section-head"><p class="kicker">90-day Gantt</p><h2>What ships, and when.</h2><p>The timeline follows the selected scenario. Select a feature to jump to its actions, success measure, and rationale.</p></div>
       <div class="chart-frame">
         <div class="chart-top">
-          <p id="chart-scenario">Average case</p>
+          <div class="chart-context"><p id="chart-scenario">Average case</p><a href="#scenarios">Change scenario</a></div>
           <div class="filters">
             <label for="priority-filter">Priority</label>
             <select id="priority-filter">
@@ -110,7 +183,7 @@
     </section>
     <section class="section tinted" id="priorities">
       <div class="wrap">
-        <div class="section-head"><p class="kicker">Feature priorities</p><h2>Every priority has a reason and a test.</h2><p>Two delivery tracks share the ten developers: customer workflow and deployment readiness. Reserve capacity for evaluation and instrumentation within those tracks. Confirm availability with Engineering at kickoff.</p></div>
+        <div class="section-head"><p class="kicker">Feature priorities</p><h2>What the team will build first</h2><p>Protect capacity for the customer workflow, deployment readiness, and evaluation. P0 is the release scope. P1 and P2 earn time through pilot evidence or a committed customer requirement.</p></div>
         <table class="feature-table">
           <thead><tr><th scope="col">Priority and feature</th><th scope="col">Actions</th><th scope="col">Success measure</th><th scope="col">Why this is a priority</th></tr></thead>
           <tbody id="features"></tbody>
@@ -118,16 +191,16 @@
       </div>
     </section>
     <section class="wrap section" id="day90">
-      <div class="section-head"><p class="kicker">Day-90 decision</p><h2>What would justify moving toward 1 → 10?</h2></div>
+      <div class="section-head"><p class="kicker">Day-90 decision</p><h2>When to invest in a second deployment</h2></div>
       <div class="decisions">
         <article><h3>Repeat use + savings + peer reuse</h3><p>Agree on paid continuation or a funded next step with the sponsor. Test the same workflow with a second willing customer and measure the deployment effort again.</p></article>
         <article><h3>Value without peer reuse</h3><p>Watch where recipients drop off between the shared result and their own first run. Improve discovery, access or reuse before expanding the workflow catalogue.</p></article>
         <article><h3>Repeat use without verified savings</h3><p>Inspect review, corrections and support effort. Narrow or revise the workflow and repeat the baseline comparison before investing in acquisition.</p></article>
       </div>
       <details class="operating">
-        <summary>Service blueprint, release gates and kickoff questions</summary>
+        <summary>Release evidence and questions for kickoff</summary>
         <div class="detail-grid">
-          <div><h3>Service blueprint</h3><ol><li>The user asks, checks citations and shares the result.</li><li>The colleague opens permitted evidence and runs a new case.</li><li>Behind the scenes, Jean retrieves current evidence, Simon routes inference, and the Gateway applies policy and records the decision.</li><li>IT rehearses recovery. Product compares outcomes and operating effort against baseline.</li></ol></div>
+          <div><h3>Decisions to make at kickoff</h3><ul><li>Confirm the design partner, workflow sponsor, and customer IT and Security approvers.</li><li>Allocate capacity for one read-only pilot across the ten shared developers.</li><li>Agree on the first source, the permitted deployment profile, and who can narrow scope when a dependency slips.</li></ul></div>
           <div><h3>Release and impact evidence</h3><ul><li>Go when workflow, control and recovery evidence meets the agreed bar.</li><li>Go with reduced scope when the sponsor accepts the remaining value and the scoped release passes all mandatory tests.</li><li>Hold on failed mandatory checks or pending approval. Record the owner and decision date.</li><li>Open the customer AI impact assessment in discovery. Update it at release and after live use, including rework, incidents, sample size and the observation window.</li></ul></div>
           <div><h3>Questions to resolve by day 14</h3><ul><li>Which customer has a sponsor, an approved source and recurring work we can observe?</li><li>What savings would change the team’s default way of working?</li><li>Can recipients open a shared result and run a new case under their own permissions?</li><li>How much capacity is protected, and who can make a scope decision when a dependency slips?</li></ul></div>
         </div>
