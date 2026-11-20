@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Sections 3.1–3.5 drafted; Sections 3.6–3.7, lab, assessment, solutions, social and critical reviews pending** |
+| Current progress | **Sections 3.1–3.6 drafted; Section 3.7, lab, assessment, solutions, social and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -505,6 +505,90 @@ The PM maintains **issuer → requirement → control → test → evidence → 
 5. Submit a one-page test matrix and go/no-go memo, including the direct cause and contributing process cause of T-35-TIMEOUT, ownership of every remediation, a non-AI alternative and the evidence necessary for a changed disposition. **BLOCKED** is an appropriate answer when a physical gate fails.
 
 **Next header:** 3.6, *Decision frameworks, investment priorities, and alternatives*. Module 03 remains a draft until 3.6–3.7, the lab, assessment/solutions, social/HTML/PDF assets and two separately recorded module-level critical reviews are finished.
+
+
+### 3.6 Decision frameworks, investment priorities, and alternatives
+
+**Executive decision:** Invest in the lowest-cost *eligible* architecture that meets signed constraints and measurable task outcomes. A higher sovereignty score, cheaper cloud quote, or superior benchmark cannot override a physical boundary. In the fictional Gulf Works Group portfolio, the immediate priority is to remove DESIGN-35's prohibited remote fallback, establish a non-AI search baseline, and test the POLICY-35 managed option. The physically disconnected OT-35 assistant remains a feasibility study until offline licensing, recovery and physical isolation have evidence. This is a course-authored method, not a legal or regulatory standard.
+
+#### Eligibility before weighted comparison
+
+The PM records the issuer, authority, version and effective date of every requirement. A legal team validates any legal interpretation; a business owner cannot silently waive a customer's signed premises restriction. For each candidate evaluate six hard gates: G1 legal/contract authority; G2 physical location of prompts, documents, embeddings, adaptations, answers, diagnostics, telemetry and backups; G3 inbound and outbound connectivity; G4 privileged access, keys and support; G5 model/task quality and operational safety; G6 offline licences, restore and exit feasibility.
+
+**Gate outcomes:** PASS requires observed evidence and reviewer acceptance. FAIL means REJECT or BLOCKED until remediated and retested. UNKNOWN means UNVERIFIED, NO RELEASE. Never convert UNKNOWN into PASS by using a provider brochure, synthetic simulator output or a weighted average.
+
+| Alternative | POLICY-35, public/synthetic | DESIGN-35, FACTORY-A-only | OT-35, physical air gap |
+|---|---|---|---|
+| Existing non-AI search and process improvements | Eligible hypothesis | Eligible only when index, access logs, backups and support stay inside FACTORY-A | Eligible only when entirely offline and installed in designated enclave |
+| Managed hosted retrieval and inference | Conditional on contract, location, access and test evidence | **REJECT**: any offsite restricted processing breaches the signed site rule | **REJECT**: remote inference requires connectivity |
+| Enterprise-operated local inference and RAG | Conditional, potentially disproportionate | Conditional on all derivatives, admin, backup, telemetry and licensing staying inside FACTORY-A | Conditional on physically disconnected operation, offline artefacts and restore |
+| Defer AI; retain documented manual procedure | Eligible | Eligible | Eligible; may be safest if offline feasibility is absent |
+
+The **premises-only policy** covers *every* restricted derivative and every normal, timeout, maintenance, support, backup and disaster-recovery path. Same-country processing is not the same as processing inside FACTORY-A. The **air-gap policy** prohibits *all inbound and outbound network paths*, including VPNs, private links, remote support, online licence checks and fallback. Offline media movement requires custody and integrity controls; it does not create a network exception. If a capable, permitted, locally runnable model cannot be supported, report **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**.
+
+#### Decision tree and control-plane inventory
+
+1. Identify the real user task and the best non-AI baseline. Name the authorized requirement issuer.
+2. Draw data and control planes, including inference, retrieval, telemetry, IAM, software/model updates, licence checks, backups and remote support.
+3. Run positive and negative tests against G1–G6. Record evidence identifiers, versions, owners and the exact observed result.
+4. Reject failed candidates. Hold unknown candidates. Compare only those with sufficient evidence.
+5. Score eligible options on task quality, five-year cost, resilience, exit and delivery effort. Perform sensitivity analysis and publish the assumptions.
+6. Issue a bounded pilot approval with expiration, rollback and change-triggered retests. A provider/model/network/support change reopens relevant gates.
+
+The [course ontology](../taxonomy/ONTOLOGY.md) expresses this as Authority → issues → Constraint; Workload → subjectTo → Constraint; Architecture → implements → Control; Test → produces → Evidence; Evidence → supports → GateDisposition; Decision → selects → EligibleAlternative. **Invariant:** no financial or quality score can convert a failed mandatory gate into approval.
+
+#### Worked preference scorecard (fictional assumptions, not measured vendor results)
+
+Suppose POLICY-35 has two candidates provisionally cleared for comparative analysis. Scores range from 1 (weak) to 5 (strong). Multiply each score by the percentage weight and divide by five; the result is points out of 100. A score is **not** a compliance percentage or certification.
+
+| Criterion | Weight | Managed | Local | Evidence needed before approval |
+|---|---:|---:|---:|---|
+| Task quality and accessibility | 30% | 4 | 3 | Blind synthetic task study and accessibility review |
+| Five-year cost | 25% | 4 | 2 | Quotations, energy, staffing, hardware refresh, usage ranges |
+| Resilience and restore | 20% | 3 | 3 | Timed outage and recovery drill |
+| Vendor exit and portability | 15% | 2 | 4 | Export and substitution exercise |
+| Delivery time and staffing | 10% | 5 | 2 | Capacity and milestone evidence |
+| **Total points out of 100** | **100%** | **72** | **56** | **Preference only after eligibility** |
+
+Managed = (30×4 + 25×4 + 20×3 + 15×2 + 10×5)/5 = **72**. Local = (30×3 + 25×2 + 20×3 + 15×4 + 10×2)/5 = **56**. A managed exit score falling from 2 to 1 lowers its result to 69. A local quality score rising from 3 to 5 raises its result to 68. Both changes affect preference, **not** physical eligibility. The provisional managed preference applies only to POLICY-35, not the restricted factory or air-gap workloads.
+
+#### Economics and investment sequencing
+
+Estimate a five-year cost range for each eligible alternative: hardware, energy, model licence, staff, on-site support, local storage, security testing, recovery, patching, media custody, provider usage, exit and decommissioning. Use the formula **present-value cost = upfront spend + sum of each year's spend divided by (1 + discount rate) raised to that year**. State the discount rate, utilization, task volumes, staffing, model-quality thresholds and source of every price. No current UAE price or breach probability is asserted here. Where expected security loss cannot be credibly quantified, mark **UNQUANTIFIED** and show scenarios instead of manufacturing precision.
+
+**Fictional first-quarter capacity:** The group can fund two four-week experiments but cannot release three new systems. DESIGN-35's prohibited fallback is a *mandatory defect remediation*, not a discretionary feature competing on ROI. Next compare permission-aware local document search against local LLM/RAG using identical synthetic tasks; if search meets the task acceptance threshold, do not buy GPUs merely for an AI label. POLICY-35 may enter a time-boxed managed proof of concept after supplier evidence and data-flow review. OT-35 stays blocked pending offline licence, physical isolation, removable-media handling and tested restore.
+
+| Initiative | Gate or decision owner | Four-week exit evidence | Decision |
+|---|---|---|---|
+| Remove DESIGN-35 remote fallback | CTO and CISO, plant owner | Sanitized timeout, normal, support and restore traces showing no prohibited routing attempt | Block until negative tests pass |
+| Local non-AI search baseline | Product owner and data steward | Task success, permissions, latency and observed usability | Prefer simpler solution if threshold met |
+| POLICY-35 managed pilot | Procurement, privacy, PM | Approved flow map, synthetic task results, price range and exit drill | Conditional pilot, not blanket approval |
+| OT-35 offline feasibility | OT safety and security | Physical connectivity inspection, offline licensing, media custody, local restore | No release while any gate unknown |
+
+#### Failure mode, RCA and corrective action
+
+**Fictional observation:** A procurement analyst gives a hosted DESIGN-35 option an attractive 84/100 weighted score. During a synthetic timeout the model gateway attempts a hosted fallback and vendor telemetry connection. The firewall denies both attempts. No real data transfer is claimed, but the enterprise's stipulated **no offsite routing attempt** invariant fails.
+
+**Direct cause:** A default failover route and diagnostics destination were left enabled. **Process root cause:** The scoring template treated physical placement as a preference, while testing covered only normal inference. **Containment:** stop the release, preserve sanitized destinations and configuration versions, revoke unapproved support paths. **Correction:** remove remote routes, use an approved local fallback or fail closed, disable external diagnostics, and establish an offline licence/update plan. **Retest:** exercise timeout, crash, restore, patch, support credential reactivation and telemetry with independent observation by designated reviewers. **Disposition:** managed is REJECT for DESIGN-35 regardless of score; local is UNVERIFIED until its complete gate evidence passes. Firewall denial is a valuable control observation, not proof that the prohibited route was an acceptable design.
+
+#### PM artifact: ADR-03-06 investment decision record
+
+Submit a one-page record containing: workload ID; signed requirement issuer and date; classified derivatives; candidate architectures and non-AI baseline; G1–G6 outcome, test ID, evidence and reviewer; disqualified options; reproducible preference arithmetic; five-year cost ranges and sensitivity; task-quality threshold; release decision and expiration; rollback; change triggers; and named legal, security, operations and business signatories. A PM consolidates the recommendation but cannot unilaterally waive a signed contractual boundary.
+
+**Acceptance criteria:** Reject hosted options for the premises-only and air-gap cases; distinguish simulator classifications from observed network evidence; include negative tests for degraded mode and privileged support; calculate weighted scores accurately; compare non-AI search; and identify the person who may authorize a revised constraint.
+
+#### Learner challenge (50 minutes; no answers in the learner chapter)
+
+1. Recalculate both score totals, then vary one weight and one score while maintaining a 100% weight sum. Explain why the hard-gate outcome does not change.
+2. A vendor offers a cheaper same-country endpoint for DESIGN-35. Write the exact rejection reason and one decisive negative test.
+3. A vendor proposes a private VPN for OT-35 online licence checks. Identify the violated invariant and specify an offline alternative or a not-feasible decision.
+4. Write negative tests for remote timeout fallback, support credential reactivation and telemetry during local backup restore. Specify test input, observable artifact, fail criterion, reviewer and corrective action.
+5. Complete ADR-03-06 and a four-week roadmap. State when non-AI document search should win, and what evidence could reverse that conclusion.
+
+**Source boundary:** All company details, scores, constraints, budgets, outcomes and failure events above are **fictional educational assumptions**. No external vendor performance, legal applicability or production control is newly verified in this section. The earlier chapter's NIST risk-governance references remain contextual, not endorsements of this course-authored decision algorithm. These test designs are **not executed tests**.
+
+**Next header:** 3.7 Requirements traceability, success metrics, and governance. Then complete Module 03's lab, assessment, separate solutions, teaching assets and two distinct bounded critical reviews before Module 04.
+
 
 [^nist-core-35]: NIST, *AI Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [Core §5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact excerpt checked on the official issuer HTML on **21 November 2026**. The teaching control matrix is course-authored.
 [^nist-govern-35]: NIST, *AI RMF Core*, [GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact phrase and contextual role/review requirement checked **21 November 2026**. This is voluntary governance guidance, not an official sovereign-AI deployment classification.
