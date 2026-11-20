@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Sections 3.1–3.3 complete; Sections 3.4–3.7, lab, assessment, solutions, social and critical reviews pending** |
+| Current progress | **Sections 3.1–3.5 drafted; Sections 3.6–3.7, lab, assessment, solutions, social and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -406,7 +406,110 @@ Copy this compact template into the pilot release packet. Keep the *issuer* sepa
 
 **Source and ontology boundary:** This section's seven-role RACI and veto workflow are **course-authored teaching designs**. They operationalize the evidence and governance concerns discussed in [NIST AI RMF 1.0 Core, GOVERN and MAP](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) and [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), whose specific source checks are recorded in Section 3.3 above; no new quotation or verification date is claimed here. Consult [the course ontology](../taxonomy/ONTOLOGY.md) for workload, control, dependency, evidence and authority relationships. Do not treat NIST as issuing a UAE-specific legal rule or this RACI as a regulatory standard.
 
-**Next header:** 3.5, *Translate business risks into verifiable technical and operational controls*. Module 03 remains draft; dedicated lab, assessment, separate solutions, social teaching assets and both critical reviews remain pending.
+
+### 3.5 Translate business risks into verifiable technical and operational controls
+
+**Executive decision:** A business requirement becomes buildable only when the team can name **who issued it, which workload and data flows it covers, the prohibited event, the control that stops that event, the test that could falsify the claim, and the owner who accepts evidence**. “Use sovereign AI,” “secure the data,” and “deploy local GPUs” are aspirations or implementation preferences, not verifiable outcomes. Translate each business risk into a rule that survives normal operation, timeouts, support, updates, backup and restoration.
+
+**Course-authored translation chain:** Business loss → observable risk event → authority-backed constraint → control claim → implementation/dependency → negative test → observed evidence → scoped release decision. This is an instructional method, **not an official UAE control framework**. Its ontology links [BusinessProcess, Requirement, Control, Test, Evidence, Reviewer and Decision](../taxonomy/ONTOLOGY.md) with stable identifiers so a changed gateway, supplier or contract can invalidate previously accepted evidence.
+
+#### From four enterprise risks to testable acceptance criteria
+
+**Fictional scenario:** Al Noor Industrial Group is an invented UAE manufacturer using synthetic workloads. The commercial clauses, site boundaries, incidents, roles and tests in this lesson are examples, not claims about actual legislation or real deployments.
+
+| Fictional business risk and authority | Acceptance requirement | Control implementation | Evidence and release owner |
+|---|---|---|---|
+| **RISK-35-SITE:** Plant data owner could breach signed handling rule for DESIGN-35 | **REQ-SITE-35:** Restricted documents and all derivatives remain inside the named **FACTORY-A physical premises** during normal, degraded, support and recovery states | On-site inference and RAG, local vector index, logs, backup and model evaluation; denied external routing and supplier diagnostics | Synthetic marker traces, observed DNS/proxy/firewall destinations, config hash, change history; plant owner and CISO must approve |
+| **RISK-35-AIR:** OT safety owner requires disconnected reference access | **REQ-AIRGAP-35:** OT-35 has **no inbound or outbound network connectivity**, including activation, support, update, recovery and emergency failover | Local model/identity, permitted offline licences, controlled removable-media intake, verified rollback and restore | Physical port and radio inspection, offline cold start, media custody, local restore and attempted forbidden network check; safety and security approval |
+| **RISK-35-ACCESS:** Supplier retains control after contract expiration | **REQ-ACCESS-35:** All vendor privileged sessions, accounts and keys end on approved exit date; no residual remote diagnostic ability | Enterprise IAM, time-limited credentials, local logging, privileged session approval | Revoked-identity replay, stale token attempts, emergency support challenge, independent security review |
+| **RISK-35-RECOVER:** Critical operations depend on network licence or remote recovery | **REQ-RECOVER-35:** Local service meets business-signed recovery targets without any forbidden connected dependency, and fails safely | Spare compute, versioned offline model bundle, local snapshots, controlled rollback and human fallback | Timed recovery drill, safe abstention test, licences, quality/capacity benchmark and on-site owner acceptance |
+
+The **data boundary includes derivatives**: prompts, answers, embeddings, training extracts, adaptations, evaluation samples, telemetry, exception traces, support bundles and replicas. Encryption does not make an otherwise prohibited transfer acceptable. A managed endpoint **elsewhere in the UAE** is still off premises for REQ-SITE-35. A private circuit, allowlisted internet path or temporary supplier tunnel still breaks a *physical air gap*.
+
+#### Turn every control claim into a positive and negative test
+
+Normal inference alone demonstrates only that the normal path worked once. The evidence team must challenge the routes and privileges most likely to violate a requirement.
+
+| Test ID | Synthetic execution and failure trigger | Measurable PASS criterion | FAIL or investigation trigger |
+|---|---|---|---|
+| **T-35-NORMAL** | Run tagged engineering retrieval, inference, evaluation and local log collection | All restricted data/derivatives stay at FACTORY-A and every processing destination is inventoried | Undocumented path, external trace, unapproved service account or missing observation |
+| **T-35-TIMEOUT** | Delay local inference past the gateway deadline and observe fallback resolution | Only permitted on-site fallback or explicit controlled failure; **zero prohibited external attempts** | Any off-site inference/diagnostic request, even when a firewall blocks delivery |
+| **T-35-SUPPORT** | Revoke vendor identity and test remote helpdesk and service-token paths | Access denied, locally logged, and no restricted support bundle exported | Successful privileged session, stale token, external collector or missing audit |
+| **T-35-RESTORE** | Simulate patch failure, clean local restart, backup restore and model rollback | Approved local service restores within signed objectives, valid offline rights and safe fallback | Online licence or cloud DR dependency, missing rollback, restoration outside objective |
+| **T-35-AIRGAP** | Inspect physical and logical interfaces; attempt online activation while running offline tasks | **No inbound and no outbound network**, including management; locally supervised media and integrity checks pass | Any network path, wireless device, private link, activation request or remote maintenance |
+
+**Two outcomes can be true simultaneously:** The firewall's egress deny may **PASS**, while the application's forbidden routing attempt makes the territorial requirement **FAIL**. Never average these outcomes, and distinguish an attempted export recorded with *synthetic* markers from a proven disclosure of real customer data. Test results also expire when the validated model, gateway, logging agent, support contract, network or site changes.
+
+The NIST AI RMF 1.0 Core says its actions “do not constitute a checklist.”[^nist-core-35] In **GOVERN 1.5**, NIST describes “Ongoing monitoring and periodic review” and assigns organizational review roles.[^nist-govern-35] These passages justify continuous evidence discipline, **not** a NIST-prescribed sovereign AI acceptance schema. NIST SP 800-207's zero-trust abstract says trust is not inferred “based solely on their physical or network location”.[^nist-zt-35] The local platform still needs identity and administrator tests. The course's acceptance records and hard physical vetoes are authored for this curriculum.
+
+#### A ten-field requirement-to-evidence contract
+
+For each risk × workload × processing flow, complete the following. A supplier presentation or a configuration screenshot is not enough to claim a test passed.
+
+| Field | What an approver needs |
+|---|---|
+| **1. Claim ID, version** | REQ-SITE-35/v1, approved rule and update history |
+| **2. Workload/data scope** | DESIGN-35, all restricted sources, derivatives and support/recovery paths |
+| **3. Authority** | Named plant data owner and written exception procedure; separate legal interpretation when necessary |
+| **4. Mechanism/owner** | Gateway route, deny-everything egress, local backup, IAM and responsible technical team |
+| **5. Environment/version** | Model and tokenizer hashes, runtime release, gateway settings, synthetic dataset version |
+| **6. Test action** | Normal, timeout, support, malicious/stale credential, update and restore injections |
+| **7. Expected observation** | Explicit allowed destinations, zero forbidden external *attempts*, negative login and offline recovery |
+| **8. Observed evidence** | Date, packet/DNS/proxy traces, admin sessions, snapshots and test artifacts |
+| **9. Reviewed disposition** | PASS FOR TESTED SCOPE, FAILED, UNVERIFIED or NOT FEASIBLE, named reviewer and approvals |
+| **10. Reopen trigger** | Change to model, gateway, supplier support, contract, facility, logging or backups |
+
+**Hard-gate logic:** REQ-SITE-35 and REQ-AIRGAP-35 are checked **before** cost, throughput, response quality and maturity scores. If a mandatory boundary is violated, status is **BLOCKED**. If there is no licensable and capable local model, adequate compute or safe disconnected recovery within the required boundary, status is **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. A better remote model or country-resident API cannot become an unapproved fallback.
+
+#### Failure drill: a green security dashboard and a red site invariant
+
+**Fictional observation:** DESIGN-35 uses enterprise-owned GPU hardware and local RAG at FACTORY-A. The CISO's dashboard reports MFA enabled and external firewall egress blocked. During a synthetic timeout, the gateway tries a hosted model endpoint and writes the destination attempt to local logs. The firewall denies the request. No actual production data disclosure is claimed, but the required no-offsite-routing behavior **FAILED**.
+
+| RCA phase | Finding and owner | Corrective solution |
+|---|---|---|
+| **Symptom** | Attempted remote model request in synthetic gateway failure; plant owner holds release | **BLOCKED** for restricted pilot, preserve sanitized evidence |
+| **Direct technical cause** | Provider's fallback rule contains a remote endpoint | Remove route, deny fallback, or use approved local capacity |
+| **Contributing process cause** | Procurement and platform reviews covered ordinary inference but omitted timeout, telemetry, support and recovery paths | Expand end-to-end data/control-plane inventory and release test coverage |
+| **Containment** | Platform freezes gateway version; security checks historical destinations; data owner denies release | Remove unapproved destinations and revoke vendor privileges pending review |
+| **Design correction** | Local-only model/diagnostic sink and tested backup with enterprise keys | Provide controlled failure if local service cannot meet load |
+| **Independent retest** | Security reviewer observes normal, timeout, crash, patch, support and restore | Record exact source build, synthetic marker, egress attempts, roles, offline licensing and accepted limits |
+| **Closure and approval** | CISO, plant owner, procurement/legal and PM sign separate bounded outcomes | Release only when hard gates pass and unresolved evidence has a named owner |
+
+**Root cause in five why-questions:** Why was an offsite request attempted? Gateway default. Why was it installed? Availability target used an external provider. Why wasn't it rejected? Only the normal inference path was tested. Why? The “sovereignty” claim was written as **own a GPU**, not **contain all restricted flows in all states**. Why did governance miss it? No owner was assigned the negative degraded-mode test. Prevention requires a specific acceptance criterion, a test owner and version-triggered revalidation.
+
+#### Architecture comparison and PM approval artifact
+
+| Candidate | POLICY-35, synthetic public data | DESIGN-35, FACTORY-A-only | OT-35, physically air-gapped |
+|---|---|---|---|
+| Approved managed inference | **CONDITIONAL** after actual processing, logging, privileged access and contract checks | **REJECT** if any restricted content or derivative leaves FACTORY-A | **REJECT**: remotely hosted inference needs connectivity |
+| Local third-party licensed model on enterprise GPUs | Possible; extra operating cost may not be justified | **CONDITIONAL** with on-site logging, support/backup, offline licensing, no egress and quality/capacity testing | Only if locally installed, disconnected and verified offline throughout lifecycle |
+| Locally hosted non-AI document search | Could meet task at lower cost | Candidate when all restricted paths stay inside FACTORY-A | Candidate if safely operated and restored offline with authorized media |
+
+**PM deliverable: risk-to-control traceability packet**
+
+| Risk and authority | Acceptance requirement | Control owner / test IDs | Current synthetic status | Next action |
+|---|---|---|---|---|
+| RISK-35-SITE, plant owner | REQ-SITE-35, all restricted derivatives physically local | CTO/CISO; T-35-NORMAL, T-35-TIMEOUT, T-35-SUPPORT | **BLOCKED**: prohibited fallback attempt | Remove remote route and run negative retest |
+| RISK-35-AIR, OT safety authority | REQ-AIRGAP-35, no network ever | OT engineering/security; T-35-AIRGAP, T-35-RESTORE | **UNVERIFIED** | Inspect physical network paths and offline recovery |
+| RISK-35-ACCESS, CISO | REQ-ACCESS-35, no residual vendor control | IAM/security; T-35-SUPPORT | **UNVERIFIED** | Credential revoke and replay test |
+| RISK-35-RECOVER, business owner | REQ-RECOVER-35, signed local recovery objectives | SRE/product; T-35-RESTORE | **UNVERIFIED** | Timed restore and manual safe fallback |
+
+The PM maintains **issuer → requirement → control → test → evidence → reviewer → decision**, refusing to change a binding rule because a sponsor prefers a cheaper architecture. Cost, model quality, resilience and exit are evaluated **only among eligible candidates**. An authorized change of a site requirement must have a signed issuer, effective date, revised design and fresh acceptance tests.
+
+#### Learner challenge (50 minutes)
+
+1. Write the four fictional risk statements and assign the legitimate approving authority. For DESIGN-35, list **all** restricted derivative classes and control-plane paths.
+2. Draft a *positive and negative* test for the physical boundary, privileged support, local recovery and offline model licence. State exactly what logs, packet traces or approvals would be preserved, and what observations constitute a failure.
+3. Open the [Architecture & Learning Studio](../learning/index.html). Select **Strict on-premises IP research assistant** with **Single premises only; no data or derivatives may leave**. Compare **On-prem production GPU servers inside the premises** to **Approved managed AI platform**. Explain the difference between the simulator's scenario classification and an independently observed network trace.
+4. Switch to **Air-gapped factory operations**, attempt **General internet access including external service endpoints**, then restore **Air-gapped: no inbound or outbound network**. Prepare an offline update and rollback test with physical media custody and no network.
+5. Submit a one-page test matrix and go/no-go memo, including the direct cause and contributing process cause of T-35-TIMEOUT, ownership of every remediation, a non-AI alternative and the evidence necessary for a changed disposition. **BLOCKED** is an appropriate answer when a physical gate fails.
+
+**Next header:** 3.6, *Decision frameworks, investment priorities, and alternatives*. Module 03 remains a draft until 3.6–3.7, the lab, assessment/solutions, social/HTML/PDF assets and two separately recorded module-level critical reviews are finished.
+
+[^nist-core-35]: NIST, *AI Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (2023), [Core §5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact excerpt checked on the official issuer HTML on **21 November 2026**. The teaching control matrix is course-authored.
+[^nist-govern-35]: NIST, *AI RMF Core*, [GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact phrase and contextual role/review requirement checked **21 November 2026**. This is voluntary governance guidance, not an official sovereign-AI deployment classification.
+[^nist-zt-35]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), exact quotation verified **21 November 2026**. It discusses authorization, not particular UAE territorial laws.
+
 
 
 [^nist-map-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MAP 1.1 and MAP 1.4](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MAP 1.1 addresses documenting purposes, laws, expectations and prospective deployment settings; MAP 1.4 covers the clearly defined business value/context. **Neither** prescribes sovereign AI hosting or defines the course-authored investment categories.
