@@ -1,5 +1,18 @@
 # Sovereign AI Mastery | Improvement learnings
 
+## Improvement entry 044 | 2026-11-20 | Module 03 section 3.4 stakeholder decision rights
+
+**Actual content commit:** [5732c98e3de71ab74a43a79bfe270f914e0e1495](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/5732c98e3de71ab74a43a79bfe270f914e0e1495) authored **3.4 Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement** in [Module 03](../chapters/03-enterprise-sovereignty-requirements-strategy.md), adding approximately 2,125 words without replacing 3.1–3.3. The next unfinished header is **3.5 Translate business risks into verifiable technical and operational controls**.
+
+**Decision and teaching improvement:** The fictional Al Noor Industrial Group case separates seven stakeholder mandates and their evidence/exception rights. A role matrix, six-stage release chain, three-workload architecture comparison, explicit Plant A premises-only and OT air-gap vetoes, seven-step RCA, PM decision-rights/control register and 50-minute learner board turn ambiguous committee consensus into testable ownership. A denied off-site fallback attempt is distinguished from proven disclosure. The case is fictional and uses synthetic evidence; legal applicability remains for qualified counsel.
+
+**Checks actually performed:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, the Module 03 source and latest improvement log; inspected previous Section 3.3 CI findings. Programmatic source-string checks verified a unique 3.4 heading, intact 3.3 heading, absence of a written 3.5 heading, and a single 3.4 insertion. No executable local tests, browser inspection, real air-gap test or independent review was performed. No new primary-source quotation or publication date is claimed; section explicitly links to previously checked NIST references.
+
+**GitHub Pages CI at logging time:** [run 44792870735](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44792870735) at 5732c98e: in_progress/pending; [run 44792384707](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44792384707) at 82e90bfd: completed/success; [run 44789807941](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44789807941) at fde14b52: completed/success. The content commit is **not declared deployed** unless a successful run explicitly covers it. Other concurrent repository changes must not be overwritten.
+
+**Unresolved risks and next step:** Section 3.4 still requires website/diagram/link QA and learner evaluation; Module 03 needs 3.5–3.7, dedicated lab, five-question quiz and scenario, separate facilitator solution key, social/HTML teaching assets and two distinct documented technical/security/source and editorial/accessibility/assessment self-reviews. No human/different-model verification or production certification claimed. **Next: 3.5**, after checking for failed CI. The existing hourly automation remains enabled.
+
+
 ## Improvement entry 043 | 2026-11-20 | Module 03 section 3.3 security, compliance and sovereignty
 
 **Header and commits:** Wrote Module 03 **3.3 Security and compliance requirements vs. additional sovereignty objectives** in [chapters/03-enterprise-sovereignty-requirements-strategy.md](../chapters/03-enterprise-sovereignty-requirements-strategy.md), content commit [53dd12ec9b5aaf74392aa3cbbb2e863d706ee259](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/53dd12ec9b5aaf74392aa3cbbb2e863d706ee259). Added **2,222 words**. A subsequent [cleanup commit 4237e5390de26b61b081feb30164199570d837ca](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/4237e5390de26b61b081feb30164199570d837ca) removed a duplicate 3.4 handoff line. Sections 3.1–3.3 are now authored; 3.4–3.7 and supporting artifacts are not.
