@@ -316,7 +316,98 @@ This is a reusable decision sheet for a PM and three owners, not a legal complia
 [^nist-govern-33]: NIST, *AI RMF 1.0*, [AI RMF Core, GOVERN 1 and GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact categories checked on official HTML **20 November 2026**. The course-authored claim types and veto rules are not specified in the NIST document.
 [^nist-zt-33]: NIST, *Zero Trust Architecture*, SP 800-207, final August **2020**, [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), “no implicit trust” phrase and location/ownership scope checked **20 November 2026**. This security guidance does not establish sovereign jurisdictional compliance.
 
-**Next header:** 3.4, *Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement*. Module 03 remains a draft pending the remaining headings, lab, solutions, social teaching assets and two critical reviews.
+### 3.4 Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement
+
+**Decision first:** A sovereign AI proposal is not ready for architecture selection until every hard constraint has a named issuer, every proposed exception has an authorized decision-maker, and one accountable product executive can stop release. A RACI chart that says “everyone approves” is not a control. **An unresolved veto is BLOCKED, not a low score to average away.**
+
+#### A fictional UAE enterprise decision, with seven conflicting incentives
+
+*All organizations, people, data and events in this case are fictional. “Al Noor Industrial Group” (ANIG) is an invented UAE manufacturer, not a reported deployment. The example uses synthetic documents and simulated access records.*
+
+ANIG proposes three AI assistants: **POLICY-34**, a staff policy search service with approved synthetic content; **DESIGN-34**, an engineering assistant whose contract specifies that prompts, embeddings, logs, backups and derived outputs must stay **inside Plant A**; and **OT-34**, a disconnected maintenance assistant whose signed operations policy prohibits any inbound or outbound network, online activation, remote vendor session or connected failover. The PM has 45 days to recommend a pilot. A supplier advertises a “UAE region” endpoint; the CIO wants to avoid an additional GPU purchase; the plant director wants no remote access. None of these statements alone resolves the signed controls.
+
+| Decision authority | What this person is accountable for | Evidence they must request | What they can and cannot waive |
+|---|---|---|---|
+| **Business owner / plant director** | Intended use, impact of downtime, data ownership and operational acceptance | Process criticality, accepted loss scenarios, named-site policy, fallback runbook | Can change business priority; **cannot silently waive** a signed site or air-gap constraint |
+| **CIO / enterprise sponsor** | Portfolio funding, service continuity and operational ownership | Budget, service inventory, recovery evidence, exit plan | Can defer funding or reject the business case; cannot substitute budget approval for security or legal determination |
+| **CTO / platform owner** | Feasible compute, deployment, integration, reliability and portability | Dependency bill, offline licence proof, packet/route tests, restore rehearsal, capacity benchmarks | Can reject an infeasible architecture; cannot redefine the contract's allowed premises |
+| **CISO / security authority** | Threat model, identity, privileged access, monitoring and release security gate | Negative access tests, supplier-admin pathways, gateway policy, incident evidence | Can stop unsafe release; a green encryption/MFA report **does not certify** physical containment |
+| **Privacy lead / DPO where designated** | Data inventory, personal-data handling, minimization and processor review | Data-flow and derivative map, retention/deletion matrix, purpose and role inventory | Can require privacy review or reject a proposed processing design; cannot issue a blanket legal exemption |
+| **Legal / compliance counsel** | Interpretation of applicable laws and enforceability of signed terms | Exact contract clause, governing entity/jurisdiction, applicable-law analysis, approved variations | Determines legal position and authorized contract-change path; cannot claim a product label proves compliance |
+| **Procurement / vendor-risk owner** | Contractual supplier obligations, subcontractors, support and exit rights | Subprocessor list, update/telemetry terms, support architecture, SLA, audit/termination provisions | Can block procurement; cannot make an untested technical dependency disappear |
+
+**Separation of duties:** The CTO produces a deployment evidence packet, the CISO challenges its threat and access assumptions, the plant data owner verifies site-boundary acceptance, legal decides what the agreement actually requires, and the CIO approves resources **only after** hard-gate disposition. If one individual holds multiple roles in a small organization, record the overlap and require a second authorized reviewer for critical exceptions. This is a proposed course governance pattern, not a claim about UAE law.
+
+#### Who decides what, and in which order?
+
+Use a **decision-rights chain**, not a committee vote that can dilute a prohibition.
+
+1. **Business owner defines the loss boundary.** For DESIGN-34, “any restricted derivative leaves Plant A” is a failure regardless of whether the destination is elsewhere in the UAE. For OT-34, “any connected dependency is required for normal or recovery operation” is a failure even if the supplier calls it private.
+2. **Legal and privacy classify obligations.** They identify the actual contracting parties, signed clauses, potential personal data and applicable legal questions. Unresolved interpretation is **REVIEW REQUIRED**, not an invented statutory requirement.
+3. **CTO inventories all paths.** Include prompts, vectors, evaluation data, crash reports, model weights, software updates, DNS, logs, support, backup, disaster recovery, licensing and administrators. “Inference is local” is not sufficient.
+4. **CISO challenges every trust boundary.** Confirm that a permitted primary path does not conceal a prohibited timeout, support or incident fallback. Require independent negative tests of denied destinations and unauthorized identities.
+5. **Procurement tests enforceability and exit.** Ask who can change telemetry defaults, which subcontractors can access operations, whether offline rights survive renewal and what happens if the supplier exits.
+6. **Product executive records the outcome.** **GO** only for a specific workload, site, build and evidence set; **CONDITIONAL GO** when bounded non-veto evidence remains; **BLOCKED** when a hard gate fails; **NOT FEASIBLE** when no compliant design can satisfy essential quality or operational requirements.
+
+A signed exception must identify the original issuer or properly delegated authority, the exact affected constraint, effective date, changed technical scope and retest. A supplier presentation, verbal executive preference or green scorecard is **not** an exception.
+
+#### Architecture choices must follow the stakeholders' constraints
+
+| Pattern | POLICY-34 (synthetic, approved) | DESIGN-34 (Plant A only) | OT-34 (disconnected) | Stakeholder decision |
+|---|---|---|---|---|
+| Managed endpoint in an approved UAE geography | Candidate, subject to actual supplier processing, retention, admin and legal review | **REJECT**: not physically inside Plant A | **REJECT**: connected service | CIO can compare cost only for eligible POLICY-34; legal and CISO still review |
+| On-site GPU, local inference and local diagnostics | Candidate; may have unjustified operational cost | Candidate **only if** every derivative, backup, admin and support path is site-contained | Candidate **only if** no connected dependency and offline rights/recovery pass | CTO demonstrates, CISO tests, data owner accepts boundary |
+| Offline non-AI search appliance | Candidate if task quality meets needs | Candidate when local content and logs remain on site | Candidate if installed, updated and restored through approved disconnected procedures | Business owner accepts lower functionality; procurement verifies offline licence |
+| Hybrid with remote disaster recovery | Candidate if supplier and data handling are approved | **REJECT** if restricted data/derivatives reach remote DR | **REJECT** | No cost or resilience advantage overrides hard gates |
+
+**Premises-only invariant:** DESIGN-34 is **BLOCKED** on any observed or configured route that can send restricted data or derivatives beyond Plant A, including diagnostic logs, cloud embeddings, backup, model evaluation and provider support. A network denial that blocks an attempted export is a useful security result **and** a failed routing-configuration acceptance test; investigate both.
+
+**Air-gap invariant:** OT-34 must have no inbound/outbound network dependencies, private tunnels, cloud identity checks, remote support, online licence activation, connected updates or external failover. A proposed “emergency exception” is not enabled by default; if a new signed policy authorizes a different operating mode, classify and revalidate it as a changed requirement, not as an air-gap pass.
+
+#### Decision escalation: a release meeting that must not average away a veto
+
+**Fictional test evidence:** During a synthetic DESIGN-34 timeout drill, the gateway selects a cloud fallback target. A deny-all egress rule prevents the connection. The CTO marks “network isolation: PASS”; the product dashboard displays “ready.” The plant director reports that the signed Plant A-only routing criterion has failed. The CISO agrees the firewall worked, but asks whether similar fallback paths exist in backup, vendor support and model updates.
+
+| Stage | Finding and owner | Required action and release state |
+|---|---|---|
+| Observed | Gateway's synthetic request targeted an off-premises endpoint; packet capture shows denial, not successful disclosure | **BLOCKED** for DESIGN-34; do not report a breach without evidence |
+| Direct cause | Platform gateway retained remote timeout fallback | CTO removes remote target and checks the entire dependency graph |
+| Systemic cause | CIO steering dashboard combined security status and site-containment status; procurement never supplied an operational route inventory | PM separates claims and evidence; procurement obtains vendor support/telemetry disclosures |
+| Containment | CISO retains sanitized traces and checks whether any historical route succeeded; plant owner pauses restricted pilot | Keep data synthetic in lab; escalate real-world investigation under applicable incident process |
+| Corrective design | Local-only fallback with validated capacity, or explicit fail-closed error; deny egress and remote administration | CTO and CISO jointly approve design for testing, **not** release |
+| Negative retest | Normal, timeout, DNS failure, restore, patch, offline activation and supplier-support attempts, including privileged routes | Record build hash, destinations, packets, test operator and observed outcomes |
+| Closure | Legal confirms exact contract scope; data owner accepts site evidence; CISO signs security finding; product executive decides | Only change to **CONDITIONAL GO** after all hard-gate tests pass and residual risks have owners |
+
+**What would change the decision?** A new gateway configuration plus passing reproducible negative tests can remediate the routing failure. A signed contract amendment by authorized parties could change the permitted boundary, but then the system must be reclassified and the tests rewritten. Neither the CIO's urgency nor the vendor's region claim changes the present evidence.
+
+#### PM artifact: decision-rights and evidence register
+
+Copy this compact template into the pilot release packet. Keep the *issuer* separate from the *implementer* and the *approver*.
+
+| Claim ID | Workload / signed constraint | Issuer and authorized change path | Implementer / challenger | Evidence and expiry trigger | Status |
+|---|---|---|---|---|---|
+| SITE-34 | DESIGN-34: all restricted data and derivatives remain inside Plant A | Plant data owner + contract authority; written amendment only | CTO / CISO | Route inventory, packet tests, backup/support proof; retest after gateway/vendor change | **FAILED** |
+| GAP-34 | OT-34: no network dependency in operation, update or recovery | Operations authority; written safety/change control | CTO / plant security | Offline clean install, restart, patch, restore and licensing rehearsal | **UNVERIFIED** |
+| SEC-34 | Role-restricted access and audited privileged sessions | CISO security policy | IAM lead / CISO test team | Revoked-user, break-glass, supplier-admin negative tests | **UNVERIFIED** |
+| LEG-34 | Applicable law, contract, processor and data-transfer questions | Counsel + authorized contract parties | Privacy/procurement / legal reviewer | Clause inventory, documented applicability opinion, supplier terms | **REVIEW REQUIRED** |
+| PROD-34 | Minimum useful task quality, latency and operator fallback | Business owner | PM / independent user assessor | Synthetic acceptance set, error budget, safe manual fallback | **UNVERIFIED** |
+
+**Decision memo fields:** exact workload and environment; signed constraint versions; alternatives rejected and why; failed tests; unresolved legal questions; total-cost assumptions; named accountable release owner; evidence links; date of next review; change triggers. **Do not** replace these fields with a sovereignty percentage.
+
+#### Learner challenge: run a 50-minute decision board
+
+1. **Before looking at the matrix**, write seven one-sentence mandates, one per stakeholder. Mark which mandates are *hard gates*, which are *preferences*, and which require counsel's interpretation.
+2. For DESIGN-34, compare managed UAE endpoint, Plant A inference and local non-AI search. State why an otherwise secure endpoint can still be ineligible. List five often-forgotten derivative or operational paths.
+3. For OT-34, simulate a supplier's request to enable online activation during recovery. Write the proposed response, the policy issuer who would have to authorize a changed operating mode, and the minimum offline retest.
+4. Fill the PM register with an **evidence state**, not a confidence score. Draft a one-page release decision after the blocked fallback attempt. Distinguish what the packet proves from what remains unknown.
+5. **Counterfactual:** the supplier provides a signed “UAE-only processing” promise. Identify exactly which workloads, if any, become eligible without changing their signed constraints. Explain what technical evidence the promise does not supply.
+
+**Submission:** a seven-role decision-rights sheet, three-option comparison, five-row control register, and a bounded go/no-go memo. Assessment must distinguish an *attempted* transfer from an *observed successful* transfer. The facilitator's worked answer belongs in the separate Module 03 solution key, not here.
+
+**Source and ontology boundary:** This section's seven-role RACI and veto workflow are **course-authored teaching designs**. They operationalize the evidence and governance concerns discussed in [NIST AI RMF 1.0 Core, GOVERN and MAP](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) and [NIST SP 800-207](https://csrc.nist.gov/pubs/sp/800/207/final), whose specific source checks are recorded in Section 3.3 above; no new quotation or verification date is claimed here. Consult [the course ontology](../taxonomy/ONTOLOGY.md) for workload, control, dependency, evidence and authority relationships. Do not treat NIST as issuing a UAE-specific legal rule or this RACI as a regulatory standard.
+
+**Next header:** 3.5, *Translate business risks into verifiable technical and operational controls*. Module 03 remains draft; dedicated lab, assessment, separate solutions, social teaching assets and both critical reviews remain pending.
+
 
 [^nist-map-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MAP 1.1 and MAP 1.4](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MAP 1.1 addresses documenting purposes, laws, expectations and prospective deployment settings; MAP 1.4 covers the clearly defined business value/context. **Neither** prescribes sovereign AI hosting or defines the course-authored investment categories.
 [^nist-manage-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MANAGE 1.1 and MANAGE 2.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MANAGE 1.1 addresses the go/no-go determination; MANAGE 2.1 includes consideration of viable non-AI alternatives and resource constraints. The course's two-pass architecture choice is an instructional synthesis, not a named NIST decision algorithm.
