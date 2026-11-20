@@ -272,3 +272,7 @@ select { padding: .35rem .45rem; min-height: 2rem; font: inherit; color: inherit
 .work-key,.calendar-note {padding:.75rem 1rem;font-size:.8rem}
 .work-key span {display:inline-flex;gap:.3rem;align-items:center}
 .work-key i {width:.75rem;height:.75rem;border-radius:2px}
+
+.workflow-overview { margin: 0 0 1.25rem; }
+.workflow-overview img { display: block; width: 100%; height: auto; border-radius: .75rem; }
+.workflow-overview figcaption { margin-top: .4rem; font-size: .85rem; text-align: right; }
