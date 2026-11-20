@@ -516,3 +516,19 @@ The final test file contains **15 named Python unit tests** covering baseline di
 - **Review B outcome (at module boundary):**
 - **Open risks / follow-up:**
 - **Reusable learning for subsequent headers:**
+
+## Improvement entry 024 | 2026-11-20 | Module 02 PDF print QA diagnosis
+
+**Prior failure:** GitHub Pages run [44660784892](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44660784892) failed at `Verify actual Module 02 PDF export and responsive clipping`. Chromium installed successfully, and preceding static checks passed. Browser script raised `AssertionError: Missing decision footer on PDF page 1`. Whether this is actual clipping or a PDF text-extraction mismatch is **UNKNOWN** pending inspection.
+
+**Change and actual commit:** [bf4ff208f006a5a591931d12ae922127891cd5a4](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/bf4ff208f006a5a591931d12ae922127891cd5a4) changes only the failing assertion's diagnostic to include the first 1,200 extracted characters. It deliberately **does not** weaken the requirement or assert that rendering is fixed.
+
+**Checks performed:** Read the actual failing job steps and logs; confirmed the precise exception and that preceding static checks passed in run 44660784892. Inspected the current browser test and carousel CSS. No local Chromium execution, manual PDF visual review or new test pass is claimed. The content commit triggers a new Pages workflow; its outcome requires separate verification.
+
+**Deployment:** The preceding run failed before site build and deploy. Deployment of this diagnostic change is **NOT CONFIRMED**.
+
+**Unresolved risks:** PDF footer could be clipped, extracted with unexpected whitespace, or omitted for another reason. Mobile geometry, PDF visual legibility, assistive-technology review and the two distinct module critical reviews remain open. Module 03 stays gated. No new external source assertions were added.
+
+**Improvement lesson:** Preserve failing acceptance criteria while first improving observability. Distinguish print visibility, extracted text and source DOM; do not equate a source-level check with actual exported PDF quality.
+
+**Next:** Inspect new workflow's extracted page text, repair the true print/export cause, rerun browser and PDF checks, then complete technical/security/source and editorial/accessibility/assessment reviews with honest provenance.
