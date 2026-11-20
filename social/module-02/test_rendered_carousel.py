@@ -53,6 +53,39 @@ def main() -> int:
                 clipped = [m for m in metrics if m["overflowX"] > 2 or m["overflowY"] > 2]
                 assert not clipped, f"Clipped slide content at {width}px: {clipped}"
 
+
+            # Actual browser geometry: inspect nested elements, not just slide boxes.
+            for width in (1280, 390, 320):
+                page.set_viewport_size({"width": width, "height": 900})
+                nested = page.locator("section.slide").evaluate_all(
+                    """slides => slides.map((slide, index) => {
+                        const names = ['.mast', '.eyebrow', 'h2', '.answer', '.decision', 'footer'];
+                        const blocks = names.map(name => {
+                            const e = slide.querySelector(name);
+                            if (!e) return {name, missing:true};
+                            const r = e.getBoundingClientRect(), st = getComputedStyle(e);
+                            return {name, top:r.top, bottom:r.bottom, height:r.height,
+                                font:parseFloat(st.fontSize), visible:st.visibility !== 'hidden'};
+                        });
+                        const collisions = [];
+                        for(let k=1; k<blocks.length; k++) {
+                            if(blocks[k].missing || blocks[k-1].missing) continue;
+                            if(blocks[k].top < blocks[k-1].bottom - 3)
+                                collisions.push(blocks[k-1].name + ' overlaps ' + blocks[k].name);
+                        }
+                        return {index:index+1, blocks, collisions};
+                    })"""
+                )
+                assert all(not entry["collisions"] and all(
+                    not block.get("missing") and block.get("visible") and block["height"] > 3
+                    for block in entry["blocks"]) for entry in nested), (
+                    f"Nested content overlap / invisible text at {width}px: {nested}"
+                )
+                if width == 320:
+                    assert all(next(b for b in entry["blocks"] if b["name"] == ".answer")["font"] >= 14
+                               and next(b for b in entry["blocks"] if b["name"] == "footer")["font"] >= 12
+                               for entry in nested), "Critical mobile text smaller than accepted 14px/12px bounds"
+
             # Accessibility semantics: every slide must expose a unique named region,
             # with one visible question heading. This is DOM evidence, not an
             # assistive-technology or tagged-PDF certification.
