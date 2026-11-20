@@ -42,6 +42,12 @@ jobs:
           test -s /tmp/module02-scorecard.json
       - name: Validate Module 02 carousel static print and accessibility contract
         run: python -m unittest discover -s social/module-02 -p 'test_*.py' -v
+      - name: Install local browser QA dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify actual Module 02 PDF export and responsive clipping
+        run: python social/module-02/test_rendered_carousel.py
       - name: Build from Markdown source
         run: python scripts/build_site.py
       - name: Verify rendered diagrams and onboarding
