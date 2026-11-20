@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A 90-day Metis Jean product roadmap for proving adoption, customer impact, and a repeatable sovereign AI deployment.">
   <title>Metis Jean | 90-day product strategy</title>
-  <link rel="stylesheet" href="roadmap.css?v=3">
-  <script type="module" src="roadmap.mjs?v=3"></script>
+  <link rel="stylesheet" href="roadmap.css?v=4">
+  <script type="module" src="roadmap.mjs?v=4"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -70,11 +70,26 @@
       <section aria-labelledby="success-metrics-title">
         <h3 id="success-metrics-title">Success Metrics</h3>
         <div class="metrics">
-          <article id="adoption-measure"><p class="kicker">A / PRIMARY · VALUE-BACKED ADOPTION</p><h3>Repeat users with verified savings</h3><p>Report the share and count of eligible pilot users who complete a verified task on at least two distinct work cycles while meeting the agreed savings bar. An eligible user has access and at least two real opportunities in the observation window. Agree on the target share and minimum observation window by day 28.</p></article>
-          <article id="impact-measure"><p class="kicker">I / WORKFLOW IMPACT</p><h3>Staff time and operating-cost savings</h3><p>For like-for-like cases, calculate staff time saved as manual minutes minus assisted minutes, and operating-cost savings as manual cost minus assisted cost per verified checklist. Include citation review, correction, fallback, operator effort and applicable model or tool costs. Report median active staff minutes and cost per verified result, plus material rework. The illustrative target is 30% less active staff time with no increase in material rework.</p></article>
-          <article id="governance-measure"><p class="kicker">G / GOVERNANCE AND QUALITY</p><h3>A release the customer can trust</h3><p>Illustrative acceptance: 18 of 20 workflow cases pass, including valid abstentions. Every mandatory RBAC, routing and policy case must pass. Test permitted shares, denied shares and opens, revoked access and fresh runs under the recipient’s permissions. Customer IT demonstrates recovery and Security verifies the audit evidence.</p></article>
+          <article id="adoption-measure"><p class="kicker">A / PRIMARY · VALUE-BACKED ADOPTION</p><h3>Repeat users with verified savings</h3><p>Report the share and count of eligible pilot users who complete a verified task on at least two distinct work cycles while meeting the agreed savings bar. An eligible user has access and at least two real opportunities in the observation window. Agree on the target share, cost threshold and minimum observation window by day 28. Use the staff-time target and the customer-approved cost threshold to assess each repeat user.</p></article>
+          <article id="impact-measure"><p class="kicker">I / WORKFLOW IMPACT</p><h3>Staff time and operating-cost savings</h3><p><strong>Verified pilot savings:</strong> Pilot verification is pending. The planning case below assumes 6 minutes (30%) and AED 10 (25%) saved per verified checklist. The Product Lead and customer workflow owner will sign off on the measured figures for the Day 90 readout.</p><p><strong>Pilot target:</strong> 30% less median active staff time per verified checklist, with no increase in material rework. Include citation review, corrections, fallback and operator time. Count staff cost plus applicable model and tooling charges in the operating-cost comparison.</p></article>
+          <article id="governance-measure"><p class="kicker">G / GOVERNANCE AND QUALITY</p><h3>Checklist acceptance and evidence</h3><p>At least 18 of 20 pre-agreed workflow cases pass, including correct abstentions. Citations support every material claim in an accepted answer.</p></article>
           <article id="repeatability-measure"><p class="kicker">R / PRODUCT REPEATABILITY</p><h3>A deployment a second operator can run</h3><p>Track critical steps reproduced from versioned instructions, operator hours and undocumented interventions. Freeze the step list and thresholds with the pilot owner by day 28.</p></article>
+          <article id="recovery-security-measure"><p class="kicker">S / MANDATORY RELEASE GATE</p><h3>Recovery and Security</h3><p><strong>Recovery.</strong> Customer IT restores the last approved release within 30 minutes of starting rollback and reruns the required workflow and security checks.</p><p><strong>Security.</strong> Every mandatory RBAC, routing, policy and outage test passes, with zero unauthorised disclosures in the acceptance suite. Customer Security reconstructs sampled decisions from the audit log and signs off before launch.</p></article>
         </div>
+        <section class="savings-example" aria-labelledby="savings-example-title">
+          <h4 id="savings-example-title">Assumed savings per verified checklist</h4>
+          <p>Planning assumptions for the average case. Measure 20 matched cases (20 manual runs and 20 Jean-assisted runs) from 1 to 12 February 2027. The table uses assumed medians, AED 120 per staff hour and AED 2 in additional Jean model and tooling costs per checklist.</p>
+          <div class="savings-table">
+            <table>
+              <thead><tr><th scope="col">Measure</th><th scope="col">Manual</th><th scope="col">Jean-assisted</th><th scope="col">Assumed savings</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Active staff time</th><td>20 min</td><td>14 min</td><td><strong>6 min (30%)</strong></td></tr>
+                <tr><th scope="row">Operating cost</th><td>AED 40</td><td>AED 30</td><td><strong>AED 10 (25%)</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>At Day 90, report both medians, absolute and percentage savings, the matched case count, the observation dates and material rework. If the pilot is held or the matched sample is insufficient, record that status and the date of the next readout.</p>
+        </section>
         <p class="band" id="peer-growth-measure"><strong>Peer-led growth.</strong> Track Colleague A’s verified result → share → Colleague B’s authorised open → independent verified run → repeat verified run. Report distinct recipients and conversion at each step using approved metadata. Track the sponsor’s willingness to fund continuation as a downstream commercial signal.</p>
       </section>
     </section>
@@ -85,72 +100,78 @@
           <h2 id="workflow-heading">From question to controlled launch</h2>
           <p>Follow the same customer task through the experience, the request path, and the release decision.</p>
         </div>
-        <figure class="workflow-overview">
-          <a href="workflow.png" aria-label="Open the full-size workflow diagram"><img src="workflow.png" width="1440" height="920" alt="Three stages of the missing-documents pilot, from a cited checklist through policy checks to the launch or retest decision. Each step is described below."></a>
-          <figcaption><a href="workflow.png">Open full-size diagram ↗</a></figcaption>
-        </figure>
-        <section aria-labelledby="workflow-success-title">
-          <h3 id="workflow-success-title">Success Metrics</h3>
-          <p><a href="#peer-growth-measure">Peer-led growth</a> is measured from Colleague A’s share through Colleague B’s independent verified run and repeat use.</p>
-          <div class="metrics">
-            <article><p class="kicker">PRIMARY · ADOPTION</p><h3><a href="#adoption-measure">Repeat use with verified savings</a></h3><p>Count and share of eligible pilot users who complete a verified task in at least two distinct work cycles and meet the agreed savings bar. Agree on the target share by day 28.</p></article>
-            <article><p class="kicker">CUSTOMER IMPACT</p><h3><a href="#impact-measure">Staff time and operating-cost savings</a></h3><p>Compare active staff minutes and operating cost per verified result with the manual baseline. The illustrative target is 30% less active staff time with no increase in material rework.</p></article>
-            <article><p class="kicker">RELEASE GATE</p><h3><a href="#governance-measure">Acceptance and mandatory checks</a></h3><p>Illustrative acceptance bar of 18 of 20 workflow cases. Every mandatory RBAC, routing and policy case must pass, including deny and revocation cases. IT demonstrates recovery and Security verifies the audit evidence.</p></article>
-            <article><p class="kicker">REPEATABILITY</p><h3><a href="#repeatability-measure">Second-operator deployment</a></h3><p>Track critical steps reproduced, operator hours, and undocumented interventions. Agree on the thresholds by day 28.</p></article>
-          </div>
-        </section>
-        <div class="blueprint">
-          <details class="flow-layer" open><summary class="flow-heading"><span>1</span><div><h3>Customer experience</h3><small>Follow Colleague A’s verified result through Colleague B’s first independent run.</small></div></summary>
-            <ol class="flow-sequence">
-              <li class="flow-node" id="flow-ask"><strong>Colleague A asks which documents are missing</strong><a class="flow-link" href="#flow-identity">Follow the request <span aria-hidden="true">↓</span></a></li>
-              <li class="flow-node" id="flow-verify"><strong>Colleague A verifies the checklist against cited sources</strong></li>
-              <li class="flow-node"><strong>Colleague A shares the checklist with Colleague B</strong><a class="flow-link" href="#flow-rbac">See access checks <span aria-hidden="true">↓</span></a></li>
-              <li class="flow-node"><strong>Colleague B opens the checklist and starts a fresh run on an authorised case</strong></li>
+        <nav class="workflow-nav" aria-label="Workflow stages">
+          <a href="#customer-experience">1. Customer experience</a>
+          <a href="#request-path">2. How Jean handles the request</a>
+          <a href="#release-approval">3. How the deployment earns approval</a>
+        </nav>
+        <div class="workflow-stages">
+          <section class="workflow-stage" id="customer-experience" aria-labelledby="customer-experience-title">
+            <header><span class="workflow-number" aria-hidden="true">1</span><div><h3 id="customer-experience-title">Customer experience</h3><p>From Colleague A’s question to Colleague B’s own verified checklist.</p></div></header>
+            <ol class="workflow-steps">
+              <li id="flow-ask"><h4>Colleague A asks what is missing</h4><p>Jean checks the request before looking up documents.</p><a href="#flow-identity">Follow the request ↓</a></li>
+              <li id="flow-verify"><h4>Colleague A verifies the checklist</h4><p>Check the cited sources and confirm the missing documents.</p></li>
+              <li><h4>Colleague A shares with Colleague B</h4><p>Share an in-tenant link when the context helps and policy permits. Use a scoped Mate only if enabled.</p><a href="#handoff-permissions">See sharing permissions ↓</a></li>
+              <li id="flow-reuse"><h4>Colleague B opens and runs their own case</h4><p>After an authorised open, verify a checklist on an authorised case, then return when the work recurs.</p><a href="#peer-growth-measure">See peer-led growth metrics ↑</a></li>
             </ol>
-          </details>
-          <details class="flow-layer"><summary class="flow-heading"><span>2</span><div><h3>How Jean handles the request</h3><small>Trace permissions, model routing and the evidence behind the answer.</small></div></summary>
-            <ol class="flow-sequence">
-              <li class="flow-node" id="flow-identity"><strong>Jean establishes identity and optional Mate context</strong></li>
-              <li class="flow-node flow-decision" id="flow-rbac"><strong>Governance Gateway enforces role-based access control (RBAC) and customer policy</strong></li>
+          </section>
+          <section class="workflow-stage" id="request-path" aria-labelledby="request-path-title">
+            <header><span class="workflow-number" aria-hidden="true">2</span><div><h3 id="request-path-title">How Jean handles the request</h3><p>Apply customer policy before routing the request or releasing a result.</p></div></header>
+            <ol class="workflow-steps">
+              <li id="flow-identity"><h4>Establish requester identity</h4><p>Jean resolves the user, tenant, role and optional Mate context.</p></li>
+              <li class="workflow-decision" id="flow-rbac"><h4>Does the Governance Gateway allow the request?</h4><p>Apply role-based access control (RBAC), source permissions and customer policy.</p></li>
             </ol>
-            <p><strong>RBAC at each step.</strong> Jean checks Colleague A’s role and case permissions before sharing. On every open, Jean checks Colleague B’s tenant, role and access to the checklist, case and cited evidence. Each fresh run checks Colleague B’s workflow, case and data permissions independently. A share link carries no access grant. If access is missing or revoked, Jean withholds the checklist and evidence and records the access decision in the audit log.</p>
-            <div class="flow-branches">
-              <div class="flow-branch">
-                <p class="branch-label branch-go">Allowed</p>
-                <ol class="flow-sequence">
-                  <li class="flow-node"><strong>Simon chooses a permitted model and tools</strong></li>
-                  <li class="flow-node"><strong>Jean retrieves permitted evidence and checks the answer</strong></li>
-                  <li class="flow-node"><strong>Outbound policy check, cited answer, and audit record</strong><a class="flow-link" href="#flow-verify">Return to checklist verification <span aria-hidden="true">↑</span></a></li>
+            <div class="workflow-branches">
+              <div class="workflow-branch">
+                <h4 class="workflow-allowed">Allowed</h4>
+                <ol class="workflow-steps">
+                  <li><h4>Simon selects the route</h4><p>Choose a permitted model and tools.</p></li>
+                  <li><h4>Jean retrieves and checks evidence</h4><p>Retrieve only permitted sources and check the answer against them.</p></li>
+                  <li><h4>Apply the outbound policy check</h4><p>Return the cited answer if permitted and write the audit record.</p><a href="#flow-verify">Return to Colleague A’s verification ↑</a></li>
                 </ol>
               </div>
-              <div class="flow-branch">
-                <p class="branch-label branch-hold">Blocked or review required</p>
-                <div class="flow-node flow-hold"><strong>Stop or request review</strong></div>
+              <div class="workflow-branch">
+                <h4 class="workflow-withheld">Blocked or review required</h4>
+                <p>Stop or request review. Withhold restricted content and record the access decision.</p>
               </div>
             </div>
-          </details>
-          <details class="flow-layer"><summary class="flow-heading"><span>3</span><div><h3>How the deployment earns approval</h3><small>Inspect the launch criteria and the path back to testing.</small></div></summary>
-            <ol class="flow-sequence">
-              <li class="flow-node"><strong>Version the release candidate</strong></li>
-              <li class="flow-node"><strong>Run held-out Synthia regressions</strong></li>
-              <li class="flow-node" id="flow-tests"><strong>Run customer acceptance, RBAC, policy and rollback tests</strong><a class="flow-link" href="#flow-identity">Exercise the request path <span aria-hidden="true">↑</span></a></li>
-              <li class="flow-node flow-decision"><strong>Mandatory gates pass?</strong></li>
+            <details class="workflow-access" id="handoff-permissions">
+              <summary>RBAC during the handoff</summary>
+              <dl>
+                <div><dt>Colleague A shares</dt><dd>Check the right to share the checklist and case within the tenant.</dd></div>
+                <div><dt>Colleague B opens</dt><dd>Recheck tenant, role, case, checklist and evidence access on every open. A link carries no access grant.</dd></div>
+                <div><dt>Colleague B runs a new case</dt><dd>Recheck workflow, case and source permissions using Colleague B’s identity. Deny missing or revoked access and audit the decision.</dd></div>
+              </dl>
+            </details>
+          </section>
+          <section class="workflow-stage" id="release-approval" aria-labelledby="release-approval-title">
+            <header><span class="workflow-number" aria-hidden="true">3</span><div><h3 id="release-approval-title">How the deployment earns approval</h3><p>Test the same request path on the exact candidate before named users can use it.</p></div></header>
+            <ol class="workflow-steps">
+              <li><h4>Version the release candidate</h4><p>Record the model, route, policy and configuration under test.</p></li>
+              <li><h4>Run held-out Synthia regressions</h4><p>Record results against the versioned evaluation set.</p></li>
+              <li id="flow-tests"><h4>Run customer acceptance, policy and rollback tests</h4><p>Check results under permitted, denied and revoked roles. Time the rollback and rerun mandatory controls.</p><a href="#flow-identity">Exercise the request path ↑</a></li>
+              <li class="workflow-decision"><h4>Do all mandatory gates pass?</h4><p>Get sponsor, IT and Security approval for the scoped release.</p><a href="#recovery-security-measure">See Recovery and Security ↑</a></li>
             </ol>
-            <div class="flow-branches">
-              <div class="flow-branch">
-                <p class="branch-label branch-go">Yes</p>
-                <ol class="flow-sequence">
-                  <li class="flow-node"><strong>Launch to named users</strong></li>
-                  <li class="flow-node"><strong>Measure workflow impact and rehearse repeat deployment</strong></li>
-                  <li class="flow-node flow-result"><strong>Customer accepts, extends, or pauses</strong></li>
+            <div class="workflow-branches">
+              <div class="workflow-branch">
+                <h4 class="workflow-allowed">Yes · Launch</h4>
+                <ol class="workflow-steps">
+                  <li><h4>Launch to named users</h4></li>
+                  <li><h4>Measure impact and rehearse repeat deployment</h4><p>Verify savings and peer-led growth. A second operator rehearses setup and recovery.</p></li>
+                  <li><h4>Customer accepts, extends or pauses</h4><a href="#day90">See the Day 90 decision ↓</a></li>
                 </ol>
               </div>
-              <div class="flow-branch">
-                <p class="branch-label branch-hold">No</p>
-                <div class="flow-node flow-hold"><strong>Fix or narrow scope, then retest</strong><a class="flow-link" href="#flow-tests">Loop back to release tests <span aria-hidden="true">↶</span></a></div>
+              <div class="workflow-branch">
+                <h4 class="workflow-withheld">No · Hold</h4>
+                <p>Fix the failure or agree on a narrower scope, then rerun the mandatory checks on that scope.</p>
+                <a href="#flow-tests">Loop back to customer tests ↶</a>
               </div>
             </div>
-          </details>
+          </section>
+        </div>
+        <div class="workflow-footer">
+          <a id="workflow-success-title" href="#success-metrics-title">Success Metrics ↑</a>
+          <a href="workflow.png">Open original workflow diagram ↗</a>
         </div>
       </div>
     </section>
@@ -170,9 +191,10 @@
             <label for="priority-filter">Priority</label>
             <select id="priority-filter">
               <option value="all">All priorities</option>
-              <option value="P0">P0 · Release</option>
-              <option value="P1">P1 · Conditional</option>
-              <option value="P2">P2 · Discovery</option>
+              <option value="P0">P0 · Launch and acceptance</option>
+              <option value="P1">P1 · Peer-led growth</option>
+              <option value="P2">P2 · Partner validation</option>
+              <option value="P3">P3 · Research backlog</option>
             </select>
           </div>
         </div>
@@ -185,14 +207,20 @@
       </div>
       </details><div class="gates">
         <article><span>DAY 14</span><h3>Confirm the pilot</h3><p>Name the sponsor, source, operators, eligible users and approval owner.</p></article>
-        <article><span>DAY 28</span><h3>Prove one request</h3><p>Verify the source, two permission roles, one route and one auditable decision. Agree on the baseline and acceptance bar.</p></article>
-        <article><span id="ready-day">DAYS 57–70</span><h3>Decide on live use</h3><p>Go, narrow the scope, or hold. Customer Security and IT accept the evidence for the selected scope.</p></article>
-        <article><span>DAY 90</span><h3>Choose what to fund</h3><p>Review repeat use, verified staff time and operating-cost savings, peer-led growth and deployment effort with the sponsor.</p></article>
+        <article><span>DAY 28</span><h3>Prove one request</h3><p>Verify the source, two permission roles, one route and one auditable decision. Freeze the matched-case baseline, cost assumptions and mandatory policy and rollback tests.</p></article>
+        <article><span id="ready-day">DAYS 57–70</span><h3>Decide on live use</h3><p>Launch requires a rollback in 30 minutes or less, passing post-recovery checks, all mandatory security cases passing and customer IT and Security sign-off. Hold or narrow the scope and retest if a gate fails.</p></article>
+        <article><span>DAY 90</span><h3>Choose what to fund</h3><p>Review the exact minutes and AED saved per checklist, peer-led growth, timed recovery, Security sign-off and second-operator deployment effort with the sponsor.</p></article>
       </div>
     </section>
     <section class="section tinted" id="priorities">
       <div class="wrap">
-        <div class="section-head"><p class="kicker">Feature priorities</p><h2>What the team will build first</h2><p>Protect capacity for the customer workflow, deployment readiness, and evaluation. P0 is the release scope. P1 and P2 earn time through pilot evidence or a committed customer requirement.</p></div>
+        <div class="section-head"><p class="kicker">Feature priorities</p><h2>What the team will build first</h2><p>Protect the read-only launch and evidence needed for the Day 90 decision. As capacity tightens, drop P2 first, then defer P1 activation.</p></div>
+        <dl class="priority-guide">
+          <div><dt><span class="tag p0">P0</span> Launch and acceptance</dt><dd>Ship one workflow, pass the mandatory Recovery and Security gates, and collect evidence for customer acceptance.</dd></div>
+          <div><dt><span class="tag p1">P1</span> Peer-led growth</dt><dd>Once the core release passes, enable sharing and reuse only after their own access checks pass.</dd></div>
+          <div><dt><span class="tag p2">P2</span> Partner validation</dt><dd>Validate one optional improvement in the best case when a named partner has a measurable blocker and P0 and P1 are on track.</dd></div>
+          <div><dt><span class="tag p3">P3</span> Research backlog</dt><dd>Revisit after Day 90 if a named customer need and sponsor justify discovery.</dd></div>
+        </dl>
         <table class="feature-table">
           <thead><tr><th scope="col">Priority and feature</th><th scope="col">Actions</th><th scope="col">Success measure</th><th scope="col">Why this is a priority</th></tr></thead>
           <tbody id="features"></tbody>
@@ -201,6 +229,7 @@
     </section>
     <section class="wrap section" id="day90">
       <div class="section-head"><p class="kicker">Day-90 decision</p><h2>When to invest in a second deployment</h2></div>
+      <p class="band">A second deployment requires accepted <a href="#recovery-security-measure">Recovery and Security</a> evidence. If either gate remains open, record the owner and retest date and hold expansion.</p>
       <div class="decisions">
         <article><h3>Repeat use, verified savings and peer-led growth</h3><p>Agree on paid continuation or a funded next step with the sponsor. Test the same workflow with a second willing customer and measure the deployment effort again.</p></article>
         <article><h3>Verified savings with limited peer-led growth</h3><p>Watch where recipients drop off between the shared result and their own first run. Improve discovery, access or reuse before expanding the workflow catalogue.</p></article>
@@ -210,7 +239,7 @@
         <summary>Release evidence and questions for kickoff</summary>
         <div class="detail-grid">
           <div><h3>Decisions to make at kickoff</h3><ul><li>Confirm the design partner, workflow sponsor, and customer IT and Security approvers.</li><li>Allocate capacity for one read-only pilot across the ten shared developers.</li><li>Agree on the first source, the permitted deployment profile, and who can narrow scope when a dependency slips.</li></ul></div>
-          <div><h3>Release and impact evidence</h3><ul><li>Go when workflow, control and recovery evidence meets the agreed bar.</li><li>Go with reduced scope when the sponsor accepts the remaining value and the scoped release passes all mandatory tests.</li><li>Hold on failed mandatory checks or pending approval. Record the owner and decision date.</li><li>Open the customer AI impact assessment in discovery. Update it at release and after live use, including rework, incidents, sample size and the observation window.</li></ul></div>
+          <div><h3>Release and impact evidence</h3><ul><li>Go when acceptance passes, IT completes rollback within 30 minutes and Security signs off on all mandatory checks and audit evidence.</li><li>Go with reduced scope when the sponsor accepts the remaining value and the scoped release passes all mandatory tests.</li><li>Hold on failed mandatory checks or pending approval. Record the owner and decision date.</li><li>Open the customer AI impact assessment in discovery. Update it at release and after live use, including rework, incidents, sample size and the observation window.</li></ul></div>
           <div><h3>Questions to resolve by day 14</h3><ul><li>Which customer has a sponsor, an approved source and recurring work we can observe?</li><li>What savings would change the team’s default way of working?</li><li>Can recipients open a shared result and run a new case under their own permissions?</li><li>How much capacity is protected, and who can make a scope decision when a dependency slips?</li></ul></div>
         </div>
       </details>
