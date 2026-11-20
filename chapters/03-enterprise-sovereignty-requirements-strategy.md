@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Section 3.1 complete; Sections 3.2–3.7, lab, assessment, solutions, social and critical reviews pending** |
+| Current progress | **Sections 3.1–3.2 complete; Sections 3.3–3.7, lab, assessment, solutions, social and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -123,7 +123,100 @@ Use the [Architecture & Learning Studio](../learning/index.html) and fictional-o
 
 **Submission:** A one-page memo, a three-workload eligibility matrix, a **risk-value assumption register** and one clearly falsifiable technical control test. The Studio is an educational rule engine; its output does not inspect a real environment, certify a vendor or decide UAE legal applicability.
 
-**Next header:** 3.2, *Classify workloads by data sensitivity, criticality, and impact*. Module 03 remains a draft pending the rest of the TOC, the dedicated lab, separate facilitator solutions, HTML/social assets and two distinct critical reviews.
+
+### 3.2 Classify workloads by data sensitivity, criticality, and impact
+
+**Decision:** Classify the *workload and every data flow*, not the model vendor. Three independent axes answer different questions: **sensitivity** determines who may see or process information; **criticality** determines how long the process may fail; **impact** determines the consequence of a wrong, unsafe or unauthorized output. None alone proves that a particular UAE law mandates an on-premises deployment. Assign an accountable authority to each restriction before selecting architecture.
+
+#### A three-axis classification that changes procurement
+
+This matrix is a **course-authored assessment instrument**, not an official UAE government classification scheme. Replace illustrative tiers with the organization's approved classification policy and legal team's applicability determination.
+
+| Axis | Working tiers | Questions to answer | Control evidence |
+|---|---|---|---|
+| Data sensitivity | S0 public/synthetic; S1 internal; S2 confidential; S3 contractually or operationally restricted | Does the input, retrieval corpus, embedding, output, log, support bundle or backup inherit restrictions? Who authorizes declassification? | Asset register, lineage, data-owner approval, actual endpoint and storage destinations |
+| Business criticality | C0 discretionary; C1 recoverable; C2 time-bound essential; C3 interruption-intolerant under approved safety/continuity policy | What are the approved recovery time objective (RTO) and recovery point objective (RPO)? What safe manual alternative exists? | Signed business impact analysis, failure drill, recovery runbook, timed restore results |
+| Decision impact | I0 informational; I1 reversible staff assistance; I2 consequential operational recommendation; I3 safety-, rights- or high-value decision support | Who acts on the output? Can errors be reversed? Is a human empowered to reject it? | Hazard/impact analysis, evaluation results, human authorization workflow, incident escalation |
+
+**Classification is not an additive score.** An S3/C0/I0 archival assistant can require a stricter placement boundary than an S0/C3/I2 public-information incident dashboard. Conversely, a low-sensitivity tool can still demand local resilience because outages interrupt critical operations. Never average a prohibited egress path away with a high model-quality score.
+
+**Inheritance rule:** A derivative stays at its source's restriction level unless the named data owner authorizes a documented transformation and its residual disclosure risk. Hashes, embeddings, summaries, telemetry and backups are not automatically “non-sensitive.” For mixed datasets, either isolate the restricted partition with verified access controls or classify the combined processing path at the highest applicable tier.
+
+#### Fictional UAE portfolio: three classifications, three distinct decisions
+
+All names, documents, agreements and test IDs below are **fictional synthetic training data**. The site-only and air-gap conditions are **scenario premises**, not assertions about UAE-wide legal requirements.
+
+| Workload | Classification and authority | Failure to design against | Initial eligible architecture | Release evidence |
+|---|---|---|---|---|
+| POLICY-31, synthetic policy search | S0 / C1 / I1; HR product owner | Outdated policy citation or unavailable service | Managed service **conditional** on contract, accuracy, retention and approved processing paths; simple search is a viable alternative | Versioned source citations, answer abstention test, uptime and retention review |
+| DESIGN-31, restricted drawings | S3 / C2 / I2; FACTORY-A data owner and signed customer handling rule | Prompt, embedding, support trace or backup leaves **FACTORY-A** during normal or degraded operation | Local model, index, observability and restore inside the named premises, **conditional** on all-route negative egress testing | Egress deny test under timeout, DNS failure, support access, crash, patch and restore; owner-signed route inventory |
+| OT-31, disconnected operational reference | S1 / C3 / I3; designated site safety authority | Remote inference or unapproved connectivity introduced during outage; unsafe answer treated as instruction | Physically disconnected local reference with approved human procedures, **conditional** on safety and capability tests | Physical port/radio audit, offline licence and update test, timed restore, abstention and operator-override drill |
+
+**Why impact is separate from sensitivity:** OT-31 uses synthetic, relatively low-sensitivity material, yet a wrong recommendation could affect a safety-critical human workflow. The training assistant must never autonomously actuate equipment. The operator remains responsible under the fictional site's approved procedure. A high-accuracy benchmark is not a substitute for safe failure and authorization boundaries.
+
+#### Architecture selection: hard constraints before performance
+
+```mermaid
+flowchart TD
+ A[Inventory workload and derivatives] --> B[Assign S, C and I with owners]
+ B --> C{Named physical or network prohibition?}
+ C -->|Yes| D[Reject incompatible placement and support paths]
+ C -->|No| E[Screen permitted managed and private options]
+ D --> F{Any architecture passes all hard gates?}
+ E --> F
+ F -->|No| G[STOP: not feasible under current constraints]
+ F -->|Yes| H[Compare recovery, task quality, operating cost and exit]
+ H --> I[Evidence-backed conditional release decision]
+```
+
+For **premises-only**, require that all restricted processing and derived artifacts remain at the *named physical premises*, not merely within a country or a vendor geography. For a **physical air gap**, prohibit every inbound and outbound network path, including private circuits, remote support, telemetry, licence activation and emergency cloud fallback. If an architecture needs any such path, mark **REJECT**; if no local licensed model or safe offline operating mode exists, mark **NOT FEASIBLE**, not “approved with monitoring.”
+
+#### Failure-mode exercise: classification lost at the observability boundary
+
+**Fictional test observation:** DESIGN-31 passes a normal inference check, but a simulated GPU timeout creates a diagnostic event containing a synthetic drawing title. An inherited S1 logging default sends the event to an off-premises telemetry collector. A proxy denies the request and records test `SYNTH-32-LOG-EGRESS`. This is a **failed attempted-egress test**, not a real data leak.
+
+| RCA element | Required disposition |
+|---|---|
+| Observation | Synthetic diagnostic payload attempted an off-premises destination; classify **BLOCKED** even though the proxy denied delivery |
+| Direct cause | Telemetry agent inherited a lower-tier routing profile and did not inherit S3 derivative restrictions |
+| Systemic cause | The data-flow inventory omitted diagnostics and the release checklist tested only the inference endpoint |
+| Containment | Disable exporter; preserve sanitized traces and configuration hashes; halt restricted deployment |
+| Remediation | Data owner labels all derivatives S3; platform lead uses local-only logging and deny-by-default outbound policy; security reviews update/support routes |
+| Retest | Inject timeout, crash, upgrade, backup and support scenarios; verify no attempted external route and inspect logs, DNS, firewall and endpoint configuration |
+| Decision | **NO-GO** until platform, security and FACTORY-A data owner sign dated evidence; remaining uncertainty must be recorded |
+
+A network deny can prevent transmission while still exposing a configuration defect. **No packets delivered** does not mean **the application respected the intended routing policy**. Track both attempted and successful egress.
+
+#### PM artifact: classification and control register
+
+Copy this schema into a product requirements document or CSV; complete one row per *workload × flow*, not one row per vendor:
+
+| Field | Required value |
+|---|---|
+| Workload ID and intended use | Stable ID, authorized users, prohibited decisions |
+| Data and derivative inventory | Inputs, prompts, embeddings, answers, telemetry, support bundles, backups, training extracts |
+| Sensitivity / criticality / impact | S0–S3 / C0–C3 / I0–I3, plus **named approving owners** |
+| Source of constraint | Contract clause, signed policy, approved BIA or legal-team determination; link to version |
+| Physical/network invariant | Explicit allowed premises, processing paths, admin paths and fail-closed behavior |
+| Service objectives | Owner-approved RTO, RPO, accuracy threshold, abstention and human escalation |
+| Architecture candidates | Eligible, rejected or unknown with exact disqualifying condition |
+| Test evidence | Test ID, input fixture, expected and observed behavior, logs, build/config hash, date |
+| Decision | GO / CONDITIONAL / NO-GO / NOT FEASIBLE, approver, review trigger and residual risk |
+
+**Acceptance examples:** `SYNTH-32-EGRESS-01`: when DESIGN-31 inference times out, **zero** restricted requests, diagnostics or derivatives are attempted to external destinations; an explicit local error is shown. `SYNTH-32-AIRGAP-01`: OT-31 completes the offline reference task with all physical and logical network paths disabled; online licence or fallback demand produces a controlled failure, never reconnection. These are **proposed tests**, not tests executed against production equipment.
+
+#### Learner challenge: 45-minute portfolio triage
+
+1. Before opening any simulator, classify POLICY-31, DESIGN-31 and OT-31 on all three axes. State which classifications are assumptions and who must sign them.
+2. Add a fourth fictional workload, `BILLING-32`: synthetic invoices, C2 month-end deadline, I2 payment-review recommendations, and no premises restriction yet confirmed. Compare a managed service, a private regional deployment and a named-premises installation. Mark unresolved legal and contractual placement questions **UNKNOWN**, not automatically permissible or prohibited.
+3. For DESIGN-31, draw five data paths: inference, embeddings, telemetry, support and backup. Predict what happens when the model gateway fails. Use the [Architecture & Learning Studio](../learning/index.html) for a *synthetic policy comparison*, then explain why a simulated pass cannot establish physical isolation.
+4. Submit a one-page classification/control register, one rejected alternative with reason, a proposed negative test, and a six-stage RCA for `SYNTH-32-LOG-EGRESS`. Include a non-AI fallback and a dated go/no-go decision owner.
+
+**Assessment boundary:** Do not include a worked answer in this learner-facing section. Facilitator solutions belong in the separate Module 03 solution key when the module assessment is authored. The framework is educational and must not be represented as a legal classification, penetration test, independent audit or production certification.
+
+**Next header:** 3.3, *Security and compliance requirements vs. additional sovereignty objectives*.
+
+**Next header:** 3.3, *Security and compliance requirements vs. additional sovereignty objectives*. Module 03 remains a draft pending the rest of the TOC, the dedicated lab, separate facilitator solutions, HTML/social assets and two distinct critical reviews.
 
 [^nist-map-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MAP 1.1 and MAP 1.4](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MAP 1.1 addresses documenting purposes, laws, expectations and prospective deployment settings; MAP 1.4 covers the clearly defined business value/context. **Neither** prescribes sovereign AI hosting or defines the course-authored investment categories.
 [^nist-manage-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MANAGE 1.1 and MANAGE 2.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MANAGE 1.1 addresses the go/no-go determination; MANAGE 2.1 includes consideration of viable non-AI alternatives and resource constraints. The course's two-pass architecture choice is an instructional synthesis, not a named NIST decision algorithm.
