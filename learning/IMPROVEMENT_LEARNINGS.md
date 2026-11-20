@@ -588,3 +588,19 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Reusable lesson:** Green CI establishes the configured automated checks, not primary-source accuracy, operational isolation or human accessibility. Review findings need named closure evidence before declaring a module ready.
 
 **Next:** Conduct distinct editorial/accessibility/assessment Review B, then remediate A-01/A-03 and any Review B blockers; rerun tests and verify deployment before Module 03.
+
+## Improvement entry 028 | 2026-11-20 | Module 02 separate editorial/accessibility/assessment review
+
+**Before / blocker:** Module 02 technical/security/source Review A is recorded but not signed off. The second distinct module-boundary critical review was missing; Module 03 must remain gated. The last checked Pages workflow [44681291397](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44681291397) completed **success** on commit `a2567eb34dfab5a71a8d2020fd05bc09f578b6ab`, before this review commit.
+
+**Change and actual GitHub commit:** Added [Review B: editorial/accessibility/assessment](../qa/module-02-editorial-accessibility-assessment-review.md) in [commit 7ade7f9ca11c21e7d401bb9bfbb9ee3496767cd0](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/7ade7f9ca11c21e7d401bb9bfbb9ee3496767cd0). This is explicitly GPT-6 **self-critique**, distinct in review focus from Review A but **not independent human/different-model verification**.
+
+**Checks performed:** Fetched and read the current TOC, style guide, chapter template, Module 02 chapter, scoring lab README, separate facilitator answer key, carousel source, Review A and improvement history. Confirmed source-level presence of the five knowledge questions, separate Q6 RCA, four-workload lab, and facilitator key; checked actual preceding Pages run status. No local browser, screenshot, screen reader, independent blind marking or new source verification was performed in this iteration. The earlier green workflow does not validate this new review commit.
+
+**Review A:** CONDITIONAL / NOT SIGNED OFF, with source verification and fail-closed negative-case evidence outstanding. **Review B:** RECORDED / NOT SIGNED OFF, with five findings: B-01 blocking visual/mobile/reading-order inspection, B-02 assessment calibration, B-03 case-ID crosswalk, B-04 semantic/assistive technology review, B-05 causal reasoning evidence. Do not infer completed independent review.
+
+**Deployment:** New documentation commit triggers Pages CI where configured. Its new run status and deployment remain **UNVERIFIED** until explicitly checked. No learner chapter, synthetic dataset, lab answer key or public secret was changed in this iteration.
+
+**Unresolved risks and next header:** Do not start 3.1 yet. First remediate B-01/B-03, A-01/A-03, inspect PDF visual output, run documented negative cases and close both gates with observed evidence. Only then begin **3.1 What enterprise problems justify sovereignty investments?**
+
+**Improvement lesson:** Distinguish automated text/geometry checks from human accessibility evidence; distinguish an assessment rubric from blind marking. Preserve explicit provenance of self-review and avoid conflating case IDs across exercises.
