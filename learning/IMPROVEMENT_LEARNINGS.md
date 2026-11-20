@@ -682,3 +682,19 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Unresolved risks / improvement lesson:** Fixed-aspect-ratio slides with small mobile typography can hide content and impair reading. Prefer content-driven reflow and minimum readable type, then test actual rendering, focus and zoom rather than treating static assertions as accessibility certification.
 
 **Next header:** Do not start Module 03 / **3.1 What enterprise problems justify sovereignty investments?** until A-01/A-03/A-04 and B-01 release blockers are closed and both review dispositions recorded. Next iteration should inspect CI for this change, capture rendered PDF/mobile/zoom evidence and complete the primary-source audit.
+
+## Improvement entry 033 | 2026-11-20 | Module 02 B-01 browser accessibility regression coverage
+
+**Before:** [Pages run 44719540527](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44719540527) completed **success** on prior log commit 445f643. The earlier individual CSS/test runs were cancelled. Review B-01 still lacks documented zoom, keyboard and manual screenshot evidence.
+
+**Implementation commit:** [f6c51d83259309f06deb34b8b8df304fe83c4a38](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f6c51d83259309f06deb34b8b8df304fe83c4a38) extends `social/module-02/test_rendered_carousel.py` with keyboard Tab order assertions (chapter link before print button) and a Chromium CSS `zoom: 2` stress check at a 390px viewport for horizontal document overflow and per-slide clipping. This is **CSS zoom simulation**, not a manual 200% browser zoom or accessibility certification. The existing eight-page PDF export assertions remain unchanged.
+
+**Checks actually performed:** Read TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, current Module 02 chapter, both review records, improvement history, and the browser test. Verified previous green Pages run via GitHub Actions API. Inspected the updated test source. The new Chromium checks have **not yet been observed executing**, and no screenshots, screen reader, manual PDF image inspection or learner study were performed in this iteration.
+
+**Scenario / security:** No new learner case or external claim. All existing examples remain synthetic. Physical premises-only and fully disconnected air-gap hard gates remain mandatory; accessibility tests do not replace network-path verification.
+
+**Review status:** A-01 source audit, A-03 browser interaction audit and A-04 PDF visual inspection remain OPEN. B-01 now has expanded automated coverage but remains OPEN pending successful execution and manual inspection. B-02/B-04/B-05 remain OPEN; B-03 crosswalk needs rendered confirmation. Reviews A and B are **NOT SIGNED OFF**. No independent review claimed.
+
+**Deployment:** New test commit and this entry are **NOT VERIFIED DEPLOYED** at authoring time; check subsequent Pages workflow conclusion. CI may fail on newly exposed zoom clipping, which must be fixed rather than bypassed.
+
+**Lesson / next header:** Distinguish deterministic DOM geometry and CSS zoom from real visual/assistive-technology assurance. Fix any new CI failure, inspect PDF and mobile screenshots, audit primary sources, and complete both review gates before Module 03 / 3.1.
