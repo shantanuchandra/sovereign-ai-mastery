@@ -622,3 +622,23 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Reusable lesson:** Distinguish a workload identifier, a physical place and an assessment variant. Case similarity is not authority to inherit evidence; enforce workload, configuration and time scope in PM deliverables.
 
 **Next:** Inspect current Pages CI and rendered crosswalk; resolve B-01 visual accessibility and A-03 negative-case coverage before A-01 primary-source audit and both gate decisions. Do not begin Module 03 section 3.1 while blockers remain.
+
+## Improvement entry 030 | 2026-11-20 | Module 02 A-03 negative-case coverage expansion
+
+**Prior status:** GitHub Pages run [44695392481](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44695392481) for preceding learning-log commit `eb6ad269b0afe0e904afd32472aa467264bbd80b` completed **success**. This does not validate the new test changes.
+
+**Actual commit:** [2c63bc704b888c33554e130ff4a1c2d0dd5086a7](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/2c63bc704b888c33554e130ff4a1c2d0dd5086a7) adds five focused unit tests to `labs/module-02/test_evaluate.py`. They cover every connected network selector against a physical air gap, a hidden external support route behind a disconnected label, restricted-derivative egress from otherwise local premises compute, hard-gate precedence over four asserted reviewed M4 dimensions, and the distinction between an external route and observed restricted egress.
+
+**Checks actually performed:** Read current TOC, style guide, chapter template, Module 02 chapter, both recorded reviews, improvement log, lab README, evaluator, test suite and synthetic cases. Inspected the preceding GitHub Actions status. Source inspection confirmed the tests use existing evaluator keys and no real customer data. **The new tests have not yet been observed executing successfully** at the time of this entry; do not count them as passing until CI reports their outcome. No UI/browser matrix was executed in this iteration.
+
+**Scenario / policy:** The cases remain fictional. Air gap means no inbound or outbound network path, even a private link. Premises-only forbids restricted data and derivatives leaving the named site; a network path without observed restricted flow remains unverified, not automatically approved. The simulator does not measure actual packets, administrative access, backup, support or failover.
+
+**Review A:** A-03 is **partially remediated in Python simulation** but remains **OPEN** for full interactive Studio negative-case enumeration and observed UI results. A-01 source accuracy audit and A-04 visual PDF inspection remain open. Review A **NOT SIGNED OFF**.
+
+**Review B:** B-03 crosswalk exists in source, but B-01 visual/mobile/reading-order audit and B-02/B-04/B-05 validation remain open. Review B **NOT SIGNED OFF**. Independent human/different-model review **NOT COMPLETED**.
+
+**Deployment:** New test commit and this log commit require a new GitHub Pages result; **NOT VERIFIED** at entry time.
+
+**Improvement lesson:** Exercise every selectable connectivity class, not just one baseline; separate the presence of a route from observed restricted-data egress and preserve hard-gate precedence. Do not treat simulated controls as real infrastructure assurance.
+
+**Next:** Verify current CI, inspect Studio UI negative-case behavior and PDF visual accessibility, complete A-01 source ledger, then close both Module 02 gates before starting **3.1 What enterprise problems justify sovereignty investments?**
