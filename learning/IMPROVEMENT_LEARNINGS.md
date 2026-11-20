@@ -662,3 +662,23 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Test combinatorial UI selection space rather than only a named preset. Keep release stage and self-declared evidence from turning a blocked architecture into an approved one.
 
 **Next:** Verify CI and fix any failing Studio matrix assertions; run actual interactive UI negative-case checks and visual accessibility review; complete A-01 source ledger; close both reviews before beginning Module 03 / 3.1.
+
+## Improvement entry 032 | 2026-11-20 | Module 02 B-01 mobile readability remediation
+
+**Before / verified status:** [Pages run 44710787676](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44710787676), on previous improvement commit 788db68, completed **success**. The separate engine-test commit run was cancelled, so only the later green run is deployment evidence. Review B identified 9px mobile footer/masthead text and no recorded 200% zoom/keyboard audit.
+
+**Actual implementation commits:** [28b61fb73bbc69a02684d6a6b442a69c385c5eae](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/28b61fb73bbc69a02684d6a6b442a69c385c5eae) changes the HTML carousel's <=620px rule to content-driven height, visible overflow and 12px minimum masthead/footer/decision label, 14px minimum answer and decision prose, and wrapping toolbar at <=400px. [e961729bd69eb96f20958a009baa93e653399951](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e961729bd69eb96f20958a009baa93e653399951) adds a source-level regression test for mobile reflow and type sizing. Print CSS remains separately fixed at 8in x 10in, but its visual result must be retested.
+
+**Checks actually performed:** Fetched and inspected TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, current Module 02 chapter, both recorded review files, improvement history, HTML carousel and both Python test files. Verified previous green Pages conclusion via GitHub Actions API and confirmed new workflow [44719508655](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44719508655) was **queued** at inspection. No local Chromium, PDF visual inspection, 200% zoom, keyboard focus, assistive-technology session or learner study was executed; the new static assertion has **not yet been observed passing**.
+
+**Scenario / assurance:** All carousel examples remain fictional or explicitly bounded provider-documentation discussion. No real enterprise data added. Physical-premises restricted derivatives must not leave the site; an air gap permits no inbound or outbound network path. CSS changes do not certify those runtime constraints.
+
+**Review A:** A-03 deterministic negative-case tests were included in the prior green CI, but observed UI/browser verification remains OPEN. A-01 primary-source claim audit and A-04 visual PDF inspection remain OPEN. Review A **NOT SIGNED OFF**.
+
+**Review B:** B-01 small-font source defect is **remediated in source, NOT CLOSED** pending rendered 320/390/620px and 200% zoom/keyboard/print checks. B-03 crosswalk exists, rendered verification pending. B-02/B-04/B-05 remain OPEN. Review B **NOT SIGNED OFF**. No independent human or different-model review was performed.
+
+**Deployment status:** The previous run passed; the new source and test changes were **NOT VERIFIED DEPLOYED** when checked. The HTML-only run was cancelled by subsequent commit; do not count it as a pass.
+
+**Unresolved risks / improvement lesson:** Fixed-aspect-ratio slides with small mobile typography can hide content and impair reading. Prefer content-driven reflow and minimum readable type, then test actual rendering, focus and zoom rather than treating static assertions as accessibility certification.
+
+**Next header:** Do not start Module 03 / **3.1 What enterprise problems justify sovereignty investments?** until A-01/A-03/A-04 and B-01 release blockers are closed and both review dispositions recorded. Next iteration should inspect CI for this change, capture rendered PDF/mobile/zoom evidence and complete the primary-source audit.
