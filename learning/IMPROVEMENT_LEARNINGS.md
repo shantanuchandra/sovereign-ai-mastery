@@ -604,3 +604,21 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Unresolved risks and next header:** Do not start 3.1 yet. First remediate B-01/B-03, A-01/A-03, inspect PDF visual output, run documented negative cases and close both gates with observed evidence. Only then begin **3.1 What enterprise problems justify sovereignty investments?**
 
 **Improvement lesson:** Distinguish automated text/geometry checks from human accessibility evidence; distinguish an assessment rubric from blind marking. Preserve explicit provenance of self-review and avoid conflating case IDs across exercises.
+
+## Improvement entry 029 | 2026-11-20 | Module 02 review B-03 case-ID remediation
+
+**Prior QA and actual deployment:** [GitHub Pages run 44687799520](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44687799520), for prior commit `5ffead05937ddf6462fcbfe69b74cf49780dd3b9`, completed **success**. This is not a pass for today's content change.
+
+**Change and actual commit:** [a30b98468b2b323c179a2e5324e6a1540595dfcc](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/a30b98468b2b323c179a2e5324e6a1540595dfcc) adds a learner-facing fictional case-ID crosswalk and evidence-boundary instructions before Module 02's assessment. Distinguishes PLANT-02, OT-03, the FACTORY-A place label, PLANT-Q6 and OT-Q6. Prevents transferring evidence, policy, test results or operator permissions across separate exercises. Includes PM artifact fields, explicit UNKNOWN states, premises-only versus air-gap refusal, and a learner prediction exercise. No real-world customer data or fresh external claims added.
+
+**Checks actually performed:** Fetched and read TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, full current Module 02 chapter, both recorded critical reviews and improvement history. Confirmed the inserted heading occurs once, the assessment Question 6 remains present and the addendum does not contain a facilitator answer key. These are source-string checks, not a Markdown build, browser test, independent learner study or complete site QA.
+
+**Review A:** Recorded self-critique, **NOT SIGNED OFF**. A-01 source-claim audit and A-03 interactive fail-closed negative-case coverage remain blocking. A-02 production assurance and A-04 visual PDF inspection remain open.
+
+**Review B:** Recorded separate editorial/accessibility/assessment self-critique, **NOT SIGNED OFF**. B-03 crosswalk **remediated in source, pending rendered-site verification**; B-01 visual/mobile accessibility remains blocking. B-02 blind assessment calibration, B-04 assistive-technology semantics and B-05 causal reasoning assessment remain open. No independent human/different-model review claimed.
+
+**CI/deployment status:** The preceding workflow was green; a Pages build for commit a30b984 and this learning-log update has **not** been confirmed successful or deployed as of this entry. Never infer a pass from a prior workflow.
+
+**Reusable lesson:** Distinguish a workload identifier, a physical place and an assessment variant. Case similarity is not authority to inherit evidence; enforce workload, configuration and time scope in PM deliverables.
+
+**Next:** Inspect current Pages CI and rendered crosswalk; resolve B-01 visual accessibility and A-03 negative-case coverage before A-01 primary-source audit and both gate decisions. Do not begin Module 03 section 3.1 while blockers remain.
