@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Teaching sections 3.1–3.7 and synthetic lab drafted; assessment, separate solutions, social assets and critical reviews pending** |
+| Current progress | **Teaching sections 3.1–3.7, lab and assessment with separate solutions drafted; social assets and both critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -692,7 +692,7 @@ For a useful 30/60/90-day roadmap, **days 1–30** establish scope/authorities a
 
 **Submission:** A dated requirement-to-control traceability table, a four-dimension evidence scorecard, a 30/60/90-day prioritized action roadmap, six defined metrics and an explicit go/no-go decision. All content must use fictional or synthetic inputs. The learner-facing assignment does not include the worked facilitator answer.
 
-**Module 03 content checkpoint:** All seven TOC teaching sections, the [synthetic traceability lab](../labs/module-03/README.md) and the learner assessment (Q1–Q5 plus a full Q6 decision/RCA case) are drafted. The separate facilitator solutions, designed question-led HTML/PDF carousel, post, accessibility checks, and two distinct technical/source and editorial/assessment reviews remain **PENDING** before Module 04.
+**Module 03 content checkpoint:** All seven TOC teaching sections, the [synthetic traceability lab](../labs/module-03/README.md), the learner assessment (Q1–Q5 plus full Q6 decision/RCA) and a **separate facilitator answer key and PM rubric** are drafted. The facilitator source is excluded from the learner website, though visible in this public repository. Designed HTML/portrait PDF social assets and post, accessibility checks, and two distinct technical/security/source and editorial/accessibility/assessment review gates remain **PENDING** before Module 04.
 
 ## Module 03 knowledge assessment and decision scenario
 
