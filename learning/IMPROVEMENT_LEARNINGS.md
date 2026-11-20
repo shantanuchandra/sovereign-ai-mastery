@@ -729,3 +729,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Check explicit accessible-name relationships in addition to text extraction and geometric overflow. Do not equate semantic DOM tests with actual reading order, focus visibility, screen-reader behavior or tagged PDF.
 
 **Next header:** Remain at Module 02 QA: inspect new CI, actual browser/mobile/PDF evidence, primary-source ledger and interactive hard-gate behavior before releasing Module 03 / **3.1 What enterprise problems justify sovereignty investments?**
+
+
+## Improvement entry 036 | 2026-11-20 | Module 02 B-05 learner evidence and counterfactual worksheet
+
+**Prior state:** Read `TOC.md`, `STYLE_GUIDE.md`, `CHAPTER_TEMPLATE.md`, Module 02 chapter, lab README, technical/source Review A, editorial/assessment Review B and previous improvement entries. Review B-05 requires before/after JSON evidence, prediction-versus-observation, a counterfactual and sample marking. Both reviews remain NOT SIGNED OFF.
+
+**Actual implementation commit:** [d45865483decb65d22250a9988dec8309df6e370](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/d45865483decb65d22250a9988dec8309df6e370) adds an evidence-first learner submission worksheet to `labs/module-02/README.md`. It requires reproducible commands, minimal input diffs, predicted and observed outputs, evidence-state distinctions, a single-variable counterfactual, RCA, reviewer and bounded decision. It expressly rejects inference that a changed JSON field proves actual premises isolation or an air gap. No facilitator solutions were copied into the learner lab.
+
+**Checks actually performed:** Fetched the current lab blob and confirmed the insertion anchor existed before the GitHub contents update accepted the new blob SHA. Re-fetched this log's current blob before appending. Queried GitHub combined commit statuses for prior log commit `0401fce` and implementation commit `d458654`; both returned empty status arrays, which **do not establish success or failure of GitHub Actions**. No Python unit test, browser, PDF render, accessibility-tree audit, sample marking, human review, or network isolation test was run in this iteration. The current workflow run ID and Pages deployment conclusion could not be verified with the available status response; **deployment NOT VERIFIED**. Do not claim CI passed.
+
+**Review dispositions and risks:** B-05 submission requirements strengthened in source, but **OPEN** pending actual learner submission and blind sample marking. B-01 screenshots, zoom, focus and PDF inspection; B-02 calibration; B-04 accessibility-tree/reading-order review; A-01 claim-by-claim primary-source verification; A-03 observed interactive negative cases; and A-04 visual audit remain open. Review A and Review B **NOT SIGNED OFF**. No independent human/different-model review performed. Public repository remains synthetic-data-only. The worksheet models strict single-premises and physically disconnected policies; no real production control is certified.
+
+**Improvement lesson:** Expected-output tables can invite answer copying. Requiring a prediction recorded before a run, a minimal diff, observed output and a controlled counterfactual makes causal reasoning auditable without leaking solutions. A submission contract is not evidence of successful learning until someone independently marks an actual submission.
+
+**Next header:** Hold Module 03 / **3.1 What enterprise problems justify sovereignty investments?** behind the existing Module 02 gates. First inspect actual GitHub Pages workflow and test conclusions, then execute browser negative cases and visual/PDF checks and complete A-01 source audit; record review dispositions only after evidence.
