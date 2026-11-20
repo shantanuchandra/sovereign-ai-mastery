@@ -40,6 +40,12 @@ jobs:
           python -m unittest discover -s labs/module-02 -p 'test_*.py' -v
           python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
           test -s /tmp/module02-scorecard.json
+      - name: Validate Module 03 requirements lab
+        run: |
+          python -m py_compile labs/module-03/evaluate.py labs/module-03/test_evaluate.py
+          python -m unittest discover -s labs/module-03 -p 'test_*.py' -v
+          python labs/module-03/evaluate.py labs/module-03/cases.json > /tmp/module03-decisions.json
+          test -s /tmp/module03-decisions.json
       - name: Validate Module 02 release content contract
         run: python -m unittest discover -s qa -p 'test_module02_release_contract.py' -v
       - name: Validate Module 02 carousel static print and accessibility contract
@@ -68,6 +74,8 @@ jobs:
           test -s dist/modules/03-enterprise-sovereignty-requirements-strategy.html
           grep -q 'What enterprise problems justify sovereignty investments' dist/modules/03-enterprise-sovereignty-requirements-strategy.html
           test -s dist/labs/module-02/index.html
+          test -s dist/labs/module-03/index.html
+          grep -q 'turn an enterprise request into an acceptance decision' dist/labs/module-03/index.html
           test -s dist/social/module-02/CAROUSEL.html
           grep -q 'href="QUESTIONS.pdf"' dist/social/module-02/CAROUSEL.html
           test -s dist/social/module-02/QUESTIONS.pdf
