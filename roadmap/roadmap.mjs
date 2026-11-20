@@ -152,45 +152,66 @@ function renderFeatures() {
     </tr>`).join('');
 }
 
+const types = {
+  product: ['Product engineering', '#2269ad'], platform: ['Platform engineering', '#694da6'],
+  policy: ['Governance engineering', '#944777'], eval: ['AI evaluation', '#077f83'],
+  test: ['Acceptance testing', '#ae641c'], pilot: ['Pilot observation', '#45824c'],
+  deploy: ['Deployment', '#285699'], buffer: ['Contingency buffer', '#82704c'],
+  analysis: ['Discovery and impact', '#627482']
+};
+const owners = {continuity:'product',answers:'product',connector:'platform',routing:'platform',gateway:'policy',synthia:'eval',sharing:'product',reuse:'product',launch:'pilot',impact:'analysis',authoring:'policy',dashboard:'product',discovery:'analysis',twin:'analysis'};
+const holidays = new Set(['2026-12-02','2026-12-03','2027-01-01']);
+const calendar = Array.from({length:90}, (_, i) => {
+  const date = new Date(Date.UTC(2026,10,23+i));
+  return {day:i+1, label:date.toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}),
+    off:[0,6].includes(date.getUTCDay()) || holidays.has(date.toISOString().slice(0,10))};
+});
+const timelineLink = key => '#timeline-'+key;
 function renderGantt() {
   const index = scenarioOrder.indexOf(state.scenario);
-  const matching = features.filter((feature) => state.filter === 'all' || feature.priority === state.filter);
-  const scheduled = matching.filter((feature) => feature.days[index]);
-  const deferred = matching.filter((feature) => !feature.days[index]);
-  const ticks = periodEnds.map((end, i) => `<span>Day ${i ? periodEnds[i - 1] + 1 : 1}–${end}</span>`).join('');
-  const rows = scheduled.map((feature) => {
-    const [start, end] = feature.days[index];
-    const dateLabel = `Days ${start}–${end}`;
-    return `<div class="chart-row">
-      <a class="chart-name" href="#feature-${feature.id}"><span class="tag ${priorityClass(feature.priority)}">${feature.priority}</span> <span>${feature.name}</span></a>
-      <div class="track" style="--start:${start};--span:${end - start + 1}">
-        <a class="bar ${priorityClass(feature.priority)}" href="#feature-${feature.id}" aria-label="${feature.name}, ${dateLabel}" title="${dateLabel}">
-          <span>${start}–${end}</span>
-        </a>
-      </div></div>`;
-  }).join('');
-  byId('gantt').innerHTML = `<div class="chart-row chart-header"><strong>Priority and feature</strong><div class="ticks">${ticks}</div></div>${rows || '<p class="empty">No scheduled work at this priority in this scenario.</p>'}`;
-  byId('deferred').hidden = deferred.length === 0;
-  byId('deferred').textContent = deferred.length ? `Outside this schedule: ${deferred.map((feature) => feature.name).join(' · ')}.` : '';
+  const matching = features.filter(f => state.filter === 'all' || f.priority === state.filter);
+  const rows = matching.filter(f => f.days[index]).map(f => ({...f, range:f.days[index],type:owners[f.id]}));
+  if (state.filter !== 'P1' && state.filter !== 'P2') {
+    const gate = [42,56,77][index];
+    rows.push({id:'synthia',name:'Customer acceptance and rollback tests',priority:'P0',range:[gate-10,gate-4],type:'test'},
+      {id:'gateway',name:'Reserved for fixes and retest',priority:'P0',range:[gate-3,gate],type:'buffer'});
+    if(index<2) {
+      const launch = rows.find(r=>r.id==='launch');
+      const first = calendar.find(c=>!c.off && c.day>=launch.range[0]).day;
+      rows.push({...launch,name:'Enable named users after approval',range:[first,first],type:'deploy'});
+      launch.range=[first+1,90];
+    }
+  }
+  const ticks=periodEnds.map((end,i)=>'<span>'+calendar[i?periodEnds[i-1]:0].label+'</span>').join('');
+  byId('gantt').innerHTML='<div class="chart-row chart-header"><strong>Priority and work</strong><div class="ticks">'+ticks+'</div></div>'+rows.map(r=>{
+    const [name,color]=types[r.type];
+    const cells=calendar.map(c=>'<i class="'+(c.off?'off':c.day>=r.range[0] && c.day<=r.range[1]?'active':'')+'" title="'+c.label+' · '+(c.off?'Off':name)+'"></i>').join('');
+    return '<div class="chart-row"><a class="chart-name" href="#feature-'+r.id+'"><span class="tag '+priorityClass(r.priority)+'">'+r.priority+'</span><span>'+r.name+'<small>'+name+'</small></span></a><div class="day-track" style="--ink:'+color+'">'+cells+'</div></div>';
+  }).join('')+(rows.length?'':'<p class="empty">No work scheduled at this priority.</p>');
+  const deferred=matching.filter(f=>!f.days[index]);
+  byId('deferred').textContent=deferred.length?'Outside this schedule · '+deferred.map(f=>f.name).join(' · '):'';
 }
-
-function renderScenario() {
-  const scenario = scenarios[state.scenario];
-  byId('scenario-summary').innerHTML = `<div class="scenario-grid">
-    <article><p class="kicker">TRIGGER</p><p>${scenario.trigger}</p></article>
-    <article><p class="kicker">${scenario.launch.toUpperCase()}</p><p>${scenario.action}</p></article>
-    <article><p class="kicker">DAY-90 EVIDENCE</p><p>${scenario.outcome}</p></article>
-  </div>`;
-  byId('chart-scenario').textContent = scenario.name;
-  byId('ready-day').textContent = scenario.launch.toUpperCase();
+byId('work-key').innerHTML=Object.values(types).map(([name,color])=>'<span><i style="background:'+color+'"></i>'+name+'</span>').join('');
+byId('scenario-summary').innerHTML='<table><thead><tr><th>Scenario</th><th>Trigger</th><th>Release decision</th><th>Day-90 evidence</th></tr></thead><tbody>'+scenarioOrder.map(k=>{
+  const s=scenarios[k];
+  return '<tr><th scope="row"><a href="'+timelineLink(k)+'">'+s.name+' →</a></th><td>'+s.trigger+'</td><td><strong>'+s.launch+'</strong><br>'+s.action+'</td><td>'+s.outcome+'</td></tr>';
+}).join('')+'</tbody></table>';
+function renderScenario(){
+  const s=scenarios[state.scenario];
+  byId('chart-scenario').textContent=s.name;
+  byId('ready-day').textContent=s.launch.toUpperCase();
+  byId('schedule-links').innerHTML=scenarioOrder.map(k=>'<a href="'+timelineLink(k)+'" '+(k===state.scenario?'aria-current="true"':'')+'>'+scenarios[k].name+'</a>').join('');
   renderGantt();
 }
-
-byId('scenario-control').addEventListener('change', (event) => {
-  state.scenario = event.target.value;
-  renderScenario();
-});
-
+function followLink(){
+  const id=location.hash.slice(1);
+  const key=scenarioOrder.find(k=>'timeline-'+k===id);
+  if(key){state.scenario=key;renderScenario();byId('schedule').open=true;byId('timeline').scrollIntoView();}
+  const node=byId(id);
+  if(node?.closest('.flow-layer')){node.closest('.flow-layer').open=true;node.scrollIntoView();}
+}
+window.addEventListener('hashchange',followLink);
+document.addEventListener('click',event=>{if(event.target.closest('a')?.hash===location.hash && location.hash) followLink();});
 byId('priority-filter').addEventListener('change', (event) => {
   state.filter = event.target.value;
   renderGantt();
@@ -198,6 +219,7 @@ byId('priority-filter').addEventListener('change', (event) => {
 
 renderFeatures();
 renderScenario();
+followLink();
 
 const themeButton = byId('theme-toggle');
 const themeLabel = byId('theme-label');
