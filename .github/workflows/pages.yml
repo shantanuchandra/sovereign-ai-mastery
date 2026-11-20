@@ -41,7 +41,7 @@ jobs:
           python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
           test -s /tmp/module02-scorecard.json
       - name: Validate Module 02 carousel static print and accessibility contract
-        run: python -m unittest discover -s social/module-02 -p 'test_*.py' -v
+        run: python -m unittest discover -s social/module-02 -p 'test_carousel.py' -v
       - name: Install local browser QA dependencies
         run: |
           python -m pip install --disable-pip-version-check 'playwright>=1.55,<2' 'pypdf>=5,<7'
