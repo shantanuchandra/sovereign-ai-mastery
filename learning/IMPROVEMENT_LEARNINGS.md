@@ -552,3 +552,21 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Reusable lesson:** Validate syntax on diagnostic test edits before triggering expensive browser installation; retain strict assertions and distinguish harness failures from product defects.
 
 **Next:** Verify corrected workflow output; diagnose actual PDF page-1 footer; remediate and retest before Module 02 reviews.
+
+## Improvement entry 026 | 2026-11-20 | Module 02 PDF text-extraction QA repair
+
+**Failure and RCA:** [GitHub Pages run 44667800432](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44667800432) completed **failure** at the Chromium PDF assertion. Its extracted page-1 text explicitly includes the decision footer as `D E C I S I O N  T E S T`, followed by the full decision sentence and page footer. The print stylesheet applies letter spacing to the decision label; PDF extraction preserved inter-letter spaces. The previous exact substring assertion `DECISION TEST` therefore falsely rejected visible/extractable content. This does **not** prove visual legibility on all eight pages.
+
+**Actual code commit:** [01437deb10e0378fbb6527183e3a3fadf0423de0](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/01437deb10e0378fbb6527183e3a3fadf0423de0) normalizes extracted whitespace before checking `DECISIONTEST`, while retaining the strict eight-page, eight-heading, page-number, text-length, and browser-overflow checks. This is an assertion repair, not a change to learner-facing source.
+
+**Checks actually performed:** Read TOC, style guide, chapter template, existing iteration log and current carousel/test; inspected failed workflow job and its decoded log. Confirmed the exact page-1 extraction in the log. No local Chromium or manual PDF visual test was run. The updated test's result is **PENDING**; no pass is claimed.
+
+**Deployment status:** Prior workflow failed before build and deployment. The new commit triggers Pages CI, but publication must be verified separately. **NOT CONFIRMED**.
+
+**Review A (technical/security/source):** NOT COMPLETED. **Review B (editorial/accessibility/assessment):** NOT COMPLETED. No independent review is claimed.
+
+**Open risks:** PDF page 2–8 assertions may uncover further failures; visual clipping and accessibility require manual assessment; module-wide review gates remain outstanding. Module 03 stays gated. Public repository remains synthetic-data-only.
+
+**Reusable lesson:** PDF extractors can insert whitespace into letter-spaced labels; normalize representation without dropping the underlying content assertion. Record actual test outputs, not assumed results.
+
+**Next:** Inspect post-fix Pages CI, address any further failures, visually validate PDF/mobile, then conduct two distinct documented Module 02 critical reviews and remediate blockers before Module 03.
