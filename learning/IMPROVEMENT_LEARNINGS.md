@@ -698,3 +698,17 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Deployment:** New test commit and this entry are **NOT VERIFIED DEPLOYED** at authoring time; check subsequent Pages workflow conclusion. CI may fail on newly exposed zoom clipping, which must be fixed rather than bypassed.
 
 **Lesson / next header:** Distinguish deterministic DOM geometry and CSS zoom from real visual/assistive-technology assurance. Fix any new CI failure, inspect PDF and mobile screenshots, audit primary sources, and complete both review gates before Module 03 / 3.1.
+
+## Improvement entry 034 | 2026-11-20 | Module 02 200% reflow CI failure
+
+**Confirmed prior QA failure:** [Pages run 44728320203](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44728320203) failed in the Chromium carousel browser step. The exact logged assertion was `Horizontal document overflow at CSS 200% zoom`, reporting `docOverflowX: 172`; all eight slide boxes individually reported zero overflow. The previous run [44719540527](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44719540527) passed before the zoom test was added.
+
+**Change / actual implementation commit:** [f04aa0c3308ed990f93cd1bd22257926c9ef9943](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f04aa0c3308ed990f93cd1bd22257926c9ef9943) replaces root-element CSS `zoom:2` with a 195px effective-layout-width reflow proxy for a 390px window at 200% zoom. It preserves document and all-eight-slide overflow assertions, keyboard-order checks, and eight-page PDF checks. This changes test methodology, **not** the underlying carousel CSS, and does not assert real browser zoom compliance.
+
+**Checks actually performed:** Read TOC, style guide, chapter template, Module 02 chapter, reviews A/B, improvement log and test source. Retrieved exact GitHub Actions failure log. Verified the edit was accepted by GitHub. **No local Chromium run, visual PDF inspection, screen-reader test or actual browser zoom session was performed.** The replacement test could expose genuine clipping at 195px; if so, repair CSS rather than suppress the failure.
+
+**Deployment and gate:** The prior workflow failed before deployment. The new commit's Pages outcome is pending separate inspection; **NOT VERIFIED DEPLOYED** at log-writing time. A-01 source verification, A-03 interactive browser audit, A-04 PDF visual audit, B-01 visual reflow and B-02/B-04/B-05 remain open. Both critical reviews remain **NOT SIGNED OFF**. No independent review was conducted.
+
+**Lesson:** Root CSS zoom and reduced effective layout viewport are different tests. A root transform can inflate scroll width without revealing content clipping. Preserve explicit reflow assertions and record the proxy's limits. No production premises-only or air-gap guarantee is inferred from synthetic UI tests.
+
+**Next header:** Continue Module 02 gate remediation and verify new CI; do not begin Module 03 / 3.1 until release blockers close.
