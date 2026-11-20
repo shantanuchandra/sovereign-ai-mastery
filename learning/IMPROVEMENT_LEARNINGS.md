@@ -771,3 +771,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Risks and next action:** A-01 remains **BLOCKING**, since only section 2.1 is inventoried and both quotations await reopening at primary sources. A-03 interactive negative cases, A-04/B-01 visual accessibility, B-02/B-05 blind calibration and B-04 accessibility tree remain open. No real-world premises-only or air-gap control is certified by synthetic cases. Reviews A/B are **NOT SIGNED OFF**; independent review **NOT COMPLETED**. Next: verify source quotations against primary pages and extend the ledger through sections 2.2–2.7 and solution/social assets, then close remaining gates before **3.1 What enterprise problems justify sovereignty investments?**
 
 **Improvement lesson:** Historical “verified on” notes are provenance assertions, not evidence that a later auditor reopened a source. Track the exact verification act and reviewer separately; a partial inventory must never be called a completed audit.
+
+
+## Improvement entry 039 | 2026-11-20 | Module 02 Foundry geography source correction
+
+**Decision:** Module 02 A-01 remains a blocking review finding; did not start Module 03. Read TOC, style guide, chapter template, current Module 02 chapter, reviews A/B, existing source ledger and improvement history. The existing ledger already includes 2.2 verification from a concurrent iteration; did not repeat it.
+
+**Actual implementation commit:** [909a4dbf262a9f8ccaa0412cca0032be05b0c4ec](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/909a4dbf262a9f8ccaa0412cca0032be05b0c4ec) corrects assessment Question 5's inaccurate “Standard (single region)” shorthand to **Azure geography-based** processing, with a note that processing may cross Azure regions within the selected geography. **Audit commit:** [9e86cce1187dc058b0a192bf3b22d1610b401ea6](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9e86cce1187dc058b0a192bf3b22d1610b401ea6) records the precise primary-source comparison in the ledger.
+
+**Source verification actually performed:** Reopened the [Microsoft Learn deployment-types page](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types) on **20 November 2026**. Its footer identifies **12 August 2026** as last update. The Global quoted sentence matches. The data-residency section explicitly distinguishes Global, Data Zone, and Azure-geography-based Standard/Regional Provisioned processing, including cross-region processing within the geography. This is a bounded self-audit, not an independent human or different-model review. No UAE SKU availability or customer runtime/contract evidence checked.
+
+**Checks performed:** Fetched latest GitHub blobs immediately before each update; confirmed exact replacement anchor and GitHub accepted both writes. No local Python/Node/browser/PDF/assistive-technology tests executed. Last observed prior Pages run [44771553841](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44771553841) completed successfully on **055cff78**, before these two commits. New commits' CI/deployment result is **NOT VERIFIED** at log time; a successful previous run is not a pass for this change.
+
+**Remaining risks/gates:** A-01 requires claims in remaining sections, facilitator key and social assets. A-03 observed negative-case UI tests, A-04/B-01 screenshot/PDF accessibility, B-02 blind calibration, B-04 accessibility-tree and B-05 marked learner submission remain open. Both distinct reviews **NOT SIGNED OFF**. Public repository synthetic-data-only; no production air-gap or premises-only assurance. Do not infer compliance from a vendor page.
+
+**Improvement lesson:** “Single region” and “Azure geography” are not synonyms. Verify the exact provider processing unit, not the marketing label, before drafting residency assessments.
+
+**Next header:** Module 02 A-01 source ledger through sections 2.3–2.7, solutions and social assets; hold Module 03 / 3.1 until both gates close.
