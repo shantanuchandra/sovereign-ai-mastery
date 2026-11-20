@@ -80,6 +80,11 @@ class Module02ReleaseContract(unittest.TestCase):
         self.assertIn("DECISION TEST", self.deck)
         self.assertIn("Microsoft Learn", self.deck)
 
+    def test_facilitator_key_has_no_learner_site_link(self):
+        self.assertNotIn("../assessments/solutions/", self.chapter)
+        self.assertNotIn("../qa/module-02-", self.chapter)
+        self.assertIn("../social/module-02/CAROUSEL.html", self.chapter)
+
     def test_solution_key_includes_lab_rubric_and_routing_fallback_rca(self):
         for label in ["CORP-02", "PLANT-02", "OT-02", "LIC-02",
                       "PM deliverable rubric", "Direct cause", "retest"]:
