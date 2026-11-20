@@ -981,3 +981,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Unresolved risks and next header:** Module 03 HTML visual/reflow/keyboard and PDF inspection; lab execution and negative-path checks; module-wide primary-source audit; site integration and solutions exclusion verification; learner calibration; both review gate dispositions. Public repo remains synthetic-only; no production, legal or AT certification. **Next action:** consolidate release QA fixes, execute CI and PDF/browser checks, close reviews only on evidence; then Module 04 section 4.1 per TOC. Do not advance while blocking failures remain.
 
 **Improvement lesson:** A review record is valuable only when its scope, test evidence, outstanding findings and reviewer independence are explicit. A green Pages build and source-level DOM assertions are not substitutes for observed reflow or fail-closed runtime behavior.
+
+
+## Improvement entry 050 | 2026-11-21 | Module 03 social semantic QA tightening
+
+**State and decision:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 chapter, current social HTML/SLIDES/POST, source-only test and improvement history. Module 03's seven headings are already present. Prior recorded distinct technical/security/source and editorial/accessibility/assessment reviews remain bounded GPT-6 self-reviews on HOLD, not independent verification. Prioritize the unresolved accessibility release gate; do not repeat teaching content or start 4.1.
+
+**Actual implementation commit:** [3c57a00f3efd24e8de2bd5a6f7db3dcb23546cf7](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/3c57a00f3efd24e8de2bd5a6f7db3dcb23546cf7) strengthens `qa/test_module03_social_contract.py`: each slide must reference its own corresponding question heading; all eight labels must be distinct; HTML IDs must be unique. This closes a source-test blind spot where an unrelated but valid label could previously pass. The change is test-only, not proof of browser accessibility.
+
+**Checks actually performed:** GitHub connector read the current files and protected the test update with its fetched blob SHA. Six in-memory JavaScript checks against the fetched HTML/chapter/social text passed: eight slides, correct per-slide heading links, unique IDs, seven chapter headers, no solution-key link in social, no em dash in social. The updated Python unittest was **NOT EXECUTED**: container Git clone failed because github.com DNS resolution was unavailable. No browser, screen reader, PDF export, negative-path security execution, learner calibration or external primary-source re-verification occurred.
+
+**CI/deployment:** GitHub's commit-associated workflow listing returned no runs for either the previous log commit `5945a87` or new test commit `3c57a00`; combined commit-status listing was also empty. This API response does **not** establish successful CI, failed CI, or deployment. Latest known historical successful Pages run remains [44812468078](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44812468078), which predates the changes. Current deployment status **NOT VERIFIED**.
+
+**Open gates:** Execute the actual Python test in CI or an accessible runner; inspect mobile/reflow/keyboard and exported PDF; test lab's synthetic negative paths; verify module-wide source quotations; inspect site navigation and solution exclusion; calibrate a learner submission; remediate and explicitly disposition both review records. No real premises-only/physical air-gap certification or independent reviewer signoff is claimed.
+
+**Improvement lesson:** Checking that an aria-labelledby target exists is weaker than checking that it belongs to the correct slide. Assert identity and uniqueness together, and keep source checks separate from observed accessibility behavior.
+
+**Next action/header:** Module 03 release QA and review remediation first; only after evidence-backed gate closure proceed to **4.1 UAE National AI Strategy 2031 and national priorities**.
