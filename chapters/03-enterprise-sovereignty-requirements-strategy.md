@@ -312,8 +312,6 @@ This is a reusable decision sheet for a PM and three owners, not a legal complia
 
 **Submission:** A five-row obligation/control register, one architecture comparison, a seven-line RCA with owners, and a conditional release decision. Use synthetic data only. The Studio cannot verify legal applicability, inspect network traffic or certify a vendor; the facilitator answer key will remain in the separate Module 03 solutions artifact.
 
-**Next header:** 3.4, *Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement*.
-
 [^nist-voluntary-33]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (**2023**), [Executive Summary](https://airc.nist.gov/airmf-resources/airmf/0-ai-rmf-1-0/), exact quoted passage checked on the official NIST HTML **20 November 2026**. Voluntary framework, not a UAE-specific legal requirement.
 [^nist-govern-33]: NIST, *AI RMF 1.0*, [AI RMF Core, GOVERN 1 and GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact categories checked on official HTML **20 November 2026**. The course-authored claim types and veto rules are not specified in the NIST document.
 [^nist-zt-33]: NIST, *Zero Trust Architecture*, SP 800-207, final August **2020**, [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), “no implicit trust” phrase and location/ownership scope checked **20 November 2026**. This security guidance does not establish sovereign jurisdictional compliance.
