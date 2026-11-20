@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Sections 3.1–3.2 complete; Sections 3.3–3.7, lab, assessment, solutions, social and critical reviews pending** |
+| Current progress | **Sections 3.1–3.3 complete; Sections 3.4–3.7, lab, assessment, solutions, social and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -214,7 +214,111 @@ Copy this schema into a product requirements document or CSV; complete one row p
 
 **Assessment boundary:** Do not include a worked answer in this learner-facing section. Facilitator solutions belong in the separate Module 03 solution key when the module assessment is authored. The framework is educational and must not be represented as a legal classification, penetration test, independent audit or production certification.
 
-**Next header:** 3.3, *Security and compliance requirements vs. additional sovereignty objectives*. Module 03 remains a draft pending the rest of the TOC, the dedicated lab, separate facilitator solutions, HTML/social assets and two distinct critical reviews.
+
+### 3.3 Security and compliance requirements vs. additional sovereignty objectives
+
+**Executive decision:** A secure, contractually acceptable AI workload is not necessarily *sovereign* under the enterprise's intended control boundary. Equally, a locally installed AI model is not automatically secure, compliant or operationally independent. Write the **security baseline**, **applicable legal/contractual duties**, and **additional sovereignty objectives** as separate claims with distinct approving authorities and tests. A passed access-control audit cannot waive a contractual named-premises prohibition; local GPU ownership cannot waive a security finding.
+
+This distinction protects investment decisions. The PM should avoid paying for an on-site facility when existing verified controls already satisfy a less restrictive workload, but must refuse an attractive cloud endpoint when its execution or derivatives would violate a non-negotiable physical site or air-gap requirement.
+
+#### Three claim types, three approval paths
+
+| Claim category | What is actually being decided | Named evidence owner | Example of a test or approval that does **not** prove the other claims |
+|---|---|---|---|
+| **Security and safety baseline** | Can the system protect confidentiality, integrity and availability, manage identities, contain misuse, and fail safely? | CISO, platform security, relevant safety owner | MFA, encryption, key custody, red-teaming, tenant isolation, incident drill and recovery tests do **not** prove where every data derivative is processed |
+| **Legal, regulatory and contractual applicability** | Which specific enacted laws, processor/contract clauses, customer handling rules, licences and records apply to *this* organization, activity and data? | Legal counsel, privacy officer, procurement, contract owner | A vendor's generic regional badge or self-described compliance certificate does **not** determine whether a particular contractual **FACTORY-A only** condition is fulfilled |
+| **Additional sovereignty objectives** | Which locations, administrators, supply-chain dependencies, model rights, exit capabilities and national/enterprise autonomy goals should remain under specified control? | Named enterprise sponsor, data owner, CIO/CTO, architecture owner | A physically resident model does **not** prove remote support is disabled, usable offline rights exist, or regional dependencies can be replaced |
+
+The categories can overlap: a no-egress control may support contractual handling and a strategic sovereignty objective, while a privileged-access restriction may support both security and operational autonomy. **Overlap is not equivalence.** Record each claim's independent acceptance criterion, evidence and reviewer. If counsel concludes a legal requirement does not apply, preserve that documented decision and still evaluate voluntarily adopted enterprise/site rules; the PM must not assume a legal exemption changes an unrelated contract.
+
+**NIST evidence boundaries.** The NIST AI RMF 1.0 describes itself as “voluntary, rights-preserving, non-sector specific, and use-case agnostic.”[^nist-voluntary-33] Its **GOVERN 1** calls for organizational policies and procedures for mapping, measuring and managing AI risks, and **GOVERN 1.5** refers to ongoing monitoring and periodic review of the risk-management process.[^nist-govern-33] These are useful governance structures, but **not evidence of compliance with a particular UAE statute or proof of sovereign hosting**. NIST SP 800-207 states there is “no implicit trust” based only on network or physical location.[^nist-zt-33] That security principle means an on-site environment still needs verified identities and privileges; it does not declare a specific factory location sufficient.
+
+#### Translate a policy sentence into a falsifiable claim
+
+A common procurement sentence is: *“The vendor is secure, complies with local requirements and keeps our AI sovereign.”* That is three untested conclusions. Replace it with an authority-backed claim register:
+
+1. **Security**: the enterprise permits only approved roles to request restricted retrieval. **Evidence:** role matrix, revoked-credential attempt, signed trace and an owner who can block release.
+2. **Compliance/contract**: the named owner cites the **actual clause or legal applicability determination**, data categories, processing actors and allowed destinations. **Evidence:** reviewed obligation map and dated counsel or contract-owner disposition; not a claim invented by the course.
+3. **Sovereignty**: *every restricted input and derivative remains inside the named factory premises*, including embeddings, responses, evaluation, telemetry, support and backup. **Evidence:** synthetic normal/timeout/failover/update/restore test with destination inventory and independent review.
+4. **Resilience and autonomy**: inference can cold-start and recover without calling a prohibited remote endpoint, with a permitted model licence, capacity and support route. **Evidence:** offline licence review, cold-start capture, rollback and measured service objectives.
+
+A status is **PASS FOR TESTED SCOPE**, **FAIL**, **UNVERIFIED** or **NOT APPLICABLE WITH RECORDED AUTHORITY** for each claim; never a universal “compliant and sovereign” badge. Contractual review cannot establish actual runtime behavior, and a runtime test cannot settle regulatory applicability.
+
+#### Fictional UAE enterprise portfolio: different controls, different answers
+
+**Scenario:** Gulf Works Group (fictional) proposes a common AI procurement agreement and a shared gateway. Its policy assistant uses synthetic data, its engineering assistant handles restricted drawings, and its disconnected operations reference has a strict physical network boundary. The rules and test observations here are invented, not descriptions of UAE law or a real vendor.
+
+| Workload | Security baseline | Applicable obligation review | Extra sovereignty gate | Initial decision |
+|---|---|---|---|---|
+| **POLICY-33:** synthetic policy search | Enterprise IAM, abuse controls, retrieval citations and safe failure | Procurement checks terms, retention and any applicable requirements | Named permitted processing locations, supplier access review and a measured exit plan, if adopted | Managed service **CONDITIONAL**, after actual destination and contract evidence |
+| **DESIGN-33:** restricted engineering RAG | Local least privilege, key custody, egress deny, incident and restore procedures | Contract owner verifies signed **FACTORY-A-only** handling clause; counsel reviews applicable law separately | All restricted files and derivatives must remain **inside one named physical factory premises** | Off-site managed inference **REJECTED**, even in the same country; local design **UNVERIFIED** until tested |
+| **OT-33:** safety-sensitive reference system | On-site access controls, safe abstention, approved operator override and restore | Qualified owner reviews offline model licence, operational requirements and supplier terms | **Air-gapped: no inbound or outbound network path**, including remote support, licence checks and private links | Offline local stack **CONDITIONAL**; all connected candidates **REJECTED** |
+
+For DESIGN-33, encryption during transmission does **not** make it acceptable for restricted prompts to leave FACTORY-A. Even a provider endpoint within the UAE fails the **one-physical-premises** requirement when restricted processing occurs outside the plant. For OT-33, a “private” network, temporary modem, vendor-support tunnel or internet allowlist is still connectivity and contradicts the declared air gap. Neither architecture may silently fall back to external inference after a timeout.
+
+**Separation of concerns:** Security's role is to test whether the controls work. Legal's role is to determine applicable duties and contract interpretation. The enterprise sponsor and data owner define additional objectives and authorized exceptions. The PM assembles their signed evidence into a release recommendation, without issuing its own legal opinion or pretending the simulator performed an infrastructure audit.
+
+#### Architectural trade-offs and veto logic
+
+For POLICY-33, a managed endpoint may be less expensive to operate than enterprise-owned accelerators, but both need scoped data-retention, access and supplier-continuity testing. A locally deployed model may offer stronger runtime control but increase patch, capacity and incident duties. Neither option is **automatically** compliant or sovereign.
+
+For DESIGN-33, eligibility comes first: the team may select a locally runnable third-party licensed model on enterprise GPUs, or a non-AI local search service. A distant enterprise-owned data center is still off the required plant site. For OT-33, even a licensed local model is **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** if the required quality, safety, capacity or offline rights cannot be achieved. Record a hard **BLOCKED** or infeasible disposition rather than overriding the isolation policy.
+
+**Explicit release logic:**
+
+| Condition | Rule | Decision record |
+|---|---|---|
+| A confirmed attempted or successful prohibited data/derivative export | The physical-site veto stays active until root cause, correction and negative retest | **BLOCKED** |
+| Air-gap requirement but any inbound/outbound network or online activation dependency | No connected design is eligible | **BLOCKED**, or **NOT FEASIBLE** if no valid offline solution exists |
+| Legal or contract applicability unclear, but no confirmed technical violation | Do not presume either exemption or universal prohibition; seek signed specialist determination | **UNVERIFIED / REVIEW REQUIRED** |
+| Security, obligations and sovereignty evidence all pass for the exact tested workload/version | Compare eligible quality, capacity, costs, resilience and exit; approve only within that scope | **CONDITIONAL GO**, with owner and revalidation triggers |
+
+#### Failure/RCA: a security success masks a sovereignty failure
+
+**Fictional synthetic observation:** The platform team installs an on-site model at FACTORY-A and enables strong MFA, storage encryption and a denied external firewall rule. Its security dashboard displays green. During a synthetic gateway timeout, the fallback resolver attempts to send a prompt fragment to a contracted cloud model endpoint. The firewall blocks delivery, but the request and diagnostic record show an **attempted off-premises transfer** that violates the intended routing rule. This does not prove that actual customer data were disclosed.
+
+| RCA step | Finding, response, responsible owner |
+|---|---|
+| **Symptom** | Security controls blocked the external request, while the workload's **premises-only architectural acceptance test failed** |
+| **Direct cause** | Gateway failure policy contained a remote managed-model fallback |
+| **Contributing root cause** | Release sign-off conflated “secure transport and access controls” with “all restricted processing physically contained,” and skipped degraded-mode route inventory |
+| **Containment** | Platform owner removes remote fallback; security preserves synthetic traces, checks historical destinations and determines whether investigation is needed; data owner holds restricted launch |
+| **Corrective design** | Local fallback with sufficient licensed capacity, or explicit fail-closed response; deny-by-default egress, gateway configuration review, local diagnostic sink and audited supplier changes |
+| **Verification** | Re-run synthetic normal/timeout/crash/upgrade/restore/support paths, inspect DNS/proxy/firewall and privileged sessions, compare build hashes and signed physical-site requirements |
+| **Closure and owners** | CISO confirms security controls, data owner accepts no-egress evidence, procurement/legal reviews permissions, PM logs conditional go/no-go and retest trigger |
+
+**Root cause:** Security controls operated as configured, but they were not designed to satisfy the *additional* sovereignty claim about routing. A blocked network request can protect this test and still reveal a configuration defect. The corrective action is to specify and verify **both** the security mechanism and the physical-location invariant.
+
+#### PM artifact: obligation-to-control separation sheet
+
+This is a reusable decision sheet for a PM and three owners, not a legal compliance certificate.
+
+| Claim ID / owner | Source and exact rule | Acceptance evidence | State / escalation |
+|---|---|---|---|
+| **SEC-33 / CISO** | Internal security baseline: restricted retrieval requires signed roles and denied unauthorized access | Synthetic revoked-user test, key inventory, incident and restore plan | **UNVERIFIED** until completed |
+| **OBL-33 / counsel + contract owner** | Signed FACTORY-A handling restriction; independently determine applicable laws | Contract clause/version, processor-role list, signed applicability/exception review | **REVIEW REQUIRED** |
+| **SOV-33 / plant data owner** | No restricted material or **derivative** leaves the named premises | Synthetic network, diagnostics, backup, admin, evaluation and failover tests across lifecycle | **FAILED** on remote-fallback attempt |
+| **AUT-33 / CTO + platform** | Acceptable local model, licence, support, cold-start and tested recovery | Offline clean install, model substitution, quality/capacity benchmark and rollback | **UNVERIFIED** |
+| **Decision / product executive** | All mandatory gates satisfied for exact workload and version before release | Dated gate matrix with approving identities and evidence locations | **BLOCKED**, despite passed isolated security checks |
+
+**Change control:** Reopen affected claims on a model, gateway, supplier-support, backup, contract, network, facility, or administrator change. If a requirement is changed by its authorized issuer, record its scope and effective date; never infer a waiver from a provider's product label.
+
+#### Learner challenge (40 minutes): prove that three green checkboxes are not one approval
+
+1. Draft three claim cards for DESIGN-33: **security**, **applicable contract/legal**, and **additional sovereignty**. Give each a distinct owner, test/evidence type and disposition. Why can MFA be PASS while the whole launch remains BLOCKED?
+2. In the [Architecture & Learning Studio](../learning/index.html), start with **Strict on-premises IP research assistant** and **Single premises only; no data or derivatives may leave**. Toggle compute between **On-prem production GPU servers inside the premises** and **Approved managed AI platform**. Predict the hard gate and name the external destinations that a real auditor would trace.
+3. Select **Air-gapped factory operations** and change connectivity from **Air-gapped: no inbound or outbound network** to **General internet access including external service endpoints**. Explain why a “private” route is not a permitted exception.
+4. Write a release memo for the fictional failed fallback case. Distinguish the firewall's security success from the architecture's failed site invariant; include direct cause, process root cause, containment, local-only correction, negative retest, RACI and the explicit conditions for a changed decision.
+
+**Submission:** A five-row obligation/control register, one architecture comparison, a seven-line RCA with owners, and a conditional release decision. Use synthetic data only. The Studio cannot verify legal applicability, inspect network traffic or certify a vendor; the facilitator answer key will remain in the separate Module 03 solutions artifact.
+
+**Next header:** 3.4, *Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement*.
+
+[^nist-voluntary-33]: NIST, *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*, NIST AI 100-1 (**2023**), [Executive Summary](https://airc.nist.gov/airmf-resources/airmf/0-ai-rmf-1-0/), exact quoted passage checked on the official NIST HTML **20 November 2026**. Voluntary framework, not a UAE-specific legal requirement.
+[^nist-govern-33]: NIST, *AI RMF 1.0*, [AI RMF Core, GOVERN 1 and GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), exact categories checked on official HTML **20 November 2026**. The course-authored claim types and veto rules are not specified in the NIST document.
+[^nist-zt-33]: NIST, *Zero Trust Architecture*, SP 800-207, final August **2020**, [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final), “no implicit trust” phrase and location/ownership scope checked **20 November 2026**. This security guidance does not establish sovereign jurisdictional compliance.
+
+**Next header:** 3.4, *Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement*. Module 03 remains a draft pending the remaining headings, lab, solutions, social teaching assets and two critical reviews.
 
 [^nist-map-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MAP 1.1 and MAP 1.4](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MAP 1.1 addresses documenting purposes, laws, expectations and prospective deployment settings; MAP 1.4 covers the clearly defined business value/context. **Neither** prescribes sovereign AI hosting or defines the course-authored investment categories.
 [^nist-manage-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MANAGE 1.1 and MANAGE 2.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MANAGE 1.1 addresses the go/no-go determination; MANAGE 2.1 includes consideration of viable non-AI alternatives and resource constraints. The course's two-pass architecture choice is an instructional synthesis, not a named NIST decision algorithm.
