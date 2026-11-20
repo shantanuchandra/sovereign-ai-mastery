@@ -570,3 +570,21 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Reusable lesson:** PDF extractors can insert whitespace into letter-spaced labels; normalize representation without dropping the underlying content assertion. Record actual test outputs, not assumed results.
 
 **Next:** Inspect post-fix Pages CI, address any further failures, visually validate PDF/mobile, then conduct two distinct documented Module 02 critical reviews and remediate blockers before Module 03.
+
+## Improvement entry 027 | 2026-11-20 | Module 02 CI verification and technical/security review A
+
+**Before / prior QA:** [Pages run 44674899521](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44674899521), head `b0f29e024ffe6cd60b92e66abb4aab7fc7d39666`, completed **success**. Its job steps show success for Module 02 scoring lab, static carousel checks, actual Chromium PDF export/overflow test, site build, generated-site checks and deployment. Earlier run 44674883687 was cancelled; it is **not** the successful run.
+
+**Actual change and commit:** [5c4556fe51d01447a66a0359cc381581e972ef1e](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/5c4556fe51d01447a66a0359cc381581e972ef1e) adds `qa/module-02-technical-security-source-review.md`, a distinct recorded technical/security/source **self-critique**. It names blocking primary-source revalidation and cross-UI negative-case coverage, plus a visual/PDF assurance gap. This is **not independent** verification.
+
+**Checks actually performed:** Read TOC, style guide, chapter template, chapter heading inventory, facilitator solution excerpts, lab README, HTML carousel CSS and prior learning entries; fetched current GitHub Actions run and inspected all workflow job step conclusions. Seven Module 02 topic headers and the separate answer-key path were observed. No local Python/Chromium execution, fresh primary-source audit, physical air-gap test or manual visual assessment was performed during this iteration.
+
+**Deployment:** Confirmed successful Pages deployment in run 44674899521 for the previous commit. The new QA-record commit's own Pages status has **not yet been verified**. QA document publication on the learner website is not asserted.
+
+**Review A:** Recorded as **CONDITIONAL / NOT SIGNED OFF** with findings A-01 to A-04. **Review B:** NOT COMPLETED. **Independent human/different-model review:** NOT COMPLETED.
+
+**Open risks:** Source quote/pinpoint freshness and selected-SKU applicability; full negative-case UI audit; PDF visual legibility/reading order; Review B. Module 03 remains gated. The public repository remains synthetic-data-only.
+
+**Reusable lesson:** Green CI establishes the configured automated checks, not primary-source accuracy, operational isolation or human accessibility. Review findings need named closure evidence before declaring a module ready.
+
+**Next:** Conduct distinct editorial/accessibility/assessment Review B, then remediate A-01/A-03 and any Review B blockers; rerun tests and verify deployment before Module 03.
