@@ -1,0 +1,160 @@
+{
+  "notice": "Entirely fictional training data. A declared evidence status does not verify actual infrastructure.",
+  "version": "1.0",
+  "workloads": [
+    {
+      "id": "POLICY-03",
+      "business_owner": "Corporate services",
+      "authority": "Enterprise data owner",
+      "boundary": "approved_named_sites",
+      "required_site": null,
+      "approved_sites": [
+        "APPROVED-UAE-SITE-1"
+      ],
+      "candidate": {
+        "compute_site": "APPROVED-UAE-SITE-1",
+        "network_mode": "allowlist",
+        "external_management_path": true,
+        "offsite_derivative_attempt": false,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "POLICY-LOC-1",
+          "owner": "Platform architect",
+          "control": "Approved endpoint inventory",
+          "test": "Synthetic destination trace",
+          "evidence": "configured",
+          "test_id": ""
+        },
+        {
+          "id": "POLICY-OPS-1",
+          "owner": "CISO",
+          "control": "Vendor-admin restriction",
+          "test": "Revocation negative test",
+          "evidence": "asserted",
+          "test_id": ""
+        },
+        {
+          "id": "POLICY-LAW-1",
+          "owner": "Legal",
+          "control": "Contract and purpose review",
+          "test": "Signed terms assessment",
+          "evidence": "missing",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "DESIGN-03",
+      "business_owner": "Factory operations",
+      "authority": "Plant data owner",
+      "boundary": "single_premises",
+      "required_site": "FACTORY-A",
+      "approved_sites": [],
+      "candidate": {
+        "compute_site": "FACTORY-A",
+        "network_mode": "isolated",
+        "external_management_path": true,
+        "offsite_derivative_attempt": true,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "DESIGN-SITE-1",
+          "owner": "CISO",
+          "control": "Local gateway and egress deny",
+          "test": "Synthetic timeout and telemetry trace",
+          "evidence": "adverse",
+          "test_id": "SYNTH-DESIGN-TIMEOUT"
+        },
+        {
+          "id": "DESIGN-IAM-1",
+          "owner": "IAM lead",
+          "control": "Vendor access revocation",
+          "test": "Denied supplier login",
+          "evidence": "configured",
+          "test_id": ""
+        },
+        {
+          "id": "DESIGN-EXIT-1",
+          "owner": "Procurement",
+          "control": "Permitted offline model artifacts",
+          "test": "Cold start and substitution",
+          "evidence": "asserted",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "OT-03",
+      "business_owner": "OT operations",
+      "authority": "OT safety authority",
+      "boundary": "air_gapped",
+      "required_site": "OT-FACILITY",
+      "approved_sites": [],
+      "candidate": {
+        "compute_site": "OT-FACILITY",
+        "network_mode": "internet",
+        "external_management_path": true,
+        "offsite_derivative_attempt": false,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "OT-GAP-1",
+          "owner": "OT security",
+          "control": "Physically disconnected network",
+          "test": "Interface inspection and no-network restart",
+          "evidence": "asserted",
+          "test_id": ""
+        },
+        {
+          "id": "OT-MEDIA-1",
+          "owner": "OT engineering",
+          "control": "Approved offline media intake",
+          "test": "Integrity and offline rollback",
+          "evidence": "configured",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "LICENCE-03",
+      "business_owner": "Factory engineering",
+      "authority": "Plant data owner",
+      "boundary": "single_premises",
+      "required_site": "FACTORY-A",
+      "approved_sites": [],
+      "candidate": {
+        "compute_site": "FACTORY-A",
+        "network_mode": "isolated",
+        "external_management_path": false,
+        "offsite_derivative_attempt": false,
+        "offline_licence_available": false,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "LIC-SITE-1",
+          "owner": "Platform architect",
+          "control": "Premises-based inference",
+          "test": "Negative egress regression",
+          "evidence": "configured",
+          "test_id": ""
+        },
+        {
+          "id": "LIC-RIGHTS-1",
+          "owner": "Legal/procurement",
+          "control": "Offline model licence",
+          "test": "Licence text review and clean restart",
+          "evidence": "missing",
+          "test_id": ""
+        }
+      ]
+    }
+  ]
+}
