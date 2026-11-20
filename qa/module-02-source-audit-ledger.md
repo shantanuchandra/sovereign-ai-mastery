@@ -39,3 +39,11 @@ This is a **verified review of the two quoted passages in Section 2.1 plus the t
 ## Separate assurance still required
 
 A-03 must include observed interactive negative-case outputs; A-04/B-01 require actual mobile/PDF visual inspection; B-02/B-05 require blind assessment calibration. Neither review A nor review B is signed off. No human or separate-model review has occurred in this ledger.
+
+## Assessment Question 5: Microsoft Foundry primary-source check, 2026-11-20
+
+| ID | Primary source and pinpoint | Observed text and version | Disposition |
+|---|---|---|---|
+| A01-Q5-FOUNDRY | [Microsoft Learn, Deployment types for Microsoft Foundry Models](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types), “Data residency for all deployment types” and “Deployment type comparison” | Reopened official HTML on **20 November 2026**; page footer says **last updated 12 August 2026**. Global may process in any Azure region; Data Zone is limited to the specified Microsoft data zone; **Standard and Regional Provisioned process prompts/responses in the customer-specified Azure geography and may use different regions within that geography**. The documentation expressly limits these deployment types to **Serverless API**, excluding open-source/custom models using managed compute. | **QUALIFIED / CHAPTER CORRECTED** in commit [909a4db](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/909a4dbf262a9f8ccaa0412cca0032be05b0c4ec). Replaced misleading “single region” shorthand with Azure-geography-based processing. Exact quoted Global sentence matches the official page. |
+
+**Applicability caveat:** A geography is not necessarily one country, region or factory premises. The page also says model availability differs by deployment type and region. No specific UAE model/SKU availability, customer agreement, support access, diagnostics route, runtime traffic or contractual residency guarantee was verified. The fictional buyer remains fictional. This audit is GPT-6 self-review, not independent sign-off; **A-01 remains BLOCKING** pending other section/solution/social claims.
