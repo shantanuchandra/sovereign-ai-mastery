@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Teaching sections 3.1–3.7 drafted; lab, assessment, separate solutions, social assets and critical reviews pending** |
+| Current progress | **Teaching sections 3.1–3.7 and synthetic lab drafted; assessment, separate solutions, social assets and critical reviews pending** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
@@ -692,7 +692,7 @@ For a useful 30/60/90-day roadmap, **days 1–30** establish scope/authorities a
 
 **Submission:** A dated requirement-to-control traceability table, a four-dimension evidence scorecard, a 30/60/90-day prioritized action roadmap, six defined metrics and an explicit go/no-go decision. All content must use fictional or synthetic inputs. The learner-facing assignment does not include the worked facilitator answer.
 
-**Module 03 content checkpoint:** All **seven TOC teaching headers 3.1–3.7 are drafted**. This is **not** a final module release. The reproducible requirements-to-controls lab, five-question assessment and decision scenario, separate facilitator solutions, public HTML/portrait PDF social carousel and post, accessibility checks, and two **distinct module-wide technical/source and editorial/assessment reviews** remain required **before Module 04**.
+**Module 03 content checkpoint:** All **seven TOC teaching headers 3.1–3.7 are drafted**, along with the [synthetic requirements-to-controls lab](../labs/module-03/README.md) and its unit-tested evaluator. This is **not** a final module release. The five-question assessment and decision scenario, separate facilitator solutions, public HTML/portrait PDF social carousel and post, accessibility checks, and two **distinct module-wide technical/source and editorial/assessment reviews** remain required **before Module 04**.
 
 [^nist-rmf-gov37]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core §5 and GOVERN 1.5](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Short quoted strings and context were previously examined in Module 03 section 3.5; no new source retrieval is asserted here. This risk guidance does not prescribe the course-authored traceability or veto structure.
 [^nist-zero37]: NIST, *Zero Trust Architecture*, SP 800-207 (August 2020), [official abstract](https://csrc.nist.gov/pubs/sp/800/207/final). The principle of no implicit trust from location is used as context, not as jurisdictional sovereignty certification.
