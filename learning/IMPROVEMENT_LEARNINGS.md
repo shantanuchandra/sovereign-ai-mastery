@@ -1,5 +1,20 @@
 # Sovereign AI Mastery | Improvement learnings
 
+## Improvement entry 021 | 2026-11-20 | Chromium print QA for Module 02
+
+**Prior failure and scope:** Entry 020 identified a real assurance gap: six static HTML tests could not prove that the eight portrait slides render without clipped text or produce an eight-page, text-selectable PDF. The prior complete Pages run [44638532310](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44638532310) **succeeded**, including the six new static carousel tests, Python scoring lab tests, adaptive JS tests, website build and deployment. Two earlier superseded runs (44638487041, 44638499740) were **cancelled**, not failed. This iteration addresses browser-based print QA before Module 02's release reviews; no Module 03 work was begun.
+
+**Changes and actual commits:** Added [social/module-02/test_rendered_carousel.py](../social/module-02/test_rendered_carousel.py) in commit [13f78e78226dfb9740e8d07031b10b0c73d2d1a0](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/13f78e78226dfb9740e8d07031b10b0c73d2d1a0). Added Playwright/Chromium and pypdf installation plus a mandatory browser QA step to [.github/workflows/pages.yml](../.github/workflows/pages.yml) in commit [e56163cf533528be85f7ba9ba96eb1c47aeca245](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e56163cf533528be85f7ba9ba96eb1c47aeca245). The test opens only the local HTML file, blocks all network requests, checks eight question headings, compares actual scroll dimensions against slide bounds at desktop (1280px) and mobile (390px and 320px), prints using the real Chromium PDF engine with backgrounds and CSS page size, then checks eight PDF pages and extractable slide number, decision text and nonempty page text. The PDF is generated in a temporary directory and is **not** published or visually approved by this test.
+
+**Observed verification:** GitHub Actions run [44638532310](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44638532310) completed with all previous named steps **success**, including the static carousel contract. The browser script and workflow integration were successfully committed and source-inspected, but **the new browser QA had not executed to completion at log time**. The first observed post-change run [44645981555](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44645981555) was **queued** at inspection. A green previous workflow cannot validate the new browser script; do not claim the new PDF checks passed without a successful later run.
+
+**Residual risks and release gate:** Chromium setup may fail due to runner dependencies, PDF may have more than eight pages, or actual mobile content may clip due to `overflow:hidden`; any such failure is a real blocker requiring remediation. Even successful automated geometry/text extraction cannot substitute for **human visual PDF review**, keyboard-only navigation, assistive-technology testing, or independently reviewed legal/technical source claims. Review A (technical/security/source accuracy) and Review B (editorial/accessibility/assessment) remain **NOT DONE**. No independent second-model/human critique was performed. This run added no new legal/product facts or production data.
+
+**Improvement lesson:** Testing CSS strings is necessary but not sufficient for a publishable document. Make browser-rendered page count, selectable text and content overflow measurable release gates, and keep the distinction between machine checks, visual inspection and independent expert review explicit.
+
+**Next:** Inspect the newest GitHub Actions run for Chromium setup, PDF page count, and overflow results. If any check fails, fix that specific defect first. Then review screenshots or a real exported PDF visually, conduct separately documented Reviews A and B with remediation, and only then consider Module 03.
+
+
 
 ## Improvement entry 020 | 2026-11-20 | Module 02 carousel print/accessibility QA contract
 
