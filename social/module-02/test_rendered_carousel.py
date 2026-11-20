@@ -53,6 +53,28 @@ def main() -> int:
                 clipped = [m for m in metrics if m["overflowX"] > 2 or m["overflowY"] > 2]
                 assert not clipped, f"Clipped slide content at {width}px: {clipped}"
 
+            # Accessibility semantics: every slide must expose a unique named region,
+            # with one visible question heading. This is DOM evidence, not an
+            # assistive-technology or tagged-PDF certification.
+            semantics = page.evaluate("""() => ({
+                lang: document.documentElement.lang,
+                mainCount: document.querySelectorAll('main').length,
+                navLabel: document.querySelector('nav.toolbar')?.getAttribute('aria-label'),
+                slides: [...document.querySelectorAll('section.slide')].map(s => {
+                    const heading = s.querySelector('h2');
+                    return {id: heading?.id, label: s.getAttribute('aria-labelledby'),
+                        text: heading?.textContent?.trim(), visible: !!heading?.getClientRects().length};
+                }),
+                linkName: document.querySelector('nav.toolbar a')?.textContent?.trim(),
+                buttonName: document.querySelector('nav.toolbar button')?.getAttribute('aria-label')
+            })""")
+            assert semantics["lang"] == "en" and semantics["mainCount"] == 1, semantics
+            assert semantics["navLabel"] and semantics["linkName"] and semantics["buttonName"], semantics
+            ids = [s["id"] for s in semantics["slides"]]
+            assert len(ids) == 8 and len(set(ids)) == 8 and all(ids), semantics
+            assert all(s["label"] == s["id"] and s["visible"] and s["text"].endswith("?")
+                       for s in semantics["slides"]), semantics
+
             # Keyboard navigation: the first two controls must be reachable in DOM order.
             page.set_viewport_size({"width": 390, "height": 900})
             page.keyboard.press("Tab")
