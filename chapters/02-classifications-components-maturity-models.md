@@ -7,10 +7,10 @@
 | Part / week | I — Foundations / Week 2 |
 | Audience | Enterprise AI PM making architecture and procurement decisions |
 | Prerequisite | [Module 01: Who controls the intelligence?](01-sovereign-ai-fundamentals.md) |
-| Current publication | **Teaching headers 2.1–2.7 drafted; module not released**. Dedicated lab, assessment/solutions, publishing artifacts and both critical reviews remain pending |
+| Current publication | **Educational module package ready for next curriculum chapter**, with seven sections, tested synthetic lab, assessment, separate facilitator key, social deck/post and separately documented bounded critical reviews. Independent human, assistive-technology and production compliance validation **not completed** |
 | Output | Scope-to-claim matrix with a bounded recommendation |
 | Environment | Browser and Markdown, no GPU or cloud spend; fictional and synthetic data only |
-| Sources reviewed | 19 November 2026 |
+| Sources reviewed | 20 November 2026; primary-source audit recorded in QA ledger |
 | Status | Educational decision framework, not legal advice or sovereignty certification |
 
 ## 1. Executive brief: identify whose requirement applies
@@ -695,7 +695,7 @@ Next load **Air-gapped factory operations**. Change connectivity from **Air-gapp
 
 **Applied lab:** [Run the Module 02 release-first scoring lab](../labs/module-02/README.md). Its four cases, evaluator and unit tests are **synthetic teaching tools**; the lab intentionally blocks premises-only egress violations and air-gap network connections, and never certifies a real deployment. Use the results to prepare the four-dimension claim matrix and decision memo.
 
-**Module 02 content checkpoint:** All seven teaching headers, the dedicated synthetic scoring lab, and the learner assessment (five questions plus a detailed RCA decision scenario) are now drafted. The module is **not released**. Separate facilitator solutions and rubric, HTML/social teaching assets, distinct technical/security/source Review A and editorial/accessibility/assessment Review B, and any required remediation remain pending **before Module 03**.
+**Module 02 release checkpoint:** All seven teaching headers, [synthetic scoring lab](../labs/module-02/README.md), five-question assessment and full RCA scenario, [separate facilitator solutions](../assessments/solutions/02-classifications-components-maturity-models-solutions.md), [question-led carousel](../social/module-02/CAROUSEL.html) and [social post](../social/module-02/POST.md) have been authored. Two distinct, bounded GPT-6 self-critical reviews are recorded: [A: technical/security/source](../qa/module-02-technical-security-source-review.md) and [B: editorial/accessibility/assessment](../qa/module-02-editorial-accessibility-assessment-review.md). Automated Node, Python, browser geometry, PDF extraction and website deployment checks have passed on [GitHub Actions workflow 44778376832](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44778376832). **This is an educational authoring milestone, not a sovereign-AI certification or an independently audited accessible product.** Human visual/accessibility testing, distinct-model review, blind learner marking and production/legal specialist review remain **NOT COMPLETED** and must never be claimed as passed. Any new failed regression reopens the module's QA gates.
 
 [^nist-rmf-score27]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Section 5, Measure 1.1–1.3 and Manage 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Exact short quotation and subcategory text checked **20 November 2026**. This source is voluntary AI risk-management guidance; the maturity stages, status codes and release gates above are course-authored.
 [^nist-scrm-score27]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022, updated **1 November 2024**), [official publication and abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Short quotation from the abstract checked **20 November 2026**. Supply-chain risk guidance, not a measure of sovereignty maturity.
