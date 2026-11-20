@@ -998,3 +998,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Checking that an aria-labelledby target exists is weaker than checking that it belongs to the correct slide. Assert identity and uniqueness together, and keep source checks separate from observed accessibility behavior.
 
 **Next action/header:** Module 03 release QA and review remediation first; only after evidence-backed gate closure proceed to **4.1 UAE National AI Strategy 2031 and national priorities**.
+
+
+## Improvement entry 051 | 2026-11-21 | Module 03 duplicate-ID QA defect
+
+**Decision:** Read the TOC, style guide, chapter template, Module 03 review A/B records, assessment and social QA contracts, lab file inventory and improvement history. Module 03 remains gated. Prioritize a concrete failed-quality-check blind spot instead of starting 4.1.
+
+**Actual implementation commit:** [8f5eba57e3f2f2bdbc19d79b425675cf341e35d0](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/8f5eba57e3f2f2bdbc19d79b425675cf341e35d0). Fixed `qa/test_module03_social_contract.py` duplicate HTML ID scan: the prior regex contained two backslashes before `b`, matching a literal backslash plus b instead of a word boundary; its empty match set could pass even with duplicate IDs. The corrected raw regex uses one backslash and can detect ordinary `id="..."` attributes. This complements the parser's separate duplicate-ID assertion.
+
+**Checks performed:** Compared fetched source and committed the one-line correction through GitHub's SHA-guarded Contents API. Attempted to clone repository and run the Python tests in the container; Git clone failed before any tests executed due to `Could not resolve host: github.com`. **No Python test pass is claimed.** No browser, screen-reader, PDF, network-isolation or source-quotation audit was executed. GitHub Pages workflow #44830183422 for prior commit cf1b668 is confirmed **success** (completed 2026-11-20 22:36 UTC), but that predates this fix.
+
+**Release status and risks:** Latest QA commit's Pages workflow is not yet confirmed deployed. Reviews A and B remain HOLD; lab negative-path execution, source quotations, reflow/keyboard/PDF inspection, site solution exclusion and learner calibration are open. Public repo is synthetic-data-only; no independent review or production certification.
+
+**Improvement lesson:** A test can appear to assert uniqueness while its extraction regex silently returns zero matches. Verify the detector itself with a deliberate duplicate-ID fixture before treating a passing suite as coverage.
+
+**Next action/header:** Run corrected test plus a mutation fixture that deliberately duplicates an ID, execute Module 03 lab negative cases, inspect mobile/PDF and source evidence, close review gates on evidence, then **4.1 UAE National AI Strategy 2031 and national priorities**.
