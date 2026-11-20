@@ -700,6 +700,24 @@ Next load **Air-gapped factory operations**. Change connectivity from **Air-gapp
 [^nist-rmf-score27]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (2023), [AI RMF Core, Section 5, Measure 1.1–1.3 and Manage 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/). Exact short quotation and subcategory text checked **20 November 2026**. This source is voluntary AI risk-management guidance; the maturity stages, status codes and release gates above are course-authored.
 [^nist-scrm-score27]: NIST, *Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1 (May 2022, updated **1 November 2024**), [official publication and abstract](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final). Short quotation from the abstract checked **20 November 2026**. Supply-chain risk guidance, not a measure of sovereignty maturity.
 
+### Case identifiers and evidence boundaries
+
+**Before the assessment, separate the fictional cases.** Similar names are teaching shorthand, not evidence that the same deployment or test was reused. The scenarios below are invented for this course. No actual UAE manufacturer, customer environment, or incident is represented.
+
+| Identifier | Where it appears | What the learner may assume | What must **not** carry over |
+|---|---|---|---|
+| **PLANT-02** | Section 2.1 scope comparison | A fictional factory maintenance RAG workload with a **single physical premises** boundary | Its proposed architecture, evidence status, operator permissions, and test results are **not** evidence for PLANT-Q6 |
+| **OT-03** | Section 2.1 scope comparison | A separate disconnected operations-reference workload requiring **no inbound or outbound network** | The PLANT-02 local-network allowance does not apply; a private link still fails |
+| **FACTORY-A** | Question 6 and related fictional examples | A **place/boundary label**, not a workload ID, provider or legal jurisdiction | Do not infer a shared owner, policy signature, network topology or test result merely because two examples mention a factory |
+| **PLANT-Q6** | Assessment Question 6 | A **new** fictional maintenance case; only the T0–T2 facts explicitly stated in Question 6 are supplied | Do not import PLANT-02's proposed remediation, maturity, vendor or acceptance evidence |
+| **OT-Q6** | Assessment Question 6 | A **new** disconnected reference case with a strict air-gap constraint | Do not infer that OT-03's tests were performed or that a local network is permitted |
+
+**Decision rule:** A claim is scoped to its named workload, lifecycle, configuration version, timestamp and test. Even when two cases use the same type of boundary, their evidence is not transferable without a documented inheritance decision. A premises-only system may use approved **local** networking if its signed requirements allow it; an **air-gapped** system rejects every inbound and outbound network route. If an offline model licence, adequate local quality, capacity or recoverability cannot be demonstrated, record **BLOCKED** or **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** rather than substituting remote inference.
+
+**PM artifact addendum:** For each exercise, write `case_id`, `physical_boundary`, `policy_issuer`, `artifact_version`, `test_time`, `evidence_state` and `decision_owner` on the first line of your decision memo. Mark unspecified facts **UNKNOWN**. For Question 6, predict the timeout result **before** examining the synthetic trace; distinguish an observed synthetic restricted-label route from a verified real-data disclosure.
+
+**Learner check:** If PLANT-02 passed a local-network test yesterday, does that prove PLANT-Q6 can use the same gateway after its T1 update? **No evidence transfers by name or resemblance alone.** State the new test and accountable owner needed to make a decision. Keep the detailed solution in the separate facilitator key.
+
 ## 2A. Knowledge assessment and decision scenario
 
 **Release decision first:** The following exercises assess your ability to **reject ineligible options before comparing maturity or cost**. Do not use a single sovereignty score to excuse a physical-boundary violation. This assessment uses fictional organizations and synthetic data only. The real product in Question 5 is discussed using its actual publicly documented deployment categories, not as a verified deployment by the fictional buyer.
