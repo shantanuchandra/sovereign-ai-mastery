@@ -198,3 +198,38 @@ byId('priority-filter').addEventListener('change', (event) => {
 
 renderFeatures();
 renderScenario();
+
+const themeButton = byId('theme-toggle');
+const themeLabel = byId('theme-label');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+const themeKey = 'metis-roadmap-theme';
+let selectedTheme;
+
+try {
+  const saved = window.localStorage.getItem(themeKey);
+  if (saved === 'light' || saved === 'dark') selectedTheme = saved;
+} catch {
+  // Theme switching still works when storage is unavailable.
+}
+
+function applyTheme() {
+  const theme = selectedTheme ?? (systemTheme.matches ? 'dark' : 'light');
+  const nextTheme = theme === 'dark' ? 'Light' : 'Dark';
+  document.documentElement.dataset.theme = theme;
+  themeLabel.textContent = nextTheme;
+  themeButton.setAttribute('aria-label', `Switch to ${nextTheme.toLowerCase()} theme`);
+}
+
+themeButton.addEventListener('click', () => {
+  selectedTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme();
+  try {
+    window.localStorage.setItem(themeKey, selectedTheme);
+  } catch {
+    // The selected theme still applies to this page.
+  }
+});
+
+systemTheme.addEventListener('change', applyTheme);
+applyTheme();
+themeButton.hidden = false;
