@@ -129,3 +129,38 @@ test('on-premises learning journal records hard boundary and precise test',()=>{
   assert.match(md,/removable-media/);
   assert.match(md,/on-prem/i);
 });
+
+test('Module 02 A-03: all selectable Studio paths reject air-gap network and remote operators',()=>{
+  for(const connectivity of Object.keys(LABELS.connectivity)){
+    for(const operator of Object.keys(LABELS.operator)){
+      const b=createBlueprint({...PRESETS.factory,connectivity,operator});
+      const eligible=connectivity==='disconnected'&&['enterprise','onsite_partner'].includes(operator);
+      assert.equal(b.status,eligible?'PROVISIONAL':'BLOCKED',JSON.stringify({connectivity,operator}));
+      if(!eligible){
+        assert.equal(b.pattern,'gated',JSON.stringify({connectivity,operator}));
+        assert.ok(b.controls.every(c=>c.evidence!=='PASS'));
+      }
+    }
+  }
+});
+test('Module 02 A-03: premises-only hard gate cannot be cleared by evidence label or release stage',()=>{
+  for(const evidence of Object.keys(LABELS.evidence)){
+    for(const stage of Object.keys(LABELS.stage)){
+      for(const capacity of ['managed','hybrid','public_cloud','colo']){
+        const b=createBlueprint({...PRESETS.onsite,evidence,stage,capacity});
+        assert.equal(b.status,'BLOCKED',JSON.stringify({evidence,stage,capacity}));
+        assert.equal(b.pattern,'gated');
+        assert.ok(b.controls.every(c=>c.evidence!=='PASS'));
+      }
+    }
+  }
+});
+test('Module 02 A-03: local premises with external network options remains blocked',()=>{
+  for(const connectivity of ['internet','flexible','private_links']){
+    for(const evidence of Object.keys(LABELS.evidence)){
+      const b=createBlueprint({...PRESETS.onsite,connectivity,evidence});
+      assert.equal(b.status,'BLOCKED',JSON.stringify({connectivity,evidence}));
+      assert.equal(b.pattern,'gated');
+    }
+  }
+});
