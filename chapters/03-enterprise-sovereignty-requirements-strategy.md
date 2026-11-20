@@ -214,8 +214,6 @@ Copy this schema into a product requirements document or CSV; complete one row p
 
 **Assessment boundary:** Do not include a worked answer in this learner-facing section. Facilitator solutions belong in the separate Module 03 solution key when the module assessment is authored. The framework is educational and must not be represented as a legal classification, penetration test, independent audit or production certification.
 
-**Next header:** 3.3, *Security and compliance requirements vs. additional sovereignty objectives*.
-
 **Next header:** 3.3, *Security and compliance requirements vs. additional sovereignty objectives*. Module 03 remains a draft pending the rest of the TOC, the dedicated lab, separate facilitator solutions, HTML/social assets and two distinct critical reviews.
 
 [^nist-map-31]: NIST, *Artificial Intelligence Risk Management Framework 1.0*, NIST AI 100-1 (**2023**), [AI RMF Core, MAP 1.1 and MAP 1.4](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/), directly checked **20 November 2026**. MAP 1.1 addresses documenting purposes, laws, expectations and prospective deployment settings; MAP 1.4 covers the clearly defined business value/context. **Neither** prescribes sovereign AI hosting or defines the course-authored investment categories.
