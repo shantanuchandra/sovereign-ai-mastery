@@ -1133,3 +1133,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Document-level overflow with zero slide-level overflow points toward parent grid intrinsic sizing or header content, not slide height. Use actual CI tracebacks and component-level measurements before attributing root cause.
 
 **Next header:** Resolve Module 03 release HOLD, then **4.1 UAE National AI Strategy 2031 and national priorities**.
+
+
+## Improvement entry 060 | 2026-11-21 | Prove Module 03 overflow detection with an adverse fixture
+
+**Priority and source state:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, the current Module 03 carousel HTML, its rendered browser/PDF test and the available improvement history. Module 03 review gates remain HOLD, so no advance to 4.1. The latest visible repository commits before this iteration were 9ec593e and 3c266ef. The current ledger file returned by GitHub ends at entry 058 despite a prior report of entry 059; do not infer a missing entry was persisted.
+
+**Actual code commit:** [1029ea5f24de52227a848f3e3ab3c3a0b368c966](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1029ea5f24de52227a848f3e3ab3c3a0b368c966) adds a synthetic offscreen DOM probe at the 195px viewport. It asserts that the existing document scroll-width measurement detects more than the unchanged 2px threshold, then removes the probe before running real responsive checks. This tests the test's sensitivity, not whether the real layout passes. No learner material or assessment key was rewritten.
+
+**Checks actually performed:** Fetched current source and verified its test structure and carousel CSS, inspected recent repository commits, and performed a GitHub blob-SHA-guarded update. The GitHub connector accepted the code commit. The mutation fixture and full Playwright/PDF test were **not executed** in this iteration. The public Actions listing was unavailable through the web interface; the commit-specific connector exposes only PR-triggered runs, so no latest push Pages conclusion could be verified. Deployment remains **UNVERIFIED**.
+
+**Open release blockers:** Verify actual Pages CI on the new commit, inspect the 195px overflow diagnostics if failing, and fix the responsible element rather than loosening tolerance. Run lab negative-path checks, primary-source quote audit, manual browser/keyboard/PDF checks, assessment calibration, and close two distinct bounded technical/security/source and editorial/accessibility/assessment GPT-6 self-review records. Independent human/model review and assistive-technology certification remain NOT COMPLETED. Public repo remains synthetic-data-only.
+
+**Improvement lesson:** A test that reports an overflow number needs an adverse control demonstrating the detector would fail on intentionally bad layout; this does not replace a passing real-browser run. Avoid claiming an unobserved Pages deployment.
+
+**Next header:** Module 04, **4.1 UAE National AI Strategy 2031 and national priorities**, only after Module 03 release gates close.
