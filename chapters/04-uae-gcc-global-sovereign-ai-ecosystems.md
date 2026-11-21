@@ -353,5 +353,94 @@ The sponsor says: “We have Saudi hosting and an Arabic model. Can we approve t
 [^ksa-pdpl-43]: Saudi Data & AI Authority, *Personal Data Protection Law*, Article 29, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL/, inspected 22 November 2026. Applicability must be assessed by counsel.
 [^ksa-transfer-43]: Saudi Data & AI Authority, *Regulation on Personal Data Transfer Outside the Kingdom*, Articles 4–7, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2/, inspected 22 November 2026. Interpret together with PDPL and current implementing instruments.
 
-**Next:** §4.4 compares other GCC opportunities without treating the region as one legal jurisdiction. Module 04 cumulative lab, assessment, solutions, social publication and reviews remain incomplete.
 
+
+### 4.4 Other GCC opportunities and regional comparisons
+
+**Decision:** Qatar, Oman, Bahrain and Kuwait offer different AI opportunities and assurance obligations. Do not purchase a “GCC sovereign” solution merely because its supplier invokes a national strategy. A policy signal can identify an opportunity; a specific workload still needs jurisdictional review, named-location and network controls, and independently reviewable operating evidence. This is an educational comparison inspected **22 November 2026**, not a complete legal opinion.
+
+#### Four national signals, four different buyer questions
+
+| Jurisdiction | Source-backed signal | Enterprise opportunity hypothesis | What remains unproved |
+|---|---|---|---|
+| Qatar | HBKU/QCRI reports that its blueprint was adopted as Qatar's national AI strategy at QITCOM in **2019**.[^gcc-qatar-44] | Arabic and bilingual public-service knowledge assistants, with local language evaluations | Vendor permission, actual model accuracy, data-flow control or legal compliance |
+| Oman | MTCIT's National Programme for AI and Advanced Digital Technologies runs **2024–2026**, describing open data, AI research and language-model initiatives.[^gcc-oman-44] | Government workflow discovery, Omani-language retrieval and industrial knowledge management | That announced programme components are operational, purchasable or eligible for restricted workloads |
+| Bahrain | The government General Policy for the Use of AI was approved **20 May 2025** and explicitly addresses compliance by **government entities**.[^gcc-bahrain-44] | Public-sector assurance tooling, oversight processes and procurement readiness | That every private business has identical duties or that a particular supplier is certified |
+| Kuwait | UNDP and CAIT described an AI opportunity/capability assessment on **9 September 2026**.[^gcc-kuwait-44] | Public-service discovery, capability assessment and prioritised pilots | That an assessment is a binding rule, an operational platform or a completed national rollout |
+
+A PM must distinguish **issuer fact**, **buyer hypothesis**, **technical test** and **legal applicability**. For example, the Qatar strategy announcement is evidence of a strategy, not of a specific model's Arabic dialect performance. Oman's stated programme period is not evidence that every planned component shipped. Bahrain's policy scope cannot be generalized to all private companies. Kuwait's assessment describes research into opportunities and gaps, not proof of an approved deployment. These distinctions belong in the evidence register.
+
+#### Fictional GCC buyer case and architecture decision
+
+**Fictional scenario, synthetic data only:** Gulf Transit Services (GTS) operates a bilingual service desk, a restricted maintenance archive at a **named Bahrain depot**, and a disconnected safety archive at a **named Oman industrial site**. Procurement proposes a single managed regional model API for all three workloads, arguing that national AI programmes show regional readiness. That argument confuses strategic opportunity with an individual deployment's evidence.
+
+| Candidate | Synthetic shared service desk | Named Bahrain depot only | Physically disconnected Oman archive |
+|---|---|---|---|
+| Managed regional model API | Conditional, after data, subprocessor, support, keys, logs and recovery review | **BLOCKED** if any processing or derivative leaves the named depot | **BLOCKED**: online inference requires a forbidden network route |
+| Buyer-operated local inference | Conditional; compare staffing, Arabic quality and lifecycle cost | **HOLD** until all compute, backup, diagnostics and administration are proved on-site | **HOLD** until physical isolation, offline licences and cold recovery are witnessed |
+| Deterministic local search/rules | Preferred baseline if exact answers meet user needs | Conditional on local storage, access and backup tests | Conditional on the same physical network, update and removable-media controls |
+
+**Fail-closed rule:** Restricted sources, prompts, embeddings, generated outputs, evaluation data, logs, telemetry, crash reports, backups and recovery images all count as potential derivatives. A domestic or GCC data centre is not the named depot. For the air-gapped archive, *all* inbound and outbound paths are prohibited, including emergency support, cloud licence checks, hidden management, telemetry, updates and disaster recovery. **Unverified = HOLD; observed forbidden path = BLOCKED.** No support tunnel is permitted. Country-level programme alignment has no authority to waive the enterprise hard gate.
+
+After removing ineligible candidates, compare eligible choices on bilingual evaluation, task quality, latency, staffing, total operating cost, vendor exit, energy and recovery performance. A lower price cannot compensate for a hard-gate failure. Ask legal counsel separately which personal-data, sector, procurement and cross-border obligations actually apply in each jurisdiction.
+
+#### Failure analysis: the disconnected licence surprise
+
+**Pre-test:** The fictional Bahrain depot model answers synthetic queries locally with firewall egress blocked. The supplier calls it sovereign because the invoice and primary compute are in Bahrain. **Observed adverse result:** After a simulated cold restart, the inference process cannot activate because its licence service requires an outbound connection. The firewall correctly denies the request. This is failed recovery, **not evidence of successful exfiltration**.
+
+**Direct cause:** Online activation dependency. **Systemic cause:** Procurement accepted a steady-state demo without mapping licence, update, remote administration and backup paths. **Mitigation:** The product owner blocks release; engineering selects a genuinely offline-capable component or rules-based fallback; security rejects the proposed temporary tunnel; procurement verifies licence terms; operations witnesses cold-start and restore tests. **Retest:** Record physical interface inspection, cold-start output, backup/restore evidence, owner and date before the release board reconvenes. If no eligible candidate remains, the decision is **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**.
+
+#### Hands-on lab: strategy-to-control evidence register
+
+**Time:** 45–60 minutes. **Cost:** zero paid infrastructure; Python 3 standard library. Use only the public sources below and fictional workload records. This is a teaching schema check, not an air-gap, legal or vendor certification.
+
+Create a file named gcc_evidence.csv:
+
+~~~csv
+claim_id,country,issuer,claim_type,workload,hard_gate,evidence_state,owner,disposition
+QA-01,Qatar,HBKU,strategy_signal,DESK-GCC,no,source_only,Product,REVIEW_REQUIRED
+OM-01,Oman,MTCIT,programme_signal,AIRGAP-OM,yes,missing,Security,HOLD
+BH-01,Bahrain,Bahrain Government,policy_scope,DEPOT-BH,yes,missing,Legal,HOLD
+KW-01,Kuwait,UNDP,opportunity_assessment,DESK-GCC,no,source_only,Product,REVIEW_REQUIRED
+~~~
+
+Save the following as check_gcc.py and execute with python3 check_gcc.py:
+
+~~~python
+import csv
+from pathlib import Path
+
+with Path("gcc_evidence.csv").open(encoding="utf-8", newline="") as source:
+    rows = list(csv.DictReader(source))
+assert len(rows) == 4, "Expected four synthetic country records"
+assert len({row["claim_id"] for row in rows}) == 4, "Duplicate claim ID"
+assert {row["country"] for row in rows} == {"Qatar", "Oman", "Bahrain", "Kuwait"}
+for row in rows:
+    assert row["disposition"] in {"HOLD", "BLOCKED", "REVIEW_REQUIRED"}
+    if row["hard_gate"] == "yes":
+        assert row["disposition"] in {"HOLD", "BLOCKED"}, "Hard gate bypassed"
+        assert row["evidence_state"] != "source_only", "Strategy is not physical proof"
+print("Synthetic schema valid; no real deployment certified")
+~~~
+
+**Negative-path tests:** (1) Change OM-01 disposition to REVIEW_REQUIRED; the script must reject a bypassed hard gate. (2) Change BH-01 evidence_state to source_only; the script must reject substituting a government source for observed physical control. Restore both rows. Record the exact command, interpreter version, expected/actual result and timestamp. The examples are proposed exercises, **not claimed executed tests**.
+
+**PM artefact:** Prepare a two-page GCC opportunity-and-assurance decision record with the four dated sources, a measurable buyer problem per country, jurisdiction-specific legal questions, full data/control-plane dependency inventory, architecture alternatives, hard-gate dispositions, evidence owner, no-AI fallback, review date and conditional recommendation. The [course ontology](../taxonomy/ONTOLOGY.md) distinguishes jurisdiction, national programme, workload, contractual boundary, evidence claim, deployment candidate and acceptance owner; the course-authored relationship “programme signals opportunity” never means “programme certifies deployment”.
+
+**Learner challenge:** A board member says the four country initiatives jointly establish a uniform GCC sovereign-AI approval. In 300 words, identify three category errors, select a defensible initial GTS pilot, specify which workloads stay held or blocked, and name a falsifiable test that could change one decision. Keep the worked answer in the separate Module 04 facilitator key.
+
+#### Primary-source quotation ledger
+
+| Claim | Short exact issuer quotation | Primary issuer, pinpoint and inspection | Evidence limit |
+|---|---|---|---|
+| GCC-44-QA | “national Artificial Intelligence (AI) strategy” | HBKU, [QCRI national strategy announcement](https://www.hbku.edu.qa/en/news/qitcom-qcri-hbku), QITCOM 2019; inspected 22 November 2026 | Strategy, not deployment assurance |
+| GCC-44-OM | “National Program for Artificial Intelligence and Advanced Digital Technologies” | Oman MTCIT, [programme publications](https://mtcit.gov.om/sectors/ai/publications), programme 2024–2026; inspected 22 November 2026 | Programme, not completion certification |
+| GCC-44-BH | “all government entities are required to comply” | Bahrain Government, [General Policy for the Use of AI, §8](https://www.nea.gov.bh/Documents/GeneralAIPolicy.pdf), approval 20 May 2025; inspected 22 November 2026 | Express government-entity scope |
+| GCC-44-KW | “opportunities, capabilities and priorities” | UNDP and Kuwait CAIT, [assessment announcement](https://www.undp.org/kuwait/press-releases/kuwait-assesses-ai-opportunities-and-priorities), 9 September 2026; inspected 22 November 2026 | Assessment, not operational proof |
+
+[^gcc-qatar-44]: Hamad Bin Khalifa University, *MOTC Announces Qatar's National Artificial Intelligence Strategy*, https://www.hbku.edu.qa/en/news/qitcom-qcri-hbku. QITCOM 2019 account, inspected 22 November 2026; exact page publication timestamp not independently established.
+[^gcc-oman-44]: Oman Ministry of Transport, Communications and Information Technology, *Publications of the National Program of AI*, https://mtcit.gov.om/sectors/ai/publications. Stated 2024–2026 period; inspected 22 November 2026.
+[^gcc-bahrain-44]: Government of Bahrain, *General Policy for the Use of Artificial Intelligence*, §8, https://www.nea.gov.bh/Documents/GeneralAIPolicy.pdf. Approval 20 May 2025, inspected 22 November 2026. Do not extrapolate government scope to every private firm.
+[^gcc-kuwait-44]: UNDP and Kuwait Central Agency for Information Technology, *Kuwait Assesses AI Opportunities and Priorities*, 9 September 2026, https://www.undp.org/kuwait/press-releases/kuwait-assesses-ai-opportunities-and-priorities. Inspected 22 November 2026.
+
+**Next:** §4.5 compares India, the EU, the US and China without conflating policy direction and enforceable controls. Module 04 cumulative lab, assessment, separate solutions, social/PDF assets and both reviews remain incomplete.
