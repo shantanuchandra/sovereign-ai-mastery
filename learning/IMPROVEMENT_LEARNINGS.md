@@ -1056,3 +1056,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Authoring a social deck and copying its files into a deployment tree does not guarantee that learners can discover it or follow working links. Release assertions should cover the full journey from chapter to HTML teaching deck to generated PDF, including spoiler separation. Do not equate a new CI step with an observed passing run.
 
 **Next action/header:** Verify the exact Pages run and failure logs for the new export, repair any failed QA first, finish Module 03 review gates, then **4.1 UAE National AI Strategy 2031 and national priorities**.
+
+
+## Improvement entry 055 | 2026-11-21 | Repair observed Module 03 Pages CI regression
+
+**Priority and inspected state:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md and the latest improvement/review disposition history. Module 03 headings and publication artifacts exist, but both bounded GPT-6 self-review gates remain HOLD. Inspected GitHub Pages run [44856334507](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44856334507) on commit 236447e: completed **failure**. Its deploy job failed specifically at `Validate Module 03 social accessibility source and mutation contract`. The six other tests in that suite passed, including the duplicate-ID mutation fixture. The failing assertion still required a Markdown chapter URL, whereas the previous publication fix correctly changed the carousel link to the published HTML chapter. This was a stale test expectation, not evidence that the deployed link works.
+
+**Actual fix commit:** [37185815b8eac55fefeb77052a5630ae8ed5d215](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/37185815b8eac55fefeb77052a5630ae8ed5d215) updates only `qa/test_module03_social_contract.py` to assert `../../modules/03-enterprise-sovereignty-requirements-strategy.html`, matching the existing HTML source. No finished chapter or learner content was rewritten.
+
+**Checks actually performed:** Retrieved failed workflow job logs and identified the exact assertion and expected/actual URLs; fetched current test file and made a blob-SHA-guarded GitHub update. GitHub accepted the fix. No local Python, rendered browser, PDF export or production security test was executed in this iteration. The workflow list still showed the preceding failed run immediately after the commit; **the new commit's CI and Pages deployment are not yet verified**. Do not mark either review gate PASS on this evidence.
+
+**Unresolved risks and review disposition:** New CI must be observed to completion, including social source/mutation, rendered carousel, PDF exporter, link assertions, lab and assessment steps. Source quotation audit, manual reflow/keyboard/PDF checks, learner calibration and documented final dispositions remain open. The public repository is synthetic-data-only; no independent review, legal advice, physical air-gap proof or production certification is claimed.
+
+**Improvement lesson:** When changing a public-facing URL, update the matching release contract in the same commit; a previously passing test can become a release blocker even when the new navigation target is intentional. Use the first failed CI step and its actual log before attempting broad changes.
+
+**Next action/header:** Verify Pages CI on the fix and repair any next failing step, then close both Module 03 review gates with bounded evidence before proceeding to **4.1 UAE National AI Strategy 2031 and national priorities**.
