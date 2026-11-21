@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Export the synthetic Module 03 teaching deck. Not a tagged accessible PDF."""
+import re
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from pypdf import PdfReader
@@ -8,7 +9,15 @@ ROOT = Path(__file__).resolve().parents[2]
 HTML = ROOT / "social/module-03/CAROUSEL.html"
 OUTPUT = ROOT / "dist/social/module-03/QUESTIONS.pdf"
 
+def normalize_pdf_heading(text):
+    """Normalize PDF hyphen line wraps without dropping heading words."""
+    text = re.sub(r"(?<=\w)-[ \t]*\n[ \t]*(?=\w)", "-", text)
+    return " ".join(text.split())
+
+
 def main():
+    assert normalize_pdf_heading("named-\nfactory rule?") == "named-factory rule?"
+    assert normalize_pdf_heading("two words\nnext line") == "two words next line"
     assert HTML.is_file()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as pw:
@@ -28,9 +37,9 @@ def main():
     for i, p in enumerate(pdf.pages):
         assert abs(float(p.mediabox.width) - 576) <= 1
         assert abs(float(p.mediabox.height) - 720) <= 1
-        extracted = " ".join((p.extract_text() or "").split())
+        extracted = normalize_pdf_heading(p.extract_text() or "")
         assert len(extracted) > 100, f"Missing text on page {i+1}"
-        assert " ".join(headings[i].split()) in extracted, f"Heading missing on page {i+1}"
+        assert normalize_pdf_heading(headings[i]) in extracted, f"Heading missing on page {i+1}"
     print(f"Verified 8 pages, 8x10 inches and extractable text: {OUTPUT}")
     print("Not a tagged PDF or assistive-technology certification")
 
