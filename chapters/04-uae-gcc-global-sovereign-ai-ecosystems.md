@@ -7,7 +7,7 @@
 | Part / week | II: Regional policy, regulation and governance / Week 4 |
 | Intended reader | Enterprise AI product manager or platform leader |
 | Previously learned | [Module 03: requirements, hard gates and investment choices](03-enterprise-sovereignty-requirements-strategy.md) |
-| Publication status | **Section 4.1 substantive draft**; sections 4.2–4.7, cumulative lab/quiz, answer key, social publication and module-wide reviews still to be authored |
+| Publication status | **Teaching sections 4.1–4.5 drafted; sections 4.6–4.7, cumulative lab, assessment/solutions, social HTML/PDF and both critical reviews pending** |
 | Evidence baseline | Official UAE Cabinet adoption announcement, 21 April 2019; UAE AI Office strategy, read 21 November 2026 |
 | Lab data | Public government strategy plus entirely fictional/synthetic enterprise workloads |
 | Decision artifact | National-priority-to-enterprise-opportunity map with evidence and approval gaps |
@@ -443,4 +443,109 @@ print("Synthetic schema valid; no real deployment certified")
 [^gcc-bahrain-44]: Government of Bahrain, *General Policy for the Use of Artificial Intelligence*, §8, https://www.nea.gov.bh/Documents/GeneralAIPolicy.pdf. Approval 20 May 2025, inspected 22 November 2026. Do not extrapolate government scope to every private firm.
 [^gcc-kuwait-44]: UNDP and Kuwait Central Agency for Information Technology, *Kuwait Assesses AI Opportunities and Priorities*, 9 September 2026, https://www.undp.org/kuwait/press-releases/kuwait-assesses-ai-opportunities-and-priorities. Inspected 22 November 2026.
 
-**Next:** §4.5 compares India, the EU, the US and China without conflating policy direction and enforceable controls. Module 04 cumulative lab, assessment, separate solutions, social/PDF assets and both reviews remain incomplete.
+### 4.5 India, EU, US, and China: comparative approaches
+
+**Decision in brief:** Global AI policy is not a menu of interchangeable sovereign-cloud certifications. India describes an AI capability and adoption mission; the EU has directly applicable AI legislation with staggered duties and exceptions; the US federal executive has announced an AI competitiveness and infrastructure programme; and China applies specific rules to certain public-facing generative-AI services. For a UAE enterprise, the relevant question is not “Which country has the strongest AI strategy?” It is **which exact activity, actor, data flow and territory brings an enforceable obligation or an approved business-control objective into scope**.
+
+This is a **dated policy comparison as of 22 November 2026**, not an exhaustive legal opinion. Law and programme status can change, and an English-language summary must not stand in for counsel's review of primary legislation and any sector-specific rules. All workloads, companies, rankings and operating events below are fictional educational scenarios.
+
+#### Four jurisdictions, four different types of signal
+
+| Geography and issuer | What the primary issuer actually says | What an enterprise PM can infer | What the issuer's statement **does not** prove |
+|---|---|---|---|
+| **India: IndiaAI Mission** | India's Ministry of Electronics and IT describes the **“IndiaAI Compute Pillar”** and indigenous foundation-model work among seven mission pillars in its **29 July 2026** parliamentary/public-service announcement.[^india-pib-45] | There are government-sponsored programmes addressing compute access, models, applications, skills, datasets, responsible AI and financing; evaluate actual eligibility, services, pricing and rights separately | It does not mean a model deployed through the mission is approved for a UAE plant, available in every Indian region, compliant with every data law or physically isolated |
+| **EU: AI Act** | The Council's 2026 timeline records the staged application of AI Act requirements and gives **“2 December 2027”** for the revised application of rules for certain stand-alone high-risk systems.[^eu-timeline-45] | Classify the product's intended use and provider/deployer/importer roles; ask counsel which provisions, dates and territorial reach actually apply | The AI Act is not a blanket command to host every AI model within the EU or proof of a data-centre's sovereign operations |
+| **US: federal AI Action Plan** | The White House's **23 July 2025** release describes **“over 90 Federal policy actions”** across innovation, infrastructure and international diplomacy/security pillars.[^us-plan-45] | Examine technology supply, export dependencies, federal procurement requirements where applicable, infrastructure partnerships and supplier concentration | An executive strategy announcement is not, by itself, a universal private-enterprise residency requirement, an executed supplier contract or evidence of export permission |
+| **China: generative AI service Interim Measures** | The Cyberspace Administration of China's Order No. 15, published **13 July 2023** and effective **15 August 2023**, specifies services **“向中华人民共和国境内公众提供”** (working English gloss: provided to the public within China) in **Article 2**.[^china-cac-45] | First determine whether the service is offered to the Chinese public and the applicable provider/processing roles; have qualified counsel inspect the Chinese original and related requirements | Do not apply the public-service framework without analysis to every internal R&D experiment or infer that a Chinese model is necessarily deployed inside China |
+
+**Source precision:** The IndiaAI and US documents above are programme or executive policy **direction**; they are not the same type of legal instrument as the EU AI Act or China's Order No. 15. Even for the latter two, applicability requires actual product-role, geography, release-date and activity analysis. This section does not invent a blanket “AI sovereignty law” for India, the United States, the EU or China.
+
+#### A careful EU timeline, not a recycled 2024 headline
+
+The AI Act's general milestones cannot be described accurately as “everything came into force in 2026.” The [Council's 2026 timeline](https://www.consilium.europa.eu/en/policies/artificial-intelligence-act/timeline-artificial-intelligence/) and the [Commission's AI Act Service Desk](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act) show staggered applicability:
+
+| Milestone | Dated status in the checked issuer material | PM implication |
+|---|---|---|
+| **1 August 2024** | Entry into force | Do not assume every requirement applied immediately |
+| **2 February 2025** | Prohibitions, relevant general definitions and AI literacy provisions began applying | Map the actual prohibited or covered practice, not just the model brand |
+| **2 August 2025** | General-purpose AI obligations and governance rules started applying | Distinguish model-provider duties from downstream deployer duties |
+| **2 August 2026** | Further provisions and enforcement of applicable rules began, including transparency requirements | Check the product and user-facing disclosure obligations that actually apply |
+| **2 December 2027** | Revised start for certain **Annex III** high-risk AI systems | A deadline is not approval to deploy unsafely before it; existing sector or privacy law can still apply |
+| **2 August 2028** | Revised start for certain high-risk AI integrated in **Annex I** regulated products | Identify the exact use and relevant sector/product framework |
+
+These dates reflect the **2026 EU legislative simplification** shown in the official timeline consulted on 22 November 2026. Do not reuse an old implementation table without checking amendments and official corrections. The enterprise legal team must evaluate extraterritorial scope and whether the company is a provider, deployer, importer or distributor; “an American API used by a UAE firm” alone does not answer those questions.
+
+#### Four-country comparison through a fictional cross-border product portfolio
+
+**Fictional enterprise:** Crescent Gulf Industrial Services (CGIS) is headquartered in the UAE. It proposes four products. No real customer, regulatory decision, vendor licence or data transfer is asserted.
+
+| Workload | Candidate commercial geography | Initial policy question | Hard architectural gate and present state |
+|---|---|---|---|
+| **GCC-POLICY-45**: synthetic multilingual employee Q&A | Consider India- or US-supplied models and any eligible controlled hosting | Is the exact procurement/model licence, location, retention and supplier support arrangement approved? | **UNVERIFIED**, not automatically barred. A government programme or executive initiative is only a market signal |
+| **EU-HR-45**: recruitment-screening assistance for hypothetical EU-facing operations | An EU-facing process with a third-party model | Is the intended use a regulated high-risk case, and what specific provider/deployer duties and dates apply? | **LEGAL/PRODUCT REVIEW REQUIRED**. Do not equate model location with AI Act fulfilment; no automatic approval during a transition |
+| **CN-PUBLIC-45**: proposed Chinese-public text-generation service | Service aimed at the public in China | Does China's Article 2 and related service framework apply? What content, personal-information, provider and filing questions arise? | **LEGAL REVIEW REQUIRED**, with original Chinese text and service scope. No claim that all China-related AI R&D is governed identically |
+| **PLANT-45**: confidential factory engineering assistant | Supplier quotes US, Indian and regional compute options | Signed fictional customer rule: **all restricted processing and derivatives remain inside the one named physical plant in the UAE** | All off-plant inference, telemetry, support exports, evaluation and backups are **REJECTED**, regardless of supplier country or price; local design remains **UNVERIFIED** until tested |
+
+For **PLANT-45**, the specific physical-site constraint is a fictional contract/enterprise handling rule, **not** a general assertion that UAE law requires all industrial AI to be on premises. The boundary includes prompts, retrieval chunks, embeddings, responses, model adaptations, evaluation files, logs, crash diagnostics, backups and support bundles. An Indian or US provider that advertises regional storage would not meet the plant's rule if inference or support processing leaves that building. A site-owned GPU does not pass if its supplier gateway silently routes requests off-site.
+
+**Additional physical air-gap case:** A separate fictional OT reference workload permits **no inbound or outbound network connections at all**, including private links, emergency telemetry, online licence servers or remote patch tunnels. Countries' AI ambitions do not waive that condition. A signed offline package and witnessed local recovery may be possible, but they need acceptance evidence. If no licensed, capable, supported offline implementation can operate within the condition, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** and offer a safe manual/non-AI workflow.
+
+#### Policy-type classification before choosing technology
+
+Use the following four questions in order when a board member cites a national policy as evidence of supplier eligibility:
+
+1. **Instrument:** Is the cited text an enacted obligation, agency rule, court interpretation, executive programme, procurement scheme, voluntary guidance or news announcement? Record issuer, version, operative date and exact provision.
+2. **Scope:** Does it cover the product's intended use, service audience, actors and territory? Assign counsel to applicability and preserve **UNKNOWN** until determined.
+3. **Obligation versus opportunity:** Is the enterprise required to perform a test, retain records, register, restrict conduct or arrange human oversight, or is the government announcing an investment opportunity and capability programme?
+4. **Runtime evidence:** Regardless of the policy answer, can the proposed model, gateway, admins, logs, diagnostics, failover and recovery pass the enterprise's independently defined security and physical-boundary tests?
+
+A “region-compliant model” claim is invalid unless the team knows which precise requirement, product/version, data class, processing path and reviewer are being referenced. Separate **country of model origin**, **location of deployment**, **where inference/derivatives are processed**, **who operates the platform**, **which country's laws apply**, and **who owns model/exit rights**. These axes are independent; the course-authored taxonomy is in the [ontology](../taxonomy/ONTOLOGY.md).
+
+#### Failure RCA: a geography label overrules an on-site contract
+
+**Fictional controlled test:** The CGIS plant purchases a licensed local-serving stack for PLANT-45 because the board wants a cross-border supplier partnership. Procurement uses a national AI mission press release and a vendor's “regional compute” brochure as its site-eligibility evidence. A controlled timeout then triggers a preconfigured hosted fallback in another country. A synthetic restricted-document marker appears in outbound proxy logs.
+
+| Investigation element | Finding and corrective action |
+|---|---|
+| **Observed vs. required** | A synthetic restricted label was **attempted** off the one approved factory site; the enterprise requires no such route. This is a failed architecture test, **not a verified real customer-data breach** |
+| **Direct technical cause** | Gateway failover endpoint was remote rather than local-only |
+| **Contributing procurement root cause** | Review confused government innovation programme, supplier location claim and a signed physical-premises obligation; the degraded-mode path was absent from the dependency register |
+| **Immediate containment** | Platform owner disables external fallback; network/security captures sanitized traces and checks historical access; plant data owner blocks restricted deployment |
+| **Corrective architecture** | Deny unapproved egress, require an eligible local fallback or explicit controlled failure, use local-only diagnostics and approved offline support/backup paths |
+| **Retest** | Test normal inference, timeout, crash, vendor update, admin support, restore and licence cold-start. Inspect config hash, physical and network destinations and authorized operator activity |
+| **Closure** | Data owner accepts the site result; CISO/security signs observed traces; procurement/legal verifies the applicable contract and supplier rights; PM documents no-go or bounded conditional go |
+
+**Root cause:** A geopolitical policy label was used as a shortcut for a *workload-specific acceptance test*. The remedy is not to choose a more politically attractive supplier without changing the evidence. It is to preserve the hard site/network rule, retest the complete control plane and make any waiver the responsibility of the actual policy/contract owner.
+
+#### Hands-on: build a four-jurisdiction source-to-decision ledger
+
+**Duration:** 50–65 minutes. **Cost:** no GPU or paid API. Work with the four official sources and fully synthetic workload IDs. This table uses only course-authored categories; it is not a regulation classifier.
+
+| Record | Issuer / document type | Role-scope question | Required action before a product decision |
+|---|---|---|---|
+| IND-45 | India MeitY / government mission announcement | Is CGIS seeking programme services or merely buying a model? | Verify real service/SKU availability and procurement, and do not infer any UAE factory approval |
+| EU-45 | EU institutions / AI Act and current timeline | What actual actor, intended use and date create duties? | Have counsel map specific provisions and supporting governance/evaluation evidence |
+| USA-45 | White House / executive AI Action Plan | Does a real federal procurement, export or supplier obligation apply to CGIS? | Separate policy ambition from binding supplier contract and export/use rights |
+| CHN-45 | CAC / Order No. 15 and original Article 2 | Is the proposed service public-facing within China, or internal R&D? | Review original-language provision and other applicable rules with local counsel |
+
+**Test procedure:** Construct a CSV with \`claim_id,jurisdiction,instrument_type,primary_url,applicable_role,hard_gate,evidence_state,owner,decision\`. Add four rows using the URLs below; add \`PLANT-45\` as a fifth row with \`hard_gate=yes\`, \`evidence_state=asserted\` and \`decision=HOLD\`. Write a tiny Python standard-library assertion that no \`hard_gate=yes\` row can have \`decision=APPROVE\` unless \`evidence_state=verified_for_scope\`, and that any legal \`applicable_role=unknown\` row is never automatically \`APPROVE\`. Then **deliberately violate both rules** in a scratch copy and verify the assertion fails. Record expected vs observed, tester, timestamp and correction. This is a **proposed offline educational exercise**; no external infrastructure or live law has been tested.
+
+**PM artifact:** Submit a two-page global-policy decision memo with four dated primary-source excerpts, instrument type, applicability owner, actor/role scope, one viable and one rejected architecture for each fictional workload, data/control-plane map, vendor-exit concern, hard-gate evidence list, regulatory unknowns, 30/60/90-day actions and a conditional recommendation. The choice to exclude a supplier must follow an actual enterprise constraint or applicable legal duty, not a nationality stereotype.
+
+**Learner challenge:** A board member says: “India is building national models, Europe regulates AI, America funds infrastructure and China has AI rules, so whichever supplier advertises the word sovereign should pass our GCC deployment.” In 350 words, identify **four category errors**, explain the time-sensitive EU implementation issue, distinguish China's Article 2 audience from an internal R&D scenario, and name two negative tests that a supposedly on-site PLANT-45 candidate must pass. Do not provide a worked answer in the learner chapter; the Module 04 facilitator key will be separate.
+
+#### Primary-source verification ledger, 22 November 2026
+
+| Source and pinpoint | Exact short excerpt observed in issuer material | Limited, defensible use |
+|---|---|---|
+| MeitY/PIB, 29 July 2026, seven IndiaAI pillars | “IndiaAI Compute Pillar” | Government mission category, not a purchased machine or approval |
+| Council of the EU, 29 June 2026 timeline entry | “2 December 2027” | Updated Annex III high-risk timetable, subject to precise legal applicability |
+| White House, 23 July 2025 Action Plan release | “over 90 Federal policy actions” | Federal executive agenda, not a statutory residency rule |
+| CAC, Article 2 of 2023 Interim Measures | “向中华人民共和国境内公众提供” | Original-language public-in-China scope; English rendering above is an **editorial gloss**, not an official translation |
+
+[^india-pib-45]: Government of India, Ministry of Electronics & Information Technology, Press Information Bureau, *IndiaAI Mission Advances AI-Driven Governance and Public Service Delivery through Collaborative Roadmaps, Innovation Challenges and Capacity Building*, **29 July 2026**, https://www.pib.gov.in/PressReleasePage.aspx?PRID=2291062&lang=1&reg=1. Primary issuer text reviewed **22 November 2026**. Programme description, not an enterprise's statutory approval.
+[^eu-timeline-45]: Council of the European Union, *Timeline — Artificial Intelligence*, including **29 June 2026** AI Omnibus adoption/timetable and **2 August 2026** provisions, https://www.consilium.europa.eu/en/policies/artificial-intelligence-act/timeline-artificial-intelligence/; and European Commission AI Act Service Desk, *Implementation Timeline*, https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act. Both inspected **22 November 2026**. Product-specific roles and obligations require specialist interpretation.
+[^us-plan-45]: The White House, *White House Unveils America's AI Action Plan*, **23 July 2025**, https://www.whitehouse.gov/releases/2025/07/white-house-unveils-americas-ai-action-plan/. Official executive announcement inspected **22 November 2026**; this is not presented as an enacted private-sector localization mandate.
+[^china-cac-45]: Cyberspace Administration of China, Order No. 15, *生成式人工智能服务管理暂行办法*, **13 July 2023**, effective **15 August 2023**, Article 2, https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm, original Chinese text inspected **22 November 2026**. The English gloss is author translation, not an official English legal text. The same Article 2 distinguishes non-public research/development/application; other laws may separately apply.
+
+**Next:** §4.6 explores compute, chips, supply chains, energy and geopolitics. The Module 04 cumulative lab, assessment, separate facilitator solutions, social/PDF assets and both reviews are still pending.
