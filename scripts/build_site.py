@@ -48,6 +48,7 @@ def article_content(path,dest,diagram=False):
       'labs/module-01/README.md':'labs/module-01/index.html',
       'labs/module-02/README.md':'labs/module-02/index.html',
       'labs/module-03/README.md':'labs/module-03/index.html',
+      'labs/module-04/README.md':'labs/module-04/index.html',
       'social/module-01/POST.md':'social/module-01/POST.html',
       'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
@@ -186,6 +187,8 @@ def frame(body,page,title,prefix='',article=False,toc=None):
         body=f'''<div class="read-content-header"><div class="book-eyebrow">THE LIBRARY <span>/</span> {html.escape(title)}</div><div class="reading-tools"><span class="chapter-status">CHAPTER IN PROGRESS</span><span class="reading-time">READ / ANNOTATE / REVISIT</span></div></div><div class="prose" data-annotatable="true" data-page-id="{html.escape(page)}">{body}</div><nav class="on-page"><div class="section-number">IN THIS CHAPTER</div>{toc_lines}</nav>'''
         if page=='module01' and title=='Module 01':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../learning/index.html">Practice with the adaptive tutor ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
+        if page=='module04' and title=='Module 04':
+            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a GCC ecosystem claim before buying.</h2><p>Cross-check public issuer sources, classify fictional workload routes, and reject hard-boundary violations.</p><a class="simple-link" href="../labs/module-04/index.html">Open Module 04 evidence lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a></section>'''
         if page=='module03' and title=='Module 03':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Verify the requirement before buying the architecture.</h2><p>Evaluate fictional enterprise constraints, trace controls to evidence and explain the release decision.</p><a class="simple-link" href="../labs/module-03/index.html">Open Module 03 lab ↗</a><a class="simple-link" href="../learning/index.html">Practice in Architecture Studio ↗</a><a class="simple-link" href="../social/module-03/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-03/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module02' and title=='Module 02':
@@ -240,6 +243,7 @@ def main():
       ('labs/module-01/README.md','labs/module-01/index.html','module01','Module 01 lab'),
       ('labs/module-02/README.md','labs/module-02/index.html','module02','Module 02 lab'),
       ('labs/module-03/README.md','labs/module-03/index.html','module03','Module 03 requirements lab'),
+      ('labs/module-04/README.md','labs/module-04/index.html','module04','Module 04 GCC evidence lab'),
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
       ('social/module-02/POST.md','social/module-02/POST.html','module02','LinkedIn post draft 02'),
       ('social/module-03/POST.md','social/module-03/POST.html','module03','LinkedIn post draft 03'),
