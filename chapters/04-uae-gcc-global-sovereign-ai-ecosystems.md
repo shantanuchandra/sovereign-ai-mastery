@@ -7,7 +7,7 @@
 | Part / week | II: Regional policy, regulation and governance / Week 4 |
 | Intended reader | Enterprise AI product manager or platform leader |
 | Previously learned | [Module 03: requirements, hard gates and investment choices](03-enterprise-sovereignty-requirements-strategy.md) |
-| Publication status | **Teaching sections 4.1–4.6 drafted; section 4.7, cumulative lab, assessment/solutions, social HTML/PDF and both critical reviews pending** |
+| Publication status | **Teaching sections 4.1–4.7 drafted; cumulative lab, assessment/solutions, social HTML/PDF and two critical reviews pending** |
 | Evidence baseline | Official UAE Cabinet adoption announcement, 21 April 2019; UAE AI Office strategy, read 21 November 2026 |
 | Lab data | Public government strategy plus entirely fictional/synthetic enterprise workloads |
 | Decision artifact | National-priority-to-enterprise-opportunity map with evidence and approval gaps |
@@ -652,7 +652,124 @@ Use synthetic records and the existing [Architecture & Learning Studio](../learn
 
 **Acceptance checklist:** A 12-node dependency graph, versioned supplier and model-rights inventory, capacity/energy calculation with assumptions, at least five falsifiable tests, one rejected supplier architecture, source-bound board memo, explicit physical-site and air-gap rules, and a named reviewer for each open item. Answers belong to the learner's journal; the future Module 04 facilitator key is separate.
 
-**Next header:** 4.7 Arabic models, local language needs, and cultural adaptation. The Module 04 cumulative evidence lab, five-question assessment plus Q6 RCA, separate solutions, portrait social deck/PDF, and two distinct critical reviews remain required before Module 05.
+### 4.7 Arabic models, local language needs, and cultural adaptation
+
+**Executive product decision:** “Supports Arabic” is not a procurement acceptance criterion. It does not tell a PM whether a model understands Emirati, Saudi, Egyptian, Levantine or North African speech; preserves meaning across Modern Standard Arabic (MSA), English, Arabic-script dialect and Latin-script Arabizi; reads scanned right-to-left forms; handles sensitive cultural expressions appropriately; or can be legally operated within a single physical plant or completely offline. Define **which Arabic users, tasks, modalities, dialects and risks** matter to the business, then demand task-level test results from the exact deployment candidate.
+
+This lesson is a **dated ecosystem and design comparison, 22 November 2026**. Described model names and issuer announcements below are real. The enterprises, test prompts, quality targets, users, scorecards, costs, architecture acceptance decisions and incidents are **fictional**. A regional model origin or successful public benchmark is not evidence that an enterprise has lawful model rights, independent control, offline capability, tested quality or an approved country/site deployment.
+
+#### Four Arabic-language model ecosystems, with bounded issuer evidence
+
+| Model family and source | What the issuer actually documents | Concrete PM opportunity | Evidence still missing before procurement |
+|---|---|---|---|
+| **UAE: Falcon Arabic / Falcon-H1 Arabic** | Abu Dhabi's Technology Innovation Institute (TII) launched Falcon Arabic on **21 May 2025**, describing training on native Arabic data including MSA and regional dialects. TII announced **Falcon-H1 Arabic on 5 January 2026**, with **3B, 7B and 34B variants** and a hybrid Mamba–Transformer design.[^tii-arabic-47][^tii-h1-47] | Candidate for a bilingual knowledge assistant, Arabic domain retrieval and locally benchmarked Arabic writing/reasoning | Exact downloadable artefact/version, licence, runtime memory, context quality, regional dialect results, safety, update/diagnostic paths and deployment permissions |
+| **UAE: Falcon-Emirati, Falcon-ASR and Falcon-OCR-Arabic** | TII announced all three on **6 October 2026**. The release describes **Falcon-Emirati as a 7B model** for Emirati vocabulary and cultural context; **Falcon-ASR** for spoken Arabic/Emirati transcription; and **Falcon-OCR-Arabic** for documents/images.[^tii-emirati-47] | Route text, spoken requests and scanned Arabic forms into separately verified tasks, rather than assuming a text LLM solves all three | Measured error rates by speaker/dialect and document type, privacy/consent, layout and handwriting test, model-specific licence and whether each component can run locally/offline |
+| **UAE: JAIS** | Inception's **18 May 2024** JAIS-30B whitepaper describes a **bilingual Arabic/English** model family and deliberately mixed Arabic/English/code training.[^inception-jais-47] | Evaluate code-switching and Arabic-English enterprise Q&A with owned task evidence | Version-specific rights, applicable model release, Arabic dialect coverage, safety, update chain, memory footprint and actual customer hosting |
+| **Saudi Arabia: ALLaM / Qatar: Fanar** | The **21 May 2024** SDAIA–IBM release announced availability of ALLaM through IBM watsonx; this is an **offering statement**, not an assurance about a particular endpoint.[^ibm-allam-47] Qatar Computing Research Institute/HBKU describes **Fanar** as an Arabic-centric platform, and documents Fanar 2.0 work in 2026.[^qcri-fanar-47] | Broaden sourcing for Arabic-centric use cases while comparing supplier rights and actual task performance | Exact current SKU and service lifecycle, any model retirement, region/telemetry/support routes, offline entitlement, procurement terms and customer-specific tests |
+
+**Read vendor benchmarks as claims requiring reproduction.** TII reports favorable Open Arabic LLM Leaderboard results for Falcon-H1 Arabic and an **84.83%** benchmark result for Falcon-Emirati in its October 2026 announcement. These figures are **issuer-reported benchmark outcomes**, not independently reproduced results for a fictional enterprise or proof of quality on its safety-critical corpus. In particular, the named benchmarks' evaluation sets may not match real call-center accents, code-switching, low-quality scans, dialectal negation, legal disclaimers or cultural references. Record benchmark date, model version, sample distribution, contamination risk and human-review protocol before relying on such comparisons.[^tii-h1-47][^tii-emirati-47]
+
+**Model availability and product lifecycle are distinct from research publication.** A conference paper, demonstration platform, model card or press release cannot prove a specific model remains available in a desired region, is licensable for a named factory, or runs without outbound access. A public Falcon chat demonstration is **not an air gap**. An IBM-hosted ALLaM offering is **not physical site-local inference** for a UAE factory. A Qatar-origin Fanar project does **not** automatically make every Qatari or GCC enterprise use case compliant. Procurement must obtain the exact artifact, terms, support/telemetry architecture and version-specific deployment acceptance evidence.
+
+#### Arabic product quality is a multidimensional scorecard
+
+A realistic evaluation does not collapse “Arabic accuracy” into one national or language average. Define at least seven axes, and split each by the relevant **task and user population**:
+
+| Evaluation dimension | Synthetic test prompt or input | Observed behavior needed for a safe product decision |
+|---|---|---|
+| **MSA and dialect recognition** | The same service instruction in MSA, Emirati and another relevant Gulf dialect, including colloquial negation | Preserve intent, entities and negation; route ambiguous dialect to clarification, not confident invention |
+| **Arabic–English code-switching** | Mixed Arabic/English engineering shorthand or service order | Preserve numbers, part IDs, dates and safety terms without altering action |
+| **Arabic script and directionality** | Arabic text beside Latin asset IDs, right-to-left forms, numbers, punctuation and tables | No digit/ID reversal, clipping, broken field mapping or incorrect ordering in HTML/PDF |
+| **Speech and transcription** | Synthetic speakers using different accents, speaking rates and background noise | Measure word/intent error per group, timestamps and escalation on uncertainty |
+| **OCR and document layout** | Printed and scanned Arabic documents, multi-column pages and rotated forms | Compare entity/amount/table extraction against independently annotated ground truth |
+| **Cultural and pragmatic meaning** | Honorifics, culturally sensitive references, idioms and formal/public-service wording | Avoid unsupported stereotypes; use local expert review of tone and safety, not a single token-level benchmark |
+| **Grounded enterprise answers** | A fictional Arabic policy question whose authoritative passage is in an approved corpus | Cite the right source, preserve qualifiers, abstain on missing evidence and never invent policy or legal advice |
+| **Fairness and human support** | Equivalent prompts from different dialects and language proficiency levels | Track subgroup error and escalation; make multilingual/human alternatives available |
+
+**Suggested evidence thresholds are product-specific, not universal:** Ask the data owner to approve, for example, **zero tolerated incorrect critical asset IDs in a witnessed safety sample**, an acceptable word-error/intent-error range per supported dialect, and a documented human-escalation rate. If a subgroup has too few examples to estimate performance, record **INSUFFICIENT EVIDENCE**, not 100% accuracy. Store benchmark *definitions, synthetic ground truth, reviewer notes, confidence intervals where appropriate, and model/version hashes*. High average benchmark rank must not compensate for a hard site-boundary violation or safety failure.
+
+Arabic evaluation needs **expert-reviewed paired samples**, not solely automatic machine translation. Literal translation can erase dialectal pragmatics and culturally specific meanings; ask native-speaking domain reviewers to judge **intent preservation, factual groundedness, respectful language and clinical/industrial safety appropriateness**. A genuinely multilingual product may need separate ASR, OCR, retrieval and response models with distinct rights and logs. Their individual acceptance cannot be replaced by an LLM-only benchmark.
+
+#### Fictional Gulf enterprise: choose the right model, not the most famous model
+
+**Crescent Gulf Industrial Services (CGIS)** has a mixed-language workforce. Every following workload, rule, benchmark outcome and test incident is **invented for the course**.
+
+| Workload | Need and immutable boundary | Candidate architecture | Current evidence-led disposition |
+|---|---|---|---|
+| **DESK-47** multilingual policy finder | Public/synthetic HR text in English, MSA and common UAE dialect expressions; processing only at approved sites | Compare managed bilingual models with an authorized local Arabic retrieval stack | **UNVERIFIED** until citation accuracy, privacy, regional processing and dialect tests are reviewed |
+| **PLANT-47** maintenance instructions | Confidential bilingual engineering documents and mixed Arabic/English asset identifiers; **restricted inputs and all derivatives must stay inside the one named physical FACTORY-A premises** | Local model, index and on-site speech/OCR only if licensed and feasible | **BLOCKED** for any off-plant inference, logging, evaluation, translation, ASR/OCR, support or backup path; **CONDITIONAL** for tested local-only candidates |
+| **OT-47** disconnected reference terminal | Arabic voice and text support in a **fully air-gapped** industrial area | Candidate locally runnable text/ASR, offline packages, no connected APIs | **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** if quality, model rights, clean offline restart or safe recovery cannot be proven |
+| **PUBLIC-47** public-facing fictional service | Dialect-appropriate public information, including accessibility and minority-language support | Task-tested retrieval and response with human escalation | **REVIEW REQUIRED** for audience, content, retention, accuracy and any applicable legal duties; country of model origin does not certify it |
+
+A publicly accessible hosted model may be a reasonable candidate for **DESK-47** after procurement and location review, but that is not permission to send **PLANT-47** confidential material to a remote translation, speech-to-text or OCR endpoint. **The full processing chain** must stay within FACTORY-A, including embeddings, source chunks, prompts, outputs, translated text, transcript files, evaluation data, tuning/adaptations, logs, diagnostics, model monitoring and backup. Same-country external endpoints are **off premises**.
+
+The **OT-47 air gap allows no inbound or outbound network connectivity**, even during patches, support sessions, licence activation, cloud moderation, voice recognition or telemetry. A private link is still connectivity. Locally cached responses do not turn a connected system into a physically disconnected one. A capability gap does not justify silent cloud fallback; choose an approved manual/local non-AI alternative or seek an authorized requirement revision.
+
+#### Failure-mode investigation: the model stays local, the speech transcription does not
+
+**Fictional synthetic incident, not a reported breach:** PLANT-47 runs its Arabic text model and document index on factory GPUs. During a controlled voice-query test, a speech adapter silently routes a synthetic restricted asset-code utterance to an external transcription API. The gateway blocks the outbound request and logs its attempted destination. A benchmark dashboard still calls the product “100% local”, based only on text inference metrics.
+
+| RCA element | Root-cause finding and owned corrective action |
+|---|---|
+| **Expected versus observed** | Entire bilingual voice/text chain should process restricted data *inside FACTORY-A*. A synthetic voice adapter **attempted** a remote transcription request; delivery was blocked. No evidence of a real customer's disclosure is asserted |
+| **Direct technical cause** | ASR adapter's default remote endpoint/fallback was enabled while the local text model passed ordinary tests |
+| **Contributing systemic cause** | Procurement and architecture reviews evaluated Arabic LLM benchmarks, not multi-modal dependency and degraded-mode paths; language-team ownership of ASR was disconnected from data-governance sign-off |
+| **Containment** | Platform owner disables external adapter route, security preserves sanitized DNS/proxy/firewall traces, and plant data owner places voice workflows on HOLD |
+| **Corrective architecture** | Locally runnable and licensable ASR, local transcript storage, local OCR if used, deny-by-default external paths, versioned support/diagnostics and explicit fail-closed behavior |
+| **Reproducible retest** | Synthetic MSA/Emirati/code-switched audio at normal/noisy/timeout/crash/update/restart conditions; inspect **each** model, transcription, RAG, translation, telemetry, support and backup route; correlate config/version hash, host/network traces and independent-in-purpose review |
+| **Closure criteria** | CISO validates denied/offline paths, native-speaking domain reviewer signs task/dialect quality, plant owner accepts the physical rule, legal/procurement checks model and speech licences, PM records release state and expiry trigger |
+
+**Root cause:** A *single-model* locality claim was used to sign off a **multi-component Arabic product**. The network firewall prevented delivery in the synthetic test, but the product still failed the promised **no remote processing attempted** architecture invariant. Correct the service graph and test all modalities, rather than buying a different text LLM without fixing the ASR route.
+
+#### PM artifact: Arabic-language model evaluation and sovereignty card
+
+Produce a two-page **Arabic product readiness board card** covering the following:
+
+| Required field | Minimum evidence |
+|---|---|
+| **User and task scope** | Named users, Arabic variety, MSA/dialect/code-switch, text/speech/OCR modality, risk/safety criticality |
+| **Real model candidate** | Maintainer, family, exact version/hash, source citation/retrieval date, rights and intended deployment mechanism |
+| **Performance and fairness** | Synthetic balanced evaluation slices by dialect/modality, critical numerical/entity accuracy, source citations and native-speaking review |
+| **Architecture and locality** | Every inference/ASR/OCR/translation/RAG/logging/telemetry/diagnostic/support/backup destination; approved physical site/network boundary |
+| **Offline/operational continuity** | Local model package and licence, clean cold start, update custody, failover, resource capacity, restore, RTO/RPO |
+| **Adverse evidence** | Test ID, expected/actual outcome, sanitized traces, owner, date, affected version and corrective retest |
+| **Decision alternatives** | Conditional managed for eligible public tasks, local-only for restricted tasks, non-AI/human alternatives and cost/quality trade-offs |
+| **Release governance** | Data owner, product lead, model evaluator, native dialect reviewer, security, privacy/legal and procurement signatures |
+
+**Do not average away a veto.** A candidate's Arabic quality can be higher in an issuer benchmark and still be rejected for the exact restricted site. Likewise, strong privacy controls cannot make an online ASR path part of a physical air gap.
+
+#### Hands-on lab (55–70 minutes): reproduce a dialect and locality decision
+
+**No real personal, employee or factory data. No model download, cloud account or paid GPU is needed.** Use the official evidence sources below and entirely invented test examples; this exercise records acceptance logic rather than measured language-model performance.
+
+1. Make a **12-row synthetic evaluation set** covering MSA, Emirati colloquial Arabic, another Gulf dialect, Arabic-English code switching, Arabic-script numeric/asset IDs and basic OCR/ASR failure cases. Label the modality, expected intent, critical entity, source text, native reviewer, privacy class and an explicit *do-not-hallucinate* condition. Use invented asset IDs and content only.
+2. Choose two model *families* from the verified evidence table and note **which capability the issuer claims**, what model version/rights you would require and the correct **UNKNOWN** state for unmeasured task quality. Do not invent a leaderboard winner or declare actual dialect accuracy from a launch article.
+3. Build a **modalities-to-destinations matrix** for text model, ASR, OCR, retrieval, translation, embeddings, support, telemetry, logs, tuning/evaluation and backups. Categorize every path as **LOCAL, APPROVED EXTERNAL, FORBIDDEN EXTERNAL or UNKNOWN**, separately for DESK-47, PLANT-47 and OT-47.
+4. Run the [Architecture & Learning Studio](../learning/index.html) with **Strict on-premises IP research assistant**, then **Single premises only; no data or derivatives may leave**. Contrast local compute with **Approved managed AI platform** and predict the hard gate. Repeat with **Air-gapped factory operations** and **Air-gapped: no inbound or outbound network**. The Studio's simulated result does not inspect real ASR or OCR network behavior.
+5. Write a seven-part root-cause analysis for the fictional remote-ASR attempt and a negative retest plan covering normal use, timeouts, crash, updates, restore, support and licence expiry. Name the human owner and evidence needed to re-open the decision.
+
+**Acceptance:** Four things must appear in the learner submission: (a) a balanced synthetic dialect/modality test matrix with an explicit UNKNOWN evidence state, (b) an **all-components data-flow register**, (c) an eligibility-first decision for a named premises and a fully disconnected environment, and (d) a realistic corrective RCA with safe fallback. A missing licence or an unacceptable offline speech model may correctly yield **NOT FEASIBLE UNDER CURRENT CONSTRAINTS**. Worked solutions belong in the separate Module 04 facilitator file, **not** this learner page.
+
+#### Source and claim ledger, inspected 22 November 2026
+
+| Source / pinpoint | Exact or carefully bounded issuer claim | Limitation |
+|---|---|---|
+| TII, 21 May 2025 | Launches **Falcon Arabic** and discusses MSA plus dialectal native data | Model release statement, not measured success for a fictional buyer |
+| TII, 5 January 2026 | **Falcon-H1 Arabic 3B, 7B, 34B** variants and hybrid model | Issuer benchmarks and model information only; exact downloaded rights must be checked |
+| TII, 6 October 2026 | **Falcon-Emirati 7B**, Falcon-ASR and Falcon-OCR-Arabic, with issuer-reported 84.83% Alyah result | Not reproduced by this course, not a real customer QA result |
+| Inception, 18 May 2024 | **JAIS-30B** bilingual model whitepaper and Arabic/English mixing | Dated family documentation, not local/offline certification |
+| IBM/SDAIA, 21 May 2024 | Announce **ALLaM on IBM watsonx** | Supplier announcement, not a contract for a particular UAE plant |
+| QCRI/QCAI Fanar GenAI Platform | Describes Qatar's **Fanar** Arabic-centric research platform, with 2026 Fanar 2.0 research | Research/platform information, not runtime destination or licence approval |
+
+[^tii-arabic-47]: Technology Innovation Institute, [*TII launches Falcon Arabic and Falcon-H1*](https://www.tii.ae/news/middle-easts-leading-ai-powerhouse-tii-launches-two-new-ai-models-falcon-arabic-first-arabic), **21 May 2025**, primary issuer announcement accessed **22 November 2026**.
+[^tii-h1-47]: Technology Innovation Institute, [*TII launches Falcon-H1 Arabic*](https://falconllm.tii.ae/abu-dhabi-tii-launches-falcon-h1-arabic-establishing-the-worlds-leading-arabic-ai-model.html), **5 January 2026**, issuer announcement accessed **22 November 2026**. All comparative benchmark descriptions are TII's own claims.
+[^tii-emirati-47]: Technology Innovation Institute, [*TII launches Falcon-Emirati alongside new Arabic speech and document models*](https://www.tii.ae/news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-speech-and-visual-text), **6 October 2026**, issuer announcement accessed **22 November 2026**. The 84.83% benchmark was not reproduced by this course.
+[^inception-jais-47]: Inception, [*JAIS 30B Whitepaper*](https://inceptionai.ai/2024/05/18/jais-30b-whitepaper/index.html), **18 May 2024**, issuer paper accessed **22 November 2026**.
+[^ibm-allam-47]: IBM and SDAIA, [*SDAIA launches Arabic AI model ALLaM on watsonx*](https://mea.newsroom.ibm.com/sdaia-launches-allam-on-watsonx), **21 May 2024**, co-announcement accessed **22 November 2026**. An announced hosted offering does not establish a specific customer's physical deployment.
+[^qcri-fanar-47]: Qatar Computing Research Institute/QCAI, [*Fanar GenAI Platform*](https://qcai.qcri.org/research/ai-foundations-systems/fanar-genai-platform), and [*Fanar 2.0: Arabic Generative AI Stack*](https://qcai.qcri.org/publications/fanar-2-0-arabic-generative-ai-stack), primary research/platform pages accessed **22 November 2026**. No local, legal or air-gap assurance follows from platform existence.
+
+**Teaching-header checkpoint:** All seven Module 04 teaching topics are now drafted. **This is not module release acceptance.** The dated ecosystem evidence-map lab, two-page comparative PM landscape, five-question assessment plus Q6 decision/RCA scenario, separate facilitator answers, designed HTML/LinkedIn post and verified portrait PDF, and two distinct critical technical/source and editorial/assessment review gates remain mandatory before Module 05.
+
 
 #### Primary evidence ledger for §4.6
 
