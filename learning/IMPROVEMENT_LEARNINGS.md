@@ -1,5 +1,20 @@
 # Sovereign AI Mastery | Improvement learnings
 
+## Improvement entry 059 | 2026-11-21 | Module 03 actionable overflow diagnostics
+
+**Starting state:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 carousel and browser/PDF test, recent improvement records, and the current default-branch commit list. Sections 3.1–3.7 and learner/social artifacts already exist. The last recorded blocking QA failure was 195 CSS-pixel document overflow; earlier CSS remediation commit 5183e91718579ccb7a67c900e5d5ed43db864cf5 has not been verified passing.
+
+**Actual change and commit:** Updated `social/module-03/test_rendered_carousel.py` in [3c266ef92f07b1ee427664e220c31421af68d0a1](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/3c266ef92f07b1ee427664e220c31421af68d0a1). On document overflow, the test now prints up to fifteen out-of-viewport DOM elements with bounds, computed min-width/overflow, and client/scroll dimensions. It **retains** the original 2px failure threshold and all slide, heading, keyboard and PDF assertions. This consolidates investigation of any further 195px failure instead of guessing another CSS fix.
+
+**Checks actually performed:** Fetched the current test source and confirmed the GitHub content update returned the actual commit SHA. Inspected the updated assertion structure in the submitted content. No local Playwright/PDF execution occurred; no test pass is claimed. The GitHub combined commit-status endpoint returned an empty status list for the preceding head; this does **not** establish that Pages passed or failed. Direct workflow-run listing was unavailable through the available connector and browser route, so latest deployment remains **UNVERIFIED**.
+
+**Review status and unresolved risks:** Module 03 remains HOLD for technical/security/primary-source and editorial/accessibility/assessment reviews. Two separately recorded GPT-6 self-reviews are not independent reviews. Need the actual Pages job result for this commit, the complete negative-path lab evidence, source quote audit, manual browser/PDF/assistive-technology checks, and learner assessment calibration. No real enterprise data was added. No source or legal claim was introduced.
+
+**Improvement lesson:** Preserve a failing QA assertion and emit element-level geometry before attempting further responsive CSS changes. A successful content API write is not a successful deployment.
+
+**Next header:** Module 04 section 4.1, **only after** Module 03 blocking review and release gates close.
+
+
 ## Improvement entry 048 | 2026-11-21 | Module 03 question-led publication assets
 
 **Starting state:** Reviewed TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, the Module 03 chapter, latest learning log, QA directory and existing Module 02 carousel precedent. Module 03 teaching sections 3.1–3.7, synthetic lab and separate facilitator answers were already committed; did not repeat them. The preceding full Pages run [44806168872](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44806168872) succeeded.
