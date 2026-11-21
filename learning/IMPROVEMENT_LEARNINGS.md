@@ -1103,3 +1103,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Lesson:** A green source-level assertion does not establish browser layout or PDF fidelity. When CI fails without a retrievable traceback, preserve the uncertainty and validate a narrowly scoped layout hypothesis rather than declaring root cause or bypassing the test.
 
 **Next header:** After both Module 03 review gates close with evidence, 4.1 UAE National AI Strategy 2031 and national priorities.
+
+
+## Improvement entry 058 | 2026-11-21 | Diagnose repeated 195px document overflow and constrain grid sizing
+
+**Precedence and inspected state:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 carousel and executable browser/PDF test, previous Module 03 gate dispositions summarized in entries 054–057, and the learning ledger. Module 03 remains HOLD; no advance to 4.1. Retrieved the full GitHub Actions job log for failed run [44866543848](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44866543848), job 136731388868. It establishes the exact failure: `AssertionError: (195, {'documentX': 3, ...})` at `test_rendered_carousel.py:32`. Every slide reported zero internal x/y overflow and correct question-label association; the issue is document-level horizontal overflow. Module 02 browser/PDF smoke passed in that same job. This contradicts the earlier assumption that a slide's minimum height was the primary cause.
+
+**Actual fix commit:** [5183e91718579ccb7a67c900e5d5ed43db864cf5](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/5183e91718579ccb7a67c900e5d5ed43db864cf5) sets an explicitly shrinkable `minmax(0,1fr)` main grid track, `min-width:0;max-width:100%` on slide grid items, and wrapping on header text. These target implicit grid min-content expansion and unusually narrow link text without hiding overflow or relaxing the 2px assertion. The 3px root cause is **not yet experimentally isolated**; this is a focused hypothesis based on actual metrics.
+
+**Checks performed:** Read actual CI traceback, compared it with the Playwright metrics and current CSS, and used a GitHub blob-SHA-guarded file update. No local Playwright/PDF or mutation test was executed in this iteration. GitHub accepted the CSS commit. **Post-fix CI/deployment is pending verification**; no PASS claim.
+
+**Outstanding gates:** Verify a completed Pages run on this fix (or later commit), including 195px reflow, 8-page PDF, export and publication. If failure persists, instrument the browser test to report overflowing element bounding boxes before further CSS edits. Complete primary-source quotation audit, executable lab negative-path evidence, manual browser/keyboard/PDF inspection, learner assessment calibration and two distinct bounded GPT-6 self-review dispositions. No independent human/model review, physical air-gap proof, production/assistive-technology certification or legal opinion is claimed. Public examples remain synthetic.
+
+**Improvement lesson:** Document-level overflow with zero slide-level overflow points toward parent grid intrinsic sizing or header content, not slide height. Use actual CI tracebacks and component-level measurements before attributing root cause.
+
+**Next header:** Resolve Module 03 release HOLD, then **4.1 UAE National AI Strategy 2031 and national priorities**.
