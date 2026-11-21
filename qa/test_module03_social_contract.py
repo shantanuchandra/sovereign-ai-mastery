@@ -84,7 +84,7 @@ class Module03SocialContract(unittest.TestCase):
             self.assertIn(token, self.html)
 
     def test_linked_chapter_and_synthetic_disclosure(self):
-        self.assertIn('../../chapters/03-enterprise-sovereignty-requirements-strategy.md', self.html)
+        self.assertIn('../../modules/03-enterprise-sovereignty-requirements-strategy.html', self.html)
         self.assertIn('fictional', self.html.lower())
         self.assertIn('fictional', self.post.lower())
         self.assertIn('### 3.7 ', self.chapter)
