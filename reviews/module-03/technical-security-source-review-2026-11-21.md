@@ -22,3 +22,17 @@
 **T03-01 narrowed, not closed:** Inspected `labs/module-03/test_evaluate.py` directly. It includes explicit simulated tests for offsite derivatives, wrong named factory, external management paths, absent offline licence, adverse evidence, and false-typed boolean inputs. The CI lab step passed. This verifies executable *simulator* behavior only. Packet-path observation, degraded gateway routing, actual backup movement, remote-support and licence behavior remain untested in a real target environment. Do not claim physical assurance.
 
 **T03-04 resolved for tested revision:** CI/deployment and assessment contracts are now verified on the latest inspected head SHA. Re-open if later commits change the executable content or fail CI. **T03-02 and T03-03 remain BLOCKERS:** no physical air-gap sign-off or full issuer quote/pinpoint audit. **E03-02 remains open** pending manual accessibility/reading-order inspection. Overall Module 03 disposition remains **HOLD**. This is GPT-6 self-review, not an independent audit or certification.
+
+## Issuer source spot-audit | 2026-11-21 | GPT-6 self-check
+
+Re-opened the issuer-hosted [NIST AI RMF 1.0 Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) and [NIST SP 800-207 publication page](https://csrc.nist.gov/pubs/sp/800/207/final) directly on 2026-11-21. Checked the Module 03 chapter's cited NIST snippets against those pages:
+
+| Chapter phrase or assertion | Issuer pinpoint and outcome | Boundary |
+|---|---|---|
+| “do not constitute a checklist” | AI RMF Core §5, opening paragraphs: exact substring **MATCH** | NIST explicitly says actions are not a checklist; no official sovereignty gate implied |
+| “Ongoing monitoring and periodic review” | AI RMF Core GOVERN 1.5: exact substring **MATCH** | Governance guidance, not physical deployment assurance |
+| “prospective settings in which the AI system will be deployed” | AI RMF Core MAP 1.1: exact substring **MATCH** | Context documentation, not UAE residency law |
+| “should proceed” | AI RMF Core MANAGE 1.1: **NOT VERIFIED in this spot-audit**; do not upgrade the older chapter verification claim without checking the exact MANAGE line | Remains open for a complete audit |
+| “no implicit trust” and “based solely on their physical or network location” | NIST SP 800-207, official Abstract: both substrings **MATCH**; publisher states August 2020 | Security principle, not sovereign compliance certification |
+
+This is a **partial primary-source audit**, not closure of T03-03: remaining material quotations, full pinpoint consistency and dated verification ledger still need checking. The official AI RMF page notes that a revised version is in progress; the chapter explicitly refers to AI RMF **1.0 (2023)**. No new product claims, legal conclusions, physical tests or independent reviewer evidence are asserted. **Release remains HOLD.**
