@@ -1268,3 +1268,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Match each test assertion and deployment claim to its exact head SHA and assurance layer. CI can validate a fail-closed simulation but cannot establish physical isolation. Avoid duplicating completed curriculum content while blockers remain.
 
 **Next header:** After closing Module 03 review gates, Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
+
+
+## Improvement entry 069 | 2026-11-21 | Module 03 primary-source spot-audit
+
+**Baseline inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 chapter, both review records and improvement history through 068. The source-accuracy review remained HOLD, so no Module 04 heading was started.
+
+**Actual review commit:** [af75a31986cfcf4499192fe477e7069582729cb8](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/af75a31986cfcf4499192fe477e7069582729cb8) records a bounded issuer quote audit in the existing technical/security/source review. The GitHub learning-log commit is not yet covered by a verified CI deployment.
+
+**Checks actually performed:** Opened official NIST AI RMF 1.0 Core and NIST SP 800-207 pages on 2026-11-21; matched the chapter's checklist, GOVERN 1.5, MAP 1.1 and zero-trust abstract quotation substrings against those originals. Recorded that the MANAGE 1.1 “should proceed” snippet and the rest of the chapter's source ledger were **not** fully verified in this spot-audit. GitHub accepted the review commit. No local Python, physical network, manual accessibility or independent scoring test was performed. **Deployment:** prior successful Actions run [44924614678](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44924614678) verified commit `38d0294`; new review and log revisions have not been checked in a completed CI run.
+
+**Open blockers:** T03-03 complete issuer audit, T03-02 physical air-gap sign-off, E03-02 manual accessibility, E03-03 independent scoring calibration, and final distinct review dispositions. Both reviews remain HOLD, explicitly GPT-6 self-critiques. Fictional factory and premises-only cases remain synthetic and fail closed.
+
+**Improvement lesson:** A source check should name exact verified substrings and pinpoints, while identifying which nearby quotes remain unchecked. Do not inflate a spot-audit into full source certification.
+
+**Next header:** Module 04 §4.1 UAE National AI Strategy 2031 and national priorities, only after Module 03 gates close.
