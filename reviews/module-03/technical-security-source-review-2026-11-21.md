@@ -14,3 +14,11 @@
 **Positive design checks:** The chapter compares managed, local and disconnected candidates after hard-gate filtering; its fictional gateway timeout RCA separates successful firewall denial from failed application routing; it identifies non-AI alternatives and accountable owners. These are editorial observations, not executed validation.
 
 **Release decision:** HOLD. No claim of independent review, legal compliance, production assurance, or successful negative-path execution. Re-review T03-01 through T03-04 with dated evidence before beginning Module 04.
+
+## Follow-up evidence reconciliation | 2026-11-21 | GPT-6 bounded self-review
+
+**Verified Actions evidence:** [run 44924614678](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44924614678) completed successfully for head commit `38d0294119f844181264f780f217d9c2b12e4873`. Its deploy job reported successful steps for `Validate Module 03 requirements lab`, `Validate Module 03 assessment contract`, `Verify actual Module 03 carousel reflow and PDF text`, `Build from Markdown source`, `Publish Module 03 portrait PDF`, and `Deploy`. This evidence applies to that commit, not subsequent documentation edits.
+
+**T03-01 narrowed, not closed:** Inspected `labs/module-03/test_evaluate.py` directly. It includes explicit simulated tests for offsite derivatives, wrong named factory, external management paths, absent offline licence, adverse evidence, and false-typed boolean inputs. The CI lab step passed. This verifies executable *simulator* behavior only. Packet-path observation, degraded gateway routing, actual backup movement, remote-support and licence behavior remain untested in a real target environment. Do not claim physical assurance.
+
+**T03-04 resolved for tested revision:** CI/deployment and assessment contracts are now verified on the latest inspected head SHA. Re-open if later commits change the executable content or fail CI. **T03-02 and T03-03 remain BLOCKERS:** no physical air-gap sign-off or full issuer quote/pinpoint audit. **E03-02 remains open** pending manual accessibility/reading-order inspection. Overall Module 03 disposition remains **HOLD**. This is GPT-6 self-review, not an independent audit or certification.
