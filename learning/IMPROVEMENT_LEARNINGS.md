@@ -1027,3 +1027,17 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A source test sitting in the repository does not protect a release until the workflow executes it. Mutation fixtures should prove the detector rejects known-bad input; inspect escaped regex literals before committing, and treat queued CI as unknown.
 
 **Next action/header:** Verify Pages run 44844743665 and the actual Module 03 social test step; consolidate remaining release evidence and gate remediation before Module 04 **4.1 UAE National AI Strategy 2031 and national priorities**.
+
+## Improvement entry 053 | 2026-11-21 | Module 03 rendered browser/PDF release contract
+
+**State and priority:** Read TOC, style guide, chapter template, Module 03 chapter, both distinct bounded self-review records, current workflow, Module 02 rendered test precedent and improvement history. Module 03's headings and assessments are already drafted. Release review B-04/B-05 lacked browser and PDF evidence, so this increment addresses those gaps rather than starting 4.1.
+
+**Actual implementation commits:** [e226c2870969cd30ddf3bd6a03328f658fb05ada](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e226c2870969cd30ddf3bd6a03328f658fb05ada) adds `social/module-03/test_rendered_carousel.py`; [2946045279a362c8008d71f68d605bc328f0bc02](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/2946045279a362c8008d71f68d605bc328f0bc02) wires it into Pages after Chromium setup. The test checks question headings, DOM accessible-name associations, 1280/390/320/195 CSS-pixel overflow, keyboard access to the chapter link, and eight text-extractable PDF pages. Browser requests other than local files are blocked.
+
+**Checks actually performed:** Inspected GitHub Actions run [44844764179](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44844764179), completed successfully on prior log commit 917a251; its job explicitly shows Module 03 lab, assessment, and social mutation contract steps succeeded. This confirms CI execution of those steps, not a production air-gap test. GitHub accepted both new commits. The newly added rendered test has **not been observed executing or passing** at the time of this entry; new Pages CI/deployment status is **pending verification**. No manual screenshots, assistive-technology tests, external-source re-audit, production network inspection or learner calibration were performed.
+
+**Unresolved risks and review disposition:** Both Module 03 critical self-reviews remain HOLD. The rendered smoke test is a narrower automated proxy than manual browser/PDF visual inspection. Source quotation audit, physical isolation proof (not achievable from a synthetic public repo), and assessment calibration remain open. Public repository contains synthetic data only; no independent review, legal opinion or security certification.
+
+**Improvement lesson:** A completed CI run can establish that named test steps actually passed, but only for its exact head SHA. Add browser evidence at the release workflow rather than assuming HTML source checks imply rendered accessibility; keep the human/assistive-technology evidence gap explicit.
+
+**Next action/header:** Verify Pages CI for 2946045 and the new rendered test; fix any actual failure first. Complete source/visual/assessment review dispositions before advancing to **4.1 UAE National AI Strategy 2031 and national priorities**.
