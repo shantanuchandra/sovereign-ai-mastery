@@ -82,6 +82,9 @@ jobs:
           test -s dist/modules/01-sovereign-ai-fundamentals.html
           test -s dist/modules/02-classifications-components-maturity-models.html
           test -s dist/modules/03-enterprise-sovereignty-requirements-strategy.html
+          test -s dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
+          grep -q 'India, EU, US, and China: comparative approaches' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
+          grep -q 'Other GCC opportunities and regional comparisons' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
           grep -q 'What enterprise problems justify sovereignty investments' dist/modules/03-enterprise-sovereignty-requirements-strategy.html
           test -s dist/labs/module-02/index.html
           test -s dist/labs/module-03/index.html
