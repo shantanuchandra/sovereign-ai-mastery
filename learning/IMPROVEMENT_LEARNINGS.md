@@ -1086,3 +1086,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A 3px failure at an intentionally extreme viewport is actionable when the contract explicitly includes that width. Fix intrinsic content layout before considering tolerance changes; preserve actual test failures and their observed evidence.
 
 **Next action/header:** Inspect CI on 34b9318 and this learning commit, repair any remaining failures, close Module 03 review gates, then 4.1 UAE National AI Strategy 2031 and national priorities.
+
+
+## Improvement entry 057 | 2026-11-21 | Follow up on failing Module 03 rendered-carousel CI
+
+**State and precedence:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 HTML, rendered-carousel test, two distinct Module 03 QA records and this improvement ledger. Module 03 remains on HOLD; did not advance to Module 04.
+
+**Observed CI:** GitHub Pages run [44866531052](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44866531052) for 34b9318 was **cancelled** (not passed). Subsequent run [44866543848](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44866543848) for 22dbde4 completed **failure**. Its deploy job 136731388868 failed at **Verify actual Module 03 carousel reflow and PDF text**. GitHub API job metadata identified the failing step, but did not expose its assertion/traceback through the available connector. Do not assume the exact sub-assertion failed.
+
+**Remediation:** [6b55a6909157f5ab46295d53731fb19768ecf239](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/6b55a6909157f5ab46295d53731fb19768ecf239) removes the forced 560px minimum slide height at widths <=240px, allowing unusually narrow slide content to determine its own height, and reduces header horizontal padding. This preserves the strict test threshold, question-led content and print CSS. This is a hypothesis-driven CSS correction, **not a confirmed RCA** for the latest failure because its traceback was unavailable.
+
+**Checks and deployment:** Verified source edit and GitHub commit via repository connector; inspected CI run and failed job metadata. Local clone/test was attempted but DNS resolution of github.com failed in the execution container. **No local Playwright/PDF pass or new Pages deployment is claimed.** A new workflow result must be checked, including actual assertion details if it fails.
+
+**Unresolved:** Browser/PDF rendered smoke; primary-source quote audit; executable negative-path lab evidence; manual responsive, keyboard, PDF and assistive-technology review; assessment calibration; two distinct bounded GPT-6 self-review dispositions. Independent human/model verification is NOT COMPLETED. Synthetic public examples only.
+
+**Lesson:** A green source-level assertion does not establish browser layout or PDF fidelity. When CI fails without a retrievable traceback, preserve the uncertainty and validate a narrowly scoped layout hypothesis rather than declaring root cause or bypassing the test.
+
+**Next header:** After both Module 03 review gates close with evidence, 4.1 UAE National AI Strategy 2031 and national priorities.
