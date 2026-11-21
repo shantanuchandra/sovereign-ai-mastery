@@ -155,3 +155,102 @@ The sponsor should be able to approve **discovery** without accidentally approvi
 **Source precision:** The UAE AI Office website is the official publisher; some direct programmatic requests to its HTML return access restrictions. The source text above was inspected in the indexed official page, while the Cabinet text was opened and read directly. No alleged current program performance, vendor service geography, funding amount or UAE statutory processing obligation is introduced. If a future lesson needs one, retrieve a fresh dated official or issuer document.
 
 **Connection to the program:** This first header establishes **why a national ecosystem matters to enterprise product decisions**. Section **4.2** will map the actual UAE government, research, model, infrastructure and enterprise actors, with issuer-verified roles and a **source-dated relationship map**. Subsequent headers cover Saudi Arabia, other GCC states, global comparisons, compute/energy dependencies and Arabic/multilingual capacity. The full Module 04 lab and review gates remain outstanding.
+
+ 
+### 4.2 UAE ecosystem: government, academic, model, infrastructure, and enterprise actors
+
+**Executive decision:** Evaluate UAE AI ecosystem participants by the role they actually perform and the evidence they can supply. A national strategy, research institute, Arabic model, sovereign cloud product and innovation campus are different things. A UAE-branded supply chain does not itself prove a particular workload's physical location, operational independence, security, licence rights or legal compliance.
+
+#### Five actor roles and a dated evidence map
+
+The classification below is **course-authored**, not an official UAE accreditation list. In the [course ontology](../taxonomy/ONTOLOGY.md), an *actor* performs a *role*, offers a *capability*, makes a *claim*, and may depend on another actor. A separate *evidence record* links each claim to its issuer, date, scope, acceptance test and decision owner. Avoid confusing a press release about an institution's work with independent validation of that work.
+
+| Role | Issuer-documented example | Decision-relevant capability | Evidence limitation |
+|---|---|---|---|
+| Federal strategy and skills | UAE AI Office's National AI Strategy 2031; FAHR–MBZUAI knowledge partnership announced **21 May 2026** [^uae-fahr42] | Strategic priorities and government workforce development | No implied customer-specific regulatory approval or training outcome |
+| Applied research | Technology Innovation Institute announced **Falcon Perception**, **3 May 2026** [^uae-tii42] | A named multimodal research model | Performance is issuer-reported; no safety or offline-deployment assurance |
+| Academic and Arabic model research | MBZUAI and Inception42 announced **Jais 3**, **15 October 2026** [^uae-jais42] | Arabic-oriented speech and language model family | Buyer-specific dialect quality, licences and model placement remain unverified |
+| Infrastructure and managed operations | Core42 markets Sovereign AI Cloud and Signature Private Cloud [^uae-core42] | Advertised in-country hosting, inference and private/air-gapped options | Supplier statements are not independent proof of a named premises, no-network path or signed acceptance |
+| Commercial adoption and innovation | DIFC announced new Dubai AI Campus targets, **26 October 2026** [^uae-difc42] | Ecosystem development, companies and skills programmes | Announced targets are not achieved outcomes or tenant compliance certifications |
+
+**Interpretation:** A UAE-developed model can run abroad; a UAE-hosted service can have an external administrative dependency; a research model can be technically open but operationally unusable under an offline licence constraint. The presence of a government or academic partner does not transfer that partner's authority or assurances to a vendor.
+
+#### Dependency graph: separate provenance from control
+
+A typical enterprise AI value chain passes through strategy, research, model artefact, infrastructure, application and business user. Contracts, access management, backups, telemetry, model updates, safety evaluation and support are **cross-cutting** dependencies. The PM must map these independently rather than assuming all are covered by a supplier's sovereignty label.
+
+~~~mermaid
+flowchart LR
+  P["National strategy and skills"] --> R["Research institution"]
+  R --> M["Model artefact and licence"]
+  M --> I["Compute and serving"]
+  I --> A["Enterprise application"]
+  A --> U["Business user"]
+  E["Evidence and acceptance owners"] -. "validate model rights" .-> M
+  E -. "test data and control paths" .-> I
+  E -. "test business outcomes" .-> A
+~~~
+
+*Diagram: Organizational provenance creates a possible supply chain; only scoped evidence establishes whether its technical and operational dependencies meet a specific buyer's constraints. The arrows are conceptual, not claims that the named institutions share a real deployment.*
+
+#### Fictional procurement case: Crescent Gulf Industrial Services
+
+The buyer has three workloads introduced in §4.1. **SERVICE-41** permits an assessed managed service. **PLANT-41** requires every restricted source, prompt, embedding, output, log, evaluation file, diagnostic, backup and recovery artefact to remain inside the signed **PLANT-B physical premises**. **ISOLATED-41** additionally requires a physical air gap with no inbound or outbound network path, including remote management, vendor support tunnels, telemetry and licence activation. All customer facts are invented educational inputs.
+
+| Candidate architecture | SERVICE-41 | PLANT-41 | ISOLATED-41 |
+|---|---|---|---|
+| Managed UAE inference API | **Eligible to assess** after processing, control-plane, subprocessor, support and exit review | **Blocked** if any restricted processing or derivative is outside PLANT-B, even elsewhere in UAE | **Blocked** while any external network dependency exists |
+| Customer-operated local inference and retrieval at PLANT-B | Eligible to assess if economically justified | **Conditionally eligible** pending full site, identity, backup and fail-closed tests | Not eligible unless disconnected, including management and software dependencies |
+| Offline-licensed, physically disconnected hardware with signed-media updates | May be unnecessarily expensive | Could qualify if additional disconnection is required | **Conditionally eligible**, pending physical inspection, licence, artefact custody, recovery and quality evidence |
+
+**Named-provider interpretation:** Core42 advertises both in-country hosting and air-gapped private-cloud options [^uae-core42]. That makes it a potential *research candidate*, not a verified fit for PLANT-B or ISOLATED-41. A supplier's claim that a product supports an air-gapped deployment cannot prove the selected installation is physically disconnected. Likewise, MBZUAI's description of Jais 3's Arabic dialect support [^uae-jais42] does not replace a customer-specific Emirati/Gulf evaluation, rights review or offline execution test.
+
+#### Failure and root-cause analysis: the logo-driven vendor shortlist
+
+**Pre-test state, fictional:** Procurement scores candidates on UAE incorporation, national strategy alignment, Arabic model support, price and performance. The spreadsheet has no hard constraint for the plant address and no inventory of diagnostic collectors, privileged administrators, licence servers or backups.
+
+**Observed design-review failure, simulated:** A supplier architecture diagram includes a diagnostics endpoint outside PLANT-B. The team initially treats its UAE hosting claim as sufficient and recommends the managed option. No real data movement or breach is alleged.
+
+**Immediate cause:** The scoring system lets soft supplier attributes compensate for a violated physical boundary. **Systemic root cause:** The PRD did not translate the signed premises requirement into testable data and control-plane constraints. **Contributing gap:** A default remote fallback was omitted from the negative-path test plan.
+
+**Containment:** Mark PLANT-41 **BLOCKED** and halt procurement approval. Preserve the original requirements, diagrams and evidence. Do not send confidential data to prove that a route exists.
+
+**Remediation:** The architecture owner must document the compute site, model serving, prompts, embeddings, outputs, backups, update chain, diagnostics, support identities and recovery destinations. Security must use synthetic traffic to test normal, timeout, degraded-route, update and restore paths. The data owner and security reviewer must sign a dated acceptance for the tested scope. A firewall denial alone does not prove that the application has stopped attempting prohibited egress. If no compliant model licence, capacity and quality combination exists, record **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** and retain the approved non-AI workflow.
+
+#### Hands-on 4.2: create a dated actor and dependency register
+
+**Time:** 50–70 minutes. **Cost:** Free browser and Markdown or spreadsheet. No GPU, cloud account or confidential customer data.
+
+1. Record the UAE AI Office, FAHR–MBZUAI partnership, TII Falcon Perception, MBZUAI–Inception42 Jais 3, Core42 cloud offering and DIFC Dubai AI Campus. For each, capture issuer, role, publication date if known, URL, exact claim, evidence class, limits, accountable reviewer and next verification action.
+2. Draw at least five typed relationships: strategy-to-skills, institution-to-model, model-to-serving, serving-to-application, and customer-to-acceptance. Label every undocumented supplier relationship **hypothetical**.
+3. Evaluate the same managed API candidate against SERVICE-41, PLANT-41 and ISOLATED-41. Under the stated facts, the initial dispositions are **eligible to assess**, **blocked**, **blocked**. Explain why country residency cannot override a named-building rule.
+4. Mutate the candidate by introducing an overseas diagnostic collector. List the evidence needed to detect the route and explain how each workload's acceptance changes. Never average away a hard veto with price or national provenance.
+5. Present a peer-reviewable evidence map. The reviewer must be able to distinguish a first-party announcement, a supplier capability assertion, an independently executed test and a customer-approved control.
+
+**Acceptance criteria:** Six issuer records, five labelled relationships, three workload dispositions, one negative-path mutation, named evidence owners, no invented real deployments, and no compliance claim based only on a supplier or government logo. A paper exercise is not a physical air-gap test.
+
+#### PM artefact: two-page buyer-side ecosystem shortlist
+
+**Page 1** maps roles, issuer-documented capabilities and dependencies. **Page 2** compares the three architectures after applying hard constraints and requests exact site and data-path evidence, model and dataset rights, Arabic dialect evaluation, control-plane location, privileged support access, offline updates, backups, disaster recovery and exit terms.
+
+**Proposed success metrics, not observed results:** Every binding requirement has an owner and a test before pilot approval; no undocumented external path is accepted for a premises-only or disconnected candidate; every material vendor claim has an evidence state; the chosen model meets a buyer-defined quality threshold on synthetic evaluation data. The PM owns traceability, security and data owners own acceptance, and legal counsel reviews applicable legal obligations.
+
+**Learner challenge:** A board member claims that a UAE-developed Arabic model on a UAE-branded cloud is automatically sovereign enough. In 180 words, distinguish model provenance, data residency, physical placement, remote administration, model rights and actual tests. Give one workload where managed UAE inference may be sensible and one where it is disallowed. Keep the worked response in the separate Module 04 facilitator key, not this learner chapter.
+
+#### 4.2 primary-source evidence ledger
+
+| ID | Short exact issuer excerpt | Issuer, pinpoint and date | Scope limitation |
+|---|---|---|---|
+| UAE42-01 | “build Agentic AI expertise” | [FAHR announcement, 21 May 2026](https://www.fahr.gov.ae/en/news/uae-government-announces-strategic-knowledge-partnership-with-mbzuai/) | Announcement, not independently audited learning outcome |
+| UAE42-02 | “Falcon Perception” | [TII model announcement, 3 May 2026](https://www.tii.ae/news/tii-launches-falcon-perception-new-multimodal-ai-model-helps-machines-see-and-understand-world) | Model capabilities are issuer-reported |
+| UAE42-03 | “Jais 3” | [MBZUAI release, 15 October 2026](https://mbzuai.ac.ae/news-events/news/mbzuais-institute-foundation-models-inception42-launch-jais-3-arabic-native-ai) | No buyer-specific quality or offline licence proof |
+| UAE42-04 | “in-country data residency” | [Core42 AI Cloud product page](https://www.core42.ai/products/ai-cloud), inspected 21 November 2026; publication date not established | Supplier assertion, not independent path verification |
+| UAE42-05 | “over 1,000 companies” | [DIFC, 26 October 2026](https://www.difc.com/whats-on/news/hamdan-bin-mohammed-approves-new-dubai-ai-campus-targets-2030) | A 2030 target, not an achieved count |
+
+[^uae-fahr42]: Federal Authority for Government Human Resources, *UAE Government announces strategic knowledge partnership with MBZUAI*, 21 May 2026, https://www.fahr.gov.ae/en/news/uae-government-announces-strategic-knowledge-partnership-with-mbzuai/. Inspected 21 November 2026.
+[^uae-tii42]: Technology Innovation Institute, *TII Launches Falcon Perception*, 3 May 2026, https://www.tii.ae/news/tii-launches-falcon-perception-new-multimodal-ai-model-helps-machines-see-and-understand-world. Inspected 21 November 2026. Benchmark claims are issuer-reported.
+[^uae-jais42]: Mohamed bin Zayed University of Artificial Intelligence, *MBZUAI's Institute of Foundation Models and Inception42 Launch Jais 3*, 15 October 2026, https://mbzuai.ac.ae/news-events/news/mbzuais-institute-foundation-models-inception42-launch-jais-3-arabic-native-ai. Inspected 21 November 2026.
+[^uae-core42]: Core42, *Sovereign AI Cloud* and *Signature Private Cloud*, https://www.core42.ai/products/ai-cloud and https://www.core42.ai/products/signature-private-cloud, inspected 21 November 2026. Publication date not established; statements are supplier assertions.
+[^uae-difc42]: Dubai International Financial Centre, *Hamdan bin Mohammed approves new targets for Dubai AI Campus*, 26 October 2026, https://www.difc.com/whats-on/news/hamdan-bin-mohammed-approves-new-dubai-ai-campus-targets-2030. Inspected 21 November 2026; campus targets and counts are issuer-reported.
+
+**Next section:** §4.3 will examine Saudi Arabia's national AI strategy, infrastructure and operating environment. The Module 04 comparative lab, six-question assessment, separate solutions, social assets and both review gates remain pending.
