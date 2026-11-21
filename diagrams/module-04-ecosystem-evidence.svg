@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 340" role="img" aria-labelledby="title desc">
+<title id="title">UAE AI ecosystem dependency and evidence map</title><desc id="desc">A conceptual supply chain from national strategy and skills through research institution, model artefact and licence, compute and serving, enterprise application, to business user. Evidence and acceptance owners independently validate model rights, data and control paths, and business outcomes. This is not a claim about any named provider deployment.</desc>
+<style>text{font-family:system-ui,-apple-system,sans-serif;fill:#17233c}.node{fill:#f3f7ff;stroke:#315d98;stroke-width:2}.audit{fill:#fff6e8;stroke:#ad6c19;stroke-width:2}.label{font-size:16px;font-weight:600;text-anchor:middle}.sub{font-size:13px;text-anchor:middle}.edge{fill:none;stroke:#315d98;stroke-width:2.5}.check{fill:none;stroke:#ad6c19;stroke-width:2;stroke-dasharray:7 5}</style>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#315d98"/></marker><marker id="arr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#ad6c19"/></marker></defs>
+<g><rect class="node" x="12" y="38" width="160" height="76" rx="10"/><text class="label" x="92" y="68">National strategy</text><text class="sub" x="92" y="91">and skills</text>
+<rect class="node" x="190" y="38" width="160" height="76" rx="10"/><text class="label" x="270" y="68">Research</text><text class="sub" x="270" y="91">institution</text>
+<rect class="node" x="368" y="38" width="160" height="76" rx="10"/><text class="label" x="448" y="68">Model artefact</text><text class="sub" x="448" y="91">and licence</text>
+<rect class="node" x="546" y="38" width="160" height="76" rx="10"/><text class="label" x="626" y="68">Compute</text><text class="sub" x="626" y="91">and serving</text>
+<rect class="node" x="724" y="38" width="160" height="76" rx="10"/><text class="label" x="804" y="68">Enterprise</text><text class="sub" x="804" y="91">application</text>
+<rect class="node" x="902" y="38" width="145" height="76" rx="10"/><text class="label" x="974" y="68">Business</text><text class="sub" x="974" y="91">user</text>
+<path class="edge" marker-end="url(#arr)" d="M172 76H188 M350 76H366 M528 76H544 M706 76H722 M884 76H900"/>
+<rect class="audit" x="323" y="238" width="414" height="78" rx="12"/><text class="label" x="530" y="266">Evidence and acceptance owners</text><text class="sub" x="530" y="290">Independent buyer-side verification required</text>
+<path class="check" marker-end="url(#arr2)" d="M420 238L448 116"/><path class="check" marker-end="url(#arr2)" d="M550 238L626 116"/><path class="check" marker-end="url(#arr2)" d="M680 238L804 116"/>
+<text class="sub" x="365" y="180">Model rights</text><text class="sub" x="620" y="188">Data and control paths</text><text class="sub" x="840" y="184">Business outcomes</text></g></svg>
