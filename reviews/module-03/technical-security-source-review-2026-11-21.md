@@ -40,3 +40,14 @@ This is a **partial primary-source audit**, not closure of T03-03: remaining mat
 ## MANAGE 1.1 follow-up | 2026-11-21
 
 **Primary-source check completed:** NIST's official [AI RMF 1.0 Core, §5.4 MANAGE 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) states that a determination is made about whether development or deployment “should proceed”. The exact two-word chapter quotation is present in the issuer text. NIST's MANAGE 2.1 also explicitly considers viable non-AI alternatives. Source page inspected on 2026-11-21; this is a verification date, not a claimed new publication date. **This closes only the previously identified MANAGE 1.1 quote spot-check**, not the complete T03-03 source ledger audit. Physical and accessibility gates remain open. Review disposition: **HOLD**.
+
+
+## Consolidated claim-level source audit | 2026-11-21
+
+**Supersedes the partial T03-03 source spot-check above for the listed chapter revision.** A fresh issuer-page comparison inventoried all attributed external claims across §3.1–§3.7, the assessment, facilitator Q5 and social materials. The full reproducible rationale and exact pinpoints are in [Module 03 source-accuracy ledger](source-accuracy-ledger-2026-11-21.md), committed as [80aa91f](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/80aa91fc9bdc70fb0b9fee5916576302b9c4e56f).
+
+**Material corrections:** [701984d](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/701984d28bcf4433f6540eff20189c20cd7d15aa) corrected the NIST Executive Summary quote's `non-sector-specific` hyphenation and narrowed the Ollama README description to the localhost API example and cloud integration list. A source-text regression assertion was added in [38f9a5d](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/38f9a5d7645aa344c3fc9ed2c783f1976eb86616); a successful completed CI run at the resulting revision must still be confirmed.
+
+**T03-03 educational documentary state: SELF-AUDIT COMPLETE, INDEPENDENT CHALLENGE OPEN.** This means the specific cited quotations, version metadata and bounded product claims have been reconciled against the NIST and Ollama primary pages accessed 2026-11-21. It does **not** mean an independent source audit has occurred, nor does it establish legal advice, vendor-specific SLA/processing paths or physical separation.
+
+**Remaining review A gate:** T03-01 is verified only for the synthetic simulator; T03-02 actual site disconnection, offline model licence/artefact chain and physical restoration remain **UNVERIFIED** and cannot be asserted for a fictional case. Physical inspection is an obligation for any proposed real deployment, not evidence that can be honestly fabricated for a teaching chapter. T03-04 CI must be tied to exact tested SHA. Overall Module 03 **HOLD** remains pending independent challenge, review B manual accessibility and assessment calibration. No production go-live certification is implied.
