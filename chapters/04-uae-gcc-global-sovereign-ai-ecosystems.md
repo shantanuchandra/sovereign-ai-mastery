@@ -253,4 +253,105 @@ The buyer has three workloads introduced in §4.1. **SERVICE-41** permits an ass
 [^uae-core42]: Core42, *Sovereign AI Cloud* and *Signature Private Cloud*, https://www.core42.ai/products/ai-cloud and https://www.core42.ai/products/signature-private-cloud, inspected 21 November 2026. Publication date not established; statements are supplier assertions.
 [^uae-difc42]: Dubai International Financial Centre, *Hamdan bin Mohammed approves new targets for Dubai AI Campus*, 26 October 2026, https://www.difc.com/whats-on/news/hamdan-bin-mohammed-approves-new-dubai-ai-campus-targets-2030. Inspected 21 November 2026; campus targets and counts are issuer-reported.
 
-**Next section:** §4.3 will examine Saudi Arabia's national AI strategy, infrastructure and operating environment. The Module 04 comparative lab, six-question assessment, separate solutions, social assets and both review gates remain pending.
+
+
+### 4.3 Saudi Arabia: national AI strategy, infrastructure and operating environment
+
+**Decision first.** For a company serving Saudi customers, treat national AI ambition as an opportunity signal, not as an automatic hosting approval. Separate four questions: What does the Saudi strategy prioritize? Which Saudi institutions and infrastructure options are relevant? Which actual data and operational constraints apply to this particular workload? What evidence can the buyer obtain before committing? A strategy document answers the first question; it cannot answer the other three on its own.
+
+#### The strategy is a direction, not a workload permit
+
+Saudi Arabia's **National Strategy for Data and AI (NSDAI)** is presented in an October 2020 strategy narrative issued by the Saudi Data & AI Authority (SDAIA). The official Saudi government portal describes objectives spanning ambition, skills, partnerships and investment. In a 10 March 2026 report, the Saudi Press Agency attributed six pillars to the national strategy: ambition, competencies, policies, investment, innovation and ecosystem.[^ksa-nsdai-43][^ksa-portal-43][^ksa-spa-43]
+
+The government portal lists targets including training more than 20,000 specialists and mobilizing over USD 20 billion in data and AI initiatives. **These are strategy targets reported by government, not independently audited outcomes or guaranteed funding for a buyer.** The same distinction applies to infrastructure announcements and supplier capacity claims.[^ksa-portal-43]
+
+| Strategy or institution | Evidence-backed role | What an enterprise PM should *not* infer | Buyer-side evidence request |
+|---|---|---|---|
+| NSDAI and Vision 2030 | National direction for capability, talent, innovation and investment | An AI vendor is accredited for a particular workload | Map one national priority to a measurable use case and an independently approved deployment |
+| SDAIA and data governance | National data and AI authority and relevant guidance publisher | A generic AI ethics claim settles all sector, privacy and transfer questions | Applicable legal/sector requirements, current guidance version and legal-owner sign-off |
+| National Information Center, National Data Management Office and National Center for AI | Institutions named in SDAIA's national ecosystem account | A named institution operates the proposed commercial platform | Named contractual operator, data processor, privileged access and recovery roles |
+| Saudi hosting or managed AI supplier | Potentially reduces distance, latency or procurement friction | Local region implies local-only backups, telemetry, support, keys or model supply chain | Physical site inventory, control-plane diagram, support-path proof, audit rights, subprocessor list |
+
+The Saudi Press Agency's 28 August 2025 report identifies SDAIA's NIC, NDMO and NCAI ecosystem. This is an institutional map, **not** proof of the legal responsibilities of a proposed private supplier.[^ksa-institutions-43]
+
+#### Governance and jurisdiction: two separate decision lanes
+
+**Lane A: national AI adoption and governance.** SDAIA's AI Adoption Framework was described by the Saudi Press Agency on 1 December 2024 as a reference for defining priorities, AI units, maturity and organizational readiness. It is useful for a PM's capability plan; it does not substitute for deployment evidence or a signed risk acceptance.[^ksa-adoption-43]
+
+**Lane B: personal data and transfers.** The Saudi Personal Data Protection Law (PDPL) and the official transfer regulation require an applicability assessment for relevant processing. In particular, PDPL **Article 29** establishes conditions and purposes for transferring or disclosing personal data outside the Kingdom. The official transfer regulation specifies safeguards and circumstances in which transfer must stop. It would be inaccurate to say that *every* Saudi workload is automatically prohibited from leaving the country; it would be equally inaccurate to assume that a regional cloud location settles every transfer question. Legal and privacy owners must evaluate the actual data, roles, purposes, destinations, safeguards and any sector-specific requirements.[^ksa-pdpl-43][^ksa-transfer-43]
+
+For this curriculum, a stricter **enterprise contractual physical-site restriction** can apply even where the law permits a transfer. Conversely, a buyer's contract cannot waive an applicable law. Keep the two decisions separate in the approval record.
+
+#### Fictional cross-border product case: Crescent Gulf Industrial Services
+
+*Everything about the buyer, workloads, budgets and incidents below is fictional and uses synthetic records. No Saudi government or commercial supplier deployment is asserted.* The company operates a UAE service desk and a Saudi industrial site. It wants a bilingual Arabic/English maintenance assistant and three candidate deployments. The procurement team proposes a Saudi-hosted managed API because the strategy prioritizes AI capability.
+
+| Candidate | Service-desk knowledge base | Named Saudi plant premises only | Physically disconnected safety archive |
+|---|---|---|---|
+| Saudi managed inference API | **Consider**, conditional on legal/data, operator, support and recovery review | **Reject** if processing or any derivative leaves the signed plant boundary | **Reject**: connected API conflicts with no network paths |
+| Local inference on plant-controlled equipment | **Consider**, but may have unnecessary cost and operating burden | **Consider** only after physical location, backups, licence and administration tests | **Not yet eligible** until network paths, radios, offline licences and recovery are physically verified |
+| No-model rules/search workflow | **Prefer** where deterministic lookup meets the task | **Consider** with local controls and evidence | **Consider** only if every dependency and update process passes physical isolation review |
+
+**Hard vetoes before scoring.** For **PLANT-KSA**, restricted source data, prompts, embeddings, outputs, logs, evaluations, diagnostics, backups and recovery copies must remain inside the named physical plant. A data centre elsewhere in Saudi Arabia does not meet that *fictional contractual* requirement. For **AIRGAP-KSA**, every inbound/outbound network route is prohibited, including remote support, hidden management, telemetry, cloud licence checks and disaster recovery links. A software toggle or a supplier's local-hosting claim is not proof of physical isolation. If any route or offline dependency is unverified, the release decision is **HOLD**; if a forbidden route exists, it is **BLOCKED**. No support-tunnel exception is available.
+
+#### Architecture decision and failure-mode analysis
+
+A practical choice follows a two-pass process. **Pass 1:** Reject candidates violating hard legal, physical or network constraints. **Pass 2:** Among eligible options, compare task quality, Arabic evaluation results, lifecycle cost, staffing, incident response, exit feasibility and uptime. A cheaper managed endpoint cannot compensate for a failed physical gate.
+
+**Illustrative failure:** A Saudi site team approves a local model after a successful offline inference demo. A subsequent synthetic dependency inventory reveals that its licence agent attempts outbound activation after restart. The firewall blocks the call, but the inference service refuses to recover. The **observed failure** is failed recovery, not confirmed exfiltration. The **direct cause** is an online activation dependency. The **systemic cause** is procurement acceptance without a restart-and-recovery test under physical disconnection. The product owner blocks release; platform engineering seeks an approved offline licence or replaces the component; security repeats a physical-path inspection; operations repeats a cold-start recovery drill. A passing unit test alone cannot close the finding.
+
+**Root-cause record:** `KSA-RCA-43`, pre-test state = offline demo passed; observed state = cold restart unavailable; owner = platform lead; mitigation = offline-capable component and no network workaround; retest = witnessed cold restart plus physical interface inventory; disposition = **HOLD until evidence and signed acceptance**. No actual test is claimed.
+
+#### Practical lab: reproduce a Saudi ecosystem evidence map (synthetic)
+
+**Time:** 35–50 minutes. **Cost:** no paid infrastructure; local Markdown/CSV and Python standard library only. **Inputs:** the government and regulator sources in the ledger below, plus three fictional workload rows. The learner must not upload any customer data.
+
+1. Create a CSV with columns `claim_id,source_issuer,source_date,claim_type,workload,required_evidence,owner,status`. Use one row for the NSDAI skills objective, one for PDPL Article 29 applicability, one for the PLANT-KSA physical-site constraint, and one for AIRGAP-KSA cold-restart verification.
+2. Classify each claim as `strategy_target`, `legal_question`, `contractual_gate` or `technical_test`. Enter `UNVERIFIED` for any control without observed evidence. Do not mark a national target as an achieved enterprise result.
+3. Run this **illustrative validation** on your own synthetic CSV:
+
+```python
+import csv
+from pathlib import Path
+rows = list(csv.DictReader(Path('ksa_evidence.csv').open(encoding='utf-8', newline='')))
+required = {'claim_id', 'source_issuer', 'source_date', 'claim_type', 'workload', 'required_evidence', 'owner', 'status'}
+assert rows and required <= set(rows[0]), 'Missing evidence-map columns'
+assert len({r['claim_id'] for r in rows}) == len(rows), 'Duplicate claim IDs'
+for r in rows:
+    assert r['status'] in {'UNVERIFIED', 'BLOCKED', 'REVIEW_REQUIRED'}, r['claim_id']
+    if r['claim_type'] in {'contractual_gate', 'technical_test'} and not r['required_evidence'].strip():
+        raise AssertionError('Missing hard-gate evidence request: ' + r['claim_id'])
+print('Synthetic evidence-map schema checked; no deployment certified')
+```
+
+4. Introduce a negative path: change AIRGAP-KSA's `required_evidence` to empty. The validator must reject the row. Restore the request, leave status `UNVERIFIED`, and explain why a filled CSV is not physical evidence. Repeat with a duplicate claim ID.
+5. Present a one-page PM decision record: candidate, disqualifying constraint, named acceptance owner, missing proof, next test, fallback and review date. Include a **no-AI alternative**.
+
+**Lab acceptance:** Four rows with source attribution, two intentionally failing schema mutations, and a documented hard-veto decision. **Limitation:** The script validates CSV structure only; it cannot verify source authenticity, Saudi legal applicability, network isolation, licence availability or an actual supplier.
+
+#### Learner challenge and capstone handoff
+
+The sponsor says: “We have Saudi hosting and an Arabic model. Can we approve the air-gapped safety assistant?” Write a 250-word decision memo that identifies the exact failed inference, specifies the evidence needed for physical isolation and offline recovery, names a legal reviewer for PDPL applicability, compares a rules-based alternative and proposes a dated go/no-go meeting. Do not award points for national-strategy alignment when a hard gate is unresolved.
+
+**PM artifact:** `KSA-43-decision-record.md` with an NSDAI opportunity mapping, the legal applicability question, dependency graph owner, veto table, negative-path test plan, and a conditional recommendation. Carry these into the Module 04 ecosystem comparison and later architecture capstone.
+
+#### Source ledger and interpretation limits
+
+| ID | Short exact issuer excerpt | Issuer, pinpoint and source date | What it supports, and what it does not |
+|---|---|---|---|
+| KSA-43-01 | “National Strategy for Data & AI” | SDAIA, *Strategy Narrative*, cover, October 2020 [original document](https://wp.oecd.ai/app/uploads/2021/12/Saudi_Arabia_National_Strategy_for_Data_and_AI_2020.pdf) | Existence of the strategy, not certification of a provider |
+| KSA-43-02 | “Skills” | Saudi government national portal, [Fundamental Digital Policies](https://my.gov.sa/en/content/policies_of_kingdom), inspected 22 November 2026; page publication date not established | Government-published strategic objective, not an independently measured result |
+| KSA-43-03 | “six pillars” | Saudi Press Agency, [national AI report](https://www.spa.gov.sa/N2533339), 10 March 2026 | Agency's summary of strategy structure, not deployment permission |
+| KSA-43-04 | “AI Adoption Framework Document” | Saudi Press Agency, [adoption report](https://spa.gov.sa/N2217019), 1 December 2024 | Governance guidance, not an enterprise approval |
+| KSA-43-05 | “Article 29” | SDAIA official [PDPL text](https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL/), Article 29, inspected 22 November 2026 | A legal transfer question requiring counsel, not universal localization |
+
+[^ksa-nsdai-43]: SDAIA, *National Strategy for Data & AI, Strategy Narrative*, October 2020, https://wp.oecd.ai/app/uploads/2021/12/Saudi_Arabia_National_Strategy_for_Data_and_AI_2020.pdf. Original issuer document hosted by OECD.AI; inspected 22 November 2026.
+[^ksa-portal-43]: Government of Saudi Arabia, *Fundamental Digital Policies*, NSDAI subsection, https://my.gov.sa/en/content/policies_of_kingdom, inspected 22 November 2026; publication date not established. Government-stated targets are not audited achievements.
+[^ksa-spa-43]: Saudi Press Agency, *Saudi Arabia Emerges as AI Powerhouse under Vision 2030*, 10 March 2026, https://www.spa.gov.sa/N2533339, inspected 22 November 2026.
+[^ksa-institutions-43]: Saudi Press Agency, *SDAIA Highlights Saudi Arabia's Focus on AI Governance at Arab Forum*, 28 August 2025, https://www.spa.gov.sa/en/N2386422, inspected 22 November 2026.
+[^ksa-adoption-43]: Saudi Press Agency, *SDAIA Launches AI Framework*, 1 December 2024, https://spa.gov.sa/N2217019, inspected 22 November 2026.
+[^ksa-pdpl-43]: Saudi Data & AI Authority, *Personal Data Protection Law*, Article 29, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL/, inspected 22 November 2026. Applicability must be assessed by counsel.
+[^ksa-transfer-43]: Saudi Data & AI Authority, *Regulation on Personal Data Transfer Outside the Kingdom*, Articles 4–7, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2/, inspected 22 November 2026. Interpret together with PDPL and current implementing instruments.
+
+**Next:** §4.4 compares other GCC opportunities without treating the region as one legal jurisdiction. Module 04 cumulative lab, assessment, solutions, social publication and reviews remain incomplete.
+
