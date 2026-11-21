@@ -44,8 +44,8 @@
       "issuer": "QCRI QCAI",
       "source_url": "https://qcai.qcri.org/research/ai-foundations-systems/fanar-genai-platform",
       "instrument": "research_platform",
-      "claim": "Fanar Arabic-centric research platform",
-      "source_date": "2026-03-01",
+      "claim": "Fanar Arabic-centric research platform; source page has no verified publication date",
+      "source_date": "unknown",
       "reviewed_on": "2026-11-22",
       "supports": "research_platform",
       "does_not_prove": "enterprise_license_or_compliance"
