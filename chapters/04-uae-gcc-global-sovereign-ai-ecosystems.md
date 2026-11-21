@@ -781,3 +781,55 @@ Produce a two-page **Arabic product readiness board card** covering the followin
 [^iea-energy-46]: International Energy Agency, [*Energy and AI*, Executive summary](https://www.iea.org/reports/energy-and-ai/executive-summary), published 2025, inspected **22 November 2026**. The figures relate to data-centre electricity globally, not specifically to AI inference or the fictional UAE plant.
 [^nist-scrm-46]: NIST, [*Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), original 2022 edition updated **1 November 2024**, inspected **22 November 2026**. This NIST source does not define the course's sovereign AI taxonomy or determine legal exportability.
 
+
+
+## Module 04 knowledge assessment and executive decision scenario
+
+> **Learner-facing assessment, not a compliance certificate.** Complete the [synthetic ecosystem evidence lab](../labs/module-04/README.md) first. Use public, fictional or synthetic data only. Answer in your own words and provide evidence IDs, owners and test criteria. Worked answers and scoring instructions are held separately in \`assessments/solutions/04-uae-gcc-global-sovereign-ai-ecosystems-solutions.md\`, which is excluded from the learner website.
+
+**Time:** 60–90 minutes. **Total:** 40 points: Q1–Q4, four points each; Q5, six points; Q6, eighteen points. A correct arithmetic score never overrides an explicit named-premises or physical air-gap release veto.
+
+### Q1. National policy is not enterprise assurance (4 points)
+
+A fictional UAE retailer's board cites the UAE National AI Strategy 2031 as proof that any AI service marketed as “UAE sovereign” is approved for restricted customer records. Write a four-sentence correction distinguishing (a) national policy direction, (b) the relevant enterprise workload and authority, (c) vendor assertions, and (d) evidence needed before release. State one viable non-AI option.
+
+### Q2. Compare regional operating environments without inventing a GCC passport (4 points)
+
+A fictional group operates customer-support desks in UAE, Saudi Arabia, Qatar and Bahrain. Its procurement team wants one GCC-wide approval for all data and models. Create a four-row jurisdiction evidence map: source issuer and scope, business implication, unknown local legal/contractual question and accountable reviewer. Explain why a Saudi government policy or Bahrain government-entity policy is not automatically a private-sector licence across all four countries.
+
+### Q3. Choose a supply-chain architecture after eligibility filtering (4 points)
+
+A fictional UAE enterprise has a public FAQ service, a confidential design workload restricted to **FACTORY-A**, and a disconnected OT maintenance terminal. Compare three candidates: connected managed inference, on-site local inference and a physically disconnected local package. For each workload, state what is **eligible, blocked or unverified**, identify two supplier dependencies (for example chips, energy, licence renewal, remote management, backups), and specify one test that could reverse a conditional choice. Do not treat a firewall-only lab as physical air-gap proof.
+
+### Q4. Arabic model evaluation is an end-to-end system test (4 points)
+
+For a fictional Emirati maintenance assistant that accepts voice queries, write a six-row acceptance plan spanning MSA, Emirati dialect, Arabic-English code switching, numerical asset identifiers, speech transcription and failure/restart behavior. Include native-speaker review, source-grounded accuracy, false-answer severity and locality of ASR, OCR, retrieval, logs and backups. Explain why a high vendor benchmark for the text model alone cannot authorize the voice workflow.
+
+### Q5. Real-world source, hypothetical buyer (6 points)
+
+The **Technology Innovation Institute (TII)** announced Falcon-Emirati alongside Arabic speech and document models on **6 October 2026** in its [official announcement](https://www.tii.ae/news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-speech-and-visual-text), referenced in §4.7 (issuer source inspected there on 22 November 2026). This is a **real named product announcement**, not evidence of any actual buyer deployment, verified benchmark reproduction, offline licence or physical air-gap certification.
+
+A **fictional** UAE industrial buyer wants Falcon-Emirati or an associated Arabic speech model for restricted **FACTORY-A** maintenance records, with no data or derivatives leaving the premises. Procurement proposes using the announcement as the approval document. Should the product manager approve, conditionally investigate, or reject the proposal? Distinguish **documented issuer claim** from **unverified deployment capability**. Name at least four distinct pieces of evidence (including offline rights and *all-component* locality), two negative-path tests, an accountable release authority and one observation that would change the decision. A supplier's marketing claim is not independent verification.
+
+### Q6. Evidence-state transition and root-cause investigation (18 points)
+
+**Explicit fictional pre-test state:** PLANT-47 is marked **REVIEW REQUIRED** because the Arabic text model and RAG index are configured inside FACTORY-A, but the voice transcription adapter, backup destinations and licence renewal routes are **UNKNOWN**. The OT-47 terminal is marked **UNVERIFIED** pending physical isolation inspection. A dashboard displays “100% local inference”; this is a *single-component metric*, not a release decision.
+
+**Observed adverse test:** During a synthetic voice-query test, the PLANT-47 adapter **attempts** an outbound request to an external speech endpoint. The gateway denies the request; sanitized gateway logs show the attempted destination. No actual data delivery is evidenced. The vendor offers a temporary support tunnel and a cloud-based licence reactivation workaround for OT-47. A project lead proposes approving both workloads because the gateway prevented disclosure and the language score is high.
+
+Write a release-board record containing all of the following:
+
+1. **State transitions:** pre-test state, observed adverse evidence and justified current disposition for PLANT-47 and OT-47; do not silently turn UNKNOWN into PASS.
+2. **Direct cause and systemic cause:** distinguish the misconfigured ASR fallback from the governance failure that evaluated only text inference.
+3. **Containment and alternative:** stop the prohibited voice path, preserve sanitized evidence and choose a safe manual/local fallback.
+4. **Corrective controls:** specify the text, speech, retrieval, logs, telemetry, backup, support, licence and physical-network boundaries; name each control owner.
+5. **Retest protocol:** normal, timeout, restart, update, recovery, licence expiry and denied external path, with expected/actual evidence IDs and an explicit **date to be scheduled** (do not fabricate a completed test).
+6. **Closure authority:** identify CISO, plant owner, procurement/legal, native-language evaluator and product owner responsibilities, residual risk and a stop/reopen trigger.
+
+**Mandatory hard gates:** All confidential PLANT-47 processing, derivatives, logs, support and backups must remain in the *named physical premises*, not merely in the UAE. OT-47 allows **no inbound or outbound network connectivity**, including remote support, cloud licensing and management. A negative network attempt may be successfully blocked by infrastructure while still constituting an application-level failure. No simulated score or public model announcement waives either hard gate.
+
+### Submission and PM deliverable
+
+Submit (1) a four-country dated ecosystem evidence matrix, (2) an eligibility-first architecture decision record for the three workloads, (3) a six-slice Arabic evaluation and all-component destination register, and (4) the Q6 root-cause/retest board pack. Each source row must distinguish issuer claim, independent test evidence and unresolved question. Link to the [course-authored ontology](../taxonomy/ONTOLOGY.md) and show relationships among actor, jurisdiction, workload, dependency, control, evidence, authority and decision.
+
+**Definition of done:** The learner can explain *why* a candidate is eligible, blocked, unverified or infeasible; can name who may approve a change; and can produce a falsifiable test plan without presenting fictional scenarios as real incidents. The separate facilitator rubric evaluates reasoning and evidence discipline, not claims of regulatory certification.
