@@ -36,3 +36,7 @@ Re-opened the issuer-hosted [NIST AI RMF 1.0 Core](https://airc.nist.gov/airmf-r
 | “no implicit trust” and “based solely on their physical or network location” | NIST SP 800-207, official Abstract: both substrings **MATCH**; publisher states August 2020 | Security principle, not sovereign compliance certification |
 
 This is a **partial primary-source audit**, not closure of T03-03: remaining material quotations, full pinpoint consistency and dated verification ledger still need checking. The official AI RMF page notes that a revised version is in progress; the chapter explicitly refers to AI RMF **1.0 (2023)**. No new product claims, legal conclusions, physical tests or independent reviewer evidence are asserted. **Release remains HOLD.**
+
+## MANAGE 1.1 follow-up | 2026-11-21
+
+**Primary-source check completed:** NIST's official [AI RMF 1.0 Core, §5.4 MANAGE 1.1](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) states that a determination is made about whether development or deployment “should proceed”. The exact two-word chapter quotation is present in the issuer text. NIST's MANAGE 2.1 also explicitly considers viable non-AI alternatives. Source page inspected on 2026-11-21; this is a verification date, not a claimed new publication date. **This closes only the previously identified MANAGE 1.1 quote spot-check**, not the complete T03-03 source ledger audit. Physical and accessibility gates remain open. Review disposition: **HOLD**.
