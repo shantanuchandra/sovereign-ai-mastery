@@ -1148,3 +1148,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A test that reports an overflow number needs an adverse control demonstrating the detector would fail on intentionally bad layout; this does not replace a passing real-browser run. Avoid claiming an unobserved Pages deployment.
 
 **Next header:** Module 04, **4.1 UAE National AI Strategy 2031 and national priorities**, only after Module 03 release gates close.
+
+
+## Improvement entry 061 | 2026-11-21 | Correct PDF line-break false negative in Module 03 CI
+
+**Source and precedence:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 chapter and carousel/test, prior learning entries and available review blockers. Module 03 remains HOLD. GitHub Pages run [44885111419](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44885111419) for f6c89a2 finished FAILURE. Inspected job 136788641669 full logs: Module 02 browser/PDF PASS; Module 03 failed at `social/module-03/test_rendered_carousel.py:76` on PDF page 2, because extracted text wrapped the literal heading `named-factory` as `named-\nfactory`. The failure was a brittle exact substring assertion, not demonstrated missing heading text. Earlier viewport assertions, including 195px and the mutation probe, had progressed past their checks in that run; no full Module 03 PASS.
+
+**Actual remediation commit:** [9c12cff5c46a4c7d8247aa2ec9c334fb74ecc6ad](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9c12cff5c46a4c7d8247aa2ec9c334fb74ecc6ad) adds narrow PDF heading normalization that rejoins only a literal hyphen followed by a line break, then folds whitespace. Two direct sanity assertions cover hyphenated and ordinary line breaks. Eight-page, full-heading, viewport, keyboard and overflow acceptance criteria remain unchanged.
+
+**Checks performed and deployment:** Read exact failed GitHub Actions logs and current test source; verified GitHub accepted the SHA-guarded update. No local Playwright/PDF test executed and no post-fix CI PASS or deployment observed at logging time. The Pages push run must be inspected before claiming success.
+
+**Outstanding risks:** Module 03 primary-source quotation audit, executable lab negative-path checks, manual browser/keyboard/PDF inspection, learner assessment calibration, and closure of two distinct bounded GPT-6 self-review gates (technical/security/source accuracy; editorial/accessibility/assessment). Neither is an independent human/model review. Public repository uses synthetic data only; no legal, production or assistive-technology certification.
+
+**Lesson:** PDF text extraction can insert a line break inside a hyphenated heading. Preserve the semantic full-heading assertion while normalizing only known rendering whitespace artifacts, rather than weakening the QA threshold or changing correct learner-facing text.
+
+**Next header:** Close Module 03 QA after a confirmed green CI run; then 4.1 UAE National AI Strategy 2031 and national priorities.
