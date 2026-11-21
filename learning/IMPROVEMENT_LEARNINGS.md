@@ -1238,3 +1238,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A named vendor's documented local API is an appropriate real-world assessment anchor only if learners explicitly separate that narrow source evidence from hypothetical enterprise deployment and unverified physical isolation. Keep the worked reasoning in a separate key.
 
 **Next header:** Finish Module 03 negative-path lab, source-quote, accessibility, assessment calibration and two review dispositions; only then Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
+
+
+## Improvement entry 067 | 2026-11-21 | Calibrate Module 03 Q5 on two synthetic responses
+
+**Baseline:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, both Module 03 dated critical self-review records, Module 03 lab README, separate facilitator solution and improvement history through 066. Module 03's E03-01 source repair is already committed; no duplicate content was authored.
+
+**Actual GitHub commit:** [7c29b0d959eb932f0ee89331e339d96eb8323ba8](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/7c29b0d959eb932f0ee89331e339d96eb8323ba8) adds `reviews/module-03/assessment-calibration-2026-11-21.md`. Two clearly fictional Q5 responses were scored against all six existing one-point criteria: unsafe overclaim **2/6**, bounded conditional answer **6/6**. A critical release veto remains independent of the numeric score. Clarified criterion-4 minimum distinct tests and the prohibition on supplier tunnels. The separate facilitator key was not exposed in the website.
+
+**Checks actually performed:** Direct connector reads of source contracts, reviews and Q5 rubric; manual rubric-to-response consistency check; GitHub accepted the new file commit. No independent blinded rater, actual learner sample, local Python/browser/PDF test, physical network/air-gap test or manual assistive-technology inspection occurred. The GitHub connector exposes no general latest Actions workflow-list or dispatch action in this environment; **no CI was initiated or verified in this iteration**. Previously documented green deployment [44904273747](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44904273747) predates this commit. **Current deployment status: UNVERIFIED.**
+
+**Review disposition:** E03-03 **PARTIAL**, not closed: two synthetic samples are scored, but independent inter-rater calibration remains unperformed. E03-02 manual accessibility, T03-01 negative-path execution, T03-02 physical air-gap evidence and T03-03 issuer quote audit remain OPEN. Both distinct GPT-6 self-review gates remain HOLD; no independent reviewer or production certification is claimed.
+
+**Improvement lesson:** A high numeric answer score cannot waive a physical/no-network release veto. Contrasting synthetic answers can expose rubric ambiguity but cannot establish inter-rater reliability.
+
+**Next header:** Close Module 03 blockers with real executable evidence and scoped review dispositions before Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
