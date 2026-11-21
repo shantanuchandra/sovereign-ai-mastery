@@ -1223,3 +1223,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A green CI and complete section count do not establish conformance to the chapter template. Independent review types must be separated by scope and documented without implying different-model verification. A critical review may discover a real assessment mismatch even when the site builds.
 
 **Next header:** Remediate Module 03 E03-01 first, then close both review gates with actual tests/evidence; only afterward Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
+
+
+## Improvement entry 066 | 2026-11-21 | Remediate Module 03 E03-01 sourced Q5 assessment mismatch
+
+**Baseline read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 learner chapter and separate facilitator solution, both Module 03 critical self-review records, and improvement history through 065. E03-01 was the first confirmed assessment blocker. Public examples remain synthetic; no real enterprise deployment is asserted.
+
+**Actual GitHub commits:** [7023fade4d4dbd18b87d49cde6f921d8003eee2d](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/7023fade4d4dbd18b87d49cde6f921d8003eee2d) replaces learner Q5 with an explicitly dated inspection of the [official Ollama README](https://github.com/ollama/ollama/blob/main/README.md), a named real-world product document, and a separate fictional physical-air-gap customer scenario. [d73d5142d954cf6ed60192890d5d1ecfdf2373fc](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/d73d5142d954cf6ed60192890d5d1ecfdf2373fc) updates only the separate worked Q5 key and six-point rubric. GitHub blob SHA guards were used for both updates. The inspected README demonstrates a local REST API; it does not certify offline licensing, cloud-feature disablement, physical disconnection or disaster recovery. No invented product capability or real customer use is claimed. The README's publication date was not established; 2026-11-21 is the actual inspection date, not a claimed publication date.
+
+**Checks performed:** Direct GitHub connector read of the issuer's README and exact short quote; textual comparison of original Q5 and facilitator answer against the chapter template; exact-target replacement checks and GitHub acceptance of both commits. **Not performed:** local lab execution, physical air-gap inspection, manual accessibility/keyboard/screen-reader review, source audit of all other quotations, learner inter-rater scoring, and post-change browser/PDF/Pages CI. **Deployment: NOT VERIFIED for these commits.** The last recorded green run remains [44904273747](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44904273747), before these changes.
+
+**Review disposition:** E03-01 content mismatch **remediated in source, pending automated and editorial validation**. E03-02/E03-03/E03-04 and T03-01/T03-02/T03-03/T03-04 remain OPEN. Both distinct prior GPT-6 self-reviews remain HOLD, not independent reviews. Never infer production, legal or assistive-technology certification. Physical premises and zero-network air-gap requirements fail closed.
+
+**Improvement lesson:** A named vendor's documented local API is an appropriate real-world assessment anchor only if learners explicitly separate that narrow source evidence from hypothetical enterprise deployment and unverified physical isolation. Keep the worked reasoning in a separate key.
+
+**Next header:** Finish Module 03 negative-path lab, source-quote, accessibility, assessment calibration and two review dispositions; only then Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
