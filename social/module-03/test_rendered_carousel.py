@@ -17,6 +17,19 @@ def main():
             page.goto(HTML.resolve().as_uri())
             headings = page.locator("section.slide h2").all_text_contents()
             assert len(headings) == 8 and all(h.strip().endswith("?") for h in headings), headings
+            # Mutation control: prove the document-level overflow detector rejects a
+            # deliberately off-screen element before trusting the real layout checks.
+            page.set_viewport_size({"width": 195, "height": 900})
+            mutation_overflow = page.evaluate("""() => {
+                const probe = document.createElement('div');
+                probe.id = 'qa-overflow-probe';
+                probe.style.cssText = 'position:absolute;left:190px;top:0;width:30px;height:1px';
+                document.body.appendChild(probe);
+                const delta = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+                probe.remove();
+                return delta;
+            }""")
+            assert mutation_overflow > 2, f"Overflow detector failed mutation control: {mutation_overflow}px"
             for width in (1280, 390, 320, 195):
                 page.set_viewport_size({"width": width, "height": 900})
                 metrics = page.evaluate("""() => ({
