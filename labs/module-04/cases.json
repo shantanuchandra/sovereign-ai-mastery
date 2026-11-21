@@ -1,0 +1,198 @@
+{
+  "notice": "All organizations, workload data, architecture candidates, evidence labels, test IDs, approvals and outcomes are fictional. Sources are public but these source records do not establish runtime assurance.",
+  "version": "1.0",
+  "source_claims": [
+    {
+      "id": "UAE-STRATEGY-2019",
+      "jurisdiction": "UAE",
+      "issuer": "UAE AI Office",
+      "source_url": "https://ai.gov.ae/strategy/",
+      "instrument": "strategy",
+      "claim": "UAE National AI Strategy 2031",
+      "source_date": "2019-04-21",
+      "reviewed_on": "2026-11-22",
+      "supports": "strategic_direction",
+      "does_not_prove": "specific_supplier_approval"
+    },
+    {
+      "id": "UAE-TII-EMIRATI-2026",
+      "jurisdiction": "UAE",
+      "issuer": "Technology Innovation Institute",
+      "source_url": "https://www.tii.ae/news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-speech-and-visual-text",
+      "instrument": "model_announcement",
+      "claim": "Falcon-Emirati ASR and OCR models announced",
+      "source_date": "2026-10-06",
+      "reviewed_on": "2026-11-22",
+      "supports": "model_research_claim",
+      "does_not_prove": "offline_rights_or_physical_isolation"
+    },
+    {
+      "id": "KSA-ALLAM-2024",
+      "jurisdiction": "Saudi Arabia",
+      "issuer": "IBM and SDAIA",
+      "source_url": "https://mea.newsroom.ibm.com/sdaia-launches-allam-on-watsonx",
+      "instrument": "vendor_announcement",
+      "claim": "ALLaM made available through watsonx",
+      "source_date": "2024-05-21",
+      "reviewed_on": "2026-11-22",
+      "supports": "provider_offering",
+      "does_not_prove": "particular_customer_runtime"
+    },
+    {
+      "id": "QATAR-FANAR-2026",
+      "jurisdiction": "Qatar",
+      "issuer": "QCRI QCAI",
+      "source_url": "https://qcai.qcri.org/research/ai-foundations-systems/fanar-genai-platform",
+      "instrument": "research_platform",
+      "claim": "Fanar Arabic-centric research platform",
+      "source_date": "2026-03-01",
+      "reviewed_on": "2026-11-22",
+      "supports": "research_platform",
+      "does_not_prove": "enterprise_license_or_compliance"
+    },
+    {
+      "id": "EU-AI-ACT-2026",
+      "jurisdiction": "EU",
+      "issuer": "Council of the European Union",
+      "source_url": "https://www.consilium.europa.eu/en/policies/artificial-intelligence-act/timeline-artificial-intelligence/",
+      "instrument": "regulatory_timeline",
+      "claim": "Staged AI Act applicability and later high-risk milestones",
+      "source_date": "2026-06-29",
+      "reviewed_on": "2026-11-22",
+      "supports": "regulatory_timeline",
+      "does_not_prove": "customer_specific_applicability"
+    }
+  ],
+  "workloads": [
+    {
+      "id": "GCC-DESK-04",
+      "owner": "Synthetic multilingual services",
+      "authority": "Corporate data sponsor",
+      "boundary": "approved_locations",
+      "required_site": null,
+      "approved_sites": [
+        "APPROVED-SERVICE-A"
+      ],
+      "candidate": {
+        "compute_site": "APPROVED-SERVICE-A",
+        "network_mode": "allowlist",
+        "external_management_path": true,
+        "restricted_offsite_derivative": false,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "DESK-LOC",
+          "source_id": "UAE-STRATEGY-2019",
+          "owner": "Platform",
+          "control": "Approved processing region and telemetry",
+          "test": "Synthetic destination inventory",
+          "evidence": "configured",
+          "test_id": ""
+        },
+        {
+          "id": "DESK-LAW",
+          "source_id": "EU-AI-ACT-2026",
+          "owner": "Legal",
+          "control": "Determine role-specific legal scope",
+          "test": "Applicable clause and counsel disposition",
+          "evidence": "missing",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "GCC-PLANT-04",
+      "owner": "Fictional factory data owner",
+      "authority": "Plant contract signatory",
+      "boundary": "single_premises",
+      "required_site": "FACTORY-A",
+      "approved_sites": [],
+      "candidate": {
+        "compute_site": "FACTORY-A",
+        "network_mode": "isolated",
+        "external_management_path": true,
+        "restricted_offsite_derivative": true,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "PLANT-ASR",
+          "source_id": "UAE-TII-EMIRATI-2026",
+          "owner": "CISO",
+          "control": "No remote transcription",
+          "test": "Synthetic ASR timeout, DNS and proxy traces",
+          "evidence": "adverse",
+          "test_id": "SYNTH-PLANT-ASR-EGRESS"
+        },
+        {
+          "id": "PLANT-PORT",
+          "source_id": "KSA-ALLAM-2024",
+          "owner": "Procurement",
+          "control": "Model licensing, support and local fallback",
+          "test": "Offline rights plus failed-network model cold start",
+          "evidence": "asserted",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "GCC-OT-04",
+      "owner": "Fictional OT operations",
+      "authority": "OT safety owner",
+      "boundary": "air_gapped",
+      "required_site": "OT-ROOM",
+      "approved_sites": [],
+      "candidate": {
+        "compute_site": "OT-ROOM",
+        "network_mode": "disconnected",
+        "external_management_path": false,
+        "restricted_offsite_derivative": false,
+        "offline_licence_available": false,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "OT-MEDIA",
+          "source_id": "QATAR-FANAR-2026",
+          "owner": "OT engineer",
+          "control": "Signed offline artifact intake and restore",
+          "test": "Offline media and spare disk cold start",
+          "evidence": "configured",
+          "test_id": ""
+        }
+      ]
+    },
+    {
+      "id": "GCC-QA-04",
+      "owner": "Synthetic Arabic product lab",
+      "authority": "Research product owner",
+      "boundary": "approved_locations",
+      "required_site": null,
+      "approved_sites": [
+        "LAB-ROOM-1"
+      ],
+      "candidate": {
+        "compute_site": "LAB-ROOM-1",
+        "network_mode": "isolated",
+        "external_management_path": false,
+        "restricted_offsite_derivative": false,
+        "offline_licence_available": true,
+        "capacity_feasible": true
+      },
+      "claims": [
+        {
+          "id": "QA-DIALECT",
+          "source_id": "UAE-TII-EMIRATI-2026",
+          "owner": "Native speaker panel",
+          "control": "Balanced Arabic dialect benchmark",
+          "test": "Fictional 12-row paired evaluation with reviewer",
+          "evidence": "tested_unreviewed",
+          "test_id": "SYNTH-ARABIC-DIALECT-01"
+        }
+      ]
+    }
+  ]
+}
