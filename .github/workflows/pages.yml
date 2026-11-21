@@ -56,6 +56,8 @@ jobs:
         run: python -m unittest discover -s qa -p 'test_module03_assessment_contract.py' -v
       - name: Validate Module 03 social accessibility source and mutation contract
         run: python -m unittest discover -s qa -p 'test_module03_social_contract.py' -v
+      - name: Validate Module 04 social publication contract
+        run: python -m unittest discover -s qa -p 'test_module04_social_contract.py' -v
       - name: Validate Module 02 release content contract
         run: python -m unittest discover -s qa -p 'test_module02_release_contract.py' -v
       - name: Validate Module 02 carousel static print and accessibility contract
@@ -78,6 +80,19 @@ jobs:
         run: |
           python social/module-03/export_pdf.py
           test -s dist/social/module-03/QUESTIONS.pdf
+          test -s dist/social/module-04/CAROUSEL.html
+          test -s dist/social/module-04/POST.html
+          test -s dist/social/module-04/QUESTIONS.pdf
+          grep -q 'module-04/CAROUSEL.html' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
+          grep -q 'module-04/POST.html' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
+          if grep -R -l 'Facilitator solutions and marking rubric' dist/social/module-04; then
+            echo '::error::Module 04 facilitator solutions leaked into public social assets'
+            exit 1
+          fi
+      - name: Publish Module 04 portrait PDF
+        run: |
+          python social/module-04/export_pdf.py
+          test -s dist/social/module-04/QUESTIONS.pdf
       - name: Verify rendered diagrams and onboarding
         run: |
           test -s dist/index.html
