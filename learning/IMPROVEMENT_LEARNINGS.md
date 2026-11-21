@@ -1208,3 +1208,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A green publication pipeline resolves a specific executable gate, not the remaining human-judgment gates. Update outdated learner-facing progress notices once evidence exists, and avoid repeating already completed asset creation.
 
 **Next header:** Module 04, **4.1 UAE National AI Strategy 2031 and national priorities**, only after Module 03's two recorded review gates close.
+
+
+## Improvement entry 065 | 2026-11-21 | Record two distinct Module 03 critical self-review HOLD gates
+
+**Baseline and inspected sources:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 03 chapter, lab README, facilitator solutions, HTML carousel, POST.md, and improvement history through entry 064. The previously recorded successful Pages workflow is [44904273747](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44904273747); this iteration did not independently rerun it or validate a deployment for the new review commits.
+
+**Actual GitHub commits:** [6de965c3491793a6fe2c17b72354f40d61bb84c9](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/6de965c3491793a6fe2c17b72354f40d61bb84c9) adds reviews/module-03/technical-security-source-review-2026-11-21.md; [6f45bd7cadd528ea38517d9615da869bf26cde57](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/6f45bd7cadd528ea38517d9615da869bf26cde57) adds reviews/module-03/editorial-accessibility-assessment-review-2026-11-21.md. Both are separate bounded **GPT-6 self-critiques**, not independent human/different-model reviews. Both dispositions are **HOLD**, not approved.
+
+**Checks performed:** Compared chapter Q5 against the mandatory real-world sourced Q5 in CHAPTER_TEMPLATE.md and its corresponding separate solution: confirmed an assessment-contract mismatch. Inspected the lab's documented simulated negative-path scenarios and physical/air-gap limitations, and reviewed the social HTML source. GitHub connector accepted both commits. Local git network access failed DNS resolution; no local lab, browser, PDF, accessibility or packet-capture test was executed. No fresh issuer quotation audit or learner scoring calibration was executed.
+
+**Blocking findings:** Technical T03-01 through T03-03 require executable negative-path evidence, physical air-gap assurance limitations, and pinpoint primary-source quote verification. Editorial E03-01 requires a real named product/document Q5 with verified dated primary source and matching separate worked key; E03-02 requires manual accessibility inspection. Assessment calibration and post-change CI remain outstanding. The previous Pages success does not certify this revision. The public repository remains synthetic-data-only; factory named-premises and physical air-gap rules fail closed.
+
+**Improvement lesson:** A green CI and complete section count do not establish conformance to the chapter template. Independent review types must be separated by scope and documented without implying different-model verification. A critical review may discover a real assessment mismatch even when the site builds.
+
+**Next header:** Remediate Module 03 E03-01 first, then close both review gates with actual tests/evidence; only afterward Module 04 section 4.1 UAE National AI Strategy 2031 and national priorities.
