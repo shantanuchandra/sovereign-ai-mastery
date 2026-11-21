@@ -52,6 +52,30 @@ class Module03AssessmentContract(unittest.TestCase):
         self.assertNotIn("../assessments/solutions/", self.chapter)
         self.assertIn("Solutions are deliberately not copied to dist/", self.builder)
 
+    def test_module03_verified_primary_source_quote_spelling(self):
+        # Source-level regression: issuer-page verification is recorded separately.
+        self.assertIn(
+            "voluntary, rights-preserving, non-sector-specific, and use-case agnostic.",
+            self.chapter,
+        )
+        self.assertNotIn("non-sector specific, and use-case agnostic.", self.chapter)
+        self.assertIn(
+            "Ollama has a REST API for running and managing models.",
+            self.chapter,
+        )
+
+    def test_q5_vendor_example_does_not_certify_an_air_gap(self):
+        q5 = self.chapter.split("**Q5. Real product evidence", 1)[1].split(
+            "### Q6.", 1
+        )[0]
+        for evidence_boundary in (
+            "cloud deployment integrations",
+            "no verified offline licence/artifact chain",
+            "not proof of offline licensing",
+            "Do not assume the README proves C can operate fully disconnected",
+        ):
+            self.assertIn(evidence_boundary.lower(), q5.lower())
+
     def test_fictional_and_no_certificate_claims(self):
         self.assertIn("fictional", self.chapter.lower())
         self.assertIn("fictional", self.key.lower())
