@@ -186,7 +186,7 @@ def frame(body,page,title,prefix='',article=False,toc=None):
         if page=='module01' and title=='Module 01':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test the sovereignty claim.</h2><p>Build a claim register, run its local structural checks and review the question-led carousel.</p><a class="simple-link" href="../labs/module-01/index.html">Open practical lab ↗</a><a class="simple-link" href="../onboarding/index.html">Try Decision Studio ↗</a><a class="simple-link" href="../learning/index.html">Practice with the adaptive tutor ↗</a><a class="simple-link" href="../social/module-01/CAROUSEL.html">Open question deck ↗</a></section>'''
         if page=='module03' and title=='Module 03':
-            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Verify the requirement before buying the architecture.</h2><p>Evaluate fictional enterprise constraints, trace controls to evidence and explain the release decision.</p><a class="simple-link" href="../labs/module-03/index.html">Open Module 03 lab ↗</a><a class="simple-link" href="../learning/index.html">Practice in Architecture Studio ↗</a></section>'''
+            body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Verify the requirement before buying the architecture.</h2><p>Evaluate fictional enterprise constraints, trace controls to evidence and explain the release decision.</p><a class="simple-link" href="../labs/module-03/index.html">Open Module 03 lab ↗</a><a class="simple-link" href="../learning/index.html">Practice in Architecture Studio ↗</a><a class="simple-link" href="../social/module-03/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-03/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module02' and title=='Module 02':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a maturity claim before approving it.</h2><p>Run the synthetic scoring lab and examine its hard-gate evidence.</p><a class="simple-link" href="../labs/module-02/index.html">Open Module 02 lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a><a class="simple-link" href="../social/module-02/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-02/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module' and title=='Module 05':
@@ -241,6 +241,7 @@ def main():
       ('labs/module-03/README.md','labs/module-03/index.html','module03','Module 03 requirements lab'),
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
       ('social/module-02/POST.md','social/module-02/POST.html','module02','LinkedIn post draft 02'),
+      ('social/module-03/POST.md','social/module-03/POST.html','module03','LinkedIn post draft 03'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module','Module 05 lab'),
