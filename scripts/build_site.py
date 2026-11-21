@@ -247,6 +247,7 @@ def main():
       ('social/module-01/POST.md','social/module-01/POST.html','module01','LinkedIn post draft 01'),
       ('social/module-02/POST.md','social/module-02/POST.html','module02','LinkedIn post draft 02'),
       ('social/module-03/POST.md','social/module-03/POST.html','module03','LinkedIn post draft 03'),
+      ('social/module-04/POST.md','social/module-04/POST.html','module04','LinkedIn post draft 04'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module','Module 05 lab'),
@@ -277,7 +278,7 @@ def main():
         prefix='../'*dest.count('/')
         write(DIST/dest,frame(content,page,title,prefix,True,sections))
     # Custom-designed HTML carousels, independent of Markdown rendering.
-    for n in ('01','02','05'):
+    for n in ('01','02','03','04','05'):
         if (ROOT/f'social/module-{n}/CAROUSEL.html').exists():
             shutil.copy2(ROOT/f'social/module-{n}/CAROUSEL.html',DIST/f'social/module-{n}/CAROUSEL.html')
     print('Built',len(list(DIST.rglob('*.html'))),'HTML pages in', DIST)
