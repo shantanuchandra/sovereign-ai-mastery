@@ -7,7 +7,7 @@
 | Part / week | II: Regional policy, regulation and governance / Week 4 |
 | Intended reader | Enterprise AI product manager or platform leader |
 | Previously learned | [Module 03: requirements, hard gates and investment choices](03-enterprise-sovereignty-requirements-strategy.md) |
-| Publication status | **Teaching sections 4.1–4.5 drafted; sections 4.6–4.7, cumulative lab, assessment/solutions, social HTML/PDF and both critical reviews pending** |
+| Publication status | **Teaching sections 4.1–4.6 drafted; section 4.7, cumulative lab, assessment/solutions, social HTML/PDF and both critical reviews pending** |
 | Evidence baseline | Official UAE Cabinet adoption announcement, 21 April 2019; UAE AI Office strategy, read 21 November 2026 |
 | Lab data | Public government strategy plus entirely fictional/synthetic enterprise workloads |
 | Decision artifact | National-priority-to-enterprise-opportunity map with evidence and approval gaps |
@@ -548,4 +548,119 @@ A “region-compliant model” claim is invalid unless the team knows which prec
 [^us-plan-45]: The White House, *White House Unveils America's AI Action Plan*, **23 July 2025**, https://www.whitehouse.gov/releases/2025/07/white-house-unveils-americas-ai-action-plan/. Official executive announcement inspected **22 November 2026**; this is not presented as an enacted private-sector localization mandate.
 [^china-cac-45]: Cyberspace Administration of China, Order No. 15, *生成式人工智能服务管理暂行办法*, **13 July 2023**, effective **15 August 2023**, Article 2, https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm, original Chinese text inspected **22 November 2026**. The English gloss is author translation, not an official English legal text. The same Article 2 distinguishes non-public research/development/application; other laws may separately apply.
 
-**Next:** §4.6 explores compute, chips, supply chains, energy and geopolitics. The Module 04 cumulative lab, assessment, separate facilitator solutions, social/PDF assets and both reviews are still pending.
+### 4.6 Compute access, chips, supply chains, energy, and geopolitics
+
+**Product decision:** Compute sovereignty is not ownership of a GPU. The PM needs evidence that the *whole AI service* can be acquired, powered, cooled, licensed, updated, supported, recovered, and operated within the exact allowed physical and logical boundaries. A supposedly local accelerator is ineligible if its licence, telemetry, backup, diagnostics or failover requires a prohibited remote service.
+
+A useful opening question for the investment board: **Which dependency could stop the authorized workflow tomorrow, and what is the tested local fallback?** Hardware availability, national policy and supplier branding are not enough. All companies, workload IDs, facility measurements and failure drills below are **fictional teaching examples**.
+
+#### Map the compute dependency chain before selecting a GPU
+
+| Dependency | Business failure to investigate | Evidence needed before a recommendation | Fail-closed response |
+|---|---|---|---|
+| Accelerator and memory | Model fails to fit or throughput drops under actual context/concurrency | Exact device SKU, supported model precision, usable memory, versioned p50/p95 end-to-end benchmarks and spares lead time | Smaller authorized model or non-AI procedure, never automatic off-site burst for a restricted workload |
+| Servers, storage, interconnect | Retrieval, cold start or data recovery makes the GPU insufficient | Sustained load, vector-index rebuild, disk/replica placement, recovery-time and recovery-point tests | Local queue or controlled degraded service |
+| Model rights and software | Online activation, incompatible driver, model licence or update dependency blocks restart | Model-by-model licences, distribution rights, model provenance, operating/runtime versions, offline install and rollback | Hold deployment until a viable lawful offline component is identified |
+| Privileged operations | Vendor access or automatic crash diagnostics routes restricted material outside allowed premises | Credential revocation test, privileged-session inventory, crash/support trace, admin/network destinations | Disable unapproved remote access, local-only logs and repair |
+| Power and cooling | Facility cannot supply stable load, recover or remove heat | Site electrical and thermal engineer sign-off, metered idle/peak consumption, UPS/generator/utility capacity and cooling evidence | Shed noncritical inference, controlled downtime; no unapproved remote failover |
+| Procurement and geopolitics | Accelerator shipment, warranty, spare part or supplier service is delayed or legally restricted | Device/version, manufacturer and reseller, destination, end user/end use, export/re-export applicability review, spare inventory, supplier substitutions | Only a legally permitted, tested replacement; otherwise record infeasibility |
+
+**Do not merge dimensions:** chip origin, model developer nationality, country of GPU ownership, location of inference, data/derivative movement, network control, operator authority and exit/licence rights are separate questions. A GPU on a plant shelf proves only the location of that device, not the location of all restricted processing.
+
+The official [NIST SP 800-161 Rev. 1 updated in November 2024](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final) describes its objective as **“identifying, assessing, and mitigating cybersecurity risks throughout the supply chain”**.[^nist-scrm-46] This supports supplier inventories, risk ownership, continuity plans and evidence renewal. It does not determine whether a specific accelerator can be imported, certify firmware or make a particular architecture sovereign. Export restrictions must be checked by qualified counsel for the **exact transaction and current rules**; do not invent a country-wide ban from a chip headline.
+
+#### Compute has a power budget, not merely a purchase price
+
+The International Energy Agency's official [*Energy and AI* executive summary](https://www.iea.org/reports/energy-and-ai/executive-summary) estimates **about 415 terawatt-hours (TWh)** of *global data-centre* electricity consumption in **2024**, approximately 1.5% of total global electricity use. Its **base-case projection** rises to **about 945 TWh by 2030**.[^iea-energy-46] The first number is an estimate of a past global sector total; the second is a scenario, not a measured future result. Neither gives an actual UAE factory load, an AI-only energy bill, a utility grid connection or a fixed 2030 forecast.
+
+At the facility level, record **rated electrical capacity, average IT load, peak IT load, measured cooling overhead, uninterrupted-power duration, generator/fuel logistics, utility interconnection and recovery requirements**. The site facilities engineer, not the AI PM alone, signs electrical feasibility.
+
+**Fictional arithmetic example:** A prospective on-site stack averages **48 kW of IT load** during a synthetic steady-state simulation. An *assumed*, not measured, power usage effectiveness (PUE) of **1.35** implies **64.8 kW** average facility load. At that constant value for 24 hours, the illustrative energy use is **1,555.2 kWh/day**. In reality PUE and demand change with utilization, weather and cooling; safety margins, peak supply and backup must be separately validated.
+
+~~~text
+Average facility power (kW) = measured average IT load (kW) × measured PUE
+Energy over an interval (kWh) = interval-average facility power × hours
+Capacity go/no-go requires both:
+  permitted workload and control-plane paths
+  sufficient tested model, power, cooling, licence, recovery and human operation
+~~~
+
+A procurement spreadsheet showing a low GPU cost is incomplete if the local storage restore uses off-site decryption keys or cold-start licence renewal uses the internet. Likewise, power availability is not a synonym for operational readiness. Measure both sustainable task performance and fail-closed recovery.
+
+#### Geopolitical exposure: dependencies and alternatives, not stereotypes
+
+A country comparison should inspect **the actual device, route and relationship**, not attach a generic “safe/unsafe” label to nationality. Semiconductor supply can be affected by fabrication/packaging concentration, delivery times, equipment service, export and re-export rules, component provenance, power infrastructure and software ecosystem compatibility.
+
+A PM decision record should ask: Does the proposed chip SKU have a legally available acquisition path for this purchaser and end use? Is the model runtime supported by the hardware and firmware version? Are replacements and repairs available within the downtime objective? Can a substitute chip serve the model without exporting sensitive weights or data? Does a support exception create an unapproved remote administrator or diagnostic path? Does a supplier license expire when disconnected?
+
+Record exact sources and specialist owners. **Unknown** trade permission stays a legal/procurement review gap; it is not an automatic prohibition or approval. Official national AI strategies and supplier partnership announcements are market intelligence, not shipment authorizations or proof that the installed system meets physical constraints.
+
+#### Fictional UAE industrial group: three compute choices
+
+**Crescent Gulf Industrial Services (CGIS)** has three fictional workloads and a constrained investment budget.
+
+| Workload | Non-negotiable rule | Candidate and observed synthetic weakness | Release-first decision |
+|---|---|---|---|
+| DESK-46: public/synthetic multilingual research | Processing at named approved service locations; contracts and support reviewed | Managed regional or local platform options, with exact SKU and retention yet to be verified | **UNVERIFIED**; compare managed vs local cost only after actual processing and rights checks |
+| PLANT-46: restricted engineering RAG | **Everything restricted, including prompts, embeddings, outputs, evaluation, diagnostics, monitoring, support bundles and backups, remains inside the one named physical factory, FACTORY-A** | On-prem GPU stack attempts to export a synthetic crash diagnostic to supplier support | **BLOCKED** even though inference itself was local and a perimeter firewall denies the attempt |
+| OT-46: offline maintenance reference | **No inbound or outbound network at all**, including private circuits, firmware calls, emergency support and licence activation | Local inference works normally, but a clean SSD replacement demands online activation | **NOT FEASIBLE UNDER CURRENT CONSTRAINTS** unless a lawfully licensed, safe, completely offline recovery design is proven |
+
+For PLANT-46, a same-country data centre is still **off-premises**. For OT-46, a support VPN or private link still violates the rule. The PM may not quietly convert either strict boundary into “regional only” or “normally disconnected.” If local capability or an acceptable model licence is unavailable, the business must use an approved manual/non-AI fallback or seek a formally authorized change to requirements before any new architecture proposal.
+
+#### Worked failure RCA: a spare SSD breaks an air-gapped service
+
+**Fictional controlled test:** OT-46 has a functioning on-site reference model after initial staging. Following a simulated SSD failure and reinstall from local media, the model-serving runtime attempts an online licence renewal. The network remains physically disconnected and **no production data breach is shown**, but the tool cannot recover within its required continuity window.
+
+| Investigation | Finding and remedy |
+|---|---|
+| Expected versus observed | Cold-start, licence entitlement and data restoration should be possible without network connections; simulated system refuses offline restart |
+| **Direct technical cause** | Licence state is bound to a remote activation endpoint after storage replacement |
+| **Contributing procurement root cause** | Acceptance tested normal-path inference and accelerator benchmarks but not bare-metal recovery, offline rights, artefact chain or licence expiry |
+| Containment | Operations keeps network interfaces disconnected, preserves sanitized synthetic traces, and invokes the approved non-AI operating procedure |
+| Corrective architecture | Obtain verified offline rights and version-pinned artifacts; or select a genuinely permitted offline runtime with equal task/safety capability; no emergency modem or hosted fallback |
+| Reproducible retest | Bare-metal reinstall; firmware and driver checks; local key/restore test; licence-expiry scenario; offline signed-media intake; model-quality safety test; power loss and rollback; actual RTO/RPO timing |
+| Closure | Security and operations review observed evidence, procurement/legal checks entitlements, site owner signs the disconnected boundary, PM records **NOT FEASIBLE** until all hard gates can pass |
+
+**Root cause in one sentence:** The investment decision confused a steady-state *on-site GPU demonstration* with complete **offline lifecycle independence**. A denied network request can be a security success but a business recovery failure.
+
+#### PM artefact: compute access and resilience board pack
+
+The PM submits a two-page decision record containing these auditable fields:
+
+| Field | What must be recorded |
+|---|---|
+| Workload and owner | Named business process, physical site and approved scope; explicit who may waive an obligation |
+| Hardware capacity | Device/model version, RAM/VRAM headroom, task benchmarks, concurrency, storage and spare lead times |
+| Energy and facilities | Metered idle/load/peak power, cooling/utility readiness, UPS/generator design and facilities owner |
+| Software and suppliers | Model licence/provenance, firmware/software bill of materials, approved updates, supplier service territory and current trade-counsel assessment |
+| Control-plane route inventory | Inference, embeddings, logs, diagnostics, evaluations, backups, licence, remote management, failover and recovery paths |
+| Acceptance and exception evidence | Synthetic normal/failure test IDs, expected vs observed, negative egress result, artefact hashes, witnesses, dates and limitations |
+| Decision comparison | Hard-gate disposition, verified alternatives, explicit non-AI fallback, three-year TCO ranges and opportunity cost |
+| Board sign-off | Data owner, CTO, CISO, facilities, operations, procurement/trade counsel and PM, plus revalidation triggers |
+
+The CIO owns investment fit; CTO/platform owns design; facilities owns power; CISO challenges egress and privileges; procurement and legal determine acquisition/use rights; the named plant data owner owns its physical boundary. A release board may compare cost only among **eligible, tested** candidates.
+
+#### Learner lab (50–65 minutes): reject a cheap impossible option
+
+Use synthetic records and the existing [Architecture & Learning Studio](../learning/index.html). The Studio does **not** inspect chips, real network routes or physical facilities.
+
+1. Build a **12-node dependency diagram** for PLANT-46 and OT-46: accelerator, server, model, runtime, firmware, driver, power, cooling, backup, logging, licences, support and operator. Classify each path **local / permitted external / forbidden external / unknown**.
+2. Choose the exact Studio presets **Strict on-premises IP research assistant** and **Air-gapped factory operations**. With the first, select **Single premises only; no data or derivatives may leave**. With the second, select **Air-gapped: no inbound or outbound network**. Compare locally operated GPUs with **Approved managed AI platform** and identify why a simulator output is not a physical network test.
+3. Compute the fictional **48 kW × 1.35 × 24 hours** power budget, showing kW versus kWh and one plausible sensitivity range. Do not present assumed PUE as a measured site value.
+4. Draft five negative acceptance tests covering: gateway/diagnostic egress, offline licence cold start, firmware/model update, storage restore, and safe non-AI fallback.
+5. Write a seven-stage RCA for the SSD failure. End with a role-owned **HOLD, BLOCKED or NOT FEASIBLE** decision and three-year TCO comparison **only** for permitted alternatives.
+
+**Acceptance checklist:** A 12-node dependency graph, versioned supplier and model-rights inventory, capacity/energy calculation with assumptions, at least five falsifiable tests, one rejected supplier architecture, source-bound board memo, explicit physical-site and air-gap rules, and a named reviewer for each open item. Answers belong to the learner's journal; the future Module 04 facilitator key is separate.
+
+**Next header:** 4.7 Arabic models, local language needs, and cultural adaptation. The Module 04 cumulative evidence lab, five-question assessment plus Q6 RCA, separate solutions, portrait social deck/PDF, and two distinct critical reviews remain required before Module 05.
+
+#### Primary evidence ledger for §4.6
+
+| Claim | Verified issuer evidence | Limit |
+|---|---|---|
+| IEA data-centre electricity use | **~415 TWh** in 2024 and **~945 TWh by 2030** in IEA *Energy and AI* base case, official executive summary read 22 Nov 2026 | Global sector estimate and scenario, **not** a UAE facility load quote |
+| NIST supply-chain guidance | SP 800-161 Rev. 1, published May 2022 with updates **1 Nov 2024**; quoted abstract phrase on supply-chain risk identification, assessment and mitigation, official issuer page read 22 Nov 2026 | Risk-management guidance, **not** actual chip availability, export permission or an enterprise control validation |
+
+[^iea-energy-46]: International Energy Agency, [*Energy and AI*, Executive summary](https://www.iea.org/reports/energy-and-ai/executive-summary), published 2025, inspected **22 November 2026**. The figures relate to data-centre electricity globally, not specifically to AI inference or the fictional UAE plant.
+[^nist-scrm-46]: NIST, [*Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations*, SP 800-161 Rev. 1](https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final), original 2022 edition updated **1 November 2024**, inspected **22 November 2026**. This NIST source does not define the course's sovereign AI taxonomy or determine legal exportability.
+
