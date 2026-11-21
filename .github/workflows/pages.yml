@@ -40,6 +40,12 @@ jobs:
           python -m unittest discover -s labs/module-02 -p 'test_*.py' -v
           python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
           test -s /tmp/module02-scorecard.json
+      - name: Validate Module 04 GCC evidence lab
+        run: |
+          python -m py_compile labs/module-04/evaluate.py labs/module-04/test_evaluate.py
+          python -m unittest discover -s labs/module-04 -p 'test_*.py' -v
+          python labs/module-04/evaluate.py labs/module-04/cases.json > /tmp/module04-decisions.json
+          test -s /tmp/module04-decisions.json
       - name: Validate Module 03 requirements lab
         run: |
           python -m py_compile labs/module-03/evaluate.py labs/module-03/test_evaluate.py
@@ -88,6 +94,8 @@ jobs:
           grep -q 'What enterprise problems justify sovereignty investments' dist/modules/03-enterprise-sovereignty-requirements-strategy.html
           test -s dist/labs/module-02/index.html
           test -s dist/labs/module-03/index.html
+          test -s dist/labs/module-04/index.html
+          grep -q 'dated ecosystem evidence' dist/labs/module-04/index.html
           grep -q 'turn an enterprise request into an acceptance decision' dist/labs/module-03/index.html
           test -s dist/social/module-02/CAROUSEL.html
           grep -q 'href="QUESTIONS.pdf"' dist/social/module-02/CAROUSEL.html
