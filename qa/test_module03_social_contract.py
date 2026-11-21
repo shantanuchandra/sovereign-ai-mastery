@@ -69,8 +69,8 @@ class Module03SocialContract(unittest.TestCase):
         # Prove the regex finds real IDs and fails on a deliberate duplicate.
         fixture = '<section id="slide-1"><h2 id="q1">Question?</h2></section>'
         mutated = fixture.replace('</section>', '<p id="q1">Duplicate</p></section>')
-        original_ids = re.findall(r'\\bid="([^"]+)"', fixture)
-        mutated_ids = re.findall(r'\\bid="([^"]+)"', mutated)
+        original_ids = re.findall(r'\bid="([^"]+)"', fixture)
+        mutated_ids = re.findall(r'\bid="([^"]+)"', mutated)
         self.assertEqual(original_ids, ["slide-1", "q1"])
         self.assertEqual(mutated_ids, ["slide-1", "q1", "q1"])
         self.assertNotEqual(len(mutated_ids), len(set(mutated_ids)))
