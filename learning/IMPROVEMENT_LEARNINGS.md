@@ -1071,3 +1071,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** When changing a public-facing URL, update the matching release contract in the same commit; a previously passing test can become a release blocker even when the new navigation target is intentional. Use the first failed CI step and its actual log before attempting broad changes.
 
 **Next action/header:** Verify Pages CI on the fix and repair any next failing step, then close both Module 03 review gates with bounded evidence before proceeding to **4.1 UAE National AI Strategy 2031 and national priorities**.
+
+
+## Improvement entry 056 | 2026-11-21 | Repair observed Module 03 195px reflow failure
+
+**Priority and state:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, latest Module 03 publication source and test, prior gate/learning dispositions. Module 03 release reviews remain HOLD, so did not advance to 4.1. GitHub Pages [run 44861869014](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44861869014), commit 7342a3f, completed **failure**. The job log shows Module 02 rendered browser/PDF smoke passed, then Module 03 rendered smoke failed at 195 CSS pixels: document horizontal overflow was 3px, exceeding the 2px tolerance. All eight slide labels and heading references were present. This is a genuine narrow-screen defect, not a reason to relax the test.
+
+**Fix:** [34b9318aa9a2657891a4b198dc829fb26854cb01](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/34b9318aa9a2657891a4b198dc829fb26854cb01) adds a narrow-screen CSS rule at <=240px: reduce outer and slide padding, allow footer flex wrapping, reduce footer and heading sizes, and narrow the decision border. The print media rule remains separate; chapter/solution content unchanged.
+
+**Checks performed and deployment:** Inspected actual failed GitHub Actions job logs and current HTML/test source; confirmed the GitHub content update commit. **No post-fix Playwright run, PDF export, manual browser inspection, or Pages deployment has been observed yet.** The fix is a reasoned remediation pending executable CI verification; do not claim it passed.
+
+**Unresolved risks:** Re-run must pass 195px overflow, all other responsive sizes, keyboard heading checks, PDF extraction/export and publication assertions. Two distinct bounded GPT-6 technical/security/source and editorial/accessibility/assessment self-review gates remain HOLD pending primary-source audit, negative-path lab evidence, manual browser/PDF inspection and assessment calibration. No independent human/model review or production assurance claimed; public repository remains synthetic-data-only.
+
+**Improvement lesson:** A 3px failure at an intentionally extreme viewport is actionable when the contract explicitly includes that width. Fix intrinsic content layout before considering tolerance changes; preserve actual test failures and their observed evidence.
+
+**Next action/header:** Inspect CI on 34b9318 and this learning commit, repair any remaining failures, close Module 03 review gates, then 4.1 UAE National AI Strategy 2031 and national priorities.
