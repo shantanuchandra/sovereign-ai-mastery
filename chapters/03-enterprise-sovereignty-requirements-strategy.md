@@ -8,7 +8,7 @@
 | Part / week | Part I — Foundations / Week 3 |
 | Audience | Enterprise AI PM, architecture, risk and procurement leads |
 | Prerequisites | [Module 01](01-sovereign-ai-fundamentals.md) and [Module 02](02-classifications-components-maturity-models.md) |
-| Current progress | **Teaching sections 3.1–3.7, lab, assessment/solutions and social HTML/PDF published by CI; both critical review gates remain open** |
+| Current progress | **Teaching sections 3.1–3.7, synthetic lab, assessment/solutions and HTML/PDF published; two distinct bounded GPT-6 self-critical reviews recorded for educational authoring. Independent human, assistive-technology and real-workload verification NOT COMPLETED** |
 | Planned PM output | Evidence-based sovereignty investment brief, stakeholder map and phased roadmap |
 | Environment | Markdown and browser using fictional/synthetic data; no cloud spend required |
 | Primary sources checked | 20 November 2026; NIST AI RMF 1.0 Core |
