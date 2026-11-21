@@ -1439,3 +1439,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Social publication must teach a decision without copying facilitator solutions or converting policy direction into a legal guarantee. Author responsive HTML with a useful no-PDF fallback; do not promise a generated PDF until its exporter and CI have actually run.
 
 **Next work:** Wire Module 04 social HTML/POST into site navigation, add portrait PDF exporter and tests, then complete two distinct review gates before Module 05.
+
+
+## Improvement entry 077 | 2026-11-22 | Integrate Module 04 public teaching assets and CI
+
+**Baseline:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, current Module 04 chapter, previous module review/gate records, Module 04 social assets, Module 03 PDF exporter, Pages workflow and improvement history through the preceding entry. Module 04 seven teaching headers, lab and separate assessment key already exist; did not rewrite them.
+
+**Actual commits:** [83c423a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/83c423a2dfcaba85c438062bcab0e3f99971c20d) adds Module 04 post routing, HTML deck copying and chapter navigation in the site builder; [1c072b4](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1c072b4736ed7d7f429c31bcff75b94629e7186a) adds eight-page portrait PDF export with page-count, size and extracted-heading assertions; [c7d1a3d](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/c7d1a3d2017a035e14ca37a0b1f29ff0ecbf6de8) adds a Module 04 social source contract; [8aeacb4](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/8aeacb4591ea3f08863877111c5771c8706316e2) integrates those checks, PDF export and site publication assertions into Pages CI.
+
+**Checks performed:** Directly inspected current GitHub files and source changes, confirmed all four GitHub content commits accepted. Previous [44952034736](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44952034736) completed successfully at earlier head `82f5630`. New [44957216085](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44957216085) was **queued** at `8aeacb4` when inspected. No successful build, PDF export, rendered browser verification or deployment for this revision has yet been observed; a green result must be checked before claiming it. Source tests alone do not establish manual accessibility or tagged PDF compliance.
+
+**Remaining release gates:** Verify CI run and fix any actual failure, then record two DISTINCT Module 04 critical reviews (technical/security/source accuracy; editorial/accessibility/assessment), resolve blocking findings and validate. Physical premises-only and air-gap controls in synthetic examples remain fail-closed; no independent human/different-model review or production assurance is claimed.
+
+**Improvement lesson:** Publication work should bundle navigation, artifact generation, content separation and executable CI checks. An exporter committed to source is not a verified PDF until the workflow actually runs and validates it.
+
+**Next header:** Module 04 critical review and release checks; then Module 05 §5.1 UAE federal personal data protection framework if release gates pass.
