@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Module 03 browser/PDF smoke test. Synthetic content only; no network requests."""
+import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from playwright.sync_api import sync_playwright
@@ -7,7 +8,15 @@ from pypdf import PdfReader
 
 HTML = Path(__file__).with_name("CAROUSEL.html")
 
+def normalize_pdf_heading(text):
+    """Rejoin a PDF line break after a literal hyphen, then fold whitespace."""
+    text = re.sub(r"(?<=\w)-[ \t]*\n[ \t]*(?=\w)", "-", text)
+    return " ".join(text.split())
+
+
 def main():
+    assert normalize_pdf_heading("named-\nfactory rule?") == "named-factory rule?"
+    assert normalize_pdf_heading("two words\nnext line") == "two words next line"
     assert HTML.is_file()
     with TemporaryDirectory(prefix="module03-qa-") as temp, sync_playwright() as pw:
         browser = pw.chromium.launch(headless=True)
@@ -73,7 +82,7 @@ def main():
             for i, p in enumerate(pdf.pages, 1):
                 extracted = p.extract_text() or ""
                 assert len(extracted.strip()) > 100, (i, extracted[:200])
-                assert headings[i-1].strip() in " ".join(extracted.split()), (i, extracted[:250])
+                assert normalize_pdf_heading(headings[i-1].strip()) in normalize_pdf_heading(extracted), (i, extracted[:250])
             print("PASS: 8 question slides; browser overflow at 1280/390/320/195 CSS px; named headings; keyboard link; 8 text-extractable PDF pages")
             print("Limit: automated smoke test, not manual visual inspection or screen-reader certification")
         finally:
