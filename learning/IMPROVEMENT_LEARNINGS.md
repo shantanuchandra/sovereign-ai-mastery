@@ -1454,3 +1454,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Publication work should bundle navigation, artifact generation, content separation and executable CI checks. An exporter committed to source is not a verified PDF until the workflow actually runs and validates it.
 
 **Next header:** Module 04 critical review and release checks; then Module 05 §5.1 UAE federal personal data protection framework if release gates pass.
+
+
+## Improvement entry 078 | 2026-11-22 | Fix Module 04 social CI failure and record distinct HOLD reviews
+
+**Baseline inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter, GCC evidence lab README, separate facilitator Q1–Q6 solutions, HTML carousel, LinkedIn post, site builder, publishing contract, Pages workflow, and improvement history through 077. No completed teaching section was repeated.
+
+**Failure and exact cause:** GitHub Actions [44957233405](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44957233405) at head `f6dc222af5c42f875585b5d07bd8245d729392f1` **FAILED**. The `Validate Module 04 social publication contract` step failed in `test_site_wiring` because `scripts/build_site.py` did not contain the expected Module 04 carousel link. The GCC evidence lab and earlier checks passed; all downstream PDF export, site build and deploy steps were **SKIPPED**. Do not call the PDF or deployment verified.
+
+**Actual commits:** [29c52a99388754f94a11117a73e760049e001848](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/29c52a99388754f94a11117a73e760049e001848) adds real chapter-next links to Module 04 HTML carousel and post; [f62caa173bd6a643c08e786dd1f86d0f092496fa](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f62caa173bd6a643c08e786dd1f86d0f092496fa) records the technical/security/source GPT-6 self-critique; [cae5688d28689068cdb90e0ef79e3b7ba4174b45](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/cae5688d28689068cdb90e0ef79e3b7ba4174b45) records the separate editorial/accessibility/assessment GPT-6 self-critique; [49a87a18fcb46b09549178e1a29128b534639e25](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/49a87a18fcb46b09549178e1a29128b534639e25) corrects the chapter's stale progress metadata.
+
+**Checks actually performed:** Read the failing job's step conclusions and full traceback, inspected builder and exact test assertion, confirmed single-target source replacement and four GitHub commits. CI for latest content commit [44961926255](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44961926255) was **QUEUED** when checked; intermediate runs were cancelled or waiting due to Pages concurrency. No new CI success, generated PDF, browser rendering, manual keyboard/screen-reader inspection, independent scoring or physical network test was observed. **Deployment status: UNVERIFIED for new commits.**
+
+**Review disposition and risks:** Both distinct GPT-6 self-critiques are **HOLD**, not independent human/different-model reviews. Technical blockers include successful post-fix CI and full issuer source/pinpoint audit; editorial blockers include actual reflow/PDF evidence and manual accessibility review. Independent inter-rater assessment calibration remains outstanding. Premises-only restrictions and physical air-gap prohibitions are non-negotiable for fictional scenarios and must never be weakened to make a lab pass.
+
+**Improvement lesson:** A source file being copied to the published directory is not the same as a discoverable learner navigation link. Read the exact failed assertion and add the missing user-facing behavior rather than weakening the test. Separate critical reviews by purpose and record their incomplete evidence honestly.
+
+**Next work:** Verify the latest Pages run at its exact head SHA; repair any new failure; audit Module 04 issuer sources and accessibility/assessment gates; close both reviews before Module 05 §5.1.
