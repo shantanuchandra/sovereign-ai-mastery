@@ -60,6 +60,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Verify actual Module 02 PDF export and responsive clipping
         run: python social/module-02/test_rendered_carousel.py
+      - name: Verify actual Module 03 carousel reflow and PDF text
+        run: python social/module-03/test_rendered_carousel.py
       - name: Build from Markdown source
         run: python scripts/build_site.py
       - name: Publish Module 02 portrait PDF
