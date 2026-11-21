@@ -7,7 +7,7 @@
 | Part / week | II: Regional policy, regulation and governance / Week 4 |
 | Intended reader | Enterprise AI product manager or platform leader |
 | Previously learned | [Module 03: requirements, hard gates and investment choices](03-enterprise-sovereignty-requirements-strategy.md) |
-| Publication status | **Teaching sections 4.1–4.7 drafted; cumulative lab, assessment/solutions, social HTML/PDF and two critical reviews pending** |
+| Publication status | **Teaching sections 4.1–4.7, synthetic lab, separate assessment key, HTML carousel and PDF exporter authored; two distinct GPT-6 self-critiques recorded with HOLD findings. PDF/deployment verification and release gates remain pending; no independent or physical assurance is claimed.** |
 | Evidence baseline | Official UAE Cabinet adoption announcement, 21 April 2019; UAE AI Office strategy, read 21 November 2026 |
 | Lab data | Public government strategy plus entirely fictional/synthetic enterprise workloads |
 | Decision artifact | National-priority-to-enterprise-opportunity map with evidence and approval gaps |
