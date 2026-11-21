@@ -29,6 +29,22 @@ def main():
                         id: s.querySelector('h2')?.id
                     }))
                 })""")
+                if metrics["documentX"] > 2:
+                    offenders = page.evaluate("""() => {
+                        const limit = document.documentElement.clientWidth;
+                        return [...document.querySelectorAll('body *')].map(el => {
+                            const r = el.getBoundingClientRect();
+                            const css = getComputedStyle(el);
+                            return {tag: el.tagName.toLowerCase(), id: el.id,
+                                className: typeof el.className === 'string' ? el.className : '',
+                                right: Math.round(r.right * 100) / 100,
+                                left: Math.round(r.left * 100) / 100,
+                                scrollWidth: el.scrollWidth, clientWidth: el.clientWidth,
+                                minWidth: css.minWidth, overflowX: css.overflowX};
+                        }).filter(x => x.right > limit + 2 || x.left < -2)
+                          .sort((a, b) => b.right - a.right).slice(0, 15);
+                    }""")
+                    print(f"OVERFLOW DIAGNOSTIC width={width} metrics={metrics} offenders={offenders}", flush=True)
                 assert metrics["documentX"] <= 2, (width, metrics)
                 assert all(s["x"] <= 2 and s["y"] <= 2 and s["heading"]
                            and s["label"] == s["id"] for s in metrics["slides"]), (width, metrics)
