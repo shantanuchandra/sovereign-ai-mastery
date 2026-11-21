@@ -84,6 +84,7 @@ def article_content(path,dest,diagram=False):
     diagram_assets={
       'chapters/01-sovereign-ai-fundamentals.md': ('diagrams/module-01-claim-chain.svg','Sovereignty claim evidence chain'),
       'chapters/03-enterprise-sovereignty-requirements-strategy.md': ('diagrams/module-03-workload-gates.svg','Workload classification by sensitivity, criticality and impact, followed by fail-closed physical and network architecture gates'),
+      'chapters/04-uae-gcc-global-sovereign-ai-ecosystems.md': ('diagrams/module-04-ecosystem-evidence.svg','Conceptual UAE AI ecosystem chain with independent verification of model rights, infrastructure control paths and business outcomes'),
       'taxonomy/ONTOLOGY.md': ('diagrams/sovereignty-ontology.svg','Enterprise sovereignty ontology showing relationships between claims, controls and evidence'),
       'chapters/05-laws-regulation-jurisdiction.md': ('diagrams/module-05-control-graph.svg','Legal control and evidence graph')
     }
