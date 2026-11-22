@@ -1680,3 +1680,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A source page that was previously inaccessible may become readable. Reopen issuer HTML and preserve the distinction between future targets, issuer-reported counts and audited outcomes. A cancelled CI run is not evidence of deployment.
 
 **Next header:** Complete Module 04 assurance gates, then Module 05 §5.1 UAE federal personal data protection framework.
+
+
+## Iteration 092 | 2026-11-22 | TII October Arabic-model source verified
+
+**Inputs inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter, the two distinct GPT-6 HOLD reviews, 30-footnote source ledger, and improvement history through 091. Preserved completed sections, lab, assessment key, HTML/PDF assets and concurrent work. Module 05 §5.1 remains gated.
+
+**Actual source commit:** [9980fcb0dc333656b7cbca9bcb630f331d11d12f](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9980fcb0dc333656b7cbca9bcb630f331d11d12f) updates the Module 04 source ledger, not learner material. Directly reopened TII's issuer HTML, dated 6 October 2026, on 22 November 2026: https://www.tii.ae/news/tii-launches-falcon-emirati-alongside-new-arabic-ai-models-speech-and-visual-text. Confirmed issuer announcements for Falcon-Emirati, Falcon-ASR and Falcon-OCR-Arabic and the *issuer-reported* 84.83% Alyah result. Did not reproduce benchmark results, verify licence rights or infer customer deployment. Saudi government policy portal https://my.gov.sa/en/content/policies_of_kingdom returned HTTP 403 and remains unverified. Source ledger now **23/30 direct checks, seven pending/blocked**.
+
+**Checks and deployment:** Compared the exact TII issuer passage with the bounded ledger claim. No local Python, browser, PDF, manual assistive-technology, independent scoring or physical isolation tests performed. GitHub Actions [45023039105](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45023039105) and [45023039117](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45023039117) completed success at previous log commit 7a3bc0d. New [run 45028287436](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45028287436) at source commit 9980fcb was **in_progress** when checked; deployment of this source commit and this learning entry **NOT VERIFIED**. Do not promote earlier success to this head.
+
+**Risks and gate decision:** T04-03 seven issuer sources remain pending/blocked. E04-02 manual accessibility/PDF reading order and E04-03 independent assessment calibration remain incomplete. Both distinct GPT-6 self-reviews remain HOLD; no independent human/different-model assurance. Named-premises processing and physically air-gapped OT vetoes stay fail-closed, including derivatives, remote support, licence checks and fallback paths. No Module 05 progression.
+
+**Improvement lesson:** Revisit an exact previously inaccessible issuer URL and distinguish a publisher's benchmark claim from reproducible performance. Record a 403 as blocked, not verified. Keep source checks and current-head CI status separate.
+
+**Next work/header:** Verify latest Pages deployment, continue seven unresolved source records, complete genuine manual and independent gates; only then begin Module 05 §5.1.
