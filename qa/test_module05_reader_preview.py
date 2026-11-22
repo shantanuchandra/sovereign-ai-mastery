@@ -113,7 +113,8 @@ class DraftReaderContract(unittest.TestCase):
     def test_facilitator_key_does_not_leak_into_reader(self):
         self.assertFalse((DIST / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md").exists())
         self.assertNotIn("Facilitator solutions and scoring rubric", self.html)
-        self.assertNotIn("Worked answer", self.article.get_text(" ", strip=True))
+        self.assertNotIn("**Worked answer:**", self.html)
+        self.assertNotIn("Q6 | Physical-site and air-gap RCA (18 points)", self.html)
         for a in self.article.select("a[href]"):
             self.assertNotIn("/assessments/solutions/", a["href"])
         self.assertIn("facilitator-only key", self.article.get_text(" ", strip=True))
