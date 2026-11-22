@@ -8,6 +8,9 @@ on:
       - 'assessments/solutions/05-laws-regulation-jurisdiction-solutions.md'
       - 'labs/module-05/**'
       - 'qa/test_module05_draft_contract.py'
+      - 'qa/test_module05_reader_preview.py'
+      - 'scripts/build_site.py'
+      - 'diagrams/module-05-control-graph.svg'
       - 'social/module-05/**'
       - '.github/workflows/module05-draft.yml'
   workflow_dispatch:
@@ -29,6 +32,11 @@ jobs:
           python labs/module-05/validate.py labs/module-05/control_map.json
           python -m unittest discover -s labs/module-05 -p 'test_*.py' -v
           python -m unittest discover -s qa -p 'test_module05_draft_contract.py' -v
+      - name: Build unpublished Module 05 reader and validate shipping paths
+        run: |
+          python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4'
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_module05_reader_preview.py' -v
       - name: Install PDF rendering dependencies
         run: |
           python -m pip install --disable-pip-version-check 'playwright>=1.55,<2' 'pypdf>=6,<7'
