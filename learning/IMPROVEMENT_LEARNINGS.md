@@ -1633,3 +1633,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A cancelled workflow can still provide bounded evidence for steps that actually concluded success. Report the exact step and stop point, never extrapolate to skipped browser, PDF or deployment steps. Avoid churn on an already corrected test harness.
 
 **Next:** Inspect a subsequent non-cancelled Pages run at the applicable SHA, then obtain outstanding issuer/source, manual accessibility and independent assessment evidence before closing Module 04 gates and moving to §5.1. This entry's own accepted commit is reported separately after GitHub returns it.
+
+
+## Iteration 089 | 2026-11-22 | Module 04 current-head CI success reconciled
+
+**Accepted GitHub commit:** [b04177da058d59f9b036623f4c2431cdcc097733](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/b04177da058d59f9b036623f4c2431cdcc097733) updates the technical/security/source critical-review evidence. This entry is the next documentation commit; its own SHA is not asserted before GitHub accepts it.
+
+**Inputs inspected:** Current `TOC.md`, `STYLE_GUIDE.md`, `CHAPTER_TEMPLATE.md`, Module 04 learner chapter, the Module 04 primary-source ledger, both separate Module 04 review records, and the recent improvement-history tail. Checked live GitHub Actions run 45007718634 and its deploy-job step conclusions. No completed Module 04 teaching section was rewritten; Module 05 remains unstarted because the prior module is gated.
+
+**Actual checks and deployment:** [Pages run 45007718634](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45007718634) at commit `a461d2e0a016018e9805ab8825e0f1d5a7e0efa9` completed **SUCCESS**. Its recorded steps succeeded for Module 04 source-inventory contract, GCC synthetic lab, social publication contract, actual carousel reflow/PDF text, website build, Module 04 PDF publishing, artifact upload and Pages deployment. These are verified CI conclusions, not locally rerun tests. Deployment of the subsequent review and learning documentation commits is **not yet verified**. No direct primary-issuer retrieval, screen-reader testing, tagged-PDF inspection, human scoring or physical network validation occurred in this iteration.
+
+**Unresolved risks and release disposition:** Module 04 **HOLD**. Source audit remains **19/30 directly checked, 11 pending or blocked**; manual keyboard/assistive-technology and PDF reading-order inspection remains unperformed; independent inter-rater calibration remains unperformed. Both reviews are distinct **GPT-6 self-critiques**, not independent human/different-model reviews. Preserve the fictional FACTORY-A premises-only and OT-47 physically air-gapped fail-closed vetoes: same-country off-site hosting, remote telemetry, online licence checks and emergency cloud fallback cannot bypass them.
+
+**Improvement lesson:** Separate successful source-contract *structure* checks from factual verification of issuer claims. A successful current-head deployment can close CI uncertainty while leaving substantive editorial, legal and assessment assurance gates open. Avoid redoing a repaired test or silently promoting CI to independent review.
+
+**Next header:** Module 05 §5.1 only **after** remaining Module 04 source, manual accessibility and independent assessment gates are genuinely closed. Next immediate task: prioritize the 11 outstanding source-ledger records, withdraw or narrow claims that cannot be verified, and record exact source/date evidence; then perform distinct gate dispositions.
