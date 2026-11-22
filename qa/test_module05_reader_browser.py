@@ -28,8 +28,19 @@ def main() -> None:
                 diagram = page.locator("figure.diagram-rendered img")
                 assert diagram.count() >= 1, f"{width}px: missing static visual"
                 assert diagram.first.get_attribute("alt"), "Missing nonempty diagram alt text"
+                # The site intentionally uses loading="lazy", so merely
+                # navigating to the top does not request the SVG until nearby.
+                # Scroll to the diagram and await real image completion.
+                diagram.first.scroll_into_view_if_needed()
+                page.wait_for_function(
+                    """() => {
+                        const img = document.querySelector('figure.diagram-rendered img');
+                        return img && img.complete && img.naturalWidth > 0;
+                    }""",
+                    timeout=8000,
+                )
                 assert diagram.first.evaluate("(img) => img.complete && img.naturalWidth > 0"), (
-                    f"{width}px: diagram fails to render with JavaScript/network unavailable"
+                    f"{width}px: diagram failed after scrolling into view"
                 )
                 metrics = page.evaluate("""() => {
                     const main = document.querySelector('main.book-page');
