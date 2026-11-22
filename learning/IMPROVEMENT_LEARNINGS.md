@@ -1908,3 +1908,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Named-premises constraints must validate network/control paths as well as data and backup locations; an apparently successful schema pass is not an operational authorization. The correct response to an unverified path is HOLD, not a guessed on-site exception.
 
 **Next:** Check run 45066461433 at exact source head; fix any failed test rather than skipping it. Then inspect source/version coverage and the older public exemplar's route promises, without publishing Module 05 before Module 04 independent sign-off.
+
+
+## Iteration 106 | 2026-11-23 | Repair failed Module 05 draft validator CI
+
+**Baseline and gates:** Read current branch TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, learning history through 105, synthetic Module 05 control map, validator, negative tests, draft workflow and open release issues #7 and #8. Modules 04 and 05 remain HOLD; Module 05 branch remains unmerged and unpublished.
+
+**Observed failure:** Exact-source-head draft run [45066461433](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45066461433) for `a529172688c2f5e02827c4ba9cb82893b4fa5d86` completed FAILURE at 'Syntax and synthetic graph tests'. The baseline validator returned REJECTED with duplicate physical hard-gate online-licence errors for PLANT-05 and OT-05 before unittest discovery. GitHub Actions log established that the previous edit accidentally inserted literal backslash-n characters into a Python comment; this commented out the intended NAMED_PREMISES network route gate and the online-licence check was incorrectly parsed as part of the comment until its subsequent physical lines. This is a real test failure, not a flaky CI assumption.
+
+**Accepted corrective commit:** [f61826a61806a7501edb3f3c9cc723b42717e6df](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f61826a61806a7501edb3f3c9cc723b42717e6df) replaces the escaped comment with proper Python newlines and restores the named-premises route check. The existing synthetic baseline retains no network paths for PLANT-05 and OT-05; it must not be changed to permit off-premises routes. The existing negative test cases are retained.
+
+**Checks actually performed:** Inspected the failing GitHub job and its exact traceback/output, inspected current branch source and tests, performed a targeted SHA-guarded code fix. No local execution, no newly successful CI, PDF, browser, physical air-gap, screen-reader, independent reviewer or legal counsel verification was observed in this iteration. The draft workflow should be rechecked for a new run at the corrected source head; **status at this log write is NOT VERIFIED**. No Pages deployment was attempted.
+
+**Review:** Issue #7 Module 04 manual accessibility/PDF and independent calibration OPEN; issue #8 Module 05 legal-source, accessibility, and independent calibration OPEN. Both modules remain HOLD, and no release claim is made.
+
+**Improvement lesson:** Inserting escaped newline text into source code can silently swallow a security-critical condition inside a comment. Require exact-head CI after edits, and ensure negative tests actually execute after the baseline command. **Next:** Inspect new draft CI for `f61826a`, remediate any failing step, then resume substantive Module 05 legal/source and exemplar reconciliation only after green tests.
