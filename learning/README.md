@@ -1,4 +1,4 @@
-# Architecture & Learning Studio (v1.1)
+# Architecture & Learning Studio (v1.2)
 
 > A browser-only **adaptive learning exercise** for the Sovereign AI Mastery field guide. It is not an AI model, a compliance tool, legal advice, procurement clearance or a sovereignty certification.
 
@@ -6,10 +6,10 @@
 
 1. **Ten questions** define a bounded AI workload, its data class, processing geography, operational authority, portability, compute capacity, available evidence, jurisdiction and delivery stage.
 2. A **deterministic decision engine** returns one of several provisional architecture patterns. Its reasoning trace connects every input to an implementation consequence.
-3. A generated **layered architecture**, four-dimension control table, evidence status, test plan and hard gates explain how to assess the proposal.
+3. A generated **layered architecture**, four-dimension control table, lifecycle data-flow register, evidence status, test plan and hard gates explain how to assess the proposal.
 4. **Change one constraint** compares the original and proposed architecture without overwriting inputs until the learner explicitly applies the change.
-5. **Four adaptive case questions** change with the configuration. Each answer has a rationale. Wrong answers receive a probable reasoning error, corrective test and course reading.
-6. **Export Markdown and JSON** records assumptions, the architecture, decisions, missed concepts, an optional reflection and unresolved evidence. The user may review and commit these files to the public GitHub repository.
+5. **Four adaptive case questions** change with the configuration. Each answer has a rationale. A missed answer unlocks a different follow-up situation for that concept, with a corrective test and course reading. First attempts remain separate from follow-up results; practice never clears architecture gates.
+6. **Export Markdown and JSON** records assumptions, the architecture, lifecycle flows, first decisions, follow-up decisions, an optional reflection and unresolved evidence. The user may review and commit these files to the public GitHub repository.
 
 ## Rules and their limits
 
@@ -19,7 +19,7 @@ The course ontology in [`taxonomy/ontology.yaml`](../taxonomy/ontology.yaml) def
 
 ## Workload library and physical data boundaries
 
-The Studio now offers 20 workload categories and 15 fictional use-case presets. They span financial services, health, government, defense, manufacturing, telecom, HR, legal, research/IP, multilingual applications, retail/edge and enterprise AI platforms. A preset is a starting configuration, not a claim that the industry automatically requires a particular deployment.
+The Studio offers 26 workload categories and 21 fictional use-case presets. They span financial services, health, government, defense, manufacturing, telecom, HR, legal, research/IP, multilingual applications, retail/edge, enterprise AI platforms, insurance, procurement, education, energy, geospatial analysis and speech. A preset is a starting configuration, not a claim that the industry automatically requires a particular deployment.
 
 The ten questions cover workload, data class, where data and derivatives may exist, network connectivity, administrator authority, portability, infrastructure capacity, evidence available, jurisdiction and release stage. The page dropdowns are populated from `LABELS`, so the browser and decision engine share one taxonomy. Existing version 1 saved selections remain valid; new connectivity defaults to restricted, allow-listed outbound connectivity.
 
@@ -31,6 +31,14 @@ The ten questions cover workload, data class, where data and derivatives may exi
 - Country, provider region, approved geographic zone, whitelisted processing locations and flexible geography are weaker or different boundary definitions; none implies physical-premises control.
 
 If inputs are contradictory, output is `BLOCKED` with named gates. It does not silently recommend a managed model API. An `ONPREM` or `AIRGAP` proposal is always `PROVISIONAL` until independent control tests are accepted.
+
+## Lifecycle register and targeted practice
+
+Every blueprint includes nine required review paths: ingestion, retrieval/embeddings, inference, outputs, telemetry/evaluation, backup/recovery, support, updates and licensing. Relevant workload selections add speech/ASR/TTS, document OCR or sensor/imagery preprocessing. These are suggested surfaces to investigate, not an exhaustive discovered inventory. Each record has artifacts, a required destination, network constraint, accountable owner, acceptance test and `UNVERIFIED` or `BLOCKED` status.
+
+Disconnected designs explicitly require offline activation, cold restart, restore, local identity and controlled update media. A model that works offline but requires online renewal still has an unresolved dependency. The register never infers that a real product meets these requirements.
+
+Saved selections and reflections remain compatible with earlier versions. Quiz answers are restored only when the rules version and all ten selections match, and answer indexes are validated. Upgrading from v1.1 restarts practice while retaining assumptions and the reflection. Storage failures leave the Studio usable, including local exports. Changing a constraint or restarting practice clears both first and follow-up answers.
 
 ## Decision patterns
 
@@ -59,13 +67,16 @@ Requires no packages for the browser experience and no API key. The default desk
 ## Test
 
 ```sh
-node --test learning/tests/engine.test.mjs
+node --test learning/tests/*.test.mjs
 node --check learning/studio-ui.mjs
 node --check learning/studio-engine.mjs
 python3 scripts/build_site.py
+python3 learning/tests/test_rendered_studio.py
 ```
 
-The expanded tests cover normalizing historical inputs, 15 scenario presets, incompatible premises and air-gap requirements, runtime evidence states, adaptive misconceptions, architecture comparisons, journal export, and cross-product fail-closed invariants. They do not replace a cross-browser visual test or an independent audit of legal applicability.
+Build dependencies are Beautiful Soup 4 and Mistune 3. The browser tests additionally require Playwright and its Chromium browser (`python3 -m playwright install chromium`). The production browser experience still requires no packages or API key.
+
+The tests cover normalizing historical inputs, all 21 scenario presets and dropdown contents, incompatible premises and air-gap requirements, lifecycle flows, adaptive follow-ups, architecture comparisons, both actual downloads, saved-state migration, unavailable storage, keyboard answers and layout at 1440/1280/390/320px. The browser suite blocks and reports external requests. The Studio pull-request workflow and Pages workflow run these checks. They do not replace cross-browser or manual assistive-technology review, actual infrastructure testing or independent legal applicability review.
 
 ## Security and publication
 

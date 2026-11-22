@@ -11,7 +11,8 @@
 <body>
 <a class="skip" href="#chapter">Skip to the studio</a>
 <div class="shell">
-  <aside class="rail" aria-label="Book navigation">
+  <aside class="rail" id="book-nav" aria-label="Book navigation">
+    <button id="toc-close" class="mobile-close" type="button">Close contents ×</button>
     <div class="brand"><span class="brand-mark">S<span>/</span>A</span><span>THE SOVEREIGN AI<br><strong>FIELD GUIDE</strong></span></div>
     <div class="small-label">YOUR READING DESK <span>LAB 01</span></div>
     <nav class="rail-nav" aria-label="Course navigation">
@@ -69,12 +70,14 @@
       </section>
       <section id="architecture" class="section">
         <div class="section-head"><div class="eyebrow">02 / THE GENERATED SOLUTION</div><h2>What would you actually build?</h2><p>Follow the requirement, the architecture consequence, and the test needed to support each claim.</p></div>
-        <div class="architecture-header"><span class="status" id="solution-status">PROVISIONAL</span><span class="version">COURSE RULES / V1.1</span></div>
+        <div class="architecture-header"><span class="status" id="solution-status">PROVISIONAL</span><span class="version">COURSE RULES / V1.2</span></div>
         <div class="architecture-intro"><h3 id="solution-title">Provisional architecture</h3><p id="solution-why"></p></div>
         <div class="diagram" id="architecture-diagram" role="group" aria-label="Generated architecture layers"></div>
         <div class="two-cols"><div><h3>Implementation sequence</h3><ol id="implementation-steps"></ol></div><div><h3>Approval gates</h3><ul id="approval-gates"></ul></div></div>
         <div class="section-sub"><h3>Four dimensions, four falsifiable controls</h3><p>These are proposed controls, not verified compliance results.</p></div>
         <div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Claim and implementation</th><th>Verification</th><th>Evidence</th></tr></thead><tbody id="controls-table"></tbody></table></div>
+        <div class="section-sub"><h3>Where does every artifact go?</h3><p>Review the required destination, owner and acceptance test for each lifecycle path. Speech, OCR and sensor paths appear for relevant workloads. Every record remains unverified; blocked designs authorize no deployment.</p></div>
+        <div id="flow-register" class="flow-register" role="group" aria-label="Architecture data-flow register"></div>
         <details class="reason-details"><summary>Why did the engine propose this? View the complete decision trace</summary><ol id="reasoning-trace"></ol></details>
       </section>
       <section id="counterfactual" class="section">
@@ -84,7 +87,7 @@
         <p class="counter-explanation" id="counter-explanation" aria-live="polite"></p><button type="button" class="outline-button" id="apply-counter">Apply this constraint to my design</button>
       </section>
       <section id="tutor" class="section">
-        <div class="section-head"><div class="eyebrow">04 / THE SOCRATIC TEST</div><h2>Can you defend that architecture?</h2><p>Four scenario questions adapt to your current constraints. Choose an answer before revealing the reasoning; wrong answers surface a misconception, a corrective action, and a relevant chapter.</p></div>
+        <div class="section-head"><div class="eyebrow">04 / THE SOCRATIC TEST</div><h2>Can you defend that architecture?</h2><p>Four scenario questions adapt to your current constraints. A missed answer unlocks a different follow-up situation, a corrective test and a relevant chapter. First attempts stay in your learning record even after successful follow-up practice.</p></div>
         <div class="tutor-progress"><strong id="tutor-progress">0 of 4 answered</strong><span id="tutor-context">Generated from your workload</span><button type="button" id="restart-challenges" class="text-button">Restart practice</button></div>
         <div id="challenge-list" class="challenge-list"></div>
         <div id="tutor-summary" class="tutor-summary" aria-live="polite"></div>
