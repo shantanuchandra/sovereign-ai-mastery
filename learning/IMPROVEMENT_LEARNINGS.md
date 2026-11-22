@@ -1938,3 +1938,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement:** A real failing regression must be traced to a corrective source commit and a successful exact-source-head CI run before being considered closed. Keep technical regression closure separate from independent assurance and release approval.
 
 **Next material work:** Strengthen source-to-claim traceability and legal applicability in the Module 05 draft, then seek external counsel and independent accessibility/scoring evidence; keep the branch unpublished until Module 04's review gate closes.
+
+
+## Iteration 108 | 2026-11-23 | Module 05 source-to-decision traceability and fail-closed RCA
+
+**Read current branch:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 05 chapter, separate technical and editorial same-model self-reviews, exemplar crosswalk, improvement log through 107, and open issues #7 and #8. Checked draft workflow run history. No previous header, lab or solution was recreated.
+
+**Accepted content commit:** [10fcc494d2f424aab4ff6211abb16411782bd924](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/10fcc494d2f424aab4ff6211abb16411782bd924) on **unmerged/unpublished** `draft/module-05-legal-controls-20261123`. Added six concrete fictional activity-to-official-source-to-counsel-question-to-engineering-evidence-to-PM-decision rows, a worked cold-start remote-licence failure RCA with six owners and a new learner exercise. Corrected misleading draft review language to distinguish recorded same-model self-reviews from still-missing independent review. No new statute version or legal conclusion is asserted verified.
+
+**Tests and deployment:** Read GitHub Actions history. Earlier draft [run 45072559370](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45072559370) succeeded on older source commit f61826a; failed run 45066461433 remains documented. **No local tests executed this iteration. No exact-head CI result for content commit 10fcc494 was available at inspection; do not claim its tests passed. No Pages deployment or merge.**
+
+**Release blockers:** Module 04 issue #7 independent accessibility/PDF order and scoring reviewer evidence remains OPEN. Module 05 issue #8 current consolidated-law/counsel applicability, manual assistive technology and independent calibration remains OPEN. Real physical network isolation, PDF tagging, legal certification and independent reviewer testing NOT PERFORMED. Module 04 and Module 05 both HOLD.
+
+**Lesson:** Teach the distinction between a cited regulator index, an applicable operative rule, a contractual physical veto and measured technical evidence. A blocked network call is perimeter containment but application failure. **Next:** Check exact-source-head draft CI for 10fcc494, fix any failed source/reader tests, then add an automated source-to-claim contract where feasible; do not publish before Module 04 review acceptance.
