@@ -1488,3 +1488,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A green exporter unit test does not rescue a release workflow that asserts downstream artifacts before their producer runs. Align acceptance checks with artifact dependency order, then verify the exact post-fix CI revision.
 
 **Next work:** Verify corrected Pages CI and generated Module 04 PDF; complete the outstanding Module 04 source, accessibility and scoring review evidence before Module 05 §5.1.
+
+
+## Improvement entry 080 | 2026-11-22 | Verify Module 04 Pages recovery and reconcile both review gates
+
+**Baseline inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter and both distinct review records, improvement history through entry 079, GitHub Actions run metadata and every deploy-job step conclusion. Existing sections, lab, assessment and separate facilitator solutions were not rewritten.
+
+**Actual content/review commits:** [e38e208f46ef955c2b9a88e7f799cdfffee99634](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e38e208f46ef955c2b9a88e7f799cdfffee99634) updates learner-facing publication metadata; [27e76895e5d927524231e6fca1fd3a89a24db51c](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/27e76895e5d927524231e6fca1fd3a89a24db51c) reconciles the technical/security/source review; [9ed4d48ee2173ae2b0a9dfd020cd2f50eb17f6fe](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9ed4d48ee2173ae2b0a9dfd020cd2f50eb17f6fe) reconciles the distinct editorial/accessibility/assessment review. This learning-log update receives its own commit SHA on GitHub acceptance; no future SHA is invented.
+
+**Observed CI evidence:** [GitHub Actions run 44967250594](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44967250594), head `073baff8095877cf88a17da0cfb2d9a69ae7796b`, completed **SUCCESS**. Its deploy job steps passed the Module 04 synthetic GCC lab, Module 04 social contract, website build, Module 04 portrait PDF publishing, generated website upload and Pages deployment. Thus the prior PDF dependency-order failure is resolved for that tested revision. This run does **not** test the subsequent metadata/review commits. No fresh local Python, manual assistive-tech, physical-network, legal review, full issuer audit or independent scoring calibration was performed.
+
+**Gate disposition:** T04-01/T04-04 CI-specific acceptance now supported by actual run evidence; E04-01 metadata corrected and E04-04 publication checks observed. **Both reviews remain HOLD** due to T04-03 incomplete primary-source audit, E04-02 manual accessibility/reading-order evidence and E04-03 independent assessment scoring calibration. A synthetic test cannot certify premises-only or air-gap isolation. Do not treat two GPT-6 self-critiques as independent human/different-model reviews. No Module 05 header started.
+
+**Improvement lesson:** Close only the exact test-dependent blocker proven by the successful head SHA. Successful CI is not a proxy for source accuracy, physical sovereignty, assistive technology or independent scoring; keep those gates explicit.
+
+**Next work:** Complete the Module 04 issuer-source ledger audit and scoped accessibility/calibration evidence before proceeding to Module 05 §5.1. Verify a new Pages run at the current documentation head before claiming that revision deployed.
