@@ -1665,3 +1665,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Reopen the exact issuer HTML and compare a narrowly framed chapter claim, then record publisher date separately from verification date. Resolve source rows in meaningful batches without misrepresenting announcements as independently validated technical performance.
 
 **Next work/header:** Verify the latest Pages run, then audit the remaining nine source records and obtain genuine manual/independent assurance; only after both Module 04 gates close begin Module 05 §5.1.
+
+
+## Iteration 091 | 2026-11-22 | DIFC issuer claim reopened; deployment still pending
+
+**Inputs read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter, its two distinct GPT-6 self-review gate records, full source ledger and learning history. Module 04 is still HOLD; no completed teaching header or solution key was repeated.
+
+**Actual content commit:** [4e7262d4b46f580ccca725a772664513c7a10dec](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/4e7262d4b46f580ccca725a772664513c7a10dec) updates the source ledger's DIFC footnote. Directly retrieved official DIFC HTML at https://www.difc.com/whats-on/news/hamdan-bin-mohammed-approves-new-dubai-ai-campus-targets-2030 on 22 November 2026; page itself dates publication 26 October 2026. The 2030 1,000-company and 5,000-job figures are *targets*; more than 500 firms and AED 1 billion investment are issuer-reported figures, not independently audited. No customer deployment or sovereignty proof follows. Ledger now **22/30 directly checked, eight outstanding**.
+
+**Actual checks and deployment:** Compared the source text and dates with the chapter's bounded ecosystem treatment. GitHub Actions [run 45018029295](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45018029295) for previous source-ledger commit b8842f1 finished **cancelled**, not success. No new Python/browser/PDF/manual assistive-technology or independent scoring test was run in this iteration. CI and deployment of this new source-ledger commit are **NOT VERIFIED**; inspect a subsequent exact-head run.
+
+**Unresolved risks:** Eight issuer records remain pending/blocked, E04-02 manual accessibility and PDF reading-order verification remains open, and E04-03 independent assessment calibration remains open. The two distinct recorded reviews are GPT-6 self-critiques, not independent reviews. Both Module 04 release gates remain HOLD. Preserve named-premises and physical air-gap fail-closed vetoes without offsite/cloud fallback.
+
+**Improvement lesson:** A source page that was previously inaccessible may become readable. Reopen issuer HTML and preserve the distinction between future targets, issuer-reported counts and audited outcomes. A cancelled CI run is not evidence of deployment.
+
+**Next header:** Complete Module 04 assurance gates, then Module 05 §5.1 UAE federal personal data protection framework.
