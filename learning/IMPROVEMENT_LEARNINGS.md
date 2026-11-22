@@ -1620,3 +1620,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A new regression test must first compile and run in CI. A failure in the test harness is not proof of a learner-content defect. Keep the protective assertion, repair the harness and verify at the exact revision.
 
 **Next work/header:** Verify the latest non-cancelled Pages run and fix any genuine assertion failures. Continue Module 04 source and accessibility/assessment assurance; only after both distinct gates close proceed to Module 05 §5.1.
+
+
+## Improvement entry 088 | 2026-11-22 | Module 04 source-contract fix confirmed in partial CI
+
+**Baseline:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, the Module 04 learner chapter, the two distinct HOLD reviews, the 30-reference source ledger, the corrected Python source contract and prior improvement entries. The newest unrelated repository commit 61a7b0388ac74625bbbab421c3e8eb65eefc45b1 changes only roadmap/index.html; no completed teaching material was rewritten.
+
+**GitHub evidence:** Inspected the deploy job of [workflow 45003215282](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45003215282), triggered after [regex repair c943812](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/c943812c96723385c763095bdd2a28d779b36300). The job completed **CANCELLED**, not success or failure. Importantly, its step **Validate Module 04 source inventory contract** concluded **SUCCESS**, as did Module 04 synthetic evidence lab and social publication contract. Cancellation occurred at **Install local browser QA dependencies**; subsequent browser reflow/PDF export/site build/upload/Pages deployment were SKIPPED. Thus the regex correction was exercised successfully in that job, but full release CI and deployment at the revision remain unverified. No local Python execution, direct issuer retrieval, screen-reader inspection, PDF reading-order inspection, independent rater, or physical network test was performed in this iteration.
+
+**Disposition:** HOLD Module 04. T04-03: 19/30 directly checked sources, 11 pending or blocked; E04-02: manual accessibility/PDF reading order; E04-03: independent scoring. The two recorded GPT-6 critiques remain self-reviews. Maintain named-premises and air-gap fail-closed vetoes; no Module 05 §5.1 work until the release gates are met. The source test's successful *step* must not be described as a successful *workflow*.
+
+**Improvement lesson:** A cancelled workflow can still provide bounded evidence for steps that actually concluded success. Report the exact step and stop point, never extrapolate to skipped browser, PDF or deployment steps. Avoid churn on an already corrected test harness.
+
+**Next:** Inspect a subsequent non-cancelled Pages run at the applicable SHA, then obtain outstanding issuer/source, manual accessibility and independent assessment evidence before closing Module 04 gates and moving to §5.1. This entry's own accepted commit is reported separately after GitHub returns it.
