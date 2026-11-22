@@ -263,7 +263,7 @@ The buyer has three workloads introduced in §4.1. **SERVICE-41** permits an ass
 
 Saudi Arabia's **National Strategy for Data and AI (NSDAI)** is presented in an October 2020 strategy narrative issued by the Saudi Data & AI Authority (SDAIA). The official Saudi government portal describes objectives spanning ambition, skills, partnerships and investment. In a 10 March 2026 report, the Saudi Press Agency attributed six pillars to the national strategy: ambition, competencies, policies, investment, innovation and ecosystem.[^ksa-nsdai-43][^ksa-portal-43][^ksa-spa-43]
 
-The government portal lists targets including training more than 20,000 specialists and mobilizing over USD 20 billion in data and AI initiatives. **These are strategy targets reported by government, not independently audited outcomes or guaranteed funding for a buyer.** The same distinction applies to infrastructure announcements and supplier capacity claims.[^ksa-portal-43]
+**Source-verification boundary:** The Saudi government portal's detailed numerical strategy targets have not been independently retrieved for this course revision. Accordingly, no specialist-training or investment target is asserted here. Treat any such targets as proposals to verify against the current issuer document, not achieved outcomes or guaranteed funding for a buyer. Apply the same evidence distinction to infrastructure announcements and supplier capacity claims.[^ksa-portal-43]
 
 | Strategy or institution | Evidence-backed role | What an enterprise PM should *not* infer | Buyer-side evidence request |
 |---|---|---|---|
