@@ -1787,3 +1787,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Lesson:** When primary evidence is unavailable, remove precise unsupported numbers rather than repeatedly marking them verified by association. Preserve provenance and fail-closed assurance requirements.
 
 **Next:** Reassess the three source rows and the exact-head CI outcome, then complete Module 04 review gates before Module 05 §5.1.
+
+
+## Iteration 099 | 2026-11-22 | Withhold two blocked GCC issuer assertions
+
+**Inputs inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter, both Module 04 reviews, source-accuracy ledger, and learning history through iteration 098. Module 04 was HOLD; no Module 05 work started.
+
+**Accepted commits:** [e978d444cc4fd1dc24cf0535cafa9a6e7adf3a91](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e978d444cc4fd1dc24cf0535cafa9a6e7adf3a91) withholds specific Qatar adoption chronology and Bahrain policy approval/scope assertions, replacing them with explicit evidence boundaries. [9ca3762ffe92955a8d3273acc6f08f34668670d7](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9ca3762ffe92955a8d3273acc6f08f34668670d7) documents the correction in the issuer ledger. Both updates used GitHub file SHA guards.
+
+**Checks:** Read the exact chapter claims and ledger statuses and performed targeted textual corrections. Did not retrieve blocked issuer pages, run local Python, conduct manual accessibility/PDF checks, verify physical air gap or obtain independent scoring. Prior successful Studio and Pages runs 45049947786 and 45049947645 apply to earlier commit 6382400; **no new-head CI success has been checked**.
+
+**Risk disposition:** Saudi portal PENDING_DIRECT, Qatar and Bahrain RETRIEVAL_BLOCKED. Specific unsupported claims were withheld rather than falsely verified. Module 04 source, accessibility and independent-assessment review gates remain HOLD. GPT-6 self-reviews are not independent external assurance. No real-world sovereignty compliance or certification is implied.
+
+**Lesson and next:** Source-ledger entries should distinguish a source's identity from verified claim support. Continue issuer audit and check new-head CI, then close educational review gates with explicit bounded scope before Module 05 §5.1. Physical premises-only and air-gap requirements remain fail closed for any real deployment.
