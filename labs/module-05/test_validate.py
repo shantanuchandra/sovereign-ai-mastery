@@ -65,6 +65,14 @@ class LegalControlGraphContract(unittest.TestCase):
         record(doc, "PLANT-05")["processing_destinations"].append("UAE-CLOUD")
         self.assert_rejected(doc, "processing_destinations violates named physical")
 
+    def test_reject_unverified_remote_support_from_named_factory(self):
+        for route in ("REMOTE-SUPPORT", "VENDOR-TELEMETRY", "PRIVATE-LINK",
+                      "FACTORY-A-LAN-UNVERIFIED"):
+            doc = fixture()
+            record(doc, "PLANT-05")["network_paths"] = [route]
+            with self.subTest(route=route):
+                self.assert_rejected(doc, "named premises network paths need verified on-site routing")
+
     def test_reject_offsite_backup_from_named_factory(self):
         doc = fixture()
         record(doc, "PLANT-05")["backup_destinations"] = ["NEARBY-UAE-REGION"]
