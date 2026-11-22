@@ -351,7 +351,7 @@ The sponsor says: “We have Saudi hosting and an Arabic model. Can we approve t
 [^ksa-institutions-43]: Saudi Press Agency, *SDAIA Highlights Saudi Arabia's Focus on AI Governance at Arab Forum*, 28 August 2025, https://www.spa.gov.sa/en/N2386422, inspected 22 November 2026.
 [^ksa-adoption-43]: Saudi Press Agency, *SDAIA Launches AI Framework*, 1 December 2024, https://spa.gov.sa/N2217019, inspected 22 November 2026.
 [^ksa-pdpl-43]: Saudi Data & AI Authority, *Personal Data Protection Law*, Article 29, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL/, inspected 22 November 2026. Applicability must be assessed by counsel.
-[^ksa-transfer-43]: Saudi Data & AI Authority, *Regulation on Personal Data Transfer Outside the Kingdom*, Articles 4–7, https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2/, inspected 22 November 2026. Interpret together with PDPL and current implementing instruments.
+[^ksa-transfer-43]: Saudi Data & AI Authority, *Regulation on Personal Data Transfer Outside the Kingdom*, Articles 4–7, [SDAIA official transfer-specific regulation](https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/RegulationonPersonalDataTransferOutsidetheKingdom/), directly rechecked **22 November 2026** against the issuer's Arabic HTML. Article 4 sets out certain safeguards/exemption conditions, Article 6 addresses withdrawal of exemptions and the resulting cessation of transfer, and Article 7 addresses transfer-risk assessment. This is distinct from the general PDPL implementing regulation; actual applicability and the controlling language/version require qualified legal review.
 
 
 
