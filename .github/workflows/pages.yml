@@ -56,6 +56,8 @@ jobs:
         run: python -m unittest discover -s qa -p 'test_module03_assessment_contract.py' -v
       - name: Validate Module 03 social accessibility source and mutation contract
         run: python -m unittest discover -s qa -p 'test_module03_social_contract.py' -v
+      - name: Validate Module 04 source inventory contract
+        run: python -m unittest discover -s qa -p 'test_module04_source_ledger.py' -v
       - name: Validate Module 04 social publication contract
         run: python -m unittest discover -s qa -p 'test_module04_social_contract.py' -v
       - name: Validate Module 02 release content contract
