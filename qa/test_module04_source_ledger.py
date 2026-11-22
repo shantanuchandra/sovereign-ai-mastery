@@ -24,8 +24,8 @@ class Module04SourceLedgerContract(unittest.TestCase):
         self.assertEqual(len(ledger_ids), len(set(row[0] for row in ledger_ids)))
 
     def test_every_cited_footnote_has_exactly_one_definition(self):
-        cited = set(re.findall(r"\\[\\^([^\\]]+)\\]", self.chapter))
-        definitions = re.findall(r"^\\[\\^([^\\]]+)\\]:", self.chapter, re.M)
+        cited = set(re.findall(r"\[\^([^\]]+)\]", self.chapter))
+        definitions = re.findall(r"^\[\^([^\]]+)\]:", self.chapter, re.M)
         self.assertEqual(cited, set(definitions),
                          f"Undefined: {sorted(cited - set(definitions))}; unused: {sorted(set(definitions) - cited)}")
         self.assertEqual(len(definitions), len(set(definitions)))
