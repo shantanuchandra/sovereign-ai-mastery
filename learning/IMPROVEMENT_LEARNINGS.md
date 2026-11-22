@@ -1503,3 +1503,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Close only the exact test-dependent blocker proven by the successful head SHA. Successful CI is not a proxy for source accuracy, physical sovereignty, assistive technology or independent scoring; keep those gates explicit.
 
 **Next work:** Complete the Module 04 issuer-source ledger audit and scoped accessibility/calibration evidence before proceeding to Module 05 §5.1. Verify a new Pages run at the current documentation head before claiming that revision deployed.
+
+
+## Improvement entry 081 | 2026-11-22 | Bahrain policy scope source reconciliation
+
+**Baseline:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, current Module 04 chapter, both distinct Module 04 review records and improvement history through 080. No finished heading or facilitator key was repeated.
+
+**Actual commits:** [980be553aaa1c4fcd462ac0440f8778b7215e52d](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/980be553aaa1c4fcd462ac0440f8778b7215e52d) adds a learner-facing Bahrain policy-scope clarification and decision evidence request; [1d75e9e25a01fb0438f4f93ed66a72a6d4f30a6c](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1d75e9e25a01fb0438f4f93ed66a72a6d4f30a6c) records the bounded technical/source review evidence. This learning entry's own commit is assigned by GitHub after acceptance, not pre-asserted.
+
+**Checks performed:** Compared the Bahrain NEA official policy listing (last update 20 May 2025), official iGA announcement (27 July 2025), official portal's broader description and search-indexed policy §§3 and 8. Direct policy PDF fetch returned HTTP 403, so direct page-by-page issuer PDF verification was NOT performed. No Python tests, manual accessibility, screen-reader, physical air-gap inspection or independent scoring was run. Source-only Markdown changes accepted by GitHub; no new GitHub Actions run result was available through the tools used here. **Deployment of these commits: UNVERIFIED.** Prior Pages success run 44967250594 covers earlier head 073baff only.
+
+**Risks / disposition:** T04-03 full multi-issuer audit remains OPEN; E04-02 manual accessibility and E04-03 independent assessment calibration remain OPEN. The new bounded clarification is not legal advice or independent human/model review. Both Module 04 review dispositions remain HOLD; do not advance Module 05. Named-premises and physical air-gap vetoes remain fail-closed.
+
+**Improvement lesson:** When an issuer's general portal wording is broader than a policy's operative scope, show both, identify the controlling clause and request entity-specific legal applicability review. Mark inaccessible originals as a verification limit rather than asserting full audit.
+
+**Next work:** Continue Module 04 issuer-source pinpoint audit, then manual accessibility and assessment calibration evidence; verify Pages CI at a new exact head SHA before closing release gates. Next teaching header after gates: Module 05 §5.1.
