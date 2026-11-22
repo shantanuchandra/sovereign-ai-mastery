@@ -10,6 +10,7 @@ import re
 import unittest
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+from xml.etree import ElementTree as ET
 
 from bs4 import BeautifulSoup
 
@@ -55,6 +56,24 @@ class DraftReaderContract(unittest.TestCase):
         self.assertIsNotNone(diagram.select_one("figcaption"))
         self.assertIsNotNone(diagram.select_one("details.diagram-source code.language-mermaid"))
         self.assertTrue((DIST / "diagrams/module-05-control-graph.svg").is_file())
+
+    def test_svg_teaches_vendor_data_and_fail_closed_release_decision(self):
+        tree = ET.parse(DIST / "diagrams/module-05-control-graph.svg")
+        svg = tree.getroot()
+        ns = "{http://www.w3.org/2000/svg}"
+        self.assertEqual(svg.tag, ns + "svg")
+        self.assertEqual(svg.get("role"), "img")
+        title = svg.find(ns + "title")
+        desc = svg.find(ns + "desc")
+        self.assertIsNotNone(title)
+        self.assertIsNotNone(desc)
+        self.assertIn("Hard", "".join(svg.itertext()) + " Hard")
+        labels = " ".join(x.strip() for x in svg.itertext() if x)
+        for term in ("Legal entity", "Counsel", "Data + derivatives",
+                     "Vendor / control paths", "Observed evidence",
+                     "Hard release gate", "HOLD / BLOCKED",
+                     "Candidate for release review", "physical air gap"):
+            self.assertIn(term, labels)
 
     def test_eight_sections_accessible_from_page_headings(self):
         headings = self.article.select("h1,h2,h3")
