@@ -11,6 +11,7 @@ on:
       - 'qa/test_module05_reader_preview.py'
       - 'qa/test_module05_reader_browser.py'
       - 'scripts/build_site.py'
+      - 'site/assets/site.css'
       - 'diagrams/module-05-control-graph.svg'
       - 'social/module-05/**'
       - '.github/workflows/module05-draft.yml'
