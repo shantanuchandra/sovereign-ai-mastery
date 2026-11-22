@@ -18,10 +18,17 @@ class Module04SourceLedgerContract(unittest.TestCase):
     def test_all_primary_source_footnotes_inventoried_once(self):
         chapter_ids = re.findall(r"^\[\^([^\]]+)\]:", self.chapter, re.M)
         ledger_ids = re.findall(r"^\| `([^`]+)` \| \*\*(VERIFIED_DIRECT|PENDING_DIRECT|RETRIEVAL_BLOCKED)\*\*", self.ledger, re.M)
-        self.assertEqual(len(chapter_ids), 28)
+        self.assertEqual(len(chapter_ids), 30)
         self.assertEqual(len(chapter_ids), len(set(chapter_ids)))
         self.assertEqual(set(chapter_ids), {row[0] for row in ledger_ids})
         self.assertEqual(len(ledger_ids), len(set(row[0] for row in ledger_ids)))
+
+    def test_every_cited_footnote_has_exactly_one_definition(self):
+        cited = set(re.findall(r"\\[\\^([^\\]]+)\\]", self.chapter))
+        definitions = re.findall(r"^\\[\\^([^\\]]+)\\]:", self.chapter, re.M)
+        self.assertEqual(cited, set(definitions),
+                         f"Undefined: {sorted(cited - set(definitions))}; unused: {sorted(set(definitions) - cited)}")
+        self.assertEqual(len(definitions), len(set(definitions)))
 
     def test_partial_audit_not_mislabelled_complete(self):
         self.assertIn("T04-03 PARTIALLY VERIFIED, STILL OPEN/BLOCKING", self.ledger)
