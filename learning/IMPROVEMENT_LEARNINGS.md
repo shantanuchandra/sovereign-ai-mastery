@@ -1518,3 +1518,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** When an issuer's general portal wording is broader than a policy's operative scope, show both, identify the controlling clause and request entity-specific legal applicability review. Mark inaccessible originals as a verification limit rather than asserting full audit.
 
 **Next work:** Continue Module 04 issuer-source pinpoint audit, then manual accessibility and assessment calibration evidence; verify Pages CI at a new exact head SHA before closing release gates. Next teaching header after gates: Module 05 §5.1.
+
+
+## Improvement entry 082 | 2026-11-22 | Module 04 Q6 bounded scoring stress test
+
+**Baseline and concurrency:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter, its separate Q1–Q6 facilitator solutions, both distinct HOLD review records, and improvement history through 081. Inspected the latest Pages run and did not rewrite completed sections. At start, [run 44976387336](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44976387336) at head `949438efc09e6c6ffae8ba7ace865b826594db0c` had completed **SUCCESS**, confirming deployment of the preceding Bahrain correction/log revision.
+
+**Actual content commit:** [6b86375cb1a8b63d3a1017165ccf87c38a5cfa77](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/6b86375cb1a8b63d3a1017165ccf87c38a5cfa77) adds `reviews/module-04/q6-fictional-scoring-stress-test-2026-11-22.md`. Two contrasting invented Q6 submissions were scored against the existing 18-point key: 15/18 for an evidence-led response with incomplete ownership/date/residual-risk detail, and 1/18 plus an overriding HARD VETO for a response approving offsite ASR and an OT support tunnel. The review artifact stays separate from learner-facing content and facilitator key.
+
+**Checks actually performed:** Read the live source and review records; compared invented responses against each rubric row; checked arithmetic manually; confirmed GitHub accepted the review commit. No automated Python test, actual learner study, independent second rater, browser/assistive-tech check, physical isolation test or legal audit occurred. The new commit's CI and Pages deployment are **NOT YET VERIFIED** at this log's authoring time; a previous green run is not proof of this revision.
+
+**Open blockers:** E04-03 remains OPEN: this is one GPT-6 self-calibration exercise, not independent inter-rater agreement. E04-02 manual accessibility/PDF reading-order evidence and T04-03 complete issuer-source audit remain OPEN. Both critical reviews remain HOLD. Named-premises and physical air-gap hard vetoes remain unchanged.
+
+**Improvement lesson:** Record numeric learning score separately from release eligibility. A correct gateway block does not make a prohibited application fallback acceptable. Calibrate what constitutes an explicit future test scheduling field rather than rewarding invented test dates.
+
+**Next work/header:** Complete Module 04 source and accessibility evidence and obtain genuinely independent scoring if available; only after the two release gates close proceed to Module 05 §5.1.
