@@ -1800,3 +1800,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Risk disposition:** Saudi portal PENDING_DIRECT, Qatar and Bahrain RETRIEVAL_BLOCKED. Specific unsupported claims were withheld rather than falsely verified. Module 04 source, accessibility and independent-assessment review gates remain HOLD. GPT-6 self-reviews are not independent external assurance. No real-world sovereignty compliance or certification is implied.
 
 **Lesson and next:** Source-ledger entries should distinguish a source's identity from verified claim support. Continue issuer audit and check new-head CI, then close educational review gates with explicit bounded scope before Module 05 §5.1. Physical premises-only and air-gap requirements remain fail closed for any real deployment.
+
+
+## Iteration 100 | 2026-11-23 | Verify exact-head Module 04 CI and specify independent gates
+
+**Baseline:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, both Module 04 critical reviews, source ledger, and learning history through 099. Existing chapter claims and prior corrections were preserved.
+
+**Verified workflow evidence:** GitHub Actions [Pages 45052150457](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45052150457) and [Studio 45052150444](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45052150444) both completed SUCCESS on exact source head `56dcbb86de85912d2bb4bbdfc29c8e5bfac30412`. Earlier intermediate deployment runs were cancelled; they are not claimed successful. This new log/review commit is not covered by those earlier workflow results.
+
+**Accepted review update:** [91a6063b7e55028c41088a9ba5677e04d6f60f0a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/91a6063b7e55028c41088a9ba5677e04d6f60f0a) records exact-head CI recovery and a reproducible manual keyboard, zoom, screen-reader, contrast, PDF reading-order and independent scoring calibration protocol. No curriculum section was duplicated.
+
+**Checks performed:** Retrieved workflow-run metadata and confirmed completed success and matching head SHA; read review and ledger state. Did not personally execute browser/assistive technology, PDF inspection, independent scoring, local tests or physical network checks. No new issuer text was verified.
+
+**Risks and decision:** Module 04 remains HOLD. Saudi portal PENDING_DIRECT, Qatar and Bahrain RETRIEVAL_BLOCKED; unsupported precise claims were withdrawn, not verified. Manual E04-02 and genuinely independent E04-03 remain OPEN; GPT-6 self-review does not close them. No production, legal or physical air-gap assurance is claimed.
+
+**Lesson:** Record successful exact-head automation separately from human accessibility and independent scoring evidence. Specify a testable acceptance protocol instead of using CI success to waive review. **Next:** obtain issuer evidence or fully bound remaining claims, then execute E04-02/E04-03 and review the gate before Module 05 §5.1.
