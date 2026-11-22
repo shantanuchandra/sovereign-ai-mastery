@@ -1744,3 +1744,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Separately record *assessment points* and *release eligibility*. A knowledgeable answer that proposes a forbidden support tunnel is still release-blocking. A same-model two-response exercise can expose rubric ambiguities and prepare independent calibration, but cannot replace an independent rater.
 
 **Next work/header:** Verify exact-head Pages CI, obtain direct primary text or narrow/withdraw three remaining source claims, and perform genuine manual accessibility and independent assessment checks before Module 05 §5.1. The learning-log commit SHA is only reportable after acceptance.
+
+
+## Iteration 096 | 2026-11-22 | Pages deployment metadata race investigated and mitigated
+
+**Inputs read:** Current TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter, technical/security/source review, editorial/accessibility/assessment review, source-accuracy ledger, learning history through 095 and .github/workflows/pages.yml. No completed learner content, solutions or concurrent chapter edits were overwritten.
+
+**Actual accepted workflow commit:** [1186aaea877d6990412e1863ebfb30335dc5ccd1](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1186aaea877d6990412e1863ebfb30335dc5ccd1). Latest previous-head [run 45043968937](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45043968937) completed FAILURE. Its deployment job successfully uploaded Pages artifact 14762867554, and the GitHub Actions REST visibility check returned an artifact ID, but actions/deploy-pages@v4 immediately reported **Found 0 artifact(s)**. This is an observed discrepancy between the REST listing and the deployment action's artifact lookup, consistent with metadata propagation delay, not evidence of broken chapter content. Added a bounded 20-second settling delay after successful artifact visibility check. This is a mitigation hypothesis, not a confirmed fix.
+
+**Checks actually performed:** Read failed run metadata and deployment-job logs, identified failed step 29, inspected workflow source and review gates, and accepted the GitHub workflow update with original blob SHA. The failed workflow reached build, browser/PDF and artifact-upload steps, but its overall result was FAILURE; do not claim deployment success. No local tests, physical air-gap tests, manual accessibility/PDF reading-order checks or independent calibration were run. New workflow commit and this learning-log commit require their own CI evidence.
+
+**Unresolved risks and release decision:** Module 04 remains **HOLD** at 27/30 directly checked sources; `ksa-portal-43`, `gcc-qatar-44` and `gcc-bahrain-44` remain unresolved. E04-02 manual accessibility/PDF reading-order and E04-03 genuinely independent assessment calibration are OPEN. Both recorded reviews are distinct GPT-6 self-critiques only. FACTORY-A named-premises and OT-47 physically air-gapped fail-closed requirements are unchanged. A successful artifact upload is not a deployed site.
+
+**Improvement lesson:** Deployment APIs can disagree transiently even after an artifact is listed; inspect exact failing step and preserve the distinction between CI validation, artifact upload and live Pages deployment. Verify the mitigation on a subsequent full run rather than inferring success.
+
+**Next work/header:** Check new-head Pages workflow; if the artifact race persists, revise the workflow based on fresh logs. Then close three source records and both Module 04 assurance gates before Module 05 §5.1.
