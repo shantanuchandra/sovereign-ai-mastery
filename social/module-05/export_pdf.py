@@ -17,6 +17,11 @@ def normalize(text: str) -> str:
     return " ".join(text.replace("“", '"').replace("”", '"').split()).casefold()
 
 
+def heading_token_stream(text: str) -> str:
+    """Ignore line-break/inline-tag whitespace when comparing PDF headings."""
+    return re.sub(r"[^\\w]+", "", normalize(text), flags=re.UNICODE)
+
+
 def main() -> None:
     assert HTML.is_file()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
@@ -42,8 +47,8 @@ def main() -> None:
         assert abs(float(page.mediabox.height) - 720) < 2, "Expected 10in height"
         text = normalize(page.extract_text() or "")
         assert len(text) > 90, f"Missing searchable text page {index + 1}"
-        candidate = normalize(headings[index])
-        assert candidate in text, f"Heading extraction mismatch page {index + 1}: {candidate}"
+        candidate = heading_token_stream(headings[index])
+        assert candidate in heading_token_stream(text), f"Heading extraction mismatch page {index + 1}: {candidate}"
     print(f"Module 05 PDF draft: {len(pdf.pages)} pages, 8x10 inches, headings extractable")
     print(f"Draft output: {OUTPUT}")
     print("NOT a tagged PDF or manual screen-reader / reading-order verification")
