@@ -1710,3 +1710,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** An original issuer PDF hosted by a third party can substantiate a dated strategy claim when its document title, date and exact pages are directly inspected; do not conflate publication, historical ambitions, current regulatory effect or verified implementation.
 
 **Next header:** Close Module 04's six remaining source rows and two assurance gates before Module 05 §5.1. This log entry's own commit SHA is only reportable after acceptance.
+
+
+## Iteration 094 | 2026-11-22 | Three Saudi Press Agency source records resolved
+
+**Baseline:** Read current TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter, technical/security/source and editorial/accessibility/assessment HOLD reviews, the full 30-source ledger and learning history through 093. Did not overwrite teaching sections, solutions or concurrent work.
+
+**Actual accepted source commit:** [b3ff30a73f369cac0b48a5affd9611f1f1cc51a7](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/b3ff30a73f369cac0b48a5affd9611f1f1cc51a7). Three SPA publisher pages were directly retrieved as readable issuer text on 22 November 2026: [10 March 2026 national AI year](https://www.spa.gov.sa/N2533339), [28 August 2025 SDAIA institutional account](https://www.spa.gov.sa/en/N2386422), [1 December 2024 AI Adoption Framework](https://www.spa.gov.sa/N2217019). Cross-checked the bounded chapter §4.3 claims; distinguished article publication date, reported assertions and actual verification date. Updated only three source-ledger rows and count: **27/30 directly checked; three unresolved**. SPA news is not independent validation of infrastructure, benchmark or enterprise controls.
+
+**Checks actually performed:** GitHub read of the curriculum contract, chapter and two separate GPT-6 self-reviews; publisher-text inspection of the three SPA articles; source-ledger row matching and accepted GitHub update. No local Python, browser automation, PDF reading-order, manual keyboard/screen-reader, independent assessment rater or physical air-gap test executed.
+
+**CI/deployment:** Prior GitHub Pages runs [45032767471](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45032767471) and [45032767463](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45032767463) completed SUCCESS at prior head 4740be1. New source commit [run 45038303407](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45038303407) was QUEUED when inspected; current source commit deployment NOT VERIFIED. This learning-log update triggers a newer head and requires its own CI check.
+
+**Unresolved risks and release:** Module 04 remains **HOLD**: `ksa-portal-43` (Saudi government portal blocked), `gcc-qatar-44` (HBKU publisher blocked), `gcc-bahrain-44` (official PDF blocked), manual accessibility/PDF reading order E04-02 and independent assessment calibration E04-03. Distinct technical and editorial reviews are GPT-6 self-critiques, not independent human/different-model review. The fictional FACTORY-A premises-only and OT-47 physically air-gapped fail-closed vetoes remain unchanged.
+
+**Improvement lesson:** A source that previously timed out can be retrieved on a later pass; resolve several related records together while retaining issuer-claim limitations and keeping exact-head CI separate from source accuracy.
+
+**Next header:** Resolve three remaining Module 04 sources with direct evidence or explicit narrowed/withdrawn claims; complete actual manual accessibility and independent calibration gates before starting Module 05 §5.1. This log entry's own SHA is only reportable after acceptance.
