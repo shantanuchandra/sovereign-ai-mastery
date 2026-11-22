@@ -1605,3 +1605,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Inspect workflow job step conclusions at the exact SHA rather than inferring test failure from cancelled runs. A green Pages pipeline validates the implemented automation, not issuer truth, PDF accessibility, physical sovereignty or scoring independence.
 
 **Next header:** After closing both Module 04 review gates with real evidence, Module 05 §5.1 UAE federal personal data protection framework. First verify the latest documentation-head Pages run; continue remaining issuer and accessibility evidence rather than rewriting complete teaching sections.
+
+
+## Improvement entry 087 | 2026-11-22 | Module 04 footnote regression CI syntax repair
+
+**Baseline and concurrency:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter, separate technical/security/source and editorial/accessibility/assessment HOLD reviews, source ledger and improvement history. Inspected GitHub Pages workflow 44998262187 at head `1b9dcc4f7402b6a2ac24cfe3e3e418c39688d334`; its deploy job **FAILED** at the Module 04 source inventory contract. No completed teaching content, lab, facilitator key or unrelated files were overwritten.
+
+**Actual corrective commit:** [c943812c96723385c763095bdd2a28d779b36300](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/c943812c96723385c763095bdd2a28d779b36300) changes only `qa/test_module04_source_ledger.py`. The new bidirectional footnote test used a double-escaped Python raw regex (`\\\\[`) that raised `re.PatternError: unbalanced parenthesis at position 14`, before it could check any citation. Replaced both the cited-reference and definition patterns with valid single-escaped Markdown-footnote regexes. Preserve the actual undefined-footnote assertion rather than disabling the new regression gate.
+
+**Checks actually performed:** Inspected GitHub job 137133931464 failure logs, pinpointed the Python regex compile exception and reviewed the exact corrected file. GitHub accepted the correction commit. No local Python test, new source issuer audit, manual assistive-technology inspection, independent scoring or physical air-gap test was performed. Post-fix Pages workflow [45003215282](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45003215282) was **QUEUED** when checked; it is not yet evidence of a passing test or deployment. A newer log commit may supersede that workflow; check exact SHA and completed job steps before release.
+
+**Risks and disposition:** Module 04 remains HOLD. Source ledger: 30 mapped footnotes, 19 directly checked, 11 pending/blocked; T04-03 source verification, E04-02 manual accessibility/PDF reading order and E04-03 independent assessment calibration remain unresolved. Reviews remain bounded GPT-6 self-critiques, not independent verification. Named-premises and physical air-gap vetoes remain fail-closed.
+
+**Improvement lesson:** A new regression test must first compile and run in CI. A failure in the test harness is not proof of a learner-content defect. Keep the protective assertion, repair the harness and verify at the exact revision.
+
+**Next work/header:** Verify the latest non-cancelled Pages run and fix any genuine assertion failures. Continue Module 04 source and accessibility/assessment assurance; only after both distinct gates close proceed to Module 05 §5.1.
