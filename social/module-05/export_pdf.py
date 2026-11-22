@@ -19,7 +19,7 @@ def normalize(text: str) -> str:
 
 def heading_token_stream(text: str) -> str:
     """Ignore line-break/inline-tag whitespace when comparing PDF headings."""
-    return re.sub(r"[^\\w]+", "", normalize(text), flags=re.UNICODE)
+    return re.sub(r"[^\w]+", "", normalize(text), flags=re.UNICODE)
 
 
 def main() -> None:
