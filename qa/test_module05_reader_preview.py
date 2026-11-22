@@ -67,7 +67,8 @@ class DraftReaderContract(unittest.TestCase):
         desc = svg.find(ns + "desc")
         self.assertIsNotNone(title)
         self.assertIsNotNone(desc)
-        self.assertIn("Hard", "".join(svg.itertext()) + " Hard")
+        self.assertIn("hard gate", (desc.text or "").lower())
+        self.assertIn("no numeric score override", (desc.text or "").lower())
         labels = " ".join(x.strip() for x in svg.itertext() if x)
         for term in ("Legal entity", "Counsel", "Data + derivatives",
                      "Vendor / control paths", "Observed evidence",
