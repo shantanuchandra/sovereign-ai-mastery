@@ -160,7 +160,8 @@ jobs:
         run: |
           for attempt in $(seq 1 12); do
             if gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" --jq '.artifacts[] | select(.name == "github-pages") | .id' | grep -Eq '[0-9]'; then
-              echo "Pages artifact visible to deployment API"
+              echo "Pages artifact visible to Actions REST API; allowing Pages deployment metadata to converge"
+              sleep 20
               exit 0
             fi
             echo "Pages artifact not visible yet (attempt ${attempt})"
