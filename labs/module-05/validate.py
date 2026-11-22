@@ -128,7 +128,13 @@ def validate_document(document: dict[str, Any]) -> dict[str, Any]:
                     errors.append(f"{tag}: {key} violates named physical location")
                 if not destinations[key]:
                     errors.append(f"{tag}: {key} needs a named physical destination")
-            # The worksheet does not encode independently verified network endpoints.\n            # Under a named-premises requirement, any declared network route is\n            # unproven to remain on premises, so fail closed pending evidence.\n            # This is stricter than claiming all on-prem LAN traffic is forbidden.\n            if boundary == "NAMED_PREMISES" and destinations["network_paths"]:\n                errors.append(f"{tag}: named premises network paths need verified on-site routing; HOLD until separately evidenced")\n            if row.get("licence_mode") == "ONLINE_REQUIRED":
+            # The worksheet does not encode independently verified network endpoints.
+            # Under a named-premises requirement, a declared network route
+            # is unproven to remain on premises. Fail closed pending evidence.
+            # This does not imply that all verified on-site LAN use is forbidden.
+            if boundary == "NAMED_PREMISES" and destinations["network_paths"]:
+                errors.append(f"{tag}: named premises network paths need verified on-site routing; HOLD until separately evidenced")
+            if row.get("licence_mode") == "ONLINE_REQUIRED":
                 errors.append(f"{tag}: physical hard gate forbids required online licence")
             if decision in {"APPROVED", "PILOT_SYNTHETIC_ONLY"} and gate != "VERIFIED":
                 errors.append(f"{tag}: no release without separately verified physical evidence")
