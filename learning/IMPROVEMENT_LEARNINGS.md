@@ -1695,3 +1695,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Revisit an exact previously inaccessible issuer URL and distinguish a publisher's benchmark claim from reproducible performance. Record a 403 as blocked, not verified. Keep source checks and current-head CI status separate.
 
 **Next work/header:** Verify latest Pages deployment, continue seven unresolved source records, complete genuine manual and independent gates; only then begin Module 05 §5.1.
+
+
+## Iteration 093 | 2026-11-22 | Original Saudi NSDAI strategy source checked
+
+**Inputs read:** Current TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter and its exact §4.3 NSDAI claim, both distinct Module 04 GPT-6 HOLD review records, the full 30-footnote source ledger and improvement history through 092. No completed teaching section, solution, lab or concurrent work was overwritten.
+
+**Accepted source commit:** [020e7c57e07d065d9f39badc8f00b45d4e8fc663](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/020e7c57e07d065d9f39badc8f00b45d4e8fc663). The original SDAIA *National Strategy for Data & AI: Strategy Narrative*, dated October 2020, was directly opened as a 33-page PDF at https://wp.oecd.ai/app/uploads/2021/12/Saudi_Arabia_National_Strategy_for_Data_and_AI_2020.pdf on 22 November 2026. Its PDF page 7 lists six dimensions: ambition, skills, policies/regulations, investment, research/innovation and ecosystem; page 21 introduces six strategic objectives. Compared these with the chapter's bounded §4.3 strategy description. The PDF is the issuer-authored document hosted by OECD.AI, not a current legal instrument or evidence of achieved targets. Source ledger now **24/30 direct checks, six pending/blocked**. No PDF screenshot inspection, legal assessment or independent review was performed.
+
+**Checks and deployment:** GitHub Actions runs [45028316517](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45028316517) and [45028316499](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45028316499) completed SUCCESS at previous head 190ab4f; earlier run 45028287436 was CANCELLED. These successful runs do not verify deployment of source commit 020e7c5 or this entry. No local Python, browser, PDF-export, screen-reader, manual keyboard, independent rater or physical isolation tests were run in this iteration.
+
+**Risks and decision:** Module 04 remains **HOLD**: six issuer records unresolved, manual accessibility and PDF reading-order review incomplete, independent assessment calibration absent. Both critical reviews remain distinct GPT-6 self-critiques, not independent human/model verification. Fictional FACTORY-A named-premises and OT-47 physical air-gap restrictions remain hard fail-closed vetoes. A national strategy is not site assurance.
+
+**Improvement lesson:** An original issuer PDF hosted by a third party can substantiate a dated strategy claim when its document title, date and exact pages are directly inspected; do not conflate publication, historical ambitions, current regulatory effect or verified implementation.
+
+**Next header:** Close Module 04's six remaining source rows and two assurance gates before Module 05 §5.1. This log entry's own commit SHA is only reportable after acceptance.
