@@ -23,6 +23,8 @@ def heading_token_stream(text: str) -> str:
 
 
 def main() -> None:
+    assert heading_token_stream("Does hosted in UAE mean sovereign?") == "doeshostedinuaemeansovereign"
+    assert heading_token_stream("A-B C") == "abc"
     assert HTML.is_file()
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as pw:
