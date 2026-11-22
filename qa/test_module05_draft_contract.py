@@ -43,7 +43,7 @@ class Module05DraftContract(unittest.TestCase):
         self.assertEqual(citations, set(definitions))
 
     def test_unverified_legal_scope_remains_open(self):
-        for term in ("NEEDS_COUNSEL", "not legal advice",
+        for term in ("NEEDS_COUNSEL", "legal opinion",
                      "Module 04 is still HOLD", "separate branch",
                      "NOT COMPLETED", "named physical"):
             self.assertIn(term.lower(), self.chapter.lower())
