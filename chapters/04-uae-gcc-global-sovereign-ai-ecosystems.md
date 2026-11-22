@@ -783,6 +783,15 @@ Produce a two-page **Arabic product readiness board card** covering the followin
 
 
 
+
+### Bahrain policy scope: reconcile the general portal with the operative clause (source check, 22 November 2026)
+
+**Decision:** Do not treat Bahrain's government AI policy as a blanket private-sector approval or prohibition. The official [National Enterprise Architecture policy index](https://www.nea.gov.bh/Policies-Standards) labels the document **“General AI Policy for Bahrain Government”** and records **20 May 2025** as its last update. The [policy PDF, §3](https://www.nea.gov.bh/Documents/GeneralAIPolicy.pdf) says **“all government entities in the Kingdom of Bahrain”**; §8 says **“all government entities are required to comply”** from its **20 May 2025** approval. The [iGA announcement dated 27 July 2025](https://www.iga.gov.bh/en/article/bahrain-launches-national-ai-policy-and-adopts-gcc-ethics-manual) describes the intended government service audience. These are issuer statements about this policy's direct scope, not an exemption from other Bahrain laws for private firms.
+
+**Source tension to retain:** The [Bahrain national portal AI overview](https://www.bahrain.bh/wps/portal/en/) describes ethical/strategic guidance for both public and private sectors. That broader description does **not**, by itself, extend §8's mandatory government-entity compliance language to every private company. A private buyer must separately identify applicable data protection, sector, contract and procurement requirements with local counsel. The direct PDF URL returned HTTP 403 to this review environment; issuer-index and search-indexed §3/§8 text were cross-checked, but the original PDF was **not independently opened page-by-page** here. Treat this as a bounded cross-check, not full issuer-PDF validation or legal sign-off.
+
+**PM evidence request:** For a fictional Bahrain private-sector depot, ask legal for an applicability memo naming the entity and activity, policy version, relevant binding provisions and reviewer. Keep the deployment state **REVIEW REQUIRED** until signed. An on-site-only customer contract still bars remote transcription, support and backups; a physically disconnected archive still bars all network paths, regardless of a national policy summary.
+
 ## Module 04 knowledge assessment and executive decision scenario
 
 > **Learner-facing assessment, not a compliance certificate.** Complete the [synthetic ecosystem evidence lab](../labs/module-04/README.md) first. Use public, fictional or synthetic data only. Answer in your own words and provide evidence IDs, owners and test criteria. Worked answers and scoring instructions are held separately in \`assessments/solutions/04-uae-gcc-global-sovereign-ai-ecosystems-solutions.md\`, which is excluded from the learner website.
