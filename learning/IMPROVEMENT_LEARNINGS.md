@@ -1533,3 +1533,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Record numeric learning score separately from release eligibility. A correct gateway block does not make a prohibited application fallback acceptable. Calibrate what constitutes an explicit future test scheduling field rather than rewarding invented test dates.
 
 **Next work/header:** Complete Module 04 source and accessibility evidence and obtain genuinely independent scoring if available; only after the two release gates close proceed to Module 05 §5.1.
+
+
+## Improvement entry 083 | 2026-11-22 | Module 04 rendered accessibility regression gate
+
+**Baseline read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, current Module 04 chapter, distinct technical and editorial review records, social HTML/PDF exporter, Pages workflow and improvement history through entry 082. Completed sections and solutions were not repeated. Latest prior run [44981335824](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44981335824) at head d4acf217689eed160de9fa61d2577e825b6cb730 completed SUCCESS; this does not prove subsequent commits.
+
+**Accepted commits:** [775feff80cf5125ba5d4d2896d366eb833e8dc02](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/775feff80cf5125ba5d4d2896d366eb833e8dc02) fixes misleading PDF-pending HTML copy; [9511f443def3a08d4212ab19a0a181d817fa8c0b](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9511f443def3a08d4212ab19a0a181d817fa8c0b) adds rendered Module 04 Playwright/PDF smoke checks; [0dd8fdbb7b45ab9d651f5a45031e96674b5ae8cb](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/0dd8fdbb7b45ab9d651f5a45031e96674b5ae8cb) wires the check into Pages; [e6c5681890f477e7dbf10e20212bbc6e19eedabf](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e6c5681890f477e7dbf10e20212bbc6e19eedabf) records E04-02 scope in the distinct editorial review. This log's own commit is assigned only after GitHub accepts it.
+
+**Checks actually performed:** Fetched current source, reviewed Playwright patterns already used in Module 03, SHA-guarded the changed files, inspected live GitHub Actions run metadata. Newly added assertions cover 1280/390/320px reflow, clipping, mutation control, keyboard link, PDF pages, size and extractable headings. No new test was executed locally or confirmed successful at authoring. Run [44985384839](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44985384839) was in progress and [44985393958](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44985393958) pending; deployment of new revision UNVERIFIED.
+
+**Unresolved risks:** E04-02 manual zoom/contrast/assistive-technology and PDF reading-order evidence; E04-03 independent scoring; T04-03 full issuer-source audit. Browser smoke checks are not accessibility certification or proof of a tagged PDF. Physical premises-only and air-gap isolation cannot be certified by synthetic tests. Both reviews remain HOLD. Do not advance Module 05.
+
+**Improvement lesson:** A successful PDF exporter proves page geometry and text extraction, not responsive reading or keyboard usability. Add an actual rendered regression test to the release gate, with a mutation control that proves its overflow detector can fail, while retaining manual review boundaries.
+
+**Next header after gate closure:** Module 05 §5.1 UAE federal personal data protection framework. First check exact-head Pages result and fix any genuine new failure before continuing source/accessibility assurance.
