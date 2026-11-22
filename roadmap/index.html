@@ -229,26 +229,44 @@
     <section class="wrap section" id="how-we-work" aria-labelledby="how-we-work-title">
       <div class="section-head">
         <h2 id="how-we-work-title">How we work</h2>
-        <p>With sovereign AI, customers need to be able to verify answers, control how their data is used and recover when something goes wrong. As Head of Product, I would make these expectations part of how Product, Engineering and Security work together.</p>
+        <p>One AI request can involve data stored in one country, computation in another, a model developed in a third, and a connected tool that acts in a fourth. As Head of Product, I would build a culture of trust, innovation and ownership so customers can see how the system works, choose how it runs and know who is accountable.</p>
       </div>
       <table class="success-table" aria-labelledby="how-we-work-title">
         <thead><tr><th scope="col">Principle</th><th scope="col">What we do in the pilot</th></tr></thead>
         <tbody>
           <tr>
-            <th scope="row">Earn trust through evidence</th>
-            <td>Jean cites the sources behind each key claim and says when evidence is missing. When we report <a href="#impact-measure">pilot savings</a>, we show the case count, measurement dates and assumptions.</td>
+            <th scope="row">Trust</th>
+            <td>Make it possible to verify what Jean did. Record which sources and model route the request used, cite key claims, and say when evidence is missing. When Colleague A shares a result, check <a href="#handoff-permissions">Colleague B’s permissions</a> before they can open or reuse it.</td>
           </tr>
           <tr>
-            <th scope="row">Build for reliability</th>
-            <td>Test the workflow end to end before launch. Give customer IT a runbook and have them <a href="#recovery-security-measure">demonstrate rollback within 30 minutes</a>, then check that the workflow and controls still work.</td>
+            <th scope="row">Innovation</th>
+            <td>Test ideas in an approved environment. Keep components replaceable so the team can test a different model, tool or provider as customer needs or regional rules change. In the pilot, <a href="#impact-measure">compare Jean with the manual checklist</a> on quality, time and cost before expanding.</td>
           </tr>
           <tr>
-            <th scope="row">Keep customers in control</th>
-            <td>The customer decides which data Jean can use, which models may run and what users can share. <a href="#handoff-permissions">Colleague B’s own permissions</a> determine what they can open and reuse.</td>
+            <th scope="row">Ownership</th>
+            <td>Name who approves the release, who runs it and who responds when it fails. Product owns the pilot outcome, and Engineering owns the runbook and recovery tests. The sponsor accepts the workflow, Security approves the control evidence, and <a href="#recovery-security-measure">customer IT demonstrates rollback within 30 minutes</a> before accepting the handoff. Give every failed mandatory check an owner and a retest date. Hold launch until it passes.</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="sovereignty-control-title">Who stays in control?</h3>
+      <table class="success-table" aria-labelledby="sovereignty-control-title">
+        <thead><tr><th scope="col">Area</th><th scope="col">Questions to answer with the customer</th></tr></thead>
+        <tbody>
+          <tr>
+            <th scope="row">Data</th>
+            <td>Where is data stored? Who can access it, how is it protected, and which rules apply?</td>
           </tr>
           <tr>
-            <th scope="row">Raise problems early</th>
-            <td>Bring failed checks and inconclusive pilot results to the weekly review. Name an owner and agree on the next test. Hold launch when a <a href="#flow-tests">mandatory check</a> fails.</td>
+            <th scope="row">Operations</th>
+            <td>Where are the workload, storage and GPUs hosted? Who operates the environment, grants access, monitors the service and leads recovery during an outage?</td>
+          </tr>
+          <tr>
+            <th scope="row">Technology</th>
+            <td>Which cloud providers, APIs, vector stores and frameworks are permitted? What would it take to replace a component or switch providers, and what would that disrupt?</td>
+          </tr>
+          <tr>
+            <th scope="row">AI</th>
+            <td>Where does the model process information, and where can connected tools act? Which models are used, how were they developed, and who approves them? Who can audit a decision, and who is accountable for the outcome?</td>
           </tr>
         </tbody>
       </table>
