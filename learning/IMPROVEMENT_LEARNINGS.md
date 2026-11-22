@@ -1471,3 +1471,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A source file being copied to the published directory is not the same as a discoverable learner navigation link. Read the exact failed assertion and add the missing user-facing behavior rather than weakening the test. Separate critical reviews by purpose and record their incomplete evidence honestly.
 
 **Next work:** Verify the latest Pages run at its exact head SHA; repair any new failure; audit Module 04 issuer sources and accessibility/assessment gates; close both reviews before Module 05 §5.1.
+
+
+## Improvement entry 079 | 2026-11-22 | Repair PDF dependency ordering in Module 04 Pages CI
+
+**Baseline read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 technical and editorial review records, improvement history through entry 078, Pages workflow and the actual latest failed GitHub Actions job logs. Existing Module 04 teaching sections and separate solutions were not rewritten.
+
+**Observed failure:** [Pages run 44961943867](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44961943867), at head `d7be858aa3848286ae8ae4ce89fe3c4aba694f26`, completed **FAILURE**. Module 04 GCC evidence lab, Module 03 tests, Module 04 social contract, Module 02/03 browser smoke checks and site build **PASSED**. Module 02 and Module 03 PDF publishing **PASSED**. The step labelled “Publish Module 03 portrait PDF” then checked `dist/social/module-04/QUESTIONS.pdf` **before** the subsequent Module 04 exporter step could generate it; that assertion returned exit code 1. The Module 04 exporter, remaining checks and Pages deployment were skipped. This is a CI ordering defect, not proof of a Module 04 PDF content defect.
+
+**Actual corrective commits:** [89e8a52c5839c3e9a3673294754bddcee94565a8](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/89e8a52c5839c3e9a3673294754bddcee94565a8) removes the premature assertion from the Module 03 publishing step; [d9fa6e18ccc88b84c626115e2715aff13ca32331](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/d9fa6e18ccc88b84c626115e2715aff13ca32331) adds the PDF existence assertion immediately after `python social/module-04/export_pdf.py`. The Module 04 HTML, post, navigation and facilitator-leak checks remain before publication. No test assertion was weakened; it was moved to the correct dependency stage.
+
+**Checks actually performed:** Inspected GitHub Actions job steps and the full failing log; fetched the current workflow and made SHA-guarded GitHub file updates. The previous failure is proven; the corrected workflow's execution and deployment must be checked separately against its resulting head SHA. No local Python, manual browser/screen-reader, physical air-gap, full issuer source audit or independent assessment calibration was performed in this iteration.
+
+**Release risks:** T04-01 navigation is source-corrected and its social contract passed on the failed run, but deployment is not yet verified. T04-03 issuer pinpoint audit and E04-02 manual accessibility/E04-03 independent assessment calibration remain open. Both Module 04 self-review dispositions stay **HOLD**, with no claim of independent verification. Premises-only and air-gap hard vetoes remain unchanged.
+
+**Improvement lesson:** A green exporter unit test does not rescue a release workflow that asserts downstream artifacts before their producer runs. Align acceptance checks with artifact dependency order, then verify the exact post-fix CI revision.
+
+**Next work:** Verify corrected Pages CI and generated Module 04 PDF; complete the outstanding Module 04 source, accessibility and scoring review evidence before Module 05 §5.1.
