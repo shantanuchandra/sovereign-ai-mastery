@@ -9,6 +9,7 @@ on:
       - 'labs/module-05/**'
       - 'qa/test_module05_draft_contract.py'
       - 'qa/test_module05_reader_preview.py'
+      - 'qa/test_module05_reader_browser.py'
       - 'scripts/build_site.py'
       - 'diagrams/module-05-control-graph.svg'
       - 'social/module-05/**'
@@ -41,6 +42,9 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check 'playwright>=1.55,<2' 'pypdf>=6,<7'
           python -m playwright install --with-deps chromium
+      - name: Verify built Module 05 reader responsive and offline diagram
+        run: |
+          python qa/test_module05_reader_browser.py
       - name: Verify rendered Module 05 carousel reflow and keyboard focus
         run: |
           python social/module-05/test_rendered_carousel.py
