@@ -3,6 +3,13 @@ on:
   push:
     branches:
       - draft/module-05-legal-controls-20261123
+    paths:
+      - 'chapters/05-laws-regulation-jurisdiction.md'
+      - 'assessments/solutions/05-laws-regulation-jurisdiction-solutions.md'
+      - 'labs/module-05/**'
+      - 'qa/test_module05_draft_contract.py'
+      - 'social/module-05/**'
+      - '.github/workflows/module05-draft.yml'
   workflow_dispatch:
 permissions:
   contents: read
