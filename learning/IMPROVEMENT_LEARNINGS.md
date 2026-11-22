@@ -1648,3 +1648,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Separate successful source-contract *structure* checks from factual verification of issuer claims. A successful current-head deployment can close CI uncertainty while leaving substantive editorial, legal and assessment assurance gates open. Avoid redoing a repaired test or silently promoting CI to independent review.
 
 **Next header:** Module 05 §5.1 only **after** remaining Module 04 source, manual accessibility and independent assessment gates are genuinely closed. Next immediate task: prioritize the 11 outstanding source-ledger records, withdraw or narrow claims that cannot be verified, and record exact source/date evidence; then perform distinct gate dispositions.
+
+
+## Iteration 090 | 2026-11-22 | Two pending Module 04 issuer sources verified
+
+**Baseline read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter and cited paragraphs, separate technical/security/source and editorial/accessibility/assessment HOLD reviews, Module 04 source ledger and improvement history through 089. No completed chapter or facilitator solutions were rewritten.
+
+**Actual GitHub commit:** [b8842f12469f6fd6a9743424b7de45bf3300c1b6](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/b8842f12469f6fd6a9743424b7de45bf3300c1b6) updates only the source-accuracy ledger. This log entry is committed separately; its own SHA must be reported only after acceptance.
+
+**Checks actually performed:** Directly read the issuer-hosted MBZUAI Jais 3 HTML announcement (15 October 2026, https://mbzuai.ac.ae/news-events/news/mbzuais-institute-foundation-models-inception42-launch-jais-3-arabic-native-ai) and UNDP Kuwait AI assessment HTML release (9 September 2026, https://www.undp.org/kuwait/press-releases/kuwait-assesses-ai-opportunities-and-priorities), retrieved 22 November 2026. Compared both against their precise chapter claims and updated PENDING_DIRECT to VERIFIED_DIRECT with limitations: MBZUAI benchmark/dialect performance is issuer-reported; UNDP assessment does not mean completed rollout or binding regulation. Current ledger: **21/30 directly checked, 9 pending or blocked**. No local Python/browser/PDF/physical air-gap/assistive-tech or independent calibration tests were run.
+
+**CI/deployment:** Prior [Pages run 45012958880](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45012958880) succeeded at previous head 9ca84a46. New [run 45018029295](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45018029295) for b8842f12 was WAITING when checked; latest change deployment NOT VERIFIED. Do not claim the next documentation commit deployed until its own workflow succeeds.
+
+**Unresolved risks:** T04-03 still OPEN with nine issuer records pending/blocked; E04-02 manual accessibility and PDF reading order; E04-03 independent assessment calibration. Distinct GPT-6 reviews are self-critiques, not independent human/different-model evidence. Both module gates HOLD. Keep FACTORY-A named-premises and OT-47 physical air-gap hard vetoes fail-closed; issuer announcements never authorize off-premises fallback.
+
+**Improvement lesson:** Reopen the exact issuer HTML and compare a narrowly framed chapter claim, then record publisher date separately from verification date. Resolve source rows in meaningful batches without misrepresenting announcements as independently validated technical performance.
+
+**Next work/header:** Verify the latest Pages run, then audit the remaining nine source records and obtain genuine manual/independent assurance; only after both Module 04 gates close begin Module 05 §5.1.
