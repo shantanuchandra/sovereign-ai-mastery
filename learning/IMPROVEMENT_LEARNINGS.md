@@ -1564,3 +1564,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A successful PDF exporter proves page geometry and text extraction, not responsive reading or keyboard usability. Add an actual rendered regression test to the release gate, with a mutation control that proves its overflow detector can fail, while retaining manual review boundaries.
 
 **Next header after gate closure:** Module 05 §5.1 UAE federal personal data protection framework. First check exact-head Pages result and fix any genuine new failure before continuing source/accessibility assurance.
+
+
+## Improvement entry 084 | 2026-11-22 | CI cancellation triage and release gate preservation
+
+**Baseline inspected:** Current TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 chapter and improvement history through 083. The current Module 04 chapter still explicitly marks both self-review gates HOLD. A full reinspection of both original review files was not completed in this iteration; no gate is closed on partial inspection. The repository has concurrent studio commits beyond the Module 04 work, so no completed chapter or site files were rewritten.
+
+**GitHub Actions checks actually performed:** Queried workflow run jobs for [44985384839](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44985384839) and [44985393958](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44985393958). Both deploy jobs returned status **completed** and conclusion **cancelled** (job IDs 137094711697 and 137094740545). Cancellation is neither a test pass nor evidence that the new rendered accessibility regression failed. No rerun or new green exact-head workflow was confirmed; no local browser, PDF, assistive-technology, physical isolation, independent assessment or issuer-document audit was performed. The last known green run remains 44981335824 for an earlier revision, as documented in entry 083.
+
+**Release disposition:** HOLD Module 04. T04-03 complete issuer-source audit, E04-02 manual zoom/contrast/screen-reader and PDF reading-order inspection, E04-03 independent scoring calibration, and current-head Pages CI verification remain open. Keep named-premises processing and physically disconnected OT hard vetoes fail-closed. Do not advance to Module 05 §5.1 until review gates are actually satisfied.
+
+**Improvement lesson:** Distinguish cancelled CI from a genuine failed assertion. Inspect the latest non-cancelled workflow at the exact commit, and only fix code after a reproducible failure is identified. A green older revision does not cover concurrent new commits.
+
+**Commit evidence:** This entry is committed via GitHub Contents API; the accepted commit SHA is returned by GitHub and reported in the run summary, not invented in advance.
+
+**Next work:** Identify the latest non-cancelled exact-head Pages run, inspect failed job steps if any, and complete the pending primary-source and manual/independent assurance evidence before the next teaching header (Module 05 §5.1).
