@@ -1727,3 +1727,20 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A source that previously timed out can be retrieved on a later pass; resolve several related records together while retaining issuer-claim limitations and keeping exact-head CI separate from source accuracy.
 
 **Next header:** Resolve three remaining Module 04 sources with direct evidence or explicit narrowed/withdrawn claims; complete actual manual accessibility and independent calibration gates before starting Module 05 §5.1. This log entry's own SHA is only reportable after acceptance.
+
+
+## Iteration 095 | 2026-11-22 | Q6 contrasting-answer self-stress-test and calibration protocol
+
+**Inputs read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter including Q6, its separate facilitator solution key, both distinct technical/security/source and editorial/accessibility/assessment HOLD reviews, full source-accuracy ledger, and improvement history through 094. Existing chapter, lab, key, HTML assets and safety logic were preserved.
+
+**Actual accepted content commit:** [950c34d973a0616d9d02b09560f5a56c50bb4824](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/950c34d973a0616d9d02b09560f5a56c50bb4824) adds `reviews/module-04/q6-two-response-calibration-protocol-2026-11-22.md`. Authored two explicitly synthetic contrasting Q6 responses, applied the existing seven-component 18-point rubric transparently (10/18 unsafe answer; 11/18 safety-preserving but incomplete answer), retained separate release vetoes, identified six scoring ambiguities, and specified a blind two-rater independent calibration procedure. This is GPT-6 **self-stress-testing only**; no independent human/different-model scoring occurred and E04-03 remains OPEN.
+
+**Checks actually performed:** Direct GitHub reads of the named curriculum and review inputs, answer-versus-rubric consistency inspection, accepted create-file commit, and GitHub Actions run status inspection. No local Python, browser, PDF, manual zoom/keyboard/screen-reader, physical isolation, legal review or independent assessment test executed. Source ledger unchanged at **27/30 directly checked**, three unresolved (`ksa-portal-43`, `gcc-qatar-44`, `gcc-bahrain-44`). Attempts to retrieve the HBKU and Bahrain portal URLs in this pass did not return full source text; no status was upgraded.
+
+**CI/deployment:** Previous exact-head [Pages runs 45038321234](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45038321234) and [45038321227](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45038321227) completed **SUCCESS** at prior log commit 607773a. New [run 45043943690](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45043943690) for content commit 950c34d was **WAITING** when checked. Neither this commit nor the subsequent learning-log commit has verified deployment yet. Do not extrapolate prior CI success.
+
+**Risks and disposition:** Both Module 04 review gates remain **HOLD** pending three source records, E04-02 actual manual accessibility/PDF reading-order review and E04-03 genuine independent assessment calibration. FACTORY-A physical named-premises and OT-47 absolute air-gap restrictions remain fail-closed; a blocked gateway request is not an application-level pass. The synthetic response scores cannot authorize release or constitute independently validated inter-rater agreement.
+
+**Improvement lesson:** Separately record *assessment points* and *release eligibility*. A knowledgeable answer that proposes a forbidden support tunnel is still release-blocking. A same-model two-response exercise can expose rubric ambiguities and prepare independent calibration, but cannot replace an independent rater.
+
+**Next work/header:** Verify exact-head Pages CI, obtain direct primary text or narrow/withdraw three remaining source claims, and perform genuine manual accessibility and independent assessment checks before Module 05 §5.1. The learning-log commit SHA is only reportable after acceptance.
