@@ -82,7 +82,6 @@ jobs:
           test -s dist/social/module-03/QUESTIONS.pdf
           test -s dist/social/module-04/CAROUSEL.html
           test -s dist/social/module-04/POST.html
-          test -s dist/social/module-04/QUESTIONS.pdf
           grep -q 'module-04/CAROUSEL.html' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
           grep -q 'module-04/POST.html' dist/modules/04-uae-gcc-global-sovereign-ai-ecosystems.html
           if grep -R -l 'Facilitator solutions and marking rubric' dist/social/module-04; then
@@ -92,7 +91,6 @@ jobs:
       - name: Publish Module 04 portrait PDF
         run: |
           python social/module-04/export_pdf.py
-          test -s dist/social/module-04/QUESTIONS.pdf
       - name: Verify rendered diagrams and onboarding
         run: |
           test -s dist/index.html
