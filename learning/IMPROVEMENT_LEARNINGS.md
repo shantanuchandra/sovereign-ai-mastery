@@ -1772,3 +1772,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Remaining blockers:** Module 04's primary-source ledger retains three unresolved records: `ksa-portal-43`, `gcc-qatar-44`, `gcc-bahrain-44`. Manual accessibility/PDF reading-order checks and genuinely independent scoring calibration remain OPEN. The distinct GPT-6 self-review records are not independent human/different-model sign-offs. Premises-only and physical air-gap cases remain fail-closed. Module 04 disposition remains **HOLD**.
 
 **Improvement lesson:** A completed deploy job on the exact head resolves an earlier deployment-status uncertainty, but does not automatically close source-integrity or human-assurance gates. Next: resolve or explicitly withdraw the three unverified issuer claims and continue the Module 04 gate review before Module 05 §5.1.
+
+
+## Iteration 098 | 2026-11-22 | Withdraw unsupported Saudi strategy targets
+
+**Baseline:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter, source-accuracy ledger, and improvement history through 097. Module 04 release remained HOLD; no completed headings were repeated.
+
+**Accepted commits:** [e81014f4e0b0bc612bf84f62889d51e59c582dd2](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e81014f4e0b0bc612bf84f62889d51e59c582dd2) removes unsupported Saudi numeric training and investment targets from the learner chapter. [1d9652ea2d13e2f7e003ae7b984fb4cb3cdb501c](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1d9652ea2d13e2f7e003ae7b984fb4cb3cdb501c) records the bounded claim withdrawal in the Module 04 source ledger. GitHub accepted both SHA-guarded writes.
+
+**Checks actually performed:** Compared exact learner claims against the ledger's PENDING_DIRECT Saudi portal row; performed an exact-text targeted replacement and documented the evidence boundary. No new issuer source was retrieved, and no local lab, browser, PDF, manual accessibility, physical air-gap or independent assessment test was performed. **CI/deployment for these commits: NOT VERIFIED**; prior successful deployment run 45049947645 applies to its earlier head.
+
+**Risks:** The Saudi portal row remains PENDING_DIRECT; Qatar and Bahrain issuer retrievals remain blocked. Their remaining chapter claims require direct primary evidence or additional narrowing/withdrawal. Manual accessibility and independent calibration are still open; both GPT-6 reviews remain HOLD. A claim withdrawal does not constitute an independently verified source or certification.
+
+**Lesson:** When primary evidence is unavailable, remove precise unsupported numbers rather than repeatedly marking them verified by association. Preserve provenance and fail-closed assurance requirements.
+
+**Next:** Reassess the three source rows and the exact-head CI outcome, then complete Module 04 review gates before Module 05 §5.1.
