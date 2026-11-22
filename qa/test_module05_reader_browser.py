@@ -51,7 +51,20 @@ def main() -> None:
                         documentScrollWidth: doc.scrollWidth,
                         mainWidth: main.getBoundingClientRect().width,
                         diagramScrollRegion: Boolean(region),
-                        visibleHeading: Boolean(document.querySelector('main .prose h1'))
+                        visibleHeading: Boolean(document.querySelector('main .prose h1')),
+                        overflowCandidates: [...document.querySelectorAll('body *')]
+                          .filter(el => {
+                            const r = el.getBoundingClientRect();
+                            if (r.width <= 0 || r.right <= doc.clientWidth + 2) return false;
+                            if (el.parentElement?.closest('.diagram-viewport, .prose pre, .prose table')) return false;
+                            return getComputedStyle(el).display !== 'none';
+                          }).slice(0, 12).map(el => {
+                            const r = el.getBoundingClientRect();
+                            return {tag: el.tagName, cls: String(el.className).slice(0, 60),
+                                    left: Math.round(r.left), right: Math.round(r.right),
+                                    width: Math.round(r.width),
+                                    text: (el.textContent || '').trim().slice(0, 60)};
+                          })
                     };
                 }""")
                 assert metrics["visibleHeading"], f"{width}px: missing visible chapter H1"
