@@ -269,7 +269,7 @@ Produce (1) a two-page **Regulatory Applicability and Controls Decision Memo** a
 5. **Q5 real-source case (6 points).** The DIFC Commissioner offers an official “Data Export / International Transfers (Articles 26 & 27)” assessment tool.[^difc-tools] A vendor says completion of its questionnaire authorizes any cross-border support access. How would you respond, identify evidence to request and choose an interim product decision?
 6. **Q6 incident and RCA (18 points).** PLANT-05's data and derivatives must stay at its named physical premises. OT-05 is physically air-gapped with **no inbound/outbound network links**. During a fictional cold restart, a speech adapter attempts remote activation and an offshore diagnostic fallback. The firewall denies the call. Write the direct and systemic causes, containment, six distinct corrective-owner responsibilities, expected negative tests, accepted evidence, and conditional release/no-AI disposition. Distinguish firewall success from application failure.
 
-**Total: 40 points.** Worked answers, point allocation and safety-veto conditions remain in [the separate facilitator key](../assessments/solutions/05-laws-regulation-jurisdiction-solutions.md), not embedded in the public learner chapter.
+**Total: 40 points.** Worked answers, point allocation and safety-veto conditions are held in a **separate facilitator-only key** within the authoring repository. The learner reader intentionally provides no clickable link to that key and never includes the answers.
 
 ## 12. Key takeaways
 
