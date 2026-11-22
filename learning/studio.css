@@ -13,3 +13,19 @@
 .boundary-warning{padding:16px 20px;margin:22px 0;background:#fff2e8;border:1px solid #cba98b;border-left:5px solid #9f4b31;color:#623d29;font:600 14px/1.6 var(--sans)}
 [hidden]{display:none!important}
 @media(max-width:720px){.scenario-library{flex-direction:column;align-items:stretch;padding:14px}.scenario-library button{width:100%}}
+/* Lifecycle paths remain readable without a wide table on small screens. */
+.flow-register{display:grid;gap:14px;margin:20px 0 28px}
+.flow-card{min-width:0;padding:18px 20px;border:1px solid var(--line);background:var(--card);overflow-wrap:anywhere}
+.flow-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.flow-heading h4{font:normal 23px/1.3 var(--serif);margin:0}
+.flow-heading code{font:11px var(--mono);background:#ecf0e6;padding:4px 6px}
+.flow-card p{font-size:13px;color:var(--ink2);margin:9px 0 13px}
+.flow-card dl{display:grid;grid-template-columns:145px minmax(0,1fr);gap:7px 16px;font-size:12px;margin:0}
+.flow-card dt{font-weight:650;color:#456357}
+.flow-card dd{margin:0}
+.remediation{margin-left:18px;border-left:4px solid var(--accent);background:#f4f1e9}
+.practice-note{font-size:13px;color:var(--ink2)}
+.feedback-wrap:focus{outline:2px solid var(--moss);outline-offset:4px}
+@media(max-width:610px){.flow-card{padding:15px}.flow-card dl{grid-template-columns:1fr;gap:4px}.flow-card dd{margin-bottom:8px}.remediation{margin-left:0}}
+.mobile-close{display:none}
+@media(max-width:850px){.mobile-close{display:block;margin:0 0 18px auto;min-height:44px;padding:8px 12px;border:1px solid var(--moss);background:var(--paper);color:var(--ink);font-size:13px}}

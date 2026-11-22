@@ -1,0 +1,51 @@
+name: Verify architecture and adaptive tutor
+on:
+  pull_request:
+    paths:
+      - 'learning/**'
+      - 'scripts/build_site.py'
+      - '.github/workflows/studio.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'learning/**'
+      - 'scripts/build_site.py'
+      - '.github/workflows/studio.yml'
+permissions:
+  contents: read
+concurrency:
+  group: studio-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  studio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify decision engine and UI contracts
+        run: |
+          node --test learning/tests/*.test.mjs
+          node --check learning/studio-engine.mjs
+          node --check learning/studio-ui.mjs
+      - name: Install build and browser dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2'
+          python -m playwright install --with-deps chromium
+      - name: Build complete site
+        run: python scripts/build_site.py
+      - name: Verify rendered Studio, saved progress and downloads
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/studio
+        run: python learning/tests/test_rendered_studio.py
+      - name: Save Studio screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: studio-browser-evidence
+          path: artifacts/studio
+          if-no-files-found: ignore

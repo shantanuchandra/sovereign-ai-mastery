@@ -4,7 +4,7 @@
  * These outputs are architecture hypotheses, not certifications.
  */
 
-export const VERSION = '1.1.0';
+export const VERSION = '1.2.0';
 /** All option values are stable IDs: old saved v1 selections still normalize correctly. */
 export const LABELS = Object.freeze({
   workload: {
@@ -17,7 +17,10 @@ export const LABELS = Object.freeze({
     hr:'HR and payroll assistant', developer:'Internal code and software engineering assistant',
     research:'Research and intellectual-property discovery', language:'Arabic and multilingual language assistant',
     media:'Public content drafting and classification', edge:'Retail, branch or edge-device inference',
-    platform:'Enterprise multi-tenant AI platform'
+    platform:'Enterprise multi-tenant AI platform',
+    insurance:'Insurance claims and loss assessment', procurement:'Procurement and supplier document review',
+    education:'Education and student services assistant', energy:'Energy and utilities field operations',
+    geospatial:'Geospatial and satellite imagery analysis', speech:'Speech transcription and voice assistant'
   },
   data: {
     public:'Public and openly licensed information', synthetic:'Synthetic test data only',
@@ -108,7 +111,13 @@ export const PRESETS = Object.freeze({
   publicservice:{...DEFAULTS,workload:'government',data:'public',location:'country',operator:'local',capacity:'managed',connectivity:'allowlist',stage:'beta'},
   devtools:{...DEFAULTS,workload:'developer',data:'secrets',location:'approved_sites',operator:'enterprise',capacity:'onsite_gpu',connectivity:'isolated',stage:'poc'},
   multilingual:{...DEFAULTS,workload:'language',data:'public',location:'flexible',operator:'provider',capacity:'public_cloud',connectivity:'internet',portability:'useful',stage:'prototype'},
-  platform:{...DEFAULTS,workload:'platform',data:'mixed',location:'approved',operator:'shared',capacity:'hybrid',connectivity:'private_links',portability:'essential',stage:'production'}
+  platform:{...DEFAULTS,workload:'platform',data:'mixed',location:'approved',operator:'shared',capacity:'hybrid',connectivity:'private_links',portability:'essential',stage:'production'},
+  insurance:{...DEFAULTS,workload:'insurance',data:'sensitive',location:'country',operator:'shared',capacity:'managed',stage:'pilot'},
+  procurement:{...DEFAULTS,workload:'procurement',data:'confidential',location:'approved_sites',operator:'enterprise',capacity:'onsite_gpu',connectivity:'private_links',stage:'poc'},
+  education:{...DEFAULTS,workload:'education',data:'personal',location:'region',operator:'local',capacity:'managed',stage:'pilot'},
+  energy:{...DEFAULTS,workload:'energy',data:'secrets',location:'airgap',operator:'onsite_partner',capacity:'onsite_gpu',connectivity:'disconnected',stage:'critical'},
+  geospatial:{...DEFAULTS,workload:'geospatial',data:'internal',location:'premises',operator:'enterprise',capacity:'onsite_gpu',connectivity:'isolated',stage:'poc'},
+  speech:{...DEFAULTS,workload:'speech',data:'sensitive',location:'premises',operator:'enterprise',capacity:'onsite_gpu',connectivity:'isolated',stage:'pilot'}
 });
 export const PRESET_LABELS = Object.freeze({
   assistant:'UAE employee knowledge assistant',banking:'Banking review with unresolved compute',support:'Saudi public information bot',
@@ -116,7 +125,10 @@ export const PRESET_LABELS = Object.freeze({
   factory:'Air-gapped factory operations',defense:'Disconnected defense analysis (fictional)',
   legal:'Legal review across approved enterprise sites',telecom:'Telecom hybrid operations',
   retail:'Store / branch edge inference',hr:'HR personal-data assistant',publicservice:'Public sector citizen service',
-  devtools:'Internal code and IP copilot',multilingual:'Arabic multilingual research',platform:'Multi-tenant enterprise AI platform'
+  devtools:'Internal code and IP copilot',multilingual:'Arabic multilingual research',platform:'Multi-tenant enterprise AI platform',
+  insurance:'Insurance claims with document OCR',procurement:'Supplier review across approved facilities',
+  education:'Student services with personal information',energy:'Disconnected utility field operations',
+  geospatial:'On-premises satellite imagery research',speech:'Premises-only speech transcription'
 });
 export function normalize(raw={}) {
   const config={};
@@ -134,6 +146,34 @@ const MODS=Object.freeze({
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
   regulation:{label:'Module 05: legal jurisdiction',url:'../modules/05-laws-regulation-jurisdiction.html'}
 });
+
+// Required design paths, never observations of an actual deployed system.
+function createFlows(v,blocked){
+  const physical=['premises','airgap','approved_sites'].includes(v.location);
+  const offline=v.location==='airgap'||v.connectivity==='disconnected';
+  const local=physical||['isolated','disconnected'].includes(v.connectivity);
+  const destination=local?(v.location==='approved_sites'?'Explicitly approved enterprise premises only':'Inside the approved physical premises only'):`Explicit destinations within: ${LABELS.location[v.location]}`;
+  const network=offline?'NONE':v.connectivity==='isolated'?'LOCAL_ONLY':'APPROVED_DESTINATIONS';
+  const rows=[
+    ['ingestion','Source ingestion','Source files, uploads and staging copies','Enterprise data owner','Trace staging, scanning and temporary files; reject unauthorized destinations.'],
+    ['retrieval','Retrieval and embeddings','Chunks, embeddings, vector indexes and query context','Data platform lead','Trace embedding calls and index replicas, including failed requests and re-indexing.'],
+    ['inference','Model inference','Prompts, context, generated tokens and inference caches','Model serving lead','Exercise timeouts and failover; ensure no prohibited external model fallback.'],
+    ['outputs','Application outputs','Responses, reports, downloads and conversation history','Application owner','Test response access, export permissions, retention and temporary output files.'],
+    ['telemetry','Observability and evaluation','Logs, traces, crash reports, evaluation sets and metrics','Security operations lead','Trigger a synthetic error and inspect log collectors, telemetry queues and diagnostic exports.'],
+    ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Restore a synthetic backup and verify every replica and recovery destination.'],
+    ['support','Administration and support','Admin sessions, screen captures and support bundles','Identity and support lead',local?'Deny remote support and test on-site access; keep restricted diagnostic bundles within approved premises.':'Exercise break-glass access and inspect provider support and subprocessor paths.'],
+    ['updates','Model and software updates','Weights, packages, signatures and dependency manifests','Supply chain lead',offline?'Test signed inbound offline media, malware inspection and rollback; prohibit restricted exports through removable media.':'Verify approved update sources, signatures and rollback; ensure updaters cannot upload restricted artifacts.'],
+    ['licensing','Licensing and service dependencies','Activation, entitlement checks, identity and key services','Platform operations lead',offline?'Test offline activation, cold restart and restore without any network, including licence renewal and identity dependencies.':'Test restart, licence renewal, key access and identity outages; trace any external activation request.']
+  ];
+  if(['speech','language','healthcare','customer','government'].includes(v.workload))rows.splice(1,0,
+    ['speech','Speech preprocessing and synthesis','Audio recordings, transcripts, speaker metadata and synthesized speech','Speech pipeline lead','Trace ASR and TTS endpoints, audio caches and failure paths; prevent unauthorized remote transcription.']);
+  if(['regulated','imaging','banking','legal','insurance','procurement'].includes(v.workload))rows.splice(1,0,
+    ['ocr','Document OCR and image preprocessing','Scans, images, extracted text, OCR caches and document metadata','Document pipeline lead','Trace OCR and image preprocessing, temporary uploads and error fallbacks; keep derivatives within the declared boundary.']);
+  if(['energy','manufacturing','industrial','geospatial'].includes(v.workload))rows.splice(1,0,
+    ['sensor','Sensor and imagery preprocessing','Sensor readings, imagery tiles, features and preprocessing caches','Field data lead','Trace acquisition and preprocessing paths; test disconnected buffering and prohibit unapproved remote analysis.']);
+  return rows.map(([id,name,artifacts,owner,test])=>({id,name,artifacts,destination,network,owner,test,evidence:blocked?'BLOCKED':'UNVERIFIED'}));
+}
+
 export function createBlueprint(raw={}) {
   const v=normalize(raw);
   const siteOnly=['premises','airgap','approved_sites'].includes(v.location);
@@ -289,7 +329,7 @@ export function createBlueprint(raw={}) {
     {name:'Operations and identity',detail:operations,owner:'Security and platform engineering'},
     {name:'Networks and evidence',detail:traffic,owner:'Network and assurance leads'}
   ];
-  return {input:v,pattern:id,title,why,steps,architectures,controls,trace,gates,conflicts,lessons,
+  return {input:v,pattern:id,title,why,steps,architectures,controls,trace,gates,conflicts,lessons,flows:createFlows(v,conflicts.length>0),
     status:conflicts.length?'BLOCKED':'PROVISIONAL',sensitivity:sensitive?'Restricted':v.data==='internal'?'Internal':'Public or synthetic',source:'Course-authored decision rules v'+VERSION};
 }
 
@@ -323,9 +363,41 @@ export function createChallenges(raw={}) {
   return qs;
 }
 
-export function evaluateChallenge(question,answerIndex){const option=question.options[answerIndex];if(!option)return null;const ok=answerIndex===question.correct;return {ok,feedback:option.why,root:question.root,action:question.action,lesson:question.lesson};}
+export function createRemediation(question,raw={}){
+  const v=normalize(raw),physical=['premises','airgap','approved_sites'].includes(v.location);
+  const offline=v.location==='airgap'||v.connectivity==='disconnected';
+  const scenarios={
+    location:offline?{
+      question:'The disconnected utility assistant restarts and its licence requests online activation. What does the acceptance test require?',
+      options:[choice('Temporarily reconnect it; licence traffic is always exempt.','An air gap has no network exception for licensing.'),choice('Skip the restart test because inference worked yesterday.','Cold restart and recovery are part of the dependency boundary.'),choice('Keep it disconnected and require working offline licensing, identity and recovery before acceptance.','Correct. Prove the entire service can restart and operate offline, not just the model.')],correct:2
+    }:physical?{
+      question:'A local assistant sends scanned pages to an external OCR API before calling its on-site model. Is the premises boundary preserved?',
+      options:[choice('No. OCR inputs and extracted text must stay within the approved premises; test the preprocessing and failure paths.','Correct. Local inference does not contain a remote preprocessing dependency.'),choice('Yes, because only the final model call matters.','The source and all derivatives remain within scope.'),choice('Yes, if the OCR provider operates in the same country.','A national boundary does not establish a physical premises boundary.')],correct:0
+    }:{
+      question:'A regional endpoint fails over to another location. Which evidence would support the declared processing boundary?',
+      options:[choice('The provider logo and the region used for billing.','Neither establishes the actual recovery destination.'),choice('Runtime traces covering inference, logging and recovery, compared against the explicit permitted destinations.','Correct. Test normal and failure paths against the actual boundary.'),choice('The initial storage location alone.','Storage alone does not cover inference and failover.')],correct:1
+    },
+    operations:{
+      question:'A support engineer requests a break-glass session during an outage. What makes the access decision defensible?',
+      options:[choice('An urgent request automatically overrides the selected operating boundary.','Urgency does not establish authorization.'),choice('Use the permitted operator and connection path, verify identity and scope, and record the session; block it if incompatible.','Correct. Emergency access must still respect the selected physical and operational constraints.'),choice('Disable access logging so recovery is faster.','Removing evidence weakens accountability and does not resolve the constraint.')],correct:1
+    },
+    portability:{
+      question:'The model weights were copied successfully, but the replacement runtime cannot restore the retrieval index or tokenizer. Is the exit rehearsal complete?',
+      options:[choice('No. Rebuild the actual dependencies and retrieval path, then measure quality and recovery against acceptance criteria.','Correct. Exit is an end-to-end operational capability, not just a copied file.'),choice('Yes, because the weight checksum matches.','Integrity of one artifact does not establish an operable application.'),choice('Yes, if the original supplier promises future help.','A promise does not replace an executed migration test.')],correct:0
+    },
+    evidence:{
+      question:'A synthetic backup test exposes a prohibited destination, while the dashboard score is high. Which release decision follows?',
+      options:[choice('Approve because the average score exceeds the threshold.','A numerical score cannot cancel a known hard boundary violation.'),choice('Rename the result provisional and launch with restricted data.','A softer label does not resolve the observed violation.'),choice('Block release, contain the path, record the root cause and owner, then require a scoped passing retest.','Correct. Adverse evidence requires remediation and accepted retesting.')],correct:2
+    }
+  };
+  if(!Object.hasOwn(scenarios,question?.id))return null;
+  const scenario=scenarios[question.id];
+  return {id:`remediation-${question.id}`,dimension:question.dimension,...scenario,root:question.root,action:question.action,lesson:question.lesson};
+}
+
+export function evaluateChallenge(question,answerIndex){if(!Number.isInteger(answerIndex))return null;const option=question.options[answerIndex];if(!option)return null;const ok=answerIndex===question.correct;return {ok,feedback:option.why,root:question.root,action:question.action,lesson:question.lesson};}
 export function compareBlueprints(a,b){const x=createBlueprint(a),y=createBlueprint(b);const keys=Object.keys(LABELS).filter(k=>x.input[k]!==y.input[k]);return {previous:x,current:y,changed:keys,patternChanged:x.pattern!==y.pattern,gatesAdded:y.gates.filter(g=>!x.gates.includes(g)),gatesRemoved:x.gates.filter(g=>!y.gates.includes(g))};}
-export function exportJournal(blueprint,qs,answers,reflection=''){
+export function exportJournal(blueprint,qs,answers,reflection='',remediationAnswers={}){
   const clean=s=>String(s??'').replace(/\r/g,'').replace(/[\x00-\x08\x0B-\x1F]/g,'').replace(/\|/g,'\\|');
   const lines=['# Sovereignty learning journal','','> Public-learning artifact. Never add credentials, customer data, or personal identifiers.','','## Workload assumptions',''];
   for(const [key,value] of Object.entries(blueprint.input))lines.push(`- **${key}:** ${clean(LABELS[key][value])}`);
@@ -333,9 +405,25 @@ export function exportJournal(blueprint,qs,answers,reflection=''){
   for(const c of blueprint.architectures)lines.push(`- **${c.name}:** ${clean(c.detail)}. Owner: ${clean(c.owner)}.`);
   lines.push('','### Claims and validation');
   for(const c of blueprint.controls)lines.push(`- **${c.id} / ${c.dimension} / ${c.evidence}:** ${clean(c.claim)}. Test: ${clean(c.test)}`);
+  lines.push('','### Data-flow register','','Required paths for review; these records are not observations or authorization.');
+  for(const f of blueprint.flows)lines.push(`- **${f.name} / ${f.evidence}:** ${clean(f.artifacts)}. Destination: ${clean(f.destination)}. Network: ${f.network}. Owner: ${clean(f.owner)}. Test: ${clean(f.test)}`);
   lines.push('','### Unresolved gates');for(const g of blueprint.gates)lines.push('- '+clean(g));
   lines.push('','## Adaptive tutor review','');
-  qs.forEach((q,i)=>{let a=answers[q.id];lines.push(`### ${i+1}. ${clean(q.question)}`);if(a==null){lines.push('Not attempted.','');return;}const e=evaluateChallenge(q,a);lines.push(`- Selected: ${clean(q.options[a].text)}`);lines.push(`- Result: ${e.ok?'Correct reasoning':'Needs review'}`);lines.push(`- Feedback: ${clean(e.feedback)}`);if(!e.ok)lines.push(`- Root cause: ${clean(e.root)}. Corrective action: ${clean(e.action)}`);lines.push('');});
+  qs.forEach((q,i)=>{
+    const a=answers[q.id],e=evaluateChallenge(q,a);
+    lines.push(`### ${i+1}. ${clean(q.question)}`);
+    if(!e){lines.push('Not attempted.','');return;}
+    lines.push(`- Selected: ${clean(q.options[a].text)}`,`- Result: ${e.ok?'Correct reasoning':'Needs review'}`,`- Feedback: ${clean(e.feedback)}`);
+    if(!e.ok){
+      lines.push(`- Root cause: ${clean(e.root)}. Corrective action: ${clean(e.action)}`);
+      const follow=createRemediation(q,blueprint.input),picked=remediationAnswers[follow.id],result=evaluateChallenge(follow,picked);
+      lines.push(`- Follow-up question: ${clean(follow.question)}`);
+      if(result)lines.push(`- Follow-up selected: ${clean(follow.options[picked].text)}`,`- Follow-up result: ${result.ok?'Correct reasoning':'Needs review'}`,`- Follow-up feedback: ${clean(result.feedback)}`);
+      else lines.push('- Follow-up result: Not attempted');
+      lines.push('- The first attempt is retained; follow-up practice does not establish mastery or change architecture gates.');
+    }
+    lines.push('');
+  });
   lines.push('## My explanation and next test','',clean(reflection).replace(/</g,'&lt;')||'_Not written_','','## Source and scope','','Course-authored ontology: https://shantanuchandra.github.io/sovereign-ai-mastery/taxonomy/ONTOLOGY.html','','This worksheet is a learning hypothesis, not a legal opinion or certified architecture.');
   return lines.join('\n')+'\n';
 }

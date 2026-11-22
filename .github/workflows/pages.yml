@@ -76,6 +76,8 @@ jobs:
         run: python social/module-04/test_rendered_carousel.py
       - name: Build from Markdown source
         run: python scripts/build_site.py
+      - name: Verify rendered architecture and adaptive tutor
+        run: python learning/tests/test_rendered_studio.py
       - name: Publish Module 02 portrait PDF
         run: |
           python social/module-02/export_pdf.py
