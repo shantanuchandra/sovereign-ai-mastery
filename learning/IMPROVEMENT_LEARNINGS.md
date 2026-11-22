@@ -1759,3 +1759,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Deployment APIs can disagree transiently even after an artifact is listed; inspect exact failing step and preserve the distinction between CI validation, artifact upload and live Pages deployment. Verify the mitigation on a subsequent full run rather than inferring success.
 
 **Next work/header:** Check new-head Pages workflow; if the artifact race persists, revise the workflow based on fresh logs. Then close three source records and both Module 04 assurance gates before Module 05 §5.1.
+
+
+## Iteration 097 | 2026-11-22 | Verify Module 04 exact-head deployment recovery
+
+**Baseline read:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 technical review, and improvement history through iteration 096. The existing workflow had already been modified in commit `1186aaea877d6990412e1863ebfb30335dc5ccd1` to mitigate a Pages artifact-visibility race. No curriculum heading or QA review was overwritten.
+
+**New verified evidence:** GitHub Actions [deployment run 45049947645](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45049947645) and [Studio run 45049947786](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45049947786) both completed **SUCCESS** for exact head `6382400752b1dd318e2e1a3add751e7d3897eb31` (created 2026-11-22T17:31:45Z). Their deploy and studio jobs respectively concluded success. This is evidence of recovered CI/Pages deployment for that head, not proof of the cause of the earlier artifact race or validation of any later documentation commit.
+
+**Checks actually performed:** Read GitHub Actions run metadata and the jobs' conclusions through the connected GitHub API. Did not execute local browser, Python, physical air-gap, keyboard/screen-reader or PDF reading-order tests in this iteration. No new source quotation was claimed verified.
+
+**Remaining blockers:** Module 04's primary-source ledger retains three unresolved records: `ksa-portal-43`, `gcc-qatar-44`, `gcc-bahrain-44`. Manual accessibility/PDF reading-order checks and genuinely independent scoring calibration remain OPEN. The distinct GPT-6 self-review records are not independent human/different-model sign-offs. Premises-only and physical air-gap cases remain fail-closed. Module 04 disposition remains **HOLD**.
+
+**Improvement lesson:** A completed deploy job on the exact head resolves an earlier deployment-status uncertainty, but does not automatically close source-integrity or human-assurance gates. Next: resolve or explicitly withdraw the three unverified issuer claims and continue the Module 04 gate review before Module 05 §5.1.
