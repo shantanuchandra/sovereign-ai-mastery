@@ -1923,3 +1923,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Review:** Issue #7 Module 04 manual accessibility/PDF and independent calibration OPEN; issue #8 Module 05 legal-source, accessibility, and independent calibration OPEN. Both modules remain HOLD, and no release claim is made.
 
 **Improvement lesson:** Inserting escaped newline text into source code can silently swallow a security-critical condition inside a comment. Require exact-head CI after edits, and ensure negative tests actually execute after the baseline command. **Next:** Inspect new draft CI for `f61826a`, remediate any failing step, then resume substantive Module 05 legal/source and exemplar reconciliation only after green tests.
+
+
+## Iteration 107 | 2026-11-23 | Close Module 05 synthetic route-regression uncertainty
+
+**Inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, branch learning history through iteration 106, Module 05 lab files and technical review, both open release issues #7/#8, and branch GitHub Actions run metadata/jobs. No completed chapter headers or labs were duplicated.
+
+**Actual review commit:** [e77b71ac5891f890209746064c88a9c124ab5607](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/e77b71ac5891f890209746064c88a9c124ab5607) reconciles the technical/security self-review with observed passing CI for the repaired fail-closed route check. This learning-log commit's SHA is assigned after this write.
+
+**Test evidence:** [Draft Actions run 45072559370](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45072559370) at source commit `f61826a61806a7501edb3f3c9cc723b42717e6df` completed SUCCESS, `validate-draft` job SUCCESS. Earlier run 45066461433 FAILED at the earlier source head; its failure was real and corrected, not ignored. No local test run was performed in this iteration. No Pages deployment occurred. The subsequent review and learning-log commits are documentation-only and do not have verified exact-head CI.
+
+**Gates and limitations:** Module 04 issue #7 remains OPEN. Module 05 issue #8 remains OPEN. Neither module is released; Module 05 remains on the unmerged, unpublished branch. The automated synthetic validator is not a physical air-gap test, legal sign-off, screen-reader or PDF tagging/reading-order evaluation. No independent human/different-model assessment was performed. The separate editorial/accessibility review remains HOLD.
+
+**Improvement:** A real failing regression must be traced to a corrective source commit and a successful exact-source-head CI run before being considered closed. Keep technical regression closure separate from independent assurance and release approval.
+
+**Next material work:** Strengthen source-to-claim traceability and legal applicability in the Module 05 draft, then seek external counsel and independent accessibility/scoring evidence; keep the branch unpublished until Module 04's review gate closes.
