@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0",
+  "notice": "All cases, identities, vendors, claims and tests below are FICTIONAL synthetic training data. No legal or physical assurance.",
+  "activities": [
+    {
+      "activity_id": "GC-01",
+      "entity": "GulfCare UAE Mainland (fictional)",
+      "activity": "Employee handbook search (synthetic)",
+      "data_class": "synthetic_only",
+      "legal_candidate": {
+        "instrument": "UAE Federal Decree Law 45/2021",
+        "source_url": "https://www.uaelegislation.gov.ae/en/legislations/1972/download",
+        "source_section": "Article 2 scope, counsel to confirm",
+        "review_status": "NEEDS_COUNSEL",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-GC01-LOCAL",
+      "control_owner": "Security",
+      "test_id": "TEST-GC01-01",
+      "physical_boundary": "NONE",
+      "named_location": null,
+      "processing_destinations": [
+        "LOCAL-TEST"
+      ],
+      "backup_destinations": [
+        "LOCAL-TEST"
+      ],
+      "network_paths": [],
+      "licence_mode": "NOT_APPLICABLE",
+      "hard_gate_state": "NOT_APPLICABLE",
+      "decision": "PILOT_SYNTHETIC_ONLY"
+    },
+    {
+      "activity_id": "GC-02",
+      "entity": "GulfCare DIFC (fictional)",
+      "activity": "Support diagnostics with synthetic employee identifier",
+      "data_class": "restricted_synthetic",
+      "legal_candidate": {
+        "instrument": "DIFC Law 5 of 2020 as amended",
+        "source_url": "https://www.difc.com/business/registrars-and-commissioners/commissioner-of-data-protection/tools-and-templates",
+        "source_section": "Data Export / International Transfers, Articles 26-27",
+        "review_status": "NEEDS_COUNSEL",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-GC02-SUPPORT",
+      "control_owner": "CISO",
+      "test_id": "TEST-GC02-DENY",
+      "physical_boundary": "NONE",
+      "named_location": null,
+      "processing_destinations": [
+        "UAE-REGION-UNVERIFIED"
+      ],
+      "backup_destinations": [
+        "UAE-REGION-UNVERIFIED"
+      ],
+      "network_paths": [
+        "SUPPORT-ROUTE-UNVERIFIED"
+      ],
+      "licence_mode": "UNKNOWN",
+      "hard_gate_state": "NOT_APPLICABLE",
+      "decision": "HOLD"
+    },
+    {
+      "activity_id": "GC-03",
+      "entity": "GulfCare ADGM (fictional)",
+      "activity": "Supplier complaints index (synthetic)",
+      "data_class": "restricted_synthetic",
+      "legal_candidate": {
+        "instrument": "ADGM Data Protection Regulations 2021",
+        "source_url": "https://www.adgm.com/operating-in-adgm/office-of-data-protection/guidance",
+        "source_section": "Part 6 and Article 42 transfer safeguard",
+        "review_status": "NEEDS_COUNSEL",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-GC03-TRANSFER",
+      "control_owner": "Privacy",
+      "test_id": "TEST-GC03-ACCESS",
+      "physical_boundary": "NONE",
+      "named_location": null,
+      "processing_destinations": [
+        "UAE-REGION-UNVERIFIED"
+      ],
+      "backup_destinations": [
+        "UAE-REGION-UNVERIFIED"
+      ],
+      "network_paths": [
+        "TRANSFER-STATUS-UNKNOWN"
+      ],
+      "licence_mode": "UNKNOWN",
+      "hard_gate_state": "NOT_APPLICABLE",
+      "decision": "HOLD"
+    },
+    {
+      "activity_id": "GC-04",
+      "entity": "GulfCare Saudi Affiliate (fictional)",
+      "activity": "Procurement attachment search (synthetic)",
+      "data_class": "restricted_synthetic",
+      "legal_candidate": {
+        "instrument": "Saudi PDPL and transfer regulation",
+        "source_url": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/RegulationonPersonalDataTransferOutsidetheKingdom/",
+        "source_section": "PDPL Article 29; transfer regulation Articles 4, 6, 7",
+        "review_status": "NEEDS_COUNSEL",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-GC04-TRANSFER",
+      "control_owner": "Legal",
+      "test_id": "TEST-GC04-DESTINATIONS",
+      "physical_boundary": "NONE",
+      "named_location": null,
+      "processing_destinations": [
+        "KSA-TEST-UNVERIFIED"
+      ],
+      "backup_destinations": [
+        "KSA-TEST-UNVERIFIED"
+      ],
+      "network_paths": [
+        "UNKNOWN"
+      ],
+      "licence_mode": "UNKNOWN",
+      "hard_gate_state": "NOT_APPLICABLE",
+      "decision": "HOLD"
+    },
+    {
+      "activity_id": "PLANT-05",
+      "entity": "Fictional Factory-A",
+      "activity": "Restricted maintenance assistant, synthetic simulation",
+      "data_class": "restricted_synthetic",
+      "legal_candidate": {
+        "instrument": "Fictional customer premises agreement",
+        "source_url": "https://github.com/shantanuchandra/sovereign-ai-mastery/blob/main/TOC.md",
+        "source_section": "Module 05 hard-gate lab teaching scenario (not a law)",
+        "review_status": "NOT_APPLICABLE",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-PLANT05-PREMISES",
+      "control_owner": "Plant Security",
+      "test_id": "TEST-PLANT05-RESTORE",
+      "physical_boundary": "NAMED_PREMISES",
+      "named_location": "FACTORY-A",
+      "processing_destinations": [
+        "FACTORY-A"
+      ],
+      "backup_destinations": [
+        "FACTORY-A"
+      ],
+      "network_paths": [],
+      "licence_mode": "OFFLINE_UNVERIFIED",
+      "hard_gate_state": "NOT_VERIFIED",
+      "decision": "HOLD"
+    },
+    {
+      "activity_id": "OT-05",
+      "entity": "Fictional OT archive",
+      "activity": "Physically isolated archive, synthetic simulation",
+      "data_class": "restricted_synthetic",
+      "legal_candidate": {
+        "instrument": "Fictional customer no-network requirement",
+        "source_url": "https://github.com/shantanuchandra/sovereign-ai-mastery/blob/main/TOC.md",
+        "source_section": "Module 05 hard-gate lab teaching scenario (not a law)",
+        "review_status": "NOT_APPLICABLE",
+        "counsel_approval_id": null
+      },
+      "control_id": "CTRL-OT05-ISOLATION",
+      "control_owner": "Qualified OT Operator",
+      "test_id": "TEST-OT05-COLD-START",
+      "physical_boundary": "AIR_GAP",
+      "named_location": "OT-ROOM-A",
+      "processing_destinations": [
+        "OT-ROOM-A"
+      ],
+      "backup_destinations": [
+        "OT-ROOM-A"
+      ],
+      "network_paths": [],
+      "licence_mode": "OFFLINE_UNVERIFIED",
+      "hard_gate_state": "NOT_VERIFIED",
+      "decision": "HOLD"
+    }
+  ]
+}
