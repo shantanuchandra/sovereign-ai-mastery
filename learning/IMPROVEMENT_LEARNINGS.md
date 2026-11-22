@@ -1579,3 +1579,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Commit evidence:** This entry is committed via GitHub Contents API; the accepted commit SHA is returned by GitHub and reported in the run summary, not invented in advance.
 
 **Next work:** Identify the latest non-cancelled exact-head Pages run, inspect failed job steps if any, and complete the pending primary-source and manual/independent assurance evidence before the next teaching header (Module 05 §5.1).
+
+
+## Improvement entry 085 | 2026-11-22 | Module 04 exact-head Pages recovery confirmed
+
+**Baseline:** Re-read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 04 learner chapter, separate technical/security/source and editorial/accessibility/assessment reviews, 28-footnote source accuracy ledger, and learning history through 084. Confirmed concurrent commits were not overwritten; did not repeat completed sections or separate facilitator solutions.
+
+**Actual review commit:** [734ec2b5eea036ae5678bd06161a6bb51682b092](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/734ec2b5eea036ae5678bd06161a6bb51682b092) adds the exact-head CI reconciliation to the editorial review. This log's own GitHub commit SHA is reported after acceptance, not predeclared.
+
+**Observed checks and deployment:** [Pages workflow 44989903956](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/44989903956) at `b47d4f29de4ea03421eb611173fabaea9affcf13` completed **success**. Inspected its deploy job step results: Module 04 source-inventory and social contract, actual Module 04 browser reflow/PDF text verification, PDF publication, site build, artifact upload and Pages deploy each concluded **success**. The separate architecture/adaptive tutor workflow 44989903962 also completed success at the same head. These workflow outcomes predate the review and this log commit; deployment of these later documentation commits is NOT YET VERIFIED. No local tests, manual assistive-tech/zoom/PDF tagging review, source-document retrieval, independent scoring or physical-network inspection occurred in this iteration.
+
+**Disposition and unresolved risks:** Previous cancelled runs remain cancelled; the newer exact-head green run resolves the automated deployment uncertainty for the tested SHA only. T04-03 remains OPEN: source ledger shows 17/28 directly retrieved issuer sources and 11 unresolved/blocked at its last audit. E04-02 manual accessibility and PDF reading order remain OPEN; E04-03 independent scoring remains OPEN. Two distinct reviews are bounded GPT-6 self-critiques, not independent human/different-model verification. Module 04 remains HOLD; do not begin Module 05 §5.1. Named-premises processing and physically disconnected OT vetoes remain fail-closed.
+
+**Improvement lesson:** Inspect workflow job step conclusions at the exact SHA rather than inferring test failure from cancelled runs. A green Pages pipeline validates the implemented automation, not issuer truth, PDF accessibility, physical sovereignty or scoring independence.
+
+**Next header:** After closing both Module 04 review gates with real evidence, Module 05 §5.1 UAE federal personal data protection framework. First verify the latest documentation-head Pages run; continue remaining issuer and accessibility evidence rather than rewriting complete teaching sections.
