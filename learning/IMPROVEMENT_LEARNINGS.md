@@ -2001,3 +2001,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Review and next:** Both issue #7 and #8 remain open, with Module 04 and 05 release HOLD. Verify exact-source-head draft CI, repair any failures, then reconcile the old public Module 05 exemplar and tighten legal-source pinpoint evidence. Never promote the branch while Module 04 independent review remains open.
 
 **Lesson:** Free-text security state fields allow adversarial near-miss values to evade exact-string vetoes. Validate state vocabularies and make release decisions require positive evidence states, without confusing worksheet assertions with independently verified evidence.
+
+
+## Iteration 113 | 2026-11-23 | Repair exact-head draft QA assertion
+
+**Inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, Module 05 lab validator and negative tests, chapter QA contract, learning log, GitHub issues #7/#8 and exact draft Actions run 45106856606. Module 04 remains HOLD; Module 05 remains unpublished on draft/module-05-legal-controls-20261123.
+
+**Observed failure:** [Draft workflow 45106856606](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45106856606) at 6a015aa4e3e838fb87c6958de737ec36eac9c6b2 completed FAILURE. Its first test step ran 21 synthetic lab tests successfully but failed one of 10 structural QA tests: test_decision_state_workshop_preserves_hard_veto lowercased the chapter section but compared it with mixed-case literal 'not claims about UAE law'. The actual learner disclaimer is present. Subsequent browser/PDF jobs were skipped, not passed.
+
+**Correction:** [Commit b4537af75738c5990fdc70aaa284d6e7c1035670](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/b4537af75738c5990fdc70aaa284d6e7c1035670) lowercases the expected assertion literal to match the already normalized section. No security validator, lab fixture, chapter, legal claim or facilitator key changed. Exact-match file SHA was checked before writing.
+
+**Checks performed:** Read the actual failed job logs and source assertion, inspected the existing 21-test synthetic suite and 10-test chapter contract. The log confirms 21 lab tests passed at the previous head and one QA assertion failed. No Python suite or browser/PDF check was executed after this correction; new-head Actions outcome remains **NOT VERIFIED**. No Pages deployment, counsel opinion, screen-reader/PDF-tag audit, independent calibration or physical network test occurred.
+
+**Review status and lesson:** Both [Module 04 issue #7](https://github.com/shantanuchandra/sovereign-ai-mastery/issues/7) and [Module 05 issue #8](https://github.com/shantanuchandra/sovereign-ai-mastery/issues/8) remain HOLD. Normalize both operands of case-insensitive QA assertions and distinguish an assertion defect from learner-content failure. **Next:** Check exact-head draft CI at b4537af; repair any failures before legal pinpoint/source audit and public exemplar reconciliation. Do not merge/publish Module 05 until Module 04's independent gates close.
