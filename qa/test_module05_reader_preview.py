@@ -145,7 +145,7 @@ class DraftReaderContract(unittest.TestCase):
         main = rendered.select_one("main")
         self.assertIsNotNone(main, "Lab landing page has no learner main landmark")
         commands = []
-        for block in re.findall(r"~~~bash\\s*\\n(.*?)\\n~~~", readme, re.S):
+        for block in re.findall(r"~~~bash\s*\n(.*?)\n~~~", readme, re.S):
             for line in block.splitlines():
                 line = line.strip()
                 if line.startswith(("python3 ", "python ")):
