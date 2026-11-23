@@ -34,3 +34,27 @@ The old public HTML explicitly offers a runnable Module 05 lab and separate solu
 5. **Release integration**: site builder, static Mermaid/SVG, navigation, 8x10 PDF and lab asset routes validated in a published exact-head Pages run.
 
 **Next release-oriented work:** Strengthen draft rendered carousel layout tests and fix content clipping; then use a branch-scoped site rendering test and review the legal source versions. Do not merge before Module 04's release HOLD is resolved.
+
+
+## Iteration 114: exact-head CI and pre-release route contract (23 November 2026)
+
+**Observed CI:** [run 45112352536](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45112352536) reports its `validate-draft` job **completed: success** after the assertion repair in `b4537af`. This verifies that workflow's automated steps at its own source head, **not** a Pages deployment, tagged PDF, manual accessibility review or legal-source currency. The iteration's review/log edits are not test-covered source changes.
+
+**Existing public-exemplar defect is still open:** `modules/05-laws-regulation-jurisdiction.html` displays a "Chapter ready" sidebar dot while its chapter metadata calls it a **Teaching exemplar**. It instructs the learner to use a Module 05 lab and solution-key paths that were not present on `main` in the documented audit. This is a misleading release cue, not proof that the full draft is published. Do not quietly modify the published exemplar from this branch or declare it fixed.
+
+**Release-candidate acceptance contract, to execute only after Module 04 issue #7 is independently closed:**
+
+| Gate | Required observable evidence | Current disposition |
+|---|---|---|
+| Site identity | Published Module 05 must be built from reviewed eight-section Markdown, not the older four-region exemplar; capture generated artifact hash and exact Pages commit | HOLD, no candidate deployed |
+| Learner route | From the actual deployed reader, open each lab link and run the displayed commands against files included in the published artifact or clearly linked versioned repository; verify fixture and Python entrypoint exist | HOLD, old exemplar promises unavailable files |
+| Facilitator isolation | Learner HTML, nav, downloadable assets and public search must not expose Q1-Q6 worked solutions; provide separate facilitator-controlled distribution decision | HOLD, independent review required |
+| Source provenance | Pinpoint each material law assertion to current issuer-hosted controlling text/version/article, separate legal question from conclusion and obtain qualified counsel's scope disposition | HOLD, overview checks are insufficient |
+| Physical veto | Cold start, offline licence, telemetry, support, backup, DNS and all derivatives must respect named-premises; physical air gap permits **zero attempted network paths**, not merely zero successful egress | Synthetic tests only; physical evidence absent |
+| Accessible teaching | At 320px and 200% zoom verify focus, landmarks, SVG alternative, table reflow and screen-reader traversal; inspect exported PDF tags and reading order | Automated browser smoke only; manual gate HOLD |
+| Assessment calibration | Two blinded independent Q5/Q6 grades including fluent unsafe tunnel and safe incomplete response; record discrepancies and rubric changes | NOT COMPLETED |
+| Promotion | Both distinct review dispositions, predecessor release sign-off, exact-head Pages success and deployed route retest recorded with timestamps | HOLD, do not merge |
+
+**Failure-handling decision:** A missing shipped lab path, leaked solution, stale legal source, or a single attempted OT-05 network call blocks release. The PM must record a named remediation owner and rerun the affected test. Successful synthetic unit tests alone cannot close those gates.
+
+**Next executable engineering task:** Add a branch-only *release-candidate link-manifest test* that parses displayed lab commands/links from the built reader, checks paths against the intended publish bundle and rejects any answer-key route. Then reconcile the exemplar's misleading "Chapter ready" cue in a future approved release, not as a premature production change. This review is GPT-6 author-side analysis, **not independent acceptance**.
