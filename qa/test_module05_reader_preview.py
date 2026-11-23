@@ -241,7 +241,7 @@ class DraftReaderContract(unittest.TestCase):
         withdrawn = (
             re.compile(r"(?i)ADGM[^\n]{0,110}\bPart\s+6\b"),
             re.compile(r"(?i)ADGM[^\n]{0,110}\bArticle\s+42\s*\(2\)"),
-            re.compile(r"(?i)transfer.regulation[^\n]{0,100}\bArticles?\s+6\s*[-–]\s*7\b"),
+            re.compile(r"(?i)transfer.regulation[^\n]{0,100}\bArticles?\s+6\s*(?:[-–]|and|&)\s*7\b"),
         )
         # Mutation probes make sure the guard actually rejects known unsafe
         # assertions. They also catch accidental regex over-escaping.
@@ -249,6 +249,8 @@ class DraftReaderContract(unittest.TestCase):
             "ADGM international transfers are governed by Part 6",
             "ADGM law Article 42(2) automatically permits transfers",
             "Saudi transfer regulation Articles 6-7 always apply",
+            "Saudi transfer regulation Articles 6 and 7 always apply",
+            "Saudi transfer regulation Articles 6 & 7 always apply",
         )
         for sample in known_bad:
             self.assertTrue(any(pattern.search(sample) for pattern in withdrawn),
