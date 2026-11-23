@@ -2213,3 +2213,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** When correcting an unsafe legal reference, scan the full learner delivery chain including lab and social derivatives, not only chapter and answer key. Automated checks must state their narrow coverage and must never be confused with a qualified legal opinion.
 
 **Precise next task:** Confirm exact-source-head draft workflow for bc2902f, fix any real failure, then reconcile the old public Module 05 exemplar's false ready/lab cues in a controlled future release candidate, and resolve controlling ADGM and Saudi text with qualified reviewers. Do not publish before predecessor issue #7 and Module 05 issue #8 gates close.
+
+
+## Iteration 130 | 2026-11-24 | Mutation probes for withdrawn legal-citation regression
+
+**Current-state inspection:** Re-read TOC, style guide, chapter template, branch learning log, Module 05 chapter, draft reader QA and workflow, older public-exemplar reconciliation, and open release issues #7 and #8. The last recorded branch code commit bc2902f expanded a six-asset legal pinpoint scan, but its regex patterns had not been exercised against deliberately bad fixtures. Previous iterations had already encountered a raw-regex escaping error.
+
+**Substantive QA change:** [cbc12a4](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/cbc12a4d86ed6effbafa5b4e620d4b0c5815b68c) adds three mutation probes (withdrawn ADGM Part 6, ADGM Article 42(2), and unqualified Saudi transfer Articles 6-7) plus two qualified non-matches to the existing six-asset reader regression. This guards against a future regex edit that silently stops matching known-bad source text. It does not establish which legal edition controls and is not a legal opinion.
+
+**Tests and CI:** GitHub accepted the SHA-guarded QA commit. The earlier [draft Actions run 45228174900](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45228174900) has a completed SUCCESS validate-draft job, including Python, built reader, browser and PDF steps, but predates cbc12a4. The commit-specific workflow lookup for bc2902f returned no PR-triggered runs, which does not establish failure or success for branch pushes. **New mutation probes NOT EXECUTED; exact-head Actions result NOT VERIFIED.** No physical air-gap, screen-reader, PDF tagging/reading-order, qualified legal, Saudi Arabic consolidation or independent assessment validation occurred. Same-model technical/source review PARTIAL/HOLD; editorial/accessibility/assessment independent review NOT COMPLETED. No merge, release or deployment.
+
+**Improvement lesson:** A static negative scan is only meaningful if representative withdrawn assertions are proven to trigger its detector; mutation probes prevent a syntactically valid but inert regex from masquerading as coverage.
+
+**Precise next task:** Obtain a completed exact-head draft Actions run for cbc12a4 and fix any failing probes; reconcile the old public exemplar's misleading ready/lab cues only through an approved release path. Obtain authoritative ADGM/Saudi legal editions and independent Module 04 #7 and Module 05 #8 accessibility, counsel and assessment review before publication.
