@@ -161,7 +161,7 @@ def book_sidebar(page,prefix=''):
         for n,t in seq:
             if lo <= n <= hi:
                 active=(current_module==n)
-                items.append(f'<a class="toc-chapter {"is-active" if active else ""}" href="{prefix}{relroute(n)}" title="{html.escape(t,quote=True)}"><span class="chapter-num">{n:02}</span><span class="chapter-text">{html.escape(t)}</span>{"<span class=\"read-dot\" title=\"Chapter ready\"></span>" if n in (1,5) else ""}</a>')
+                items.append(f'<a class="toc-chapter {"is-active" if active else ""}" href="{prefix}{relroute(n)}" title="{html.escape(t,quote=True)}"><span class="chapter-num">{n:02}</span><span class="chapter-text">{html.escape(t)}</span>{"<span class=\"read-dot\" title=\"Chapter ready\"></span>" if n == 1 else ""}</a>')
         opened= ' open' if (current_module is not None and lo<=current_module<=hi) else ''
         parts.append(f'<details class="toc-part"{opened}><summary><span class="roman">{roman}</span><span>{html.escape(title)}</span><span class="chevron">⌄</span></summary><div class="toc-chapters">{"".join(items)}</div></details>')
     return f'''<aside class="book-sidebar" id="book-sidebar" aria-label="Book table of contents">
