@@ -82,6 +82,17 @@ class Module05DraftContract(unittest.TestCase):
         self.assertIn("not legal advice", section.lower())
         self.assertNotIn("—", section)
 
+    def test_decision_state_workshop_preserves_hard_veto(self):
+        section = self.chapter.split("## 13B. Evidence gate and decision-state protocol", 1)[1].split("## 13A.", 1)[0]
+        for state in ("NEEDS_COUNSEL", "HOLD", "BLOCKED", "PILOT_SYNTHETIC_ONLY"):
+            self.assertIn(state, section)
+        for evidence in ("named physical premises", "every derivative", "cold-start",
+                         "application FAIL", "negative-egress", "no-AI path",
+                         "control_plane_paths", "source_version", "observed_attempts"):
+            self.assertIn(evidence.lower(), section.lower())
+        self.assertIn("not claims about UAE law", section)
+        self.assertNotIn("—", section)
+
     def test_eight_question_slides_with_print_and_focus(self):
         html = self.carousel
         slides = re.findall(r'<section class="slide', html)
