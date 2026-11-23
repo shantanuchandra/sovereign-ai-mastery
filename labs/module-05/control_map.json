@@ -68,7 +68,7 @@
       "legal_candidate": {
         "instrument": "ADGM Data Protection Regulations 2021",
         "source_url": "https://www.adgm.com/operating-in-adgm/office-of-data-protection/guidance",
-        "source_section": "Part 6 and Article 42 transfer safeguard",
+        "source_section": "ADGM guidance cites Part V and Article 42(3)(c); operative consolidation pending counsel",
         "review_status": "NEEDS_COUNSEL",
         "counsel_approval_id": null
       },
@@ -98,7 +98,7 @@
       "legal_candidate": {
         "instrument": "Saudi PDPL and transfer regulation",
         "source_url": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/RegulationonPersonalDataTransferOutsidetheKingdom/",
-        "source_section": "PDPL Article 29; transfer regulation Articles 4, 6, 7",
+        "source_section": "PDPL Article 29; transfer regulation English edition numbering conflicts, controlling Arabic text pending counsel",
         "review_status": "NEEDS_COUNSEL",
         "counsel_approval_id": null
       },
