@@ -61,7 +61,7 @@ class Module05DraftContract(unittest.TestCase):
         """Catch accidental removal of evidence gates from the six-case PM exercise."""
         chapter = self.chapter
         start = chapter.index("## 13A. Source-to-decision traceability exercise")
-        end = chapter.index("## 14. Website and social publishing plan", start)
+        end = chapter.index("## 13B. Evidence gate and decision-state protocol", start)
         section = chapter[start:end]
         rows = [line for line in section.splitlines() if line.startswith("| ") and
                 not line.startswith("| ---") and not line.startswith("| Fictional activity")]
@@ -90,7 +90,7 @@ class Module05DraftContract(unittest.TestCase):
                          "application FAIL", "negative-egress", "no-AI path",
                          "control_plane_paths", "source_version", "observed_attempts"):
             self.assertIn(evidence.lower(), section.lower())
-        self.assertIn("not claims about UAE law", section)
+        self.assertIn("not claims about UAE law", section.replace("**", "").lower())
         self.assertNotIn("—", section)
 
     def test_eight_question_slides_with_print_and_focus(self):
