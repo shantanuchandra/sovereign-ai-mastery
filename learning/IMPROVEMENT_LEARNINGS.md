@@ -2096,3 +2096,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A learner bundle can leak a facilitator key through a descriptively named file in an ordinary directory, even when the canonical solution folder is absent. Scan file names and links across the entire built tree, while distinguishing static tests from live deployment assurance.
 
 **Precise next task:** Verify draft Actions at the exact new code head and repair any real failure. Then prioritize issuer-hosted consolidated legal text/version/article checks and the older public Module 05 exemplar's release cue and missing lab promise. Retain Module 04 issue #7 and Module 05 issue #8 as independent release HOLDs.
+
+
+## Iteration 120 | 2026-11-23 | Controlling-text legal review queue
+
+**Inspected current committed state:** Branch head before work was `bbaa0bf13f5f6df1348caf125b569e8e88fc8443`. Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, this log, Module 05 chapter source footnotes and crosswalk, and open release issues #7/#8. GitHub Actions [run 45157060960](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45157060960) **SUCCESS** on exact code commit `2a8eae64d7164a2b67e01a40b386f372040c8be4`; this is not exact-head validation of the later documentation commits.
+
+**Substantive artifact:** [commit a4b455719759825786b659c0517ca95321cd3b27](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/a4b455719759825786b659c0517ca95321cd3b27) adds `reviews/module-05/controlling-text-verification-queue-2026-11-23.md`. Eight issuer/source-group work items map all thirteen chapter footnotes to specific consolidated-law, amendment, article, language, sector-scope and effective-date checks. Each records an interim HOLD/NEEDS_COUNSEL decision and named reviewer evidence requirements. No source was falsely upgraded from overview/guidance to verified operative law. Separate physical vetoes and independent reviewer needs are retained.
+
+**Executed / not checked:** GitHub repository/issue/source inspection and branch-scoped SHA-guarded creation of the review artifact completed. Prior Actions success at `2a8eae6` was checked. No local Python tests, browser rendering, PDF generation, current-law primary-text retrieval, qualified counsel review, independent accessibility/assessment evaluation, physical air-gap test or deployed Pages validation was executed in this iteration. Exact-head Actions for this documentation commit are **NOT VERIFIED**. Separate same-model technical/security/source and editorial/accessibility/assessment reviews remain HOLD. Modules 04 and 05 are not merged or released.
+
+**Improvement lesson:** A list of official links is not a controlling-text audit. Convert each legal proposition into a versioned issuer-text retrieval, article-level quotation, scope question and named independent disposition before changing the release gate.
+
+**Precise next task:** Execute L05-01/L05-02 against issuer-hosted consolidated UAE federal and DIFC texts, recording actual checked versions and short pinpoint quotes, or documented retrieval failures. Then reconcile old public Module 05 exemplar claims with release candidate routes; keep issues #7/#8 HOLD.
