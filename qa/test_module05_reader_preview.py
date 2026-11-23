@@ -189,6 +189,32 @@ class DraftReaderContract(unittest.TestCase):
             self.assertNotIn("assessments/solutions/05-laws-regulation-jurisdiction-solutions", markup)
         self.assertFalse((DIST / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md").exists())
 
+    def test_generated_site_has_no_facilitator_solution_payload_or_links(self):
+        """The draft website must not expose any module's facilitator answers.
+
+        Check the entire built artifact, not only the Module 05 reader. A
+        navigation change or a copy rule can leak keys on unrelated routes.
+        This is a static bundle check, not a deployed-site security audit.
+        """
+        solution_dir = DIST / "assessments" / "solutions"
+        self.assertFalse(solution_dir.exists(),
+                         "Facilitator solution directory shipped in learner bundle")
+        leaked = []
+        for file in DIST.rglob("*"):
+            if not file.is_file():
+                continue
+            relative = file.relative_to(DIST).as_posix()
+            if re.search(r"(?:^|/)(?:solutions|answer[-_]?keys?)(?:/|$)", relative, re.I):
+                leaked.append(f"Facilitator-looking file: {relative}")
+            if file.suffix.lower() != ".html":
+                continue
+            soup = BeautifulSoup(file.read_text(encoding="utf-8"), "html.parser")
+            for a in soup.select("a[href]"):
+                target = unquote(urlsplit(a["href"]).path).lower()
+                if re.search(r"(?:^|/)(?:assessments/solutions|answer[-_]?keys?)(?:/|$)", target):
+                    leaked.append(f"Facilitator link in {relative}: {a['href']}")
+        self.assertEqual(leaked, [], "Learner bundle exposed facilitator resources")
+
     def test_facilitator_key_does_not_leak_into_reader(self):
         self.assertFalse((DIST / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md").exists())
         self.assertNotIn("Facilitator solutions and scoring rubric", self.html)
