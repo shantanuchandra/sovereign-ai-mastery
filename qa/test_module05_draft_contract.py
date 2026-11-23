@@ -83,7 +83,7 @@ class Module05DraftContract(unittest.TestCase):
         self.assertNotIn("—", section)
 
     def test_decision_state_workshop_preserves_hard_veto(self):
-        section = self.chapter.split("## 13B. Evidence gate and decision-state protocol", 1)[1].split("## 13A.", 1)[0]
+        section = self.chapter.split("## 13B. Evidence gate and decision-state protocol", 1)[1].split("## 14.", 1)[0]
         for state in ("NEEDS_COUNSEL", "HOLD", "BLOCKED", "PILOT_SYNTHETIC_ONLY"):
             self.assertIn(state, section)
         for evidence in ("named physical premises", "every derivative", "cold-start",
