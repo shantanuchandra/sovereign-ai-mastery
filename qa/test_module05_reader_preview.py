@@ -233,6 +233,10 @@ class DraftReaderContract(unittest.TestCase):
         teaching = (
             ROOT / "chapters/05-laws-regulation-jurisdiction.md",
             ROOT / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md",
+            ROOT / "labs/module-05/README.md",
+            ROOT / "labs/module-05/control_map.json",
+            ROOT / "social/module-05/CAROUSEL.html",
+            ROOT / "social/module-05/POST.md",
         )
         withdrawn = (
             re.compile(r"(?i)ADGM[^\n]{0,110}\bPart\s+6\b"),
