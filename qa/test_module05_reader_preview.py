@@ -243,6 +243,23 @@ class DraftReaderContract(unittest.TestCase):
             re.compile(r"(?i)ADGM[^\n]{0,110}\bArticle\s+42\s*\(2\)"),
             re.compile(r"(?i)transfer.regulation[^\n]{0,100}\bArticles?\s+6\s*[-–]\s*7\b"),
         )
+        # Mutation probes make sure the guard actually rejects known unsafe
+        # assertions. They also catch accidental regex over-escaping.
+        known_bad = (
+            "ADGM international transfers are governed by Part 6",
+            "ADGM law Article 42(2) automatically permits transfers",
+            "Saudi transfer regulation Articles 6-7 always apply",
+        )
+        for sample in known_bad:
+            self.assertTrue(any(pattern.search(sample) for pattern in withdrawn),
+                            f"Withdrawn-citation guard failed its mutation probe: {sample}")
+        known_safe = (
+            "ADGM Part V and Article 42(3)(c) appear in guidance, pending consolidation",
+            "Saudi transfer regulation article numbering conflicts across English editions",
+        )
+        for sample in known_safe:
+            self.assertFalse(any(pattern.search(sample) for pattern in withdrawn),
+                             f"Withdrawn-citation guard rejected qualified text: {sample}")
         violations = []
         for file in teaching:
             self.assertTrue(file.is_file(), f"Missing teaching asset: {file}")
