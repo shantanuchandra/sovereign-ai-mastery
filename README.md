@@ -1,4 +1,4 @@
-> **Book-reader edition v4.1:** Final learner experience is a responsive static website; Markdown is the source. The sample [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn HTML question deck with a PDF export.
+> **Book-reader edition v4.1:** Final learner experience is a responsive static website; Markdown is the source. The educational draft [Module 05](chapters/05-laws-regulation-jurisdiction.md) demonstrates the required editorial contract: direct source quotations, ontology, practical lab, PM deliverable, assessment, separate solutions, and LinkedIn HTML question deck with a PDF export. Module 05 legal/independent review remains pending.
 
 # Sovereign AI Mastery
 
@@ -12,10 +12,13 @@
 ## Start here
 
 1. **[Adaptive Architecture & Learning Studio](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html)** — ten-question adaptive workshop that generates an architecture, explains controls and evidence gaps, challenges reasoning, compares a changed constraint, and exports a public learning journal.
-2. **[Quick onboarding questionnaire](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — lightweight starting point that can hand off to the full learning studio.\n3. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
+2. **[Quick onboarding questionnaire](https://shantanuchandra.github.io/sovereign-ai-mastery/onboarding/index.html)** — lightweight starting point that can hand off to the full learning studio.
+3. **[Module 01, the foundation chapter](https://shantanuchandra.github.io/sovereign-ai-mastery/modules/01-sovereign-ai-fundamentals.html)** — claims, dependency boundaries, exercises, and sourced product examples.
 4. **[Table of contents](TOC.md)** — 7 parts, 24 modules, full lesson map, capstone plan, labs and PM deliverables.
 5. **[Chapter template](CHAPTER_TEMPLATE.md)** — mandatory executive brief, deep dive, reproducible lab, PM decision playbook, six-question assessment with a real-product case and RCA challenge, citations and follow-up.
 6. **[Editorial and reference guide](STYLE_GUIDE.md)** — writing tone, visual system, source hierarchy, footnote style, lab standards and publication checklist.
+
+**[Hour-by-hour study plan](https://shantanuchandra.github.io/sovereign-ai-mastery/learning/schedule.html)** — 24 module-specific plans, ten one-hour sessions each, browser-local checkboxes and Markdown progress export. Planned lessons are labelled clearly; study completion is not publication approval. [Module progress and next work](learning/MODULE_PROGRESS.md).
 
 ## Who this is for
 

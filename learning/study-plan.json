@@ -1,0 +1,1880 @@
+{
+  "version": 1,
+  "hours_per_module": 10,
+  "total_hours": 240,
+  "notice": "Self-paced learner study plan, separate from the hourly implementation automation. Completion checkboxes are self-reported study progress, not module publication approval or competency certification. Planned lessons remain planned until authored.",
+  "modules": [
+    {
+      "number": 1,
+      "title": "Sovereign AI Fundamentals",
+      "scenario": "An employee policy assistant",
+      "artifact": "Claim register and testable sovereignty definition",
+      "hours": [
+        {
+          "id": "m01-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "An employee policy assistant: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m01-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: What is sovereign AI?; From digital sovereignty to data, cloud, and AI sovereignty. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m01-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Sovereign vs. private vs. secure vs. compliant AI; National sovereignty versus **enterprise-level sovereign AI**. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m01-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Can a company build or operate sovereign AI without owning everything?; Sovereignty, control, independence, self-sufficiency, and jurisdiction. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m01-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Benefits, myths, limitations, and risk-based trade-offs. Apply the concepts to an employee policy assistant and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m01-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For an employee policy assistant, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m01-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For an employee policy assistant, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m01-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in an employee policy assistant. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m01-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Claim register and testable sovereignty definition. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and claim register and testable sovereignty definition"
+        },
+        {
+          "id": "m01-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend claim register and testable sovereignty definition, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Classifications, Components & Maturity Models",
+      "scenario": "A platform vendor maturity claim",
+      "artifact": "Scope/components/control maturity scorecard",
+      "hours": [
+        {
+          "id": "m02-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A platform vendor maturity claim: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m02-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Sovereignty by scope: national, sectoral, enterprise, workload; Control dimensions: territorial, operational, technological, legal. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m02-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Deployment classes: public, managed sovereign, private, hybrid, air-gapped, edge; **Sovereign AI stack components:** physical facilities, chips, compute, network, storage, data, models, platforms, applications, IAM, security, operations. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m02-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Model ownership vs. model hosting vs. platform control; Dependency and autonomy spectrum; why one-size-fits-all labels fail. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m02-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Sovereignty maturity, evidence, gaps, and scorecards. Apply the concepts to a platform vendor maturity claim and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m02-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a platform vendor maturity claim, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m02-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a platform vendor maturity claim, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m02-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a platform vendor maturity claim. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m02-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Scope/components/control maturity scorecard. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and scope/components/control maturity scorecard"
+        },
+        {
+          "id": "m02-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend scope/components/control maturity scorecard, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Enterprise Sovereignty Requirements & Strategy",
+      "scenario": "A factory drawing retrieval request",
+      "artifact": "Requirements register and hard-gate decision",
+      "hours": [
+        {
+          "id": "m03-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A factory drawing retrieval request: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m03-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: What enterprise problems justify sovereignty investments?; Classify workloads by data sensitivity, criticality, and impact. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m03-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Security and compliance requirements vs. additional sovereignty objectives; Stakeholders: CIO, CTO, CISO, privacy, legal, business, procurement. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m03-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Translate business risks into verifiable technical and operational controls; Decision frameworks, investment priorities, and alternatives. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m03-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Requirements traceability, success metrics, and governance. Apply the concepts to a factory drawing retrieval request and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m03-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a factory drawing retrieval request, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m03-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a factory drawing retrieval request, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m03-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a factory drawing retrieval request. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m03-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Requirements register and hard-gate decision. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and requirements register and hard-gate decision"
+        },
+        {
+          "id": "m03-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend requirements register and hard-gate decision, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "UAE, GCC & Global Sovereign AI Ecosystems",
+      "scenario": "A GCC market expansion proposal",
+      "artifact": "Dated ecosystem landscape and issuer evidence map",
+      "hours": [
+        {
+          "id": "m04-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A GCC market expansion proposal: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m04-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: UAE National AI Strategy 2031 and national priorities; UAE ecosystem: government, academic, model, infrastructure, and enterprise actors. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m04-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Saudi Arabia: national AI strategy, infrastructure, and operating environment; Other GCC opportunities and regional comparisons. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m04-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: India, EU, US, and China: comparative approaches; Compute access, chips, supply chains, energy, and geopolitics. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m04-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Arabic models, local language needs, and cultural adaptation. Apply the concepts to a gcc market expansion proposal and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m04-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a gcc market expansion proposal, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m04-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a gcc market expansion proposal, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m04-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a gcc market expansion proposal. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m04-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Dated ecosystem landscape and issuer evidence map. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and dated ecosystem landscape and issuer evidence map"
+        },
+        {
+          "id": "m04-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend dated ecosystem landscape and issuer evidence map, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Laws, Regulation & Jurisdiction",
+      "scenario": "A UAE factory with Saudi support recipients",
+      "artifact": "Regulatory applicability and architecture evidence matrix",
+      "hours": [
+        {
+          "id": "m05-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A UAE factory with Saudi support recipients: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m05-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: UAE federal personal data protection framework; DIFC and ADGM data protection regimes. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m05-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Sector, government, and critical infrastructure considerations; Saudi PDPL and relevant data transfer considerations. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m05-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: GDPR, EU AI Act, and other global comparisons; Residency, international transfers, contracts, subprocessors, and lawful access. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m05-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: How legal jurisdiction differs from operational or technical control; Converting legal questions to reviewable requirements and evidence. Apply the concepts to a uae factory with saudi support recipients and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m05-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a uae factory with saudi support recipients, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m05-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a uae factory with saudi support recipients, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m05-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a uae factory with saudi support recipients. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m05-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Regulatory applicability and architecture evidence matrix. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and regulatory applicability and architecture evidence matrix"
+        },
+        {
+          "id": "m05-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend regulatory applicability and architecture evidence matrix, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Governance, Responsible AI & Risk",
+      "scenario": "A high-impact government assistant",
+      "artifact": "Governance charter, risk register and decision rights",
+      "hours": [
+        {
+          "id": "m06-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A high-impact government assistant: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m06-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Governance structures, ownership, and decision rights; NIST AI RMF and generative AI risk considerations. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m06-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: ISO/IEC 42001 and related governance/security standards; Fairness, transparency, accountability, explainability, and oversight. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m06-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Model risk management and intended-use boundaries; Risk registers, controls, testing, and audit evidence. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m06-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Design an enterprise AI management operating model. Apply the concepts to a high-impact government assistant and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m06-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a high-impact government assistant, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m06-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a high-impact government assistant, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m06-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a high-impact government assistant. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m06-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Governance charter, risk register and decision rights. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and governance charter, risk register and decision rights"
+        },
+        {
+          "id": "m06-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend governance charter, risk register and decision rights, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "End-to-End Sovereign AI Stack & Reference Architecture",
+      "scenario": "A multi-tenant enterprise AI platform",
+      "artifact": "Layered reference architecture and trust boundaries",
+      "hours": [
+        {
+          "id": "m07-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A multi-tenant enterprise AI platform: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m07-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Physical-to-application stack; Data, compute, management, and control planes. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m07-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Lifecycle from ingestion and training to deployment and retirement; Boundaries of control, trust zones, and privileged administration. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m07-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Enterprise reference architectures; Architecture for variable sovereignty requirements. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m07-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Architecture decision records and trade-off analysis. Apply the concepts to a multi-tenant enterprise ai platform and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m07-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a multi-tenant enterprise ai platform, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m07-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a multi-tenant enterprise ai platform, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m07-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a multi-tenant enterprise ai platform. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m07-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Layered reference architecture and trust boundaries. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and layered reference architecture and trust boundaries"
+        },
+        {
+          "id": "m07-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend layered reference architecture and trust boundaries, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Data Sovereignty & Engineering",
+      "scenario": "Restricted records entering a retrieval pipeline",
+      "artifact": "Data lineage, classification and retention design",
+      "hours": [
+        {
+          "id": "m08-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "Restricted records entering a retrieval pipeline: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m08-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Data classification, ownership, governance, and stewardship; Data acquisition, pipelines, storage, transformations, and cataloging. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m08-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Structured, unstructured, and multimodal data; Embeddings, vectors, derived data, and retrieval-specific concerns. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m08-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Lineage, provenance, retention, deletion, and backups; Data egress, geographic controls, and cross-boundary flows. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m08-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Privacy-enhancing methods and synthetic data. Apply the concepts to restricted records entering a retrieval pipeline and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m08-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For restricted records entering a retrieval pipeline, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m08-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For restricted records entering a retrieval pipeline, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m08-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in restricted records entering a retrieval pipeline. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m08-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Data lineage, classification and retention design. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and data lineage, classification and retention design"
+        },
+        {
+          "id": "m08-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend data lineage, classification and retention design, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "GPUs, Compute, Networking & Platform Engineering",
+      "scenario": "A plant-local inference service with peak load",
+      "artifact": "Compute/network capacity plan and bottleneck evidence",
+      "hours": [
+        {
+          "id": "m09-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A plant-local inference service with peak load: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m09-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: GPUs, accelerator types, and memory constraints; Compute profiles: training, fine-tuning, batch and online inference. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m09-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Clusters, storage, high-speed networks, and scheduling; Docker, Kubernetes, and infrastructure fundamentals. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m09-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Resource quotas, isolation, and multitenancy; Latency, throughput, availability, and capacity sizing. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m09-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Utilization, power, hardware supply, and compute economics. Apply the concepts to a plant-local inference service with peak load and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m09-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a plant-local inference service with peak load, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m09-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a plant-local inference service with peak load, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m09-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a plant-local inference service with peak load. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m09-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Compute/network capacity plan and bottleneck evidence. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and compute/network capacity plan and bottleneck evidence"
+        },
+        {
+          "id": "m09-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend compute/network capacity plan and bottleneck evidence, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Sovereign Cloud & Deployment Patterns",
+      "scenario": "A choice among premises, colocation and managed cloud",
+      "artifact": "Deployment architecture decision record",
+      "hours": [
+        {
+          "id": "m10-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A choice among premises, colocation and managed cloud: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m10-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Public cloud, sovereign-managed cloud, private cloud, and on-premises; Hybrid, edge, and distributed designs. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m10-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Connected, restricted-connectivity, and air-gapped systems; Remote access, support, update, and control risks. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m10-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Availability zones, resilience, and disaster recovery; Infrastructure as code, supply chain, and portability. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m10-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Placement decisions based on controls, performance, and cost. Apply the concepts to a choice among premises, colocation and managed cloud and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m10-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a choice among premises, colocation and managed cloud, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m10-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a choice among premises, colocation and managed cloud, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m10-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a choice among premises, colocation and managed cloud. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m10-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Deployment architecture decision record. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and deployment architecture decision record"
+        },
+        {
+          "id": "m10-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend deployment architecture decision record, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Sovereign Models & Model Strategy",
+      "scenario": "An Arabic model portfolio for regulated workflows",
+      "artifact": "Model strategy and rights/evaluation register",
+      "hours": [
+        {
+          "id": "m11-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "An Arabic model portfolio for regulated workflows: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m11-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Transformer/LLM essentials for product and architecture decisions; Open-source, open-weight, and proprietary model distinctions. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m11-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Licenses, model artifacts, ownership, provenance, and IP; Train, adapt, host, or consume external inference. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m11-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Model serving and private inference components; Arabic/multilingual and domain-specific model needs. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m11-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Model selection: performance, cost, portability, autonomy. Apply the concepts to an arabic model portfolio for regulated workflows and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m11-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For an arabic model portfolio for regulated workflows, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m11-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For an arabic model portfolio for regulated workflows, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m11-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in an arabic model portfolio for regulated workflows. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m11-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Model strategy and rights/evaluation register. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and model strategy and rights/evaluation register"
+        },
+        {
+          "id": "m11-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend model strategy and rights/evaluation register, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Sovereign RAG Systems",
+      "scenario": "A bilingual policy retrieval assistant",
+      "artifact": "Permission-aware RAG design and retrieval evaluation",
+      "hours": [
+        {
+          "id": "m12-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A bilingual policy retrieval assistant: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m12-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Retrieval-augmented generation architecture; Loading, parsing, chunking, embeddings, and indexing. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m12-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Search approaches, reranking, and retrieval quality; Identity-aware retrieval and document permissions. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m12-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Tenant isolation, sensitive data, and data flow controls; Grounding, evaluation datasets, and failure analysis. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m12-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Leakage prevention and responsible response behavior. Apply the concepts to a bilingual policy retrieval assistant and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m12-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a bilingual policy retrieval assistant, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m12-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a bilingual policy retrieval assistant, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m12-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a bilingual policy retrieval assistant. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m12-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Permission-aware RAG design and retrieval evaluation. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and permission-aware rag design and retrieval evaluation"
+        },
+        {
+          "id": "m12-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend permission-aware rag design and retrieval evaluation, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Fine-Tuning, Optimization & Evaluation",
+      "scenario": "A domain-adapted small model on limited hardware",
+      "artifact": "Reproducible adaptation experiment and evaluation report",
+      "hours": [
+        {
+          "id": "m13-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A domain-adapted small model on limited hardware: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m13-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Fine-tuning compared with prompting and RAG; PEFT/LoRA and training pipeline fundamentals. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m13-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Quantization, batching, memory, and inference optimization; Dataset preparation, experiment tracking, and reproducibility. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m13-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Quality, safety, and task-level benchmarking; Arabic and sector-sensitive evaluation. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m13-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Quality-versus-cost and deployment trade-offs. Apply the concepts to a domain-adapted small model on limited hardware and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m13-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a domain-adapted small model on limited hardware, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m13-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a domain-adapted small model on limited hardware, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m13-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a domain-adapted small model on limited hardware. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m13-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Reproducible adaptation experiment and evaluation report. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and reproducible adaptation experiment and evaluation report"
+        },
+        {
+          "id": "m13-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend reproducible adaptation experiment and evaluation report, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Agents, APIs & Enterprise Integrations",
+      "scenario": "A procurement agent with enterprise tools",
+      "artifact": "Tool permissions, approval boundaries and integration contract",
+      "hours": [
+        {
+          "id": "m14-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A procurement agent with enterprise tools: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m14-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Assistants, workflows, and agents; Tool invocation and orchestration patterns. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m14-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Model gateways, routing, access policies, and audit logs; Agent identity, credentials, permissions, and action boundaries. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m14-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Human approvals and high-impact actions; Integration with enterprise applications and internal data. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m14-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Multi-tenant developer platforms and API experience. Apply the concepts to a procurement agent with enterprise tools and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m14-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a procurement agent with enterprise tools, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m14-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a procurement agent with enterprise tools, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m14-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a procurement agent with enterprise tools. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m14-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Tool permissions, approval boundaries and integration contract. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and tool permissions, approval boundaries and integration contract"
+        },
+        {
+          "id": "m14-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend tool permissions, approval boundaries and integration contract, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "AI Security & Threat Modeling",
+      "scenario": "A prompt-injection attack on restricted documents",
+      "artifact": "Threat model, negative tests and mitigation ownership",
+      "hours": [
+        {
+          "id": "m15-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A prompt-injection attack on restricted documents: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m15-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Threat models, trust boundaries, and attack surfaces; Direct/indirect prompt injection and exfiltration. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m15-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Model supply chain, poisoned assets, and artifact integrity; API, container, network, and platform vulnerabilities. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m15-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Zero-trust and least-privilege architecture; Software/model bills of materials and provenance. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m15-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Security validation and red-team exercises. Apply the concepts to a prompt-injection attack on restricted documents and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m15-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a prompt-injection attack on restricted documents, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m15-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a prompt-injection attack on restricted documents, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m15-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a prompt-injection attack on restricted documents. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m15-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Threat model, negative tests and mitigation ownership. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and threat model, negative tests and mitigation ownership"
+        },
+        {
+          "id": "m15-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend threat model, negative tests and mitigation ownership, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Cryptography, Identity & Confidential Computing",
+      "scenario": "A service with privileged administrators and protected keys",
+      "artifact": "Identity, key-custody and attestation evidence plan",
+      "hours": [
+        {
+          "id": "m16-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A service with privileged administrators and protected keys: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m16-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Encryption at rest, in transit, and in use; Customer/enterprise-managed keys and custody. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m16-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: KMS, HSM, rotation, and separation of duties; Confidential computing, attestation, and limitations. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m16-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: IAM, RBAC/ABAC, service identities, and secrets; Admin, support, and provider access control. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m16-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Measurable verification of sovereign controls. Apply the concepts to a service with privileged administrators and protected keys and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m16-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a service with privileged administrators and protected keys, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m16-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a service with privileged administrators and protected keys, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m16-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a service with privileged administrators and protected keys. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m16-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Identity, key-custody and attestation evidence plan. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and identity, key-custody and attestation evidence plan"
+        },
+        {
+          "id": "m16-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend identity, key-custody and attestation evidence plan, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": "MLOps, LLMOps & Observability",
+      "scenario": "A model release with changing prompts and datasets",
+      "artifact": "Versioned release pipeline, SLOs and observability plan",
+      "hours": [
+        {
+          "id": "m17-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A model release with changing prompts and datasets: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m17-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Model versioning and registry governance; CI/CD, release gates, and controlled deployments. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m17-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Quality and drift monitoring; Traces, logs, metrics, and privacy-conscious observability. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m17-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Tenant metering, quotas, and reliability SLOs; Incident handling and service operations. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m17-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Resource and cost visibility. Apply the concepts to a model release with changing prompts and datasets and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m17-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a model release with changing prompts and datasets, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m17-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a model release with changing prompts and datasets, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m17-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a model release with changing prompts and datasets. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m17-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Versioned release pipeline, SLOs and observability plan. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and versioned release pipeline, slos and observability plan"
+        },
+        {
+          "id": "m17-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend versioned release pipeline, slos and observability plan, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Resilience, Audit & Vendor Exit",
+      "scenario": "A supplier outage and compulsory platform exit",
+      "artifact": "Restore/exit runbook and audit evidence packet",
+      "hours": [
+        {
+          "id": "m18-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A supplier outage and compulsory platform exit: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m18-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Availability, resilience, and recovery objectives; Backups, restoration, and business continuity. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m18-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Incident response and change control; Compliance evidence and repeatable testing. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m18-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Model/data portability and migration planning; Concentration, substitution, and exit risk. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m18-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Continuous assurance and sovereignty drift. Apply the concepts to a supplier outage and compulsory platform exit and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m18-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a supplier outage and compulsory platform exit, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m18-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a supplier outage and compulsory platform exit, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m18-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a supplier outage and compulsory platform exit. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m18-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Restore/exit runbook and audit evidence packet. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and restore/exit runbook and audit evidence packet"
+        },
+        {
+          "id": "m18-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend restore/exit runbook and audit evidence packet, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Enterprise Market & Use Case Discovery",
+      "scenario": "Competing banking, manufacturing and public-service use cases",
+      "artifact": "Discovery evidence and prioritized eligible use-case portfolio",
+      "hours": [
+        {
+          "id": "m19-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "Competing banking, manufacturing and public-service use cases: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m19-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Enterprise customer profiles and buying centers; Finance, healthcare, telecom, government, and industry cases. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m19-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Value propositions for sensitive workloads; Discovery interviews, jobs-to-be-done, and constraints. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m19-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Prioritization by value, feasibility, risk, and sovereignty necessity; Market segmentation, competitive alternatives, and positioning. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m19-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Opportunity scoring and viability. Apply the concepts to competing banking, manufacturing and public-service use cases and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m19-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For competing banking, manufacturing and public-service use cases, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m19-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For competing banking, manufacturing and public-service use cases, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m19-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in competing banking, manufacturing and public-service use cases. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m19-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Discovery evidence and prioritized eligible use-case portfolio. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and discovery evidence and prioritized eligible use-case portfolio"
+        },
+        {
+          "id": "m19-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend discovery evidence and prioritized eligible use-case portfolio, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Platform Product Strategy & PRDs",
+      "scenario": "A common platform for several enterprise product teams",
+      "artifact": "Platform strategy, PRD and measurable acceptance gates",
+      "hours": [
+        {
+          "id": "m20-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A common platform for several enterprise product teams: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m20-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Platform vision, strategy, and stakeholder outcomes; Personas: IT, AI engineer, security, developer, business owner. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m20-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Requirements, nonfunctional constraints, and traceability; Model catalogs, gateways, governance features, and tenancy. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m20-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: APIs, onboarding, documentation, and developer experience; MVP, roadmap, prioritization, and sequencing. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m20-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: Product metrics, acceptance criteria, and adoption. Apply the concepts to a common platform for several enterprise product teams and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m20-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a common platform for several enterprise product teams, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m20-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a common platform for several enterprise product teams, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m20-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a common platform for several enterprise product teams. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m20-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Platform strategy, PRD and measurable acceptance gates. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and platform strategy, prd and measurable acceptance gates"
+        },
+        {
+          "id": "m20-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend platform strategy, prd and measurable acceptance gates, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Economics, Procurement & Go-to-Market",
+      "scenario": "A build/buy proposal under strict residency constraints",
+      "artifact": "Sensitivity-based business case and procurement scorecard",
+      "hours": [
+        {
+          "id": "m21-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A build/buy proposal under strict residency constraints: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m21-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Total cost of ownership and CAPEX/OPEX; GPU economics, inference unit costs, and utilization. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m21-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Private deployment versus external API break-even; Build/buy/partner and supplier diligence. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m21-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: RFPs, vendor scorecards, contracts, and SLAs; Packaging, pricing, and customer economics. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m21-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: GTM, partnership channels, and enterprise sales; Business cases, scenario sensitivity, and executive decisions. Apply the concepts to a build/buy proposal under strict residency constraints and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m21-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a build/buy proposal under strict residency constraints, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m21-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a build/buy proposal under strict residency constraints, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m21-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a build/buy proposal under strict residency constraints. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m21-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Sensitivity-based business case and procurement scorecard. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and sensitivity-based business case and procurement scorecard"
+        },
+        {
+          "id": "m21-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend sensitivity-based business case and procurement scorecard, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Product & Architecture Blueprint",
+      "scenario": "The capstone enterprise sovereign AI platform",
+      "artifact": "Product and architecture blueprint with traceable requirements",
+      "hours": [
+        {
+          "id": "m22-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "The capstone enterprise sovereign AI platform: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m22-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Select customer segment and workload; Establish sovereignty objectives and capability tiers. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m22-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Finalize data, security, regulatory, and operational needs; Design deployment architecture and trust boundaries. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m22-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Define controls, evidence, and API contracts; Prepare backlog, milestones, and test strategy. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m22-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Revisit the hardest preceding topics. Apply the concepts to the capstone enterprise sovereign ai platform and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m22-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For the capstone enterprise sovereign ai platform, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m22-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For the capstone enterprise sovereign ai platform, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m22-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in the capstone enterprise sovereign ai platform. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m22-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Product and architecture blueprint with traceable requirements. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and product and architecture blueprint with traceable requirements"
+        },
+        {
+          "id": "m22-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend product and architecture blueprint with traceable requirements, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Build & Validate the Platform MVP",
+      "scenario": "A synthetic end-to-end platform MVP",
+      "artifact": "Reproducible build, adverse tests and validation dossier",
+      "hours": [
+        {
+          "id": "m23-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "A synthetic end-to-end platform MVP: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m23-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Private model service; Secure RAG application. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m23-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Identity, tenancy, and access controls; Gateway, audit events, and governance checks. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m23-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Functional, sovereignty, performance, and safety tests; Operating manual, caveats, and demo. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m23-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Revisit the hardest preceding topics. Apply the concepts to a synthetic end-to-end platform mvp and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m23-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For a synthetic end-to-end platform mvp, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m23-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For a synthetic end-to-end platform mvp, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m23-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in a synthetic end-to-end platform mvp. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m23-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Reproducible build, adverse tests and validation dossier. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and reproducible build, adverse tests and validation dossier"
+        },
+        {
+          "id": "m23-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend reproducible build, adverse tests and validation dossier, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Executive Defense & Mastery Review",
+      "scenario": "An executive go/no-go panel for the capstone",
+      "artifact": "Executive defence, evidence portfolio and remediation plan",
+      "hours": [
+        {
+          "id": "m24-h01",
+          "hour": 1,
+          "title": "Frame the decision",
+          "activity": "An executive go/no-go panel for the capstone: define the user, intended use, measurable value and a condition that could veto deployment.",
+          "output": "One-page problem statement with explicit assumptions"
+        },
+        {
+          "id": "m24-h02",
+          "hour": 2,
+          "title": "Build the vocabulary",
+          "activity": "Read and explain: Market opportunity and customer problem; Product vision and roadmap. Identify concepts that must remain separate.",
+          "output": "Definitions and a source/question register"
+        },
+        {
+          "id": "m24-h03",
+          "hour": 3,
+          "title": "Map obligations and components",
+          "activity": "Study: Architecture, technology, and vendor trade-offs; Demonstration and assurance claims. Map actors, dependencies, ownership and evidence.",
+          "output": "Annotated entity/component map"
+        },
+        {
+          "id": "m24-h04",
+          "hour": 4,
+          "title": "Compare alternatives",
+          "activity": "Study: Economics, pricing, and ROI; Simulated CTO/CISO/legal/procurement Q&A. Compare two eligible options and one rejected option.",
+          "output": "Alternative comparison with hard vetoes"
+        },
+        {
+          "id": "m24-h05",
+          "hour": 5,
+          "title": "Resolve the remaining syllabus topics",
+          "activity": "Study: 12-month execution and maturity plan. Apply the concepts to an executive go/no-go panel for the capstone and record uncertainty.",
+          "output": "Source-backed decision notes and open questions"
+        },
+        {
+          "id": "m24-h06",
+          "hour": 6,
+          "title": "Design the experiment",
+          "activity": "For an executive go/no-go panel for the capstone, specify synthetic inputs, expected behavior, owner, build version and success/failure evidence.",
+          "output": "Reproducible acceptance and negative-test plan"
+        },
+        {
+          "id": "m24-h07",
+          "hour": 7,
+          "title": "Run the practical work",
+          "activity": "Execute the module lab when available. For an executive go/no-go panel for the capstone, capture inputs, outputs and limits; planned modules have an exercise design until their lab is authored.",
+          "output": "Lab evidence or explicitly labelled exercise design"
+        },
+        {
+          "id": "m24-h08",
+          "hour": 8,
+          "title": "Break an assumption",
+          "activity": "Change one boundary or dependency in an executive go/no-go panel for the capstone. Force timeout, denied access, prohibited egress or restore failure as appropriate.",
+          "output": "Observed failure/unknowns, root cause and retest plan"
+        },
+        {
+          "id": "m24-h09",
+          "hour": 9,
+          "title": "Prepare the PM artifact",
+          "activity": "Complete: Executive defence, evidence portfolio and remediation plan. Link requirements to owners, controls, evidence and the approval scope.",
+          "output": "Executive decision memo and executive defence, evidence portfolio and remediation plan"
+        },
+        {
+          "id": "m24-h10",
+          "hour": 10,
+          "title": "Defend and reflect",
+          "activity": "Answer five knowledge questions and the RCA scenario when authored. Defend executive defence, evidence portfolio and remediation plan, record feedback and identify work needed before the next module.",
+          "output": "Assessment attempt, feedback and next-step learning journal"
+        }
+      ]
+    }
+  ]
+}

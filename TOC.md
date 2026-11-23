@@ -9,6 +9,8 @@
 > **Depth:** Advanced technical labs with an executive decision-first teaching style  
 > **Lab baseline:** Apple Silicon M4 Pro, 16 GB unified memory; Python + Docker; cloud/GPU extensions optional
 
+**Plan your study:** [Ten one-hour sessions per module — 240 hours total](learning/schedule.html). Checkboxes record self-reported learning, not publication approval.
+
 ## Program outcomes
 
 At completion, a learner should be able to:
@@ -96,7 +98,7 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 05 — Laws, Regulation & Jurisdiction (Week 5)
 
-**Website-first exemplar:** A fully worked chapter under `chapters/05-laws-regulation-jurisdiction.md`, plus testable evidence-mapping lab, ontology cross-links, source-quoted evidence ledger, and question-led LinkedIn carousel.
+**Educational draft; legal review pending:** A source-authored chapter under `chapters/05-laws-regulation-jurisdiction.md`, plus testable evidence-mapping lab, ontology cross-links, source-quoted evidence ledger, and question-led LinkedIn carousel.
 
 5.1 UAE federal personal data protection framework  
 5.2 DIFC and ADGM data protection regimes  

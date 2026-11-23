@@ -1,0 +1,1884 @@
+{
+  "notice": "All entities, dates of fictional reviews, destinations and evidence are synthetic. No actual processing or legal review occurred.",
+  "workloads": [
+    {
+      "id": "UAE-COUNTRY",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PLANT-OFFSITE-INFERENCE",
+      "boundary": "premises",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "OFFSITE-UAE",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "PLANT-SUPPORT-EXPORT",
+      "boundary": "premises",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "VENDOR-LAB",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AIRGAP-ACTIVATION",
+      "boundary": "airgap",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": true,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SAUDI-TRANSFER-QUESTION",
+      "boundary": "country",
+      "country": "KSA",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "pending",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "KSA",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DIFC-RECIPIENT-UNKNOWN",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "pending",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ADGM-BACKUP-UNKNOWN",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UNKNOWN",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SPEECH-PREPROCESS-EXPORT",
+      "boundary": "premises",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "REMOTE-ASR",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "LEGAL-REJECTED",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "rejected",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "CONTRACT-MISSING",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "pending",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AIRGAP-OFFLINE-CANDIDATE",
+      "boundary": "airgap",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TEST-ADVERSE",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "fail",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-WITHOUT-REFERENCE",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": ""
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "backup",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-backup",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/backup"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    },
+    {
+      "id": "BACKUP-OMITTED",
+      "boundary": "country",
+      "country": "UAE",
+      "site": "PLANT-A",
+      "legal_review": "reviewed",
+      "transfer_review": "reviewed",
+      "contract_review": "reviewed",
+      "licence_review": "reviewed",
+      "review_record": {
+        "reviewer": "Fictional legal and security team",
+        "date": "2026-11-22",
+        "reference": "SIMULATION-ADR-05-v1"
+      },
+      "flows": [
+        {
+          "kind": "source",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-source",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/source"
+          }
+        },
+        {
+          "kind": "preprocess",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-preprocess",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/preprocess"
+          }
+        },
+        {
+          "kind": "inference",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-inference",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/inference"
+          }
+        },
+        {
+          "kind": "retrieval",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-retrieval",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/retrieval"
+          }
+        },
+        {
+          "kind": "output",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-output",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/output"
+          }
+        },
+        {
+          "kind": "telemetry",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-telemetry",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/telemetry"
+          }
+        },
+        {
+          "kind": "support",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-support",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/support"
+          }
+        },
+        {
+          "kind": "activation_update",
+          "country": "UAE",
+          "site": "PLANT-A",
+          "network": false,
+          "observation": {
+            "outcome": "pass",
+            "test_id": "SIM-activation_update",
+            "reviewer": "Fictional lab reviewer",
+            "date": "2026-11-22",
+            "evidence": "synthetic://module05/activation_update"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "UAE-COUNTRY": "REVIEW_REQUIRED",
+    "PLANT-OFFSITE-INFERENCE": "BLOCKED",
+    "PLANT-SUPPORT-EXPORT": "BLOCKED",
+    "AIRGAP-ACTIVATION": "BLOCKED",
+    "SAUDI-TRANSFER-QUESTION": "UNVERIFIED",
+    "DIFC-RECIPIENT-UNKNOWN": "UNVERIFIED",
+    "ADGM-BACKUP-UNKNOWN": "UNVERIFIED",
+    "SPEECH-PREPROCESS-EXPORT": "BLOCKED",
+    "LEGAL-REJECTED": "BLOCKED",
+    "CONTRACT-MISSING": "UNVERIFIED",
+    "AIRGAP-OFFLINE-CANDIDATE": "REVIEW_REQUIRED",
+    "TEST-ADVERSE": "BLOCKED",
+    "REVIEW-WITHOUT-REFERENCE": "UNVERIFIED",
+    "BACKUP-OMITTED": "UNVERIFIED"
+  }
+}
