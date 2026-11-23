@@ -1951,3 +1951,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Release blockers:** Module 04 issue #7 independent accessibility/PDF order and scoring reviewer evidence remains OPEN. Module 05 issue #8 current consolidated-law/counsel applicability, manual assistive technology and independent calibration remains OPEN. Real physical network isolation, PDF tagging, legal certification and independent reviewer testing NOT PERFORMED. Module 04 and Module 05 both HOLD.
 
 **Lesson:** Teach the distinction between a cited regulator index, an applicable operative rule, a contractual physical veto and measured technical evidence. A blocked network call is perimeter containment but application failure. **Next:** Check exact-source-head draft CI for 10fcc494, fix any failed source/reader tests, then add an automated source-to-claim contract where feasible; do not publish before Module 04 review acceptance.
+
+
+## Iteration 109 | 2026-11-23 | Module 05 source-to-decision contract regression
+
+**Current state inspected:** TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, current Module 05 chapter and QA contract, Module 05 technical self-review, learning history through 108, draft Actions run history and open release issues #7 and #8. Module 04 remains HOLD for manual/independent evidence; Module 05 remains an unpublished/unmerged branch.
+
+**Actual substantive commit:** [9ca3097a8108f6282210b618b12aacebaf971c80](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/9ca3097a8108f6282210b618b12aacebaf971c80) adds an automated source-to-decision crosswalk contract to `qa/test_module05_draft_contract.py`. The new regression enforces all six jurisdiction/physical-constraint cases, explicit issuer or fictional contractual provenance, non-approval disposition for every case, and cold-restart remote-licence failure RCA, corrective owners and non-AI fallback. It prevents future chapter refactors silently deleting safety-critical decision evidence.
+
+**Checks and deployment:** Verified [draft run 45084039343](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45084039343) completed SUCCESS at preceding chapter commit `10fcc494d2f424aab4ff6211abb16411782bd924`. Inspected draft run listing again after the QA commit; no new exact-head Actions run was visible yet. **The new test has NOT been observed passing in CI, and no local Python execution was performed.** No Pages deployment, merge, manual assistive-technology evaluation, legal certification, real air-gap test or independent reviewer evidence.
+
+**Disposition:** Module 04 issue #7 HOLD; Module 05 issue #8 HOLD. The new crosswalk test is additional automated draft QA, not a substitute for legal-source version review, counsel applicability analysis, PDF tagging/reading-order, manual screen reader or different-model scoring calibration.
+
+**Lesson:** When a chapter introduces source-to-decision PM decisions, encode its safety-critical structure as a regression contract, not just prose review. **Next:** Check exact-head draft CI for `9ca3097`; repair any actual test failure before adding new work, then continue issuer claim-to-source audit and draft exemplar reconciliation. Do not publish while Module 04 release gate remains open.
