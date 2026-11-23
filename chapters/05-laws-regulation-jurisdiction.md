@@ -309,23 +309,6 @@ Produce (1) a two-page **Regulatory Applicability and Controls Decision Memo** a
 [^gdpr]: European Union, *Regulation (EU) 2016/679 (GDPR)*, Articles 3, 28 and 44, https://eur-lex.europa.eu/legal-content/ENG/ALL/?uri=celex%3A32016R0679. Official EUR-Lex source identified **2026-11-23**; exact contemporary application, case law and transfer mechanisms not fully reviewed.
 [^eu-ai-act]: European Commission, *AI Act Service Desk: When does enforcement start?*, https://ai-act-service-desk.ec.europa.eu/en/ai-act/faq/when-does-enforcement-start, checked **2026-11-23**. Official FAQ states Annex III and product-integrated high-risk schedules; verify current consolidated law for later amendments.
 
-## 13B. Evidence gate and decision-state protocol (fictional PM workshop)
-
-**Scenario:** GulfCare's release committee receives a vendor assertion that an AI assistant is “sovereign-ready”. The contract specifies **PLANT-05**, a named physical premises, for inference, prompts, embeddings, vector indexes, logs, backups, telemetry, administrator access and every derivative. Its **OT-05** adapter is physically air-gapped: no inbound or outbound network path, including licensing, DNS, time synchronization, remote support or monitoring. These are fictional enterprise requirements, **not** claims about UAE law. A passing legal questionnaire cannot override either signed physical restriction.
-
-| Decision state | Plain-language meaning | Evidence the PM must request | Permitted next step |
-|---|---|---|---|
-| **NEEDS_COUNSEL** | The applicable law, entity role, instrument version or transfer basis has not been established | Counsel's written scope and version assessment tied to specific data flows | Synthetic evaluation only; no production legal assertion |
-| **HOLD** | An otherwise plausible design lacks required technical or legal evidence | Data/derivative inventory, supplier contract, route diagram, witnessed negative tests and named approvers | Collect missing evidence; no production release |
-| **BLOCKED** | A hard contractual veto is violated or a forbidden dependency is attempted | Reproducible cold-start traces, interface inventory and root-cause owner | Remove the dependency or choose a no-AI path; never waive the veto using a firewall deny log |
-| **PILOT_SYNTHETIC_ONLY** | A learning exercise can proceed without real customer data or live system claims | Synthetic fixture provenance, isolated test scope and explicit non-production label | Run local learning tests, not production deployment |
-
-**Decision sequence for a product manager:** (1) Write the activity and jurisdiction as a question, not a conclusion. (2) List *all* data and control-plane derivatives, including remote administration and licence activation. (3) Apply contractual named-premises and physical air-gap vetoes **before** considering convenience or provider assurances. (4) Request counsel's applicability determination for the actual legal entity and instrument version. (5) Ask engineering and security to run a cold-start, dependency-failure and negative-egress test. (6) Capture the observed result, owner, unresolved evidence and next review date in a decision record. A blocked egress attempt is **application FAIL** for OT-05 even when the perimeter prevents transmission.
-
-**PM artifact to submit:** A one-page release decision record with fields `scenario_id`, `named_premises`, `derivatives_inventory`, `control_plane_paths`, `physical_air_gap`, `legal_question`, `source_version`, `negative_test_id`, `observed_attempts`, `decision_state`, `corrective_owner`, `fallback`, and `retest_date`. Do not enter an invented law citation, an empty source version disguised as verified, or a simulated network test disguised as physical inspection.
-
-**Challenge:** The vendor's offline model completes ten synthetic prompts, but on restart attempts a DNS lookup to renew its licence. The firewall drops every packet. Write the decision state and two distinct remediation owners. Explain why the prompts' success rate and the firewall denial cannot turn this into a passing air-gap acceptance test. The facilitator should use the separate rubric to score the hard-veto reasoning; do not publish the answer here.
-
 ## 13A. Source-to-decision traceability exercise (synthetic, not legal advice)
 
 **Decision rule:** A regulator's overview can identify an instrument to investigate. It cannot itself authorize a specific transfer, settle the current consolidated version or prove that a vendor's control plane stays on site. Every row below is a *review request*, not a compliance conclusion.
@@ -344,6 +327,23 @@ Produce (1) a two-page **Regulatory Applicability and Controls Decision Memo** a
 **Learner task:** Add one more row for a fictional UAE health-record activity, using [^uae-health] and [^uae-health-exec] only as *starting points*. State the exact unanswered sector applicability question, the physical constraint, a negative test and a non-AI fallback. Keep the answer out of the learner chapter; facilitators should score against the separate key's evidence-versus-assertion principles.
 
 **Publication note:** This table is an educational source-to-control crosswalk, not a newly verified legal-text audit. The source inspection dates and known text limitations remain those in the evidence ledger above. A qualified counsel review of the actual consolidated instruments remains outstanding.
+
+## 13B. Evidence gate and decision-state protocol (fictional PM workshop)
+
+**Scenario:** GulfCare's release committee receives a vendor assertion that an AI assistant is “sovereign-ready”. The contract specifies **PLANT-05**, a named physical premises, for inference, prompts, embeddings, vector indexes, logs, backups, telemetry, administrator access and every derivative. Its **OT-05** adapter is physically air-gapped: no inbound or outbound network path, including licensing, DNS, time synchronization, remote support or monitoring. These are fictional enterprise requirements, **not** claims about UAE law. A passing legal questionnaire cannot override either signed physical restriction.
+
+| Decision state | Plain-language meaning | Evidence the PM must request | Permitted next step |
+|---|---|---|---|
+| **NEEDS_COUNSEL** | The applicable law, entity role, instrument version or transfer basis has not been established | Counsel's written scope and version assessment tied to specific data flows | Synthetic evaluation only; no production legal assertion |
+| **HOLD** | An otherwise plausible design lacks required technical or legal evidence | Data/derivative inventory, supplier contract, route diagram, witnessed negative tests and named approvers | Collect missing evidence; no production release |
+| **BLOCKED** | A hard contractual veto is violated or a forbidden dependency is attempted | Reproducible cold-start traces, interface inventory and root-cause owner | Remove the dependency or choose a no-AI path; never waive the veto using a firewall deny log |
+| **PILOT_SYNTHETIC_ONLY** | A learning exercise can proceed without real customer data or live system claims | Synthetic fixture provenance, isolated test scope and explicit non-production label | Run local learning tests, not production deployment |
+
+**Decision sequence for a product manager:** (1) Write the activity and jurisdiction as a question, not a conclusion. (2) List *all* data and control-plane derivatives, including remote administration and licence activation. (3) Apply contractual named-premises and physical air-gap vetoes **before** considering convenience or provider assurances. (4) Request counsel's applicability determination for the actual legal entity and instrument version. (5) Ask engineering and security to run a cold-start, dependency-failure and negative-egress test. (6) Capture the observed result, owner, unresolved evidence and next review date in a decision record. A blocked egress attempt is **application FAIL** for OT-05 even when the perimeter prevents transmission.
+
+**PM artifact to submit:** A one-page release decision record with fields `scenario_id`, `named_premises`, `derivatives_inventory`, `control_plane_paths`, `physical_air_gap`, `legal_question`, `source_version`, `negative_test_id`, `observed_attempts`, `decision_state`, `corrective_owner`, `fallback`, and `retest_date`. Do not enter an invented law citation, an empty source version disguised as verified, or a simulated network test disguised as physical inspection.
+
+**Challenge:** The vendor's offline model completes ten synthetic prompts, but on restart attempts a DNS lookup to renew its licence. The firewall drops every packet. Write the decision state and two distinct remediation owners. Explain why the prompts' success rate and the firewall denial cannot turn this into a passing air-gap acceptance test. The facilitator should use the separate rubric to score the hard-veto reasoning; do not publish the answer here.
 
 ## 14. Website and social publishing plan
 
