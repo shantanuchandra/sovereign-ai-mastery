@@ -2122,3 +2122,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Article-level verification can support a bounded curriculum proposition without deciding enterprise applicability. Record the exact issuer edition and the missing consolidation/sector questions rather than upgrading a guidance citation into a legal clearance.
 
 **Precise next task:** Confirm Actions for the new branch head, then inspect current issuer ADGM Part 6/Article 42(2) and Saudi PDPL Article 29/transfer regulation with version and language evidence. Do not merge/publish until Module 04 issue #7 and Module 05 issue #8 independent gates close.
+
+
+## Iteration 122 | 2026-11-23 | ADGM/Saudi issuer text conflict and bounded verification
+
+**Current-state inspection:** Read committed TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, improvement log, Module 05 controlling-text queue and current release issues #7/#8 on the unpublished draft branch. Reviewed the prior issuer-text verification handoff and fetched fresh ADGM/SDAIA issuer materials on 2026-11-23. The chapter file path was not established in this run; therefore no claim of complete chapter-to-source sentence reconciliation is made. Branch remained unpublished; no concurrent writes to this review path were observed.
+
+**Measurable artifact:** [f323df21cb0a2ce4ec0e0485b414235b13950b05](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/f323df21cb0a2ce4ec0e0485b414235b13950b05) adds reviews/module-05/issuer-spot-check-adgm-saudi-2026-11-23.md. It records ADGM regulator guidance paragraph 1.2 citing Article 42(3)(c), paragraph 1.3 referring to Part V, and flags a possible conflict with the queue's Part 6 reference rather than silently approving it. SDAIA English issuer text was inspected for transfer regulation Articles 2 and 4 and its reference to PDPL Article 29; operative Arabic PDPL Article 29 and transfer Articles 6/7 remain unverified. Both review rows remain HOLD, and the independent legal applicability review remains mandatory.
+
+**Executed/not executed:** GitHub file/issue reads, issuer web-source inspection and one branch-scoped GitHub review-file commit executed. No Python, built-site, browser, PDF, physical air-gap, accessibility, independent assessment or counsel test executed. Exact-head GitHub Actions for the review commit and this learning-log commit were **not confirmed successful**. The last previously documented successful workflow is 45157060960 on older code SHA 2a8eae6; do not represent it as exact-head success. Same-model technical/security/source review is PARTIAL/HOLD; editorial/accessibility/assessment review not conducted in this iteration and remains HOLD. No merge or release.
+
+**Improvement lesson:** Regulator guidance may refer to a different part or article than a curriculum note. Treat that as an explicit source-crosswalk defect until the actual consolidated operative instrument resolves it; a government URL alone is not verification.
+
+**Precise next task:** Fetch current ADGM Data Protection Regulations 2021 operative consolidated text and verify whether the cross-reference is Part V or Part 6, with edition and exact Article 42(2)/(3) wording; inspect Saudi Arabic PDPL Article 29 and transfer Articles 6/7. Then reconcile the actual chapter sentences and verify branch-head CI. Keep issues #7/#8 HOLD.
