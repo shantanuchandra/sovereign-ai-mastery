@@ -14,7 +14,7 @@ Total **40 points**: Q1–Q4 four points each, Q5 six points, Q6 eighteen points
 
 ## Q2 | DIFC versus ADGM (4 points)
 
-**Worked answer:** DIFC references Law 5/2020, current amendments and Commissioner tools, including the Articles 26–27 transfer review topic. ADGM references the Data Protection Regulations 2021 and Office of Data Protection Part 6/Article 42(2) transfer guidance. Neither source certifies a supplier configuration. Technical tests: (a) attempt unauthorized offshore diagnostic log view and require denial with an audit record; (b) cold restart, backup restore and licence-failure traces to find hidden remote egress; inspect both data and control planes. Legal counsel separately maps roles, instruments and safeguards.
+**Worked answer:** DIFC references Law 5/2020, current amendments and Commissioner tools, including the Articles 26–27 transfer review topic. ADGM references the Data Protection Regulations 2021 and Office of Data Protection SCC addendum guidance (paragraphs 1.2–1.3 cite Part V and Article 42(3)(c)); the controlling consolidated regulation and specific transfer mechanism remain for counsel to verify. Neither source certifies a supplier configuration. Technical tests: (a) attempt unauthorized offshore diagnostic log view and require denial with an audit record; (b) cold restart, backup restore and licence-failure traces to find hidden remote egress; inspect both data and control planes. Legal counsel separately maps roles, instruments and safeguards.
 
 **Rubric:** 1 DIFC source and scope; 1 ADGM source and scope; 1 effective negative access test; 1 separate recovery/egress and legal-versus-technical distinction. A generic statement that either free-zone law "always permits transfer" is unsafe.
 
