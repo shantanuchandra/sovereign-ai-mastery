@@ -2083,3 +2083,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A local reader's missing answer link does not guarantee the whole published bundle excludes facilitator materials. Test both artifact inventory and links across every generated route, while clearly distinguishing a draft static scan from deployed evidence.
 
 **Precise next task:** Check the branch workflow at exact commit 846fdb8 (and prior ffd972e), inspect any failing step and repair without relaxing answer isolation. Then prioritize official consolidated legal-text version/pinpoint audit and the legacy public Module 05 exemplar release-cue/path reconciliation, keeping Module 04's independent gate in force.
+
+
+## Iteration 119 | 2026-11-23 | Detect answer-key filenames outside facilitator folders
+
+**Current-state inspection:** Read the current branch TOC, editorial style guide, chapter template, learning log, Module 05 preview QA, release crosswalk and open Module 04/05 issues #7/#8. Reviewed the earlier confirmed successful validate-draft job in Actions run 45131218522, which is not an exact-head result for this change. The latest draft remains unpublished and predecessor review remains HOLD.
+
+**Measurable correction:** [2a8eae64d7164a2b67e01a40b386f372040c8be4](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/2a8eae64d7164a2b67e01a40b386f372040c8be4) extends the site-wide negative test beyond dedicated `solutions/` or `answer-keys/` directories. It also rejects file names such as `05-module-solutions.md` and `05-module-answer_key.html`, including links to such names. This closes a static bundle-inventory loophole without exposing actual answer content or weakening existing checks.
+
+**Tests executed / not executed:** Inspected GitHub source and the recorded Actions job outcome; committed a SHA-guarded one-file QA change. No local Python execution, built-site inspection, rendered browser check, PDF accessibility inspection or exact-head GitHub Actions success was obtained for 2a8eae6. The new test is **CI PENDING**. The earlier 45131218522 success does not validate it. No legal primary-text re-verification, counsel sign-off, manual screen reader, physical air-gap test, independent model review or Pages deployment occurred. Separate technical/security/source and editorial/accessibility/assessment self-reviews remain HOLD. No merge or publication.
+
+**Improvement lesson:** A learner bundle can leak a facilitator key through a descriptively named file in an ordinary directory, even when the canonical solution folder is absent. Scan file names and links across the entire built tree, while distinguishing static tests from live deployment assurance.
+
+**Precise next task:** Verify draft Actions at the exact new code head and repair any real failure. Then prioritize issuer-hosted consolidated legal text/version/article checks and the older public Module 05 exemplar's release cue and missing lab promise. Retain Module 04 issue #7 and Module 05 issue #8 as independent release HOLDs.
