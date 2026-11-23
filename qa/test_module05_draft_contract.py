@@ -57,6 +57,31 @@ class Module05DraftContract(unittest.TestCase):
             self.assertIn(domain, self.chapter)
         self.assertIn("full consolidated text/version not independently reviewed", self.chapter)
 
+    def test_source_to_decision_crosswalk_is_bounded_and_actionable(self):
+        """Catch accidental removal of evidence gates from the six-case PM exercise."""
+        chapter = self.chapter
+        start = chapter.index("## 13A. Source-to-decision traceability exercise")
+        end = chapter.index("## 14. Website and social publishing plan", start)
+        section = chapter[start:end]
+        rows = [line for line in section.splitlines() if line.startswith("| ") and
+                not line.startswith("| ---") and not line.startswith("| Fictional activity")]
+        self.assertEqual(len(rows), 6, "Require six jurisdiction/physical-constraint decisions")
+        anchors = ("UAE mainland", "DIFC", "ADGM", "KSA", "EU-facing", "PLANT-05")
+        for anchor in anchors:
+            self.assertTrue(any(anchor in row for row in rows), anchor)
+        for row in rows:
+            self.assertGreaterEqual(row.count("|"), 6, row)
+            self.assertTrue(any(status in row for status in
+                            ("**HOLD**", "**BLOCK**", "**NEEDS_COUNSEL**", "**BLOCKED**")),
+                            "Every case needs a non-approval disposition")
+            self.assertTrue("[^" in row or "Enterprise-signed fictional constraints" in row,
+                            "Every case needs an issuer anchor or an explicit fictional contract")
+        for required in ("cold restart", "licence endpoint", "application **FAIL**",
+                         "non-AI fallback", "counsel", "data steward"):
+            self.assertIn(required.lower(), section.lower())
+        self.assertIn("not legal advice", section.lower())
+        self.assertNotIn("—", section)
+
     def test_eight_question_slides_with_print_and_focus(self):
         html = self.carousel
         slides = re.findall(r'<section class="slide', html)
