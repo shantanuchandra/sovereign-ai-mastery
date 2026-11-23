@@ -2161,3 +2161,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Two official-looking pages from the same issuer can represent materially different regulation editions. Treat conflicting article numbering as a release-affecting source-integrity defect, correct the learner claim immediately and require operative-language/version proof before assigning legal obligations.
 
 **Precise next task:** Verify which SDAIA transfer-regulation edition controls via authoritative Arabic Gazette/current consolidation and qualified counsel; resolve ADGM Part V vs Part 6/Article 42 against the operative regulations. Check Actions against the exact branch commit, run Python/site/browser/PDF tests, and independently calibrate Q5/Q6 and accessibility before any release.
+
+
+## Iteration 125 | 2026-11-23 | Remove residual ADGM citation in learner decision exercise
+
+**Current-state inspection:** Read the current draft TOC, STYLE_GUIDE, CHAPTER_TEMPLATE, Module 05 chapter, prior crosswalk, draft workflow and learning log, plus open issues #7 and #8. The chapter still contained an ADGM **Part 6** citation in the later §13A source-to-decision table despite iteration 123 correcting the earlier learner discussion. This was a real internal source-consistency defect.
+
+**Grounded change:** [2a22397fdd89dbfa8778a9d200881a2fdafd5ca6](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/2a22397fdd89dbfa8778a9d200881a2fdafd5ca6) replaces the residual §13A reference with the actually inspected issuer-guidance references, Part V and Article 42(3)(c), and explicitly retains the unverified operative consolidated-text limitation. This does **not** establish the controlling ADGM legal text or an applicability opinion. No release or merge.
+
+**Tests and CI:** Executed GitHub SHA-aware file read/write and exact-string match check (one match before replacement). GitHub combined-status query for the correction commit returned zero statuses; commit-workflow-run query returned zero runs (the connector only exposes pull-request-triggered runs through this endpoint). **Exact-head GitHub Actions outcome unverified.** Did not execute Python lab tests, built-site, Playwright, PDF, screen reader, physical network or independent legal/assessment reviews. Existing draft CI is path-filtered and should be checked directly before treating this commit as validated. Technical/security/source same-model desk correction PARTIAL/HOLD; editorial/accessibility/assessment NOT REVIEWED this iteration/HOLD.
+
+**Improvement lesson:** A legal pinpoint correction must be checked across worked exercises and source-to-decision tables, not only the primary narrative; residual references can teach a withdrawn claim.
+
+**Precise next task:** Audit the complete Module 05 chapter, lab, rubric and social assets for any remaining stale ADGM Part 6/Article 42(2) or Saudi transfer Article 6/7 assertions; run the complete draft workflow and capture an exact-head success/failure. Then establish the controlling ADGM and Saudi legal editions with qualified independent review. Module 04 #7 and Module 05 #8 remain HOLD and open.
