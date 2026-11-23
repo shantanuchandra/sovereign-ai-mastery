@@ -204,14 +204,14 @@ class DraftReaderContract(unittest.TestCase):
             if not file.is_file():
                 continue
             relative = file.relative_to(DIST).as_posix()
-            if re.search(r"(?:^|/)(?:solutions|answer[-_]?keys?)(?:/|$)", relative, re.I):
+            if re.search(r"(?:^|/)(?:solutions|answer[-_]?keys?)(?:/|$)|(?:^|/)[^/]+[-_](?:solutions?|answer[-_]?keys?)(?:\.[^/]+)?$", relative, re.I):
                 leaked.append(f"Facilitator-looking file: {relative}")
             if file.suffix.lower() != ".html":
                 continue
             soup = BeautifulSoup(file.read_text(encoding="utf-8"), "html.parser")
             for a in soup.select("a[href]"):
                 target = unquote(urlsplit(a["href"]).path).lower()
-                if re.search(r"(?:^|/)(?:assessments/solutions|answer[-_]?keys?)(?:/|$)", target):
+                if re.search(r"(?:^|/)(?:assessments/solutions|answer[-_]?keys?)(?:/|$)|(?:^|/)[^/]+[-_](?:solutions?|answer[-_]?keys?)(?:\.[^/]+)?$", target):
                     leaked.append(f"Facilitator link in {relative}: {a['href']}")
         self.assertEqual(leaked, [], "Learner bundle exposed facilitator resources")
 
