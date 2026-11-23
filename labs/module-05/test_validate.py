@@ -91,6 +91,29 @@ class LegalControlGraphContract(unittest.TestCase):
         record(doc, "OT-05")["licence_mode"] = "ONLINE_REQUIRED"
         self.assert_rejected(doc, "physical hard gate forbids required online licence")
 
+    def test_reject_disguised_online_activation_mode(self):
+        doc = fixture()
+        record(doc, "OT-05")["licence_mode"] = "ONLINE_REQUIRED_WITH_FALLBACK"
+        self.assert_rejected(doc, "unrecognized licence_mode")
+
+    def test_reject_unknown_offline_entitlement_even_with_claimed_gate(self):
+        doc = fixture()
+        row = record(doc, "PLANT-05")
+        row["licence_mode"] = "UNKNOWN"
+        row["hard_gate_state"] = "VERIFIED"
+        row["decision"] = "PILOT_SYNTHETIC_ONLY"
+        row["data_class"] = "synthetic_only"
+        self.assert_rejected(doc, "physical release requires separately evidenced offline licence")
+
+    def test_reject_unverified_offline_entitlement_even_with_claimed_gate(self):
+        doc = fixture()
+        row = record(doc, "OT-05")
+        row["licence_mode"] = "OFFLINE_UNVERIFIED"
+        row["hard_gate_state"] = "VERIFIED"
+        row["decision"] = "PILOT_SYNTHETIC_ONLY"
+        row["data_class"] = "synthetic_only"
+        self.assert_rejected(doc, "physical release requires separately evidenced offline licence")
+
     def test_reject_unverified_physical_release_even_if_counsel_approved(self):
         doc = fixture()
         row = record(doc, "PLANT-05")
