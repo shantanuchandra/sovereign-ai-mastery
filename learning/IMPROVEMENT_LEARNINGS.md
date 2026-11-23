@@ -2040,3 +2040,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Checks and limitations:** GitHub accepted the SHA-guarded QA commit. The previous b4537af draft CI succeeded; **the new 5361db7 test is not yet confirmed by an exact-head Actions result at this log write**. No local Python/browser/PDF execution, live Pages route retest, qualified counsel, human screen-reader/200% zoom, PDF tags/reading-order, physical network validation or independent Q5/Q6 calibration occurred. Technical/security/source and editorial/accessibility/assessment reviews remain separate same-model self-reviews, both HOLD. Module 04 and Module 05 release HOLD remain open under issues #7 and #8; no merge or publication.
 
 **Lesson and next task:** Derive test targets from the commands learners actually see, not only a list of expected filenames. Inspect the new exact-head draft workflow and repair any command/render mismatch without relaxing the asset-isolation contract. After green CI, continue the current primary-law version/pinpoint audit and resolve the misleading older public exemplar only through an approved later release.
+
+
+## Iteration 116 | 2026-11-23 | Repair command-manifest regex after failed CI
+
+**Current-state inspection:** Read TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, this learning log, Module 05 release crosswalk, lab README, reader QA, site builder, draft workflow, and open HOLD issues #7/#8. The unpublished Module 05 branch remains separate from main. No release-gate approvals were found.
+
+**Observed failure:** [draft Actions run 45124064618](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45124064618), job 137524246276, completed **FAILURE**. Its 21 synthetic validator tests and 10 chapter contract tests passed. Reader preview test `test_release_candidate_lab_command_manifest` failed because the new Python regex looked for literal backslash-s/backslash-n sequences instead of whitespace/newlines in the README's actual fenced bash block; it extracted zero commands despite the README containing three Python commands. Browser and PDF stages were skipped due to the failure. This was a test-parser bug, not evidence of missing lab files.
+
+**Corrective commit:** [16ef2640982a199bc9b58baf7d26b545f4c3e72a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/16ef2640982a199bc9b58baf7d26b545f4c3e72a) changes only the regex escape sequences to match real README line breaks. The asset-presence, traversal and facilitator-key isolation assertions remain intact. GitHub accepted the SHA-guarded update.
+
+**Tests and limitations:** The failed Actions job above was inspected by reading its logs. No local Python execution or **successful exact-head Actions result for 16ef264** was available during this run; treat the corrected test as **CI PENDING**, not passed. No deployed Pages test, counsel legal review, manual screen-reader/zoom review, PDF tagging/reading-order audit, physical air-gap validation or independent assessment grading occurred. Technical/security/source and editorial/accessibility/assessment self-reviews remain separate and HOLD; no merge or publication.
+
+**Improvement lesson:** When deriving a learner-command manifest from Markdown, test the parser against the actual fenced source syntax before assuming a zero-command result means a missing learner asset. Keep parser failures distinct from genuine bundle-route failures.
+
+**Precise next task:** Check exact-head draft Actions for commit 16ef264; if it fails, inspect job logs and repair the actual failing assertion. Once green, resume issuer-hosted consolidated legal-text/pinpoint checks and public exemplar release-cue reconciliation without changing main until Module 04 independent issue #7 closes.
