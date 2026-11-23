@@ -2187,3 +2187,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** Audit facilitator rubrics and source-to-decision tables together with narrative text. A corrected chapter paragraph does not prevent a stale citation from being taught or scored elsewhere.
 
 **Precise next task:** Confirm the exact-head draft workflow conclusion and investigate failures; implement an automated cross-asset assertion preventing withdrawn Part 6/Article 42(2) and unqualified Saudi transfer Articles 6-7 references from returning. Resolve operative ADGM/Saudi consolidated editions and independent release gates before publishing.
+
+
+## Iteration 127 | 2026-11-23 | Cross-asset withdrawn-citation regression
+
+**Current-state inspection:** Re-read branch TOC, style guide, chapter template, learning log, Module 05 learner chapter, draft reader QA, and open issues #7/#8. Checked GitHub Actions job steps for run [45228174900](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45228174900): validate-draft completed SUCCESS, including Python synthetic tests, draft-site build, rendered reader/carousel checks and eight-page PDF generation, on earlier substantive commit 6c55090. The commit-specific workflow-run endpoint returned an empty PR-filtered list and cannot establish current-head status.
+
+**Grounded change:** Added a cross-asset negative regression in qa/test_module05_reader_preview.py that scans the unpublished learner chapter and separate facilitator solution key for withdrawn ADGM Part 6/Article 42(2) and unqualified Saudi transfer-regulation Articles 6-7 pinpoints. First commit [8977844](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/897784443d010b7b8f5c1b4425e7038954364e62) introduced the test; corrected raw-regex escaping in [4e87ad6](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/4e87ad6f34bfe09cefbf8e59ab25ba096ec637fa). Intermediate [2578a48](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/2578a4879ba30f1bba9fe6ba003ec99609762ed0) was a no-content correction attempt; do not count it as substantive progress.
+
+**Verification:** GitHub SHA-aware reads/writes and earlier successful Actions job-step inspection executed. No local Python, browser or PDF execution in this iteration. New regression and exact-head draft CI **NOT YET VERIFIED**; prior run success must not be attributed to these changes. Same-model technical/source review PARTIAL/HOLD; independent editorial, accessibility, legal and assessment reviews NOT COMPLETED. No physical air-gap or tagged PDF validation. Module 04 issue #7 and Module 05 issue #8 remain OPEN/HOLD; no merge/deployment.
+
+**Improvement lesson:** Legal-source corrections must be enforced in both learner and facilitator artifacts with narrow negative assertions. Escaping generated regular expressions requires inspecting actual committed source, not trusting an edit command's success.
+
+**Precise next task:** Check exact-head Actions for this regression, fix any failure, then reconcile the older public Module 05 exemplar against the unpublished source and establish operative ADGM/Saudi editions through independent qualified review. Keep release HOLD.
