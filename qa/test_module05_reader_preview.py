@@ -235,9 +235,9 @@ class DraftReaderContract(unittest.TestCase):
             ROOT / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md",
         )
         withdrawn = (
-            re.compile(r"(?i)ADGM[^\\n]{0,110}\\bPart\\s+6\\b"),
-            re.compile(r"(?i)ADGM[^\\n]{0,110}\\bArticle\\s+42\\s*\\(2\\)"),
-            re.compile(r"(?i)transfer.regulation[^\\n]{0,100}\\bArticles?\\s+6\\s*[-–]\\s*7\\b"),
+            re.compile(r"(?i)ADGM[^\n]{0,110}\bPart\s+6\b"),
+            re.compile(r"(?i)ADGM[^\n]{0,110}\bArticle\s+42\s*\(2\)"),
+            re.compile(r"(?i)transfer.regulation[^\n]{0,100}\bArticles?\s+6\s*[-–]\s*7\b"),
         )
         violations = []
         for file in teaching:
