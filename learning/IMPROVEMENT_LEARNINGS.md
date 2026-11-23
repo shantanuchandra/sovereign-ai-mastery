@@ -2226,3 +2226,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A static negative scan is only meaningful if representative withdrawn assertions are proven to trigger its detector; mutation probes prevent a syntactically valid but inert regex from masquerading as coverage.
 
 **Precise next task:** Obtain a completed exact-head draft Actions run for cbc12a4 and fix any failing probes; reconcile the old public exemplar's misleading ready/lab cues only through an approved release path. Obtain authoritative ADGM/Saudi legal editions and independent Module 04 #7 and Module 05 #8 accessibility, counsel and assessment review before publication.
+
+
+## Iteration 131 | 2026-11-24 | Cover withdrawn Saudi legal pinpoint prose variants
+
+**Current-state inspection:** Read the current draft branch TOC, style guide, chapter template, learning log, Module 05 chapter, social post, draft contract and reader QA, draft workflow, older public exemplar crosswalk, and open issues #7/#8. The prior regression caught only hyphen/en-dash formatting for an unqualified Saudi transfer-regulation Articles 6-7 assertion; ordinary prose "Articles 6 and 7" and ampersand notation could bypass the guard. The old public exemplar remains an unresolved release-path discrepancy; do not publish this branch.
+
+**Grounded change:** [4bee6fe](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/4bee6feda976b73cf76105f77f4af17b9a5180c1) extends the six-asset withdrawn-citation check to recognize hyphen, en dash, "and" and "&" between Articles 6 and 7, with two additional known-bad mutation fixtures. This is a narrow teaching-asset regression, not a legal-source interpretation or counsel approval.
+
+**Tests and CI:** Five isolated Python regex probes (three known-bad, two safe) **PASSED** in a local Python 3 interpreter. The full repository unittest/site/Chromium/PDF workflow was **NOT executed locally** because the connected GitHub repository could not be cloned from this runtime (DNS resolution of github.com failed). GitHub accepted the SHA-guarded file update. Commit-specific workflow lookup returned an empty PR-filtered list and combined commit statuses were empty for 4bee6fe; **exact-head Actions success is UNVERIFIED**, not a pass. The learning-log commit itself is not a workflow-triggering path. No manual screen reader, tagged PDF/reading-order, qualified current-law, independent assessment, physical network or production-security testing occurred. Same-model technical/source review PARTIAL/HOLD; independent editorial/accessibility/assessment and legal review NOT COMPLETED. Module 04 issue #7 and Module 05 issue #8 remain OPEN/HOLD. No merge or publication.
+
+**Improvement lesson:** Negative legal-reference guards should cover normal language variants, with mutation fixtures proving detection; source scans are never a substitute for resolving the controlling legal edition.
+
+**Precise next task:** Obtain a completed draft Actions run at 4bee6fe (or newer substantive source head), investigate failures, and reconcile the old public Module 05 exemplar's unshipped lab cues through an approved release path only. Resolve ADGM/Saudi controlling legal editions and independent Module 04/05 release gates before publication.
