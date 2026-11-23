@@ -39,6 +39,14 @@ class DraftReaderContract(unittest.TestCase):
         cls.soup = BeautifulSoup(cls.html, "html.parser")
         cls.article = cls.soup.select_one("main .prose")
 
+    def test_module05_is_not_marked_ready_in_unpublished_reader(self):
+        """A built draft may be navigable without claiming release approval."""
+        current = self.soup.select_one('a.toc-chapter.is-active[href$="05-laws-regulation-jurisdiction.html"]')
+        self.assertIsNotNone(current)
+        self.assertIsNone(current.select_one('.read-dot[title="Chapter ready"]'))
+        self.assertIn("DRAFT", self.article.get_text(" ", strip=True).upper())
+        self.assertIn("MODULE 04", self.article.get_text(" ", strip=True).upper())
+
     def test_not_the_old_web_first_exemplar(self):
         self.assertIsNotNone(self.article)
         headings = [h.get_text(" ", strip=True) for h in self.article.select("h3")]
