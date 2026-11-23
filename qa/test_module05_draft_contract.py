@@ -90,7 +90,7 @@ class Module05DraftContract(unittest.TestCase):
                          "application FAIL", "negative-egress", "no-AI path",
                          "control_plane_paths", "source_version", "observed_attempts"):
             self.assertIn(evidence.lower(), section.lower())
-        self.assertIn("not claims about UAE law", section.replace("**", "").lower())
+        self.assertIn("not claims about uae law", section.replace("**", "").lower())
         self.assertNotIn("—", section)
 
     def test_eight_question_slides_with_print_and_focus(self):
