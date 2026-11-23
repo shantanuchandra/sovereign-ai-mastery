@@ -130,6 +130,57 @@ class DraftReaderContract(unittest.TestCase):
         self.assertIn("python3 labs/module-05/validate.py",
                       (DIST / "labs/module-05/index.html").read_text(encoding="utf-8"))
 
+
+    def test_release_candidate_lab_command_manifest(self):
+        """Check learner-shown commands against actual shipped files, not prose promises.
+
+        This validates the draft bundle only. It does not attest to deployed Pages.
+        """
+        import shlex
+
+        readme = (ROOT / "labs/module-05/README.md").read_text(encoding="utf-8")
+        lab_page = (DIST / "labs/module-05/index.html")
+        self.assertTrue(lab_page.is_file(), "Lab landing page not shipped")
+        rendered = BeautifulSoup(lab_page.read_text(encoding="utf-8"), "html.parser")
+        main = rendered.select_one("main")
+        self.assertIsNotNone(main, "Lab landing page has no learner main landmark")
+        commands = []
+        for block in re.findall(r"~~~bash\\s*\\n(.*?)\\n~~~", readme, re.S):
+            for line in block.splitlines():
+                line = line.strip()
+                if line.startswith(("python3 ", "python ")):
+                    commands.append(line)
+        self.assertGreaterEqual(len(commands), 2, "Missing runnable lab command examples")
+        rendered_text = main.get_text(" ", strip=True)
+        for command in commands:
+            with self.subTest(command=command):
+                self.assertIn(command, rendered_text, "README command absent from built lab page")
+                args = shlex.split(command)
+                for token in args[1:]:
+                    if token.startswith("labs/module-05/"):
+                        target = (DIST / token).resolve()
+                        self.assertTrue(target.is_relative_to(DIST.resolve()))
+                        self.assertTrue(target.is_file(), f"Command target not shipped: {token}")
+                        self.assertTrue((ROOT / token).is_file(), f"Command target missing in source: {token}")
+                if "-s" in args:
+                    folder = args[args.index("-s") + 1]
+                    self.assertTrue((DIST / folder).is_dir(), f"Test discovery directory not shipped: {folder}")
+
+        # Fail if the learner lab page links to a missing asset or any facilitator key.
+        for node in main.select("a[href]"):
+            href = node["href"]
+            self.assertNotIn("assessments/solutions/", href)
+            parts = urlsplit(href)
+            if parts.scheme or parts.netloc or not parts.path:
+                continue
+            target = (lab_page.parent / unquote(parts.path)).resolve()
+            self.assertTrue(target.is_relative_to(DIST.resolve()), f"Escaping lab route: {href}")
+            self.assertTrue(target.is_file(), f"Broken learner lab link: {href}")
+        for page in (PAGE, lab_page):
+            markup = page.read_text(encoding="utf-8")
+            self.assertNotIn("assessments/solutions/05-laws-regulation-jurisdiction-solutions", markup)
+        self.assertFalse((DIST / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md").exists())
+
     def test_facilitator_key_does_not_leak_into_reader(self):
         self.assertFalse((DIST / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md").exists())
         self.assertNotIn("Facilitator solutions and scoring rubric", self.html)
