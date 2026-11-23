@@ -86,6 +86,28 @@ class LegalControlGraphContract(unittest.TestCase):
             with self.subTest(network=network):
                 self.assert_rejected(doc, "physical air gap prohibits ALL network")
 
+    def test_blocked_egress_attempt_is_not_airgap_success(self):
+        """A firewall deny log proves an attempted path, not physical isolation."""
+        for attempted_route in ("BLOCKED-REMOTE-SUPPORT-ATTEMPT",
+                                "BLOCKED-DNS-QUERY-ATTEMPT",
+                                "BLOCKED-LICENCE-CHECK-ATTEMPT"):
+            doc = fixture()
+            row = record(doc, "OT-05")
+            row["network_paths"] = [attempted_route]
+            row["hard_gate_state"] = "FAILED"
+            row["decision"] = "BLOCKED"
+            with self.subTest(route=attempted_route):
+                self.assert_rejected(doc, "physical air gap prohibits ALL network")
+
+    def test_blocked_egress_attempt_is_not_named_premises_proof(self):
+        """Even denied offsite support is an unverified named-site route."""
+        doc = fixture()
+        row = record(doc, "PLANT-05")
+        row["network_paths"] = ["BLOCKED-OFFSITE-SUPPORT-ATTEMPT"]
+        row["hard_gate_state"] = "FAILED"
+        row["decision"] = "BLOCKED"
+        self.assert_rejected(doc, "named premises network paths need verified on-site routing")
+
     def test_reject_online_activation_dependency(self):
         doc = fixture()
         record(doc, "OT-05")["licence_mode"] = "ONLINE_REQUIRED"
