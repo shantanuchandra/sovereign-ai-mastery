@@ -17,6 +17,7 @@ VALID_DECISIONS = {"HOLD", "BLOCKED", "PILOT_SYNTHETIC_ONLY", "APPROVED"}
 LEGAL_STATES = {"NEEDS_COUNSEL", "APPROVED", "NOT_APPLICABLE"}
 BOUNDARIES = {"NONE", "NAMED_PREMISES", "AIR_GAP"}
 HARD_GATE_STATES = {"NOT_APPLICABLE", "NOT_VERIFIED", "VERIFIED", "FAILED"}
+LICENCE_MODES = {"NOT_APPLICABLE", "UNKNOWN", "OFFLINE_UNVERIFIED", "OFFLINE_VERIFIED", "ONLINE_REQUIRED"}
 REQUIRED_FIELDS = {
     "activity_id", "entity", "activity", "data_class", "legal_candidate",
     "control_id", "control_owner", "test_id", "physical_boundary",
@@ -104,6 +105,9 @@ def validate_document(document: dict[str, Any]) -> dict[str, Any]:
             errors.append(f"{tag}: synthetic pilot cannot include restricted or real data")
         if decision == "APPROVED" and state != "APPROVED":
             errors.append(f"{tag}: approval forbidden before counsel review")
+        licence_mode = row.get("licence_mode")
+        if licence_mode not in LICENCE_MODES:
+            errors.append(f"{tag}: unrecognized licence_mode; do not infer offline capability")
         boundary = row.get("physical_boundary")
         gate = row.get("hard_gate_state")
         if boundary not in BOUNDARIES or gate not in HARD_GATE_STATES:
@@ -134,8 +138,10 @@ def validate_document(document: dict[str, Any]) -> dict[str, Any]:
             # This does not imply that all verified on-site LAN use is forbidden.
             if boundary == "NAMED_PREMISES" and destinations["network_paths"]:
                 errors.append(f"{tag}: named premises network paths need verified on-site routing; HOLD until separately evidenced")
-            if row.get("licence_mode") == "ONLINE_REQUIRED":
+            if licence_mode == "ONLINE_REQUIRED":
                 errors.append(f"{tag}: physical hard gate forbids required online licence")
+            if decision in {"APPROVED", "PILOT_SYNTHETIC_ONLY"} and licence_mode != "OFFLINE_VERIFIED":
+                errors.append(f"{tag}: physical release requires separately evidenced offline licence")
             if decision in {"APPROVED", "PILOT_SYNTHETIC_ONLY"} and gate != "VERIFIED":
                 errors.append(f"{tag}: no release without separately verified physical evidence")
 
