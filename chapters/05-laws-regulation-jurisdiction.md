@@ -166,7 +166,7 @@ Use one **traceability record per claim** with fields: activity ID, contracting 
 
 **Sample translation (illustrative, not legal determination):**
 
-- *Candidate instrument:* ADGM Data Protection Regulations 2021, Article 42(2) transfer safeguard discussion in official guidance.
+- *Candidate instrument:* ADGM Data Protection Regulations 2021, with issuer guidance referring to Part V and Article 42(3)(c); controlling consolidated text and applicability remain unverified.
 - *Counsel question:* Does a named ADGM entity export logs to this support provider, and which safeguard is suitable?
 - *Product rule pending counsel:* HOLD real-person diagnostic logs until a support-access and contractual mechanism is approved.
 - *Technical test:* DENY-SUPPORT-01, attempt a support-role log view from an explicitly unapproved identity; expect denial and a time-stamped alert with no log-content exposure.
@@ -288,8 +288,8 @@ Produce (1) a two-page **Regulatory Applicability and Controls Decision Memo** a
 | UAE-05-01 | “Federal Decree Law No. 45 of 2021” | UAE Government overview[^uae-overview] | Scope of a particular fictional activity |
 | UAE-05-02 | “extraterritorial geographical effect” | UAE AI Office overview, Scope[^uae-ai-office] | Current official consolidated text or all exceptions |
 | DIFC-05-01 | “Data Export / International Transfers (Articles 26 & 27)” | DIFC Commissioner official tools[^difc-tools] | Automated transfer authorization |
-| ADGM-05-01 | “international transfers” | ADGM Office of Data Protection guidance, Part 6[^adgm-guidance] | Whether a specific importer and safeguard is acceptable |
-| KSA-05-01 | “Article 29” | SDAIA PDPL and transfer regulation, Article 29 / Articles 4, 6–7[^ksa-pdpl][^ksa-transfer] | Universal Saudi localization or counsel approval |
+| ADGM-05-01 | “international transfers” | ADGM Office of Data Protection SCC addendum guidance, paragraph 1.3 (Part V) and paragraph 1.2 (Article 42(3)(c)); operative text pending[^adgm-guidance] | Whether a specific importer and safeguard is acceptable |
+| KSA-05-01 | “Article 29” | SDAIA PDPL Article 29 and conflicting issuer-hosted English transfer-regulation editions; Articles 6–8 cannot be assigned without edition verification[^ksa-pdpl][^ksa-transfer] | Universal Saudi localization or counsel approval |
 | EU-05-01 | “2 December 2027” | EC AI Act Service Desk, Enforcement FAQ, Annex III[^eu-ai-act] | A specific AI system's risk classification |
 | SEC-05-01 | “critical assets” | UAE Government CII protection policy overview[^uae-cii] | Designation of fictional PLANT-05 as critical infrastructure |
 
