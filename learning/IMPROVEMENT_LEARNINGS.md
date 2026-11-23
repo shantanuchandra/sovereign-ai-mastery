@@ -2055,3 +2055,18 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** When deriving a learner-command manifest from Markdown, test the parser against the actual fenced source syntax before assuming a zero-command result means a missing learner asset. Keep parser failures distinct from genuine bundle-route failures.
 
 **Precise next task:** Check exact-head draft Actions for commit 16ef264; if it fails, inspect job logs and repair the actual failing assertion. Once green, resume issuer-hosted consolidated legal-text/pinpoint checks and public exemplar release-cue reconciliation without changing main until Module 04 independent issue #7 closes.
+
+
+## Iteration 117 | 2026-11-23 | Correct draft reader release cue
+
+**Current-state inspection:** Inspected the current committed branch at 6285edd, TOC.md, STYLE_GUIDE.md, CHAPTER_TEMPLATE.md, this log, Module 05 chapter, lab README, preview QA, site builder, draft workflow, old public exemplar, release crosswalk and open issues #7/#8. The exact-source-head workflow for code commit 16ef264, [Actions run 45131218522](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45131218522), completed SUCCESS; this does not test the later learning-log commit or current edits.
+
+**Observed learner-experience defect:** The draft site builder unconditionally emitted a `Chapter ready` dot for Module 05, even though its own chapter, issue #8 and predecessor issue #7 explicitly prohibit release. The older published teaching exemplar also contains the misleading dot, but this draft branch change does not update the live site. This is a release-status integrity defect, not a legal-content finding.
+
+**Correction:** [6fe980e](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/6fe980e69097f0858cf8253f6dac08c9ea10eae7) restricts the builder's ready indicator to Module 01; [ffd972e](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/ffd972ecde6e938d16c53e1fcdb323039d7c3e4f) adds a draft reader assertion that the active Module 05 navigation entry lacks the ready indicator and that the chapter visibly retains its DRAFT and Module 04 gate language. The existing lab manifest, route and facilitator-isolation tests remain in place. Neither commit merges, deploys or changes main.
+
+**Tests and limits:** The previous code-head draft workflow 45131218522 passed its configured Python, site, browser, carousel and PDF stages. The two new commits were accepted by GitHub, but no local Python/browser/PDF run or exact-head Actions success for ffd972e was verified at log creation. The workflow path filters include both changed files, so a new draft validation is expected, but its result must be checked separately. No Pages deployment, primary-law consolidation, counsel review, independent security or assessment review, manual screen reader, PDF tagging/reading-order or physical network test was performed. Separate technical/security/source and editorial/accessibility/assessment same-model self-reviews remain HOLD; issues #7 and #8 remain open.
+
+**Improvement lesson:** A navigable preview is not a released chapter. Generate release cues from reviewed approval state, not from the existence of a Markdown or HTML route.
+
+**Precise next task:** Check exact-head draft CI for ffd972e and repair any failure. Then reconcile the pre-existing public exemplar's misleading status and broken lab promise only through an approved, gated release process; continue issuer-hosted legal text/version and pinpoint review without claiming qualified counsel approval.
