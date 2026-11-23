@@ -2109,3 +2109,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A list of official links is not a controlling-text audit. Convert each legal proposition into a versioned issuer-text retrieval, article-level quotation, scope question and named independent disposition before changing the release gate.
 
 **Precise next task:** Execute L05-01/L05-02 against issuer-hosted consolidated UAE federal and DIFC texts, recording actual checked versions and short pinpoint quotes, or documented retrieval failures. Then reconcile old public Module 05 exemplar claims with release candidate routes; keep issues #7/#8 HOLD.
+
+
+## Iteration 121 | 2026-11-23 | Issuer-hosted UAE/DIFC legal pinpoint check
+
+**Current state:** Started from draft branch head 3508036, inspected TOC, style guide, chapter template, learning log, Module 05 chapter/lab, public exemplar crosswalk, source queue, issues #7/#8, and branch workflow. Both issues remain OPEN; Module 04 predecessor and Module 05 release remain HOLD. Latest observed draft workflow [45157060960](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45157060960) succeeded at code SHA 2a8eae6, **not** at this iteration's documentation commit.
+
+**Evidence added:** [commit 8a57530](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/8a57530a5ad98a7ed39fbd24f20eaeb4819b36f4) adds reviews/module-05/issuer-text-spot-check-uae-difc-2026-11-23.md. Direct issuer-text reading on 2026-11-23 verified UAE Federal Decree Law 45/2021 Article 2(1)-(2), including health/banking/free-zone exclusions, and DIFC Law 5/2020 **July 2025 consolidated edition** Articles 26-27, including adequacy/alternative safeguard routes and exceptional transfer constraints. Pinpoint excerpts and links are recorded in the new review. This is **partial primary-text verification**, not current-law consolidation certification or applicability advice. No chapter assertion was changed because the inspected claims were appropriately conditional.
+
+**Testing:** GitHub accepted the new review commit. No local Python, browser, PDF, physical network, screen reader or manual assessment tests were run. No exact-head Actions success for this documentation commit has been observed; the last verified success is earlier code SHA 2a8eae6. The same-model technical/security/source and editorial/accessibility/assessment reviews remain explicitly non-independent. Qualified legal counsel, subsequent-amendment checks, Arabic authoritative text, ADGM/Saudi pinpoint audit, independent Q5/Q6 calibration and PDF tagging/reading-order checks remain outstanding.
+
+**Improvement lesson:** Article-level verification can support a bounded curriculum proposition without deciding enterprise applicability. Record the exact issuer edition and the missing consolidation/sector questions rather than upgrading a guidance citation into a legal clearance.
+
+**Precise next task:** Confirm Actions for the new branch head, then inspect current issuer ADGM Part 6/Article 42(2) and Saudi PDPL Article 29/transfer regulation with version and language evidence. Do not merge/publish until Module 04 issue #7 and Module 05 issue #8 independent gates close.
