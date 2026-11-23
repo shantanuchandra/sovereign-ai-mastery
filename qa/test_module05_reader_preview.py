@@ -224,6 +224,30 @@ class DraftReaderContract(unittest.TestCase):
             self.assertNotIn("/assessments/solutions/", a["href"])
         self.assertIn("facilitator-only key", self.article.get_text(" ", strip=True))
 
+    def test_withdrawn_legal_pinpoints_do_not_reappear_in_teaching_assets(self):
+        """Guard withdrawn legal citations in learner and facilitator teaching.
+
+        This checks known-invalid unqualified references, not legal validity.
+        Historical source-comparison reviews intentionally remain outside scope.
+        """
+        teaching = (
+            ROOT / "chapters/05-laws-regulation-jurisdiction.md",
+            ROOT / "assessments/solutions/05-laws-regulation-jurisdiction-solutions.md",
+        )
+        withdrawn = (
+            re.compile(r"(?i)ADGM[^\\n]{0,110}\\bPart\\s+6\\b"),
+            re.compile(r"(?i)ADGM[^\\n]{0,110}\\bArticle\\s+42\\s*\\(2\\)"),
+            re.compile(r"(?i)transfer.regulation[^\\n]{0,100}\\bArticles?\\s+6\\s*[-–]\\s*7\\b"),
+        )
+        violations = []
+        for file in teaching:
+            self.assertTrue(file.is_file(), f"Missing teaching asset: {file}")
+            for number, line in enumerate(file.read_text(encoding="utf-8").splitlines(), 1):
+                for pattern in withdrawn:
+                    if pattern.search(line):
+                        violations.append(f"{file.relative_to(ROOT)}:{number}: {line[:150]}")
+        self.assertEqual(violations, [], "Withdrawn legal pinpoint resurfaced")
+
     def test_no_unqualified_approved_claim(self):
         text = self.article.get_text(" ", strip=True)
         self.assertIn("independent", text.lower())
