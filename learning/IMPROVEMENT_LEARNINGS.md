@@ -2252,3 +2252,16 @@ The final test file contains **15 named Python unit tests** covering baseline di
 **Improvement lesson:** A corrected learner narrative is insufficient when a machine-readable synthetic lab fixture still teaches withdrawn legal pinpoints. Negative security examples must distinguish an attempted but blocked network path from a genuinely absent path.
 
 **Precise next task:** Execute the complete synthetic Python suite and obtain a completed draft-only Actions result at the latest substantive source head; fix any failures. Add lab JSON to future cross-asset legal-source regression coverage, reconcile the older public exemplar through an approved release path, and obtain qualified controlling-law plus independent Module 04/05 review before publication.
+
+
+## Iteration 133 | 2026-11-24 | Guard unresolved ADGM and Saudi lab source editions
+
+**Current-state inspection:** Read the live unpublished draft branch TOC, style guide, chapter template, learning log, Module 05 synthetic control map, validator and test suite, lab README, social post, and open issues #7 and #8. The most recent source commit 07ec5ee withdrew stale legal pinpoints from the fixture, but no test prevented reintroduction there.
+
+**Grounded change:** [ff7e1ad](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/ff7e1ad1e849b8190917111be9e170b06f883b40) adds a fixture-level unittest checking that ADGM GC-03 and Saudi GC-04 remain HOLD/NEEDS_COUNSEL, that the operative consolidation and controlling Arabic edition remain explicit open questions, and that withdrawn pinpoint strings are absent. This is an educational regression, not verification of the controlling law. Existing synthetic hard-veto tests are unchanged.
+
+**Tests and CI:** The test was added through the GitHub contents API; Python unittest, site, browser, PDF and independent accessibility tests were **NOT executed in this run**. Commit-specific GitHub Actions lookup returned no PR-triggered runs and combined statuses were empty for ff7e1ad; neither response proves branch-push CI success. Exact-head draft CI **UNVERIFIED**. No legal counsel, authoritative Arabic consolidation, physical air-gap validation, screen reader, tagged PDF/reading-order or independent assessment was performed. Same-model technical/security/source review PARTIAL/HOLD; same-model editorial/accessibility/assessment review PARTIAL/HOLD; independent gates NOT COMPLETED. Module 04 #7 and Module 05 #8 remain HOLD; no merge, publication or deployment.
+
+**Improvement lesson:** When legal pinpoints are withdrawn from a narrative, machine-readable teaching fixtures require their own explicit unresolved-edition invariants, not only a chapter-level string scan.
+
+**Precise next task:** Execute Python tests and obtain a completed exact-head draft Actions job; resolve any failures. Reconcile the old public Module 05 exemplar through an approved release path only, and obtain qualified ADGM/Saudi legal review and independent accessibility/assessment evidence before promotion.
