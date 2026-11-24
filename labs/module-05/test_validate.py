@@ -35,6 +35,26 @@ class LegalControlGraphContract(unittest.TestCase):
         self.assertEqual(result["decision_counts"]["PILOT_SYNTHETIC_ONLY"], 1)
         self.assertNotIn("COMPLIANT", str(result))
 
+    def test_unresolved_legal_editions_remain_explicit_in_synthetic_fixture(self):
+        """Prevent withdrawn article claims from silently returning to lab data.
+
+        This is a fixture-consistency check, not legal source verification.
+        """
+        doc = fixture()
+        adgm = record(doc, "GC-03")["legal_candidate"]
+        saudi = record(doc, "GC-04")["legal_candidate"]
+        for candidate in (adgm, saudi):
+            self.assertEqual(candidate["review_status"], "NEEDS_COUNSEL")
+            self.assertIsNone(candidate["counsel_approval_id"])
+        self.assertIn("operative consolidation pending counsel", adgm["source_section"])
+        self.assertIn("English edition numbering conflicts", saudi["source_section"])
+        self.assertIn("controlling Arabic text pending counsel", saudi["source_section"])
+        self.assertNotIn("Part 6", adgm["source_section"])
+        self.assertNotIn("42(2)", adgm["source_section"])
+        self.assertNotIn("Articles 4, 6, 7", saudi["source_section"])
+        self.assertEqual(record(doc, "GC-03")["decision"], "HOLD")
+        self.assertEqual(record(doc, "GC-04")["decision"], "HOLD")
+
     def test_reject_missing_primary_source_pinpoint(self):
         doc = fixture()
         record(doc, "GC-02")["legal_candidate"]["source_section"] = ""
