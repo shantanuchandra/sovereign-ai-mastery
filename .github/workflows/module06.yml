@@ -1,0 +1,52 @@
+name: Verify Module 06 governance package
+on:
+  pull_request:
+    paths:
+      - 'chapters/06-*'
+      - 'assessments/solutions/06-*'
+      - 'labs/module-06/**'
+      - 'social/module-06/**'
+      - 'learning/study-plan*'
+      - 'learning/tests/test_rendered_study_plan.py'
+      - 'qa/test_module06*'
+      - 'scripts/build_site.py'
+      - 'site/assets/site.css'
+      - 'site/assets/annotations.js'
+      - 'TOC.md'
+      - '.github/workflows/module06.yml'
+permissions:
+  contents: read
+jobs:
+  module06:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install site and browser dependencies
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify synthetic lab and invalid/adverse inputs
+        run: |
+          python -m unittest discover -s labs/module-06 -p 'test_*.py' -v
+          python labs/module-06/evaluate.py labs/module-06/cases.json > /tmp/module06-decisions.json
+      - name: Build and verify curriculum routes and assessment separation
+        run: |
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Verify study progress, mobile pages and downloads
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/module06
+        run: python learning/tests/test_rendered_study_plan.py
+      - name: Verify portrait slides and PDF text
+        run: |
+          python social/module-06/test_rendered_carousel.py
+          python social/module-06/export_pdf.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: module06-browser-evidence
+          path: artifacts/module06
+          if-no-files-found: ignore

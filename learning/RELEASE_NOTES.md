@@ -17,3 +17,9 @@ Missed tutor decisions unlock a different follow-up question for the concept. Fi
 Added the canonical eight-topic legal-to-architecture chapter, primary-source inspection ledger, 14-case local evidence lab, separate assessment/RCA key, eight-question deck/post and PDF pipeline. Added ten one-hour study sessions for every module, browser-local progress and Markdown export. Future lessons are explicitly planned. Legal/manual/independent review remains pending; Module 04's HOLD is retained.
 
 Browser verification caught and fixed phone overflow from long source links and automatic GitHub note loading. Notes now load only after explicit user action. See MODULE_PROGRESS.md and the two Module 05 self-audits for evidence and limits.
+
+## Module 06 governance package | 2026-11-25
+
+Added all seven governance syllabus topics, seven-source evidence ledger, a versioned-control/subgroup-error lab, charter/RACI/audit-index deliverable, six-question assessment and separate scoring key. The synthetic evaluator catches hidden cohort failures, missing or stale evidence and premises/air-gap conflicts; its strongest conclusion is REVIEW_REQUIRED.
+
+Published artifacts are prepared as an educational draft, with an eight-question HTML carousel and PDF pipeline. Studio evidence remediation links to the new lesson, and journal exports now retain the relevant lesson URL. Existing answer IDs, scoring and storage remain compatible. The 240-hour plan links Module 06 as authored and keeps Module 07 planned. Two author self-audits record the automated evidence and pending independent/manual assurance; see MODULE_PROGRESS.md for release links and next steps.

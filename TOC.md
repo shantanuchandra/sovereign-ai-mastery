@@ -115,6 +115,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 06 — Governance, Responsible AI & Risk (Week 6)
 
+**Educational draft; independent assessment and manual accessibility review pending:** Source-authored chapter, synthetic governance lab, charter/RACI deliverable, six-question assessment and question-led carousel.
+
 6.1 Governance structures, ownership, and decision rights  
 6.2 NIST AI RMF and generative AI risk considerations  
 6.3 ISO/IEC 42001 and related governance/security standards  

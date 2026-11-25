@@ -92,6 +92,21 @@ class StudyPlanBrowserTests(unittest.TestCase):
             self.page.click('#export-plan')
         self.assertIn('Completed: 1 / 240',Path(event.value.path()).read_text())
 
+    def test_module06_diagram_and_reader_without_javascript(self):
+        context=self.browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
+        page=context.new_page()
+        try:
+            page.goto(self.origin+'/modules/06-governance-responsible-ai-risk.html',wait_until='networkidle')
+            expect(page.locator('h1')).to_contain_text('Module 06')
+            diagram=page.locator('figure.diagram-rendered img')
+            diagram.scroll_into_view_if_needed()
+            expect(diagram).to_be_visible()
+            self.assertGreater(diagram.evaluate('(img)=>img.naturalWidth'),0)
+            expect(page.locator('details.diagram-source summary')).to_have_text('View Mermaid source')
+            self.assertTrue(page.locator('a[href="../labs/module-06/index.html"]').count())
+        finally:
+            context.close()
+
     def test_shared_notes_load_only_after_explicit_click(self):
         requests=[]
         def notes(route):
@@ -110,7 +125,9 @@ class StudyPlanBrowserTests(unittest.TestCase):
         self.page.locator('#m05-h01').focus();self.page.keyboard.press('Space')
         expect(self.page.locator('#m05-h01')).to_be_checked()
         for route in ['/learning/schedule.html#module-05','/modules/05-laws-regulation-jurisdiction.html',
-                      '/labs/module-05/index.html','/social/module-05/POST.html']:
+                      '/labs/module-05/index.html','/social/module-05/POST.html',
+                      '/modules/06-governance-responsible-ai-risk.html','/labs/module-06/index.html',
+                      '/social/module-06/POST.html']:
             for width in (1280,390,320):
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.page.goto(self.origin+route,wait_until='networkidle')
@@ -121,6 +138,8 @@ class StudyPlanBrowserTests(unittest.TestCase):
             self.open();self.page.screenshot(path=str(output/'study-plan-mobile.png'))
             self.page.goto(self.origin+'/modules/05-laws-regulation-jurisdiction.html',wait_until='networkidle')
             self.page.screenshot(path=str(output/'module05-mobile.png'))
+            self.page.goto(self.origin+'/modules/06-governance-responsible-ai-risk.html',wait_until='networkidle')
+            self.page.screenshot(path=str(output/'module06-mobile.png'))
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

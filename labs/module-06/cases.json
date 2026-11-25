@@ -1,0 +1,2076 @@
+[
+  {
+    "id": "review-ready",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "REVIEW_REQUIRED"
+  },
+  {
+    "id": "aggregate-masks-arabic",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 9800,
+        "errors": 98
+      },
+      {
+        "id": "ar",
+        "n": 200,
+        "errors": 60
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "undersampled-arabic",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 5,
+        "errors": 0
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "diagnostics-offsite",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "VENDOR-CAMPUS",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "airgap-activation",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "airgap",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": true
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "airgap-review-ready",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "airgap",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "REVIEW_REQUIRED"
+  },
+  {
+    "id": "missing-backup",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "stale-build",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v2",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "self-validation",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Maya",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "open-incident",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": true,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "machine-control-creep",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "automatic_machine_control",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "failed-oversight",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "fail",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  },
+  {
+    "id": "missing-provenance",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": ""
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "expired-evidence",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-09-01",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "bad-count",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": false,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 101
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:boundary:run-3"
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "UNVERIFIED"
+  },
+  {
+    "id": "failure-and-gap",
+    "build_id": "factory-v3",
+    "review_date": "2026-11-25",
+    "intended_use": "manual_lookup",
+    "allowed_uses": [
+      "manual_lookup"
+    ],
+    "boundary": "premises",
+    "site": "PLANT-A",
+    "country": "UAE",
+    "roles": {
+      "responsible": "Maya",
+      "validator": "Omar",
+      "accountable": "Noor"
+    },
+    "incident_open": true,
+    "criteria": {
+      "min_group_size": 20,
+      "error_limit": 0.1,
+      "disparity_limit": 0.1
+    },
+    "groups": [
+      {
+        "id": "en",
+        "n": 100,
+        "errors": 4
+      },
+      {
+        "id": "ar",
+        "n": 100,
+        "errors": 6
+      }
+    ],
+    "flows": [
+      {
+        "kind": "inference",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "training",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "embeddings",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "speech_ocr",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "diagnostics",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "telemetry",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "backup",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "support_activation",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      }
+    ],
+    "controls": [
+      {
+        "id": "boundary",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "boundary-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": ""
+      },
+      {
+        "id": "quality",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "quality-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:quality:run-3"
+      },
+      {
+        "id": "oversight",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "oversight-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:oversight:run-3"
+      },
+      {
+        "id": "recovery",
+        "outcome": "pass",
+        "build_id": "factory-v3",
+        "test_id": "recovery-test-3",
+        "reviewer": "Omar",
+        "date": "2026-11-24",
+        "evidence": "synthetic:recovery:run-3"
+      }
+    ],
+    "expected_status": "BLOCKED"
+  }
+]

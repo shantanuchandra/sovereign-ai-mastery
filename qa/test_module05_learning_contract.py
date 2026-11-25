@@ -54,7 +54,7 @@ class Module05LearningContract(unittest.TestCase):
         soup=BeautifulSoup((ROOT/'dist/learning/schedule.html').read_text(),'html.parser')
         self.assertEqual(len(soup.select('[data-module]')),24)
         self.assertEqual(len(soup.select('input[data-hour]')),240)
-        self.assertIn('Planned module',soup.select_one('[data-module="06"]').get_text())
+        self.assertIn('Planned module',soup.select_one('[data-module="07"]').get_text())
         self.assertIn('legal review pending',(ROOT/'dist/modules/05-laws-regulation-jurisdiction.html').read_text())
 
 if __name__=='__main__':

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+<title id="title">Governance gates, course model version 1</title><desc id="desc">Define use, people and owners; collect versioned control evidence. Known conflicts block. Missing evidence remains unverified. Favorable complete evidence goes to human review. Monitoring and changes reopen the scope.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+<rect width="800" height="600" fill="#f2f5f8"/>
+<g font-family="system-ui,sans-serif" font-size="20" fill="#14283f" text-anchor="middle">
+<text x="400" y="38" font-size="24" font-weight="700">Who can stop this release?</text>
+<g stroke="#475569" fill="#fff" stroke-width="2"><rect x="160" y="60" width="480" height="60" rx="10"/><rect x="160" y="150" width="480" height="60" rx="10"/><rect x="160" y="240" width="480" height="60" rx="10"/><rect x="35" y="360" width="220" height="90" rx="10"/><rect x="290" y="360" width="220" height="90" rx="10"/><rect x="545" y="360" width="220" height="90" rx="10"/><rect x="160" y="510" width="480" height="60" rx="10"/></g>
+<text x="400" y="97">Define use, affected people and owners</text><text x="400" y="187">Test controls for the exact build and scope</text><text x="400" y="277">Review observations before accepting risk</text>
+<text x="145" y="390" font-weight="700">Known conflict</text><text x="145" y="423">BLOCKED</text><text x="400" y="390" font-weight="700">Evidence gap</text><text x="400" y="423">UNVERIFIED</text><text x="655" y="390" font-weight="700">Favorable evidence</text><text x="655" y="423">HUMAN REVIEW</text><text x="400" y="547">Monitor, expire and reopen on change</text>
+</g><g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M400 120 V150"/><path d="M400 210 V240"/><path d="M260 300 L145 360"/><path d="M400 300 V360"/><path d="M540 300 L655 360"/><path d="M145 450 V480 H400 V510"/><path d="M400 450 V510"/><path d="M655 450 V480 H400"/><path d="M160 540 H15 V90 H160"/></g>
+</svg>
