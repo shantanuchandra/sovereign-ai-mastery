@@ -131,7 +131,7 @@ Create an audit readiness index keyed by system/build, intended use, control ID,
 
 ## 5. UAE/GCC case and global comparison
 
-For this fictional UAE factory, all protected information and derivatives must stay in PLANT-A. Cover inference prompts/outputs, training/evaluation material, embeddings/vector indices, speech/OCR, diagnostics, telemetry, backups, support/activation and failover. Also inventory model weights, logs, update media and privileged administration within these paths. A country-resident managed service still conflicts with a factory-only requirement if any protected artifact leaves the physical site.
+For this fictional UAE factory, all protected information and derivatives must stay in PLANT-A. Cover inference prompts/outputs, training/evaluation material, embeddings/vector indices, speech/OCR, diagnostics, telemetry, backups, support/activation, failover and updates. Also inventory model weights, logs, update media and privileged administration within these paths. A country-resident managed service still conflicts with a factory-only requirement if any protected artifact leaves the physical site.
 
 For the air-gap variant, network isolation adds a separate constraint. Plan on-site recovery, controlled removable-media transfer, approved offline updates and activation, malware screening and operator procedures. A local model with online licence activation or remote vendor support is a blocked proposal under that unchanged rule. The lab checks declarations about these paths; actual packet capture, configuration inspection, recovery drills and media controls remain future real-world evidence.
 

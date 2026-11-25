@@ -87,6 +87,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -214,6 +220,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -347,6 +359,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -474,6 +492,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -607,6 +631,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -737,6 +767,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -858,6 +894,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -991,6 +1033,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -1118,6 +1166,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -1251,6 +1305,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -1378,6 +1438,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -1511,6 +1577,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -1638,6 +1710,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
@@ -1771,6 +1849,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -1901,6 +1985,12 @@
         "site": "PLANT-A",
         "country": "UAE",
         "network": false
+      },
+      {
+        "kind": "updates",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
       }
     ],
     "controls": [
@@ -2028,6 +2118,12 @@
       },
       {
         "kind": "failover",
+        "site": "PLANT-A",
+        "country": "UAE",
+        "network": false
+      },
+      {
+        "kind": "updates",
         "site": "PLANT-A",
         "country": "UAE",
         "network": false

@@ -16,12 +16,22 @@ class GovernanceTests(unittest.TestCase):
         self.assertAlmostEqual(r['aggregate_error'],.0158)
         self.assertIn('group_error:ar',r['blockers'])
         self.assertIn('group_disparity',r['blockers'])
+        edge=copy.deepcopy(self.case)
+        edge['criteria']['error_limit']=.5
+        edge['groups']=[{'id':'en','n':100,'errors':18},{'id':'ar','n':100,'errors':28}]
+        self.assertEqual(evaluate(edge)['status'],'REVIEW_REQUIRED')
+        edge['groups'][1]['errors']=29
+        self.assertIn('group_disparity',evaluate(edge)['blockers'])
     def test_all_lifecycle_paths_enforce_physical_site(self):
         for kind in LIFECYCLE:
             with self.subTest(kind=kind):
                 c=copy.deepcopy(self.case)
                 next(f for f in c['flows'] if f['kind']==kind)['site']='OTHER-SITE'
                 self.assertIn('site:'+kind,evaluate(c)['blockers'])
+        c=copy.deepcopy(self.case)
+        c['flows'].append({'kind':'unclassified','site':'OTHER-SITE','country':'UAE','network':False})
+        self.assertIn('site:unclassified',evaluate(c)['blockers'])
+        self.assertIn('flow_kind',evaluate(c)['gaps'])
     def test_airgap_forbids_each_network_path(self):
         for kind in LIFECYCLE:
             with self.subTest(kind=kind):
