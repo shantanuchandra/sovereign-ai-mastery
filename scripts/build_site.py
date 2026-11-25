@@ -52,6 +52,9 @@ def article_content(path,dest,diagram=False):
       'social/module-01/POST.md':'social/module-01/POST.html',
       'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
+      'labs/module-06/README.md':'labs/module-06/index.html',
+      'social/module-06/POST.md':'social/module-06/POST.html',
+      'social/module-06/SLIDES.md':'social/module-06/SLIDES.html',
       'social/module-05/SLIDES.md':'social/module-05/SLIDES.html',
       'social/module-05/POST.md':'social/module-05/POST.html',
     }
@@ -87,7 +90,8 @@ def article_content(path,dest,diagram=False):
       'chapters/03-enterprise-sovereignty-requirements-strategy.md': ('diagrams/module-03-workload-gates.svg','Workload classification by sensitivity, criticality and impact, followed by fail-closed physical and network architecture gates'),
       'chapters/04-uae-gcc-global-sovereign-ai-ecosystems.md': ('diagrams/module-04-ecosystem-evidence.svg','Conceptual UAE AI ecosystem chain with independent verification of model rights, infrastructure control paths and business outcomes'),
       'taxonomy/ONTOLOGY.md': ('diagrams/sovereignty-ontology.svg','Enterprise sovereignty ontology showing relationships between claims, controls and evidence'),
-      'chapters/05-laws-regulation-jurisdiction.md': ('diagrams/module-05-control-graph.svg','Legal control and evidence graph')
+      'chapters/05-laws-regulation-jurisdiction.md': ('diagrams/module-05-control-graph.svg','Legal control and evidence graph'),
+      'chapters/06-governance-responsible-ai-risk.md': ('diagrams/module-06-governance-gates.svg','Governance gates: known conflicts block; gaps remain unverified; favorable evidence goes to human review and monitoring')
     }
     for pre in list(soup.find_all('pre')):
         code=pre.find('code')
@@ -280,6 +284,9 @@ def main():
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module05','Module 05 lab'),
+      ('labs/module-06/README.md','labs/module-06/index.html','module06','Module 06 governance lab'),
+      ('social/module-06/POST.md','social/module-06/POST.html','module06','LinkedIn post draft 06'),
+      ('social/module-06/SLIDES.md','social/module-06/SLIDES.html','module06','Question deck outline 06'),
     ]
     # Publish every source-authored chapter as soon as it has substantive content.
     # Module 05 retains its legacy HTML fallback until its Markdown source exists.
@@ -307,7 +314,7 @@ def main():
         prefix='../'*dest.count('/')
         write(DIST/dest,frame(content,page,title,prefix,True,sections))
     # Custom-designed HTML carousels, independent of Markdown rendering.
-    for n in ('01','02','03','04','05'):
+    for n in ('01','02','03','04','05','06'):
         if (ROOT/f'social/module-{n}/CAROUSEL.html').exists():
             shutil.copy2(ROOT/f'social/module-{n}/CAROUSEL.html',DIST/f'social/module-{n}/CAROUSEL.html')
     print('Built',len(list(DIST.rglob('*.html'))),'HTML pages in', DIST)

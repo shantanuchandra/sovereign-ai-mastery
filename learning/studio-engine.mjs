@@ -144,6 +144,7 @@ const MODS=Object.freeze({
   infrastructure:{label:'Module 10: cloud and deployment (syllabus)',url:'../curriculum.html#module-10'},
   agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
+  governance:{label:'Module 06: governance and risk evidence',url:'../modules/06-governance-responsible-ai-risk.html'},
   regulation:{label:'Module 05: legal jurisdiction',url:'../modules/05-laws-regulation-jurisdiction.html'}
 });
 
@@ -321,7 +322,7 @@ export function createBlueprint(raw={}) {
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
   if(siteOnly||owned||enterpriseCompute||v.capacity==='managed')lessons.push(MODS.infrastructure);
   if(['essential','owned','strong'].includes(v.portability))lessons.push(MODS.agents);
-  lessons.push(MODS.security,MODS.regulation);
+  lessons.push(MODS.security,MODS.regulation,MODS.governance);
   const architectures=[
     {name:'Workload boundary',detail:LABELS.workload[v.workload],owner:'Product owner'},
     {name:'Data and retrieval',detail:siteOnly?'On-site documents, vector index, model context, logs and local backups':sensitive?'Restricted data, role-aware retrieval and derived-data governance':'Scoped data, retention and access policies',owner:'Enterprise data owner'},
@@ -359,7 +360,7 @@ export function createChallenges(raw={}) {
     qs.push({id:'portability',dimension:'Technological',question:'Provider exit is a lower-priority requirement. What should still be recorded?',options:[choice('Nothing; this removes all dependency risk.','A deferred risk is still an owned decision.'),choice('The accepted dependency, estimated exit effort, owner and review trigger.','Correct. Transparent trade-offs support future decisions.'),choice('A guarantee that exit will always be easy.','An untested guarantee is not meaningful evidence.')],correct:1,root:'Treating a prioritized-down risk as nonexistent.',action:'Record the dependency and review trigger in the decision log.',lesson:MODS.ontology});
   }
   const stem=v.evidence==='adverse'?'A controlled test reportedly found a boundary violation.':v.evidence==='none'?'No runtime test has been recorded.':['tested','independent','logs','configuration'].includes(v.evidence)?'Records exist, but the acceptance result has not been validated.':'Only policy, vendor or design documents are available.';
-  qs.push({id:'evidence',dimension:'Evidence',question:`${stem} What claim state should you use?`,options:[choice('PASS because some documentation exists.','Documentation alone does not establish an accepted passing result.'),choice(v.evidence==='adverse'?'Reported nonconformance: stop release and investigate, remediate and retest.':['tested','independent'].includes(v.evidence)?'REVIEW_REQUIRED until evidence outcomes and scope are accepted.':'UNVERIFIED until valid evidence supports the claim.','Correct. Status depends on reviewed evidence and adverse observations.'),choice('CERTIFIED because the tool generated an architecture.','The questionnaire cannot issue certifications.')],correct:1,root:'Conflating evidence presence with a passing control outcome.',action:v.evidence==='adverse'?'Record the adverse path, root cause, owner, containment and dated retest.':'Define a repeatable test, criteria and reviewer.',lesson:MODS.foundations});
+  qs.push({id:'evidence',dimension:'Evidence',question:`${stem} What claim state should you use?`,options:[choice('PASS because some documentation exists.','Documentation alone does not establish an accepted passing result.'),choice(v.evidence==='adverse'?'Reported nonconformance: stop release and investigate, remediate and retest.':['tested','independent'].includes(v.evidence)?'REVIEW_REQUIRED until evidence outcomes and scope are accepted.':'UNVERIFIED until valid evidence supports the claim.','Correct. Status depends on reviewed evidence and adverse observations.'),choice('CERTIFIED because the tool generated an architecture.','The questionnaire cannot issue certifications.')],correct:1,root:'Conflating evidence presence with a passing control outcome.',action:v.evidence==='adverse'?'Record the adverse path, root cause, owner, containment and dated retest.':'Define a repeatable test, criteria and reviewer.',lesson:MODS.governance});
   return qs;
 }
 
@@ -414,6 +415,7 @@ export function exportJournal(blueprint,qs,answers,reflection='',remediationAnsw
     lines.push(`### ${i+1}. ${clean(q.question)}`);
     if(!e){lines.push('Not attempted.','');return;}
     lines.push(`- Selected: ${clean(q.options[a].text)}`,`- Result: ${e.ok?'Correct reasoning':'Needs review'}`,`- Feedback: ${clean(e.feedback)}`);
+    lines.push(`- Review lesson: ${clean(e.lesson.label)} (${new URL(e.lesson.url,'https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html').href})`);
     if(!e.ok){
       lines.push(`- Root cause: ${clean(e.root)}. Corrective action: ${clean(e.action)}`);
       const follow=createRemediation(q,blueprint.input),picked=remediationAnswers[follow.id],result=evaluateChallenge(follow,picked);
