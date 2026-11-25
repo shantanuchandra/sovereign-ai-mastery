@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 25 November 2026. Read the specific reviews before claiming approval. Six of 24 module packages are authored and published with their stated review status. Eighteen modules remain to author, including capstone Modules 22–24.
+Updated 25 November 2026. Read the specific reviews before claiming approval. Seven of 24 module packages are authored and published with their stated review status. Seventeen modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,12 +21,14 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 07 End-to-End Sovereign AI Stack & Reference Architecture. Carry the governance/control IDs into physical, data, compute, management and control planes. Continue later modules while retaining Module 04 HOLD and Module 05/06 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Next substantive module: Module 08 Data Sovereignty & Engineering. Carry the architecture lifecycle IDs into classification, lineage, embeddings, retention and deletion. Continue later modules while retaining Module 04 HOLD and Module 05/06 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
-## Module 07 release candidate, 25 November 2026
+## Module 07 published educational draft, 25 November 2026
 
-Continue `feat/module-07-architecture`. Seven-topic canonical lesson, three inspected primary sources (NIST SP 800-207 abstract, Kubernetes Components and AWS Outposts racks service-link guide), 14-test synthetic graph lab, ADR template/20-point rubric, separate Q1–Q6 solutions/40-point rubric, static plane diagram, eight-question HTML carousel/post/PDF and Studio architecture remediation are prepared. The real-product question uses documented Outposts connectivity with a hypothetical air-gap customer, not an invented customer incident.
+[PR #12](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/12) merged as [c991c1c](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/c991c1c96702c15002f25a6e8beaca3dafe437cd). Matching [Module 07 CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45604438395) and [Studio CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45604438299) passed before merge, as did the Module 05/06 regression workflows. [Pages 45604699414](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45604699414) and [main Studio 45604699426](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45604699426) succeeded. Live chapter, lab, ADR, carousel/post, eight-page PDF, Studio and study plan returned HTTP 200; lab/fixture/Studio bytes matched source. Seven syllabus topics, draft label, 240 study hours and Module 08 planned status were checked.
+
+Seven-topic canonical lesson, three inspected primary sources (NIST SP 800-207 abstract, Kubernetes Components and AWS Outposts racks service-link guide), 14-test synthetic graph lab, ADR template/20-point rubric, separate Q1–Q6 solutions/40-point rubric, static plane diagram, eight-question HTML carousel/post/PDF and Studio architecture remediation are published as an educational draft. The real-product question uses documented Outposts connectivity with a hypothetical air-gap customer, not an invented customer incident.
 
 Local evidence: 40-page build with installed and CI-fallback renderer; 97 lab tests across Modules 01–07, 43 curriculum checks and 33 Node Studio checks; 7 Studio plus 6 study-plan/reader browser tests. The reader tests now cover Module 07/ADR and script-disabled diagram display. Carousel reflow 1280/390/320 px and actual eight-page PDF text/geometry passed. Chapter, diagram and real-product slide screenshots were inspected. Two distinct author self-audits remain explicit about unavailable independent/manual assurance.
 
-Publish only after reviewed matching PR checks pass, then observe matching Pages success and inspect live files. Source-authored count is seven; public-site count remains six until this candidate is deployed. Preserve Module 04 HOLD and Module 05–07 draft limitations. Next substantive module after verified publication: Module 08 Data Sovereignty & Engineering. Do not restart the completed Module 07 authoring work.
+Source-authored and published-package counts are seven. This is not a count of independently approved modules. Preserve Module 04 HOLD and Module 05–07 draft limitations. Next substantive module: Module 08 Data Sovereignty & Engineering. Do not restart the completed Module 07 authoring work.
