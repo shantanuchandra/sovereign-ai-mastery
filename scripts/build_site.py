@@ -53,6 +53,9 @@ def article_content(path,dest,diagram=False):
       'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
       'labs/module-06/README.md':'labs/module-06/index.html',
+      'labs/module-07/README.md':'labs/module-07/index.html',
+      'labs/module-07/ADR.md':'labs/module-07/ADR.html',
+      'social/module-07/POST.md':'social/module-07/POST.html',
       'social/module-06/POST.md':'social/module-06/POST.html',
       'social/module-06/SLIDES.md':'social/module-06/SLIDES.html',
       'social/module-05/SLIDES.md':'social/module-05/SLIDES.html',
@@ -91,6 +94,7 @@ def article_content(path,dest,diagram=False):
       'chapters/04-uae-gcc-global-sovereign-ai-ecosystems.md': ('diagrams/module-04-ecosystem-evidence.svg','Conceptual UAE AI ecosystem chain with independent verification of model rights, infrastructure control paths and business outcomes'),
       'taxonomy/ONTOLOGY.md': ('diagrams/sovereignty-ontology.svg','Enterprise sovereignty ontology showing relationships between claims, controls and evidence'),
       'chapters/05-laws-regulation-jurisdiction.md': ('diagrams/module-05-control-graph.svg','Legal control and evidence graph'),
+      'chapters/07-end-to-end-sovereign-ai-stack-reference-architecture.md': ('diagrams/module-07-planes.svg','Four responsibility planes within a declared physical boundary'),
       'chapters/06-governance-responsible-ai-risk.md': ('diagrams/module-06-governance-gates.svg','Governance gates: known conflicts block; gaps remain unverified; favorable evidence goes to human review and monitoring')
     }
     for pre in list(soup.find_all('pre')):
@@ -285,6 +289,9 @@ def main():
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module05','Module 05 lab'),
       ('labs/module-06/README.md','labs/module-06/index.html','module06','Module 06 governance lab'),
+      ('labs/module-07/README.md','labs/module-07/index.html','module07','Module 07 architecture lab'),
+      ('labs/module-07/ADR.md','labs/module-07/ADR.html','module07','Architecture decision record'),
+      ('social/module-07/POST.md','social/module-07/POST.html','module07','Architecture post'),
       ('social/module-06/POST.md','social/module-06/POST.html','module06','LinkedIn post draft 06'),
       ('social/module-06/SLIDES.md','social/module-06/SLIDES.html','module06','Question deck outline 06'),
     ]
@@ -314,7 +321,7 @@ def main():
         prefix='../'*dest.count('/')
         write(DIST/dest,frame(content,page,title,prefix,True,sections))
     # Custom-designed HTML carousels, independent of Markdown rendering.
-    for n in ('01','02','03','04','05','06'):
+    for n in ('01','02','03','04','05','06','07'):
         if (ROOT/f'social/module-{n}/CAROUSEL.html').exists():
             shutil.copy2(ROOT/f'social/module-{n}/CAROUSEL.html',DIST/f'social/module-{n}/CAROUSEL.html')
     print('Built',len(list(DIST.rglob('*.html'))),'HTML pages in', DIST)

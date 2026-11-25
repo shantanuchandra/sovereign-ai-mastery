@@ -133,6 +133,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 07 — End-to-End Sovereign AI Stack & Reference Architecture (Week 7)
 
+**Educational draft; independent assessment and manual accessibility review pending:** Seven-topic lesson, synthetic graph lab, ADR template, six-question assessment and question-led carousel.
+
 7.1 Physical-to-application stack  
 7.2 Data, compute, management, and control planes  
 7.3 Lifecycle from ingestion and training to deployment and retirement  

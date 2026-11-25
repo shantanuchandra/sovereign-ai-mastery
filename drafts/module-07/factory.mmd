@@ -1,0 +1,23 @@
+flowchart LR
+    backup["backup"]
+    corpus["corpus"]
+    identity["identity"]
+    index["index"]
+    media["media"]
+    model["model"]
+    operator["operator"]
+    service["service"]
+    corpus -->|ingestion| index
+    corpus -->|training| model
+    corpus -->|embeddings| index
+    corpus -->|speech_ocr| service
+    service -->|inference| model
+    model -->|outputs| service
+    service -->|diagnostics| operator
+    service -->|telemetry| operator
+    corpus -->|backup| backup
+    operator -->|support| service
+    identity -->|activation| service
+    media -->|updates| model
+    backup -->|failover| service
+    operator -->|retirement| index
