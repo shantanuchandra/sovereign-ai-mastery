@@ -40,6 +40,10 @@ jobs:
           python -m unittest discover -s labs/module-02 -p 'test_*.py' -v
           python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
           test -s /tmp/module02-scorecard.json
+      - name: Validate Module 05 legal-question evidence lab
+        run: |
+          python -m unittest discover -s labs/module-05 -p 'test_*.py' -v
+          python labs/module-05/evaluate.py labs/module-05/cases.json > /tmp/module05-decisions.json
       - name: Validate Module 04 GCC evidence lab
         run: |
           python -m py_compile labs/module-04/evaluate.py labs/module-04/test_evaluate.py
@@ -78,6 +82,13 @@ jobs:
         run: python scripts/build_site.py
       - name: Verify rendered architecture and adaptive tutor
         run: python learning/tests/test_rendered_studio.py
+      - name: Verify hourly study plan and Module 05 output contract
+        run: |
+          python -m unittest discover -s qa -p 'test_module05_learning_contract.py' -v
+          python learning/tests/test_rendered_study_plan.py
+          python social/module-05/test_rendered_carousel.py
+          python social/module-05/export_pdf.py
+          test -s dist/social/module-05/QUESTIONS.pdf
       - name: Publish Module 02 portrait PDF
         run: |
           python social/module-02/export_pdf.py

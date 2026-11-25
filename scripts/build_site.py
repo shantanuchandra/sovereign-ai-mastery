@@ -5,7 +5,7 @@ Markdown is canonical; static HTML, CSS and JS are the publication output.
 Solutions are deliberately not copied to dist/.
 """
 from pathlib import Path
-import re, html, subprocess, shutil, os
+import re, html, subprocess, shutil, os, json
 from urllib.parse import urlsplit, urlunsplit
 from bs4 import BeautifulSoup
 
@@ -152,7 +152,7 @@ def relroute(num):
 def book_sidebar(page,prefix=''):
     current_module = int(page[-2:]) if re.fullmatch(r'module\d{2}', page) else (5 if page=='module' else None)
     current_label = f'{current_module:02}' if current_module is not None else '01'
-    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html'),('roadmap','90-day product roadmap','roadmap/')]
+    links=[('index','Opening pages','index.html'),('curriculum','Complete contents','curriculum.html'),('ontology','Taxonomy & ontology','taxonomy/ONTOLOGY.html'),('studio','Quick decision questionnaire','onboarding/index.html'),('learning','Architecture & Learning Studio','learning/index.html'),('schedule','Hourly study plan','learning/schedule.html'),('roadmap','90-day product roadmap','roadmap/')]
     core=''.join(f'<a class="toc-special {"is-active" if page==name else ""}" href="{prefix}{route}">{html.escape(label)}</a>' for name,label,route in links)
     parts=[]; seq=modules(); j=0
     for roman,title,range_text in PART_NAMES:
@@ -161,7 +161,7 @@ def book_sidebar(page,prefix=''):
         for n,t in seq:
             if lo <= n <= hi:
                 active=(current_module==n)
-                items.append(f'<a class="toc-chapter {"is-active" if active else ""}" href="{prefix}{relroute(n)}" title="{html.escape(t,quote=True)}"><span class="chapter-num">{n:02}</span><span class="chapter-text">{html.escape(t)}</span>{"<span class=\"read-dot\" title=\"Chapter ready\"></span>" if n in (1,5) else ""}</a>')
+                items.append(f'<a class="toc-chapter {"is-active" if active else ""}" href="{prefix}{relroute(n)}" title="{html.escape(t,quote=True)}"><span class="chapter-num">{n:02}</span><span class="chapter-text">{html.escape(t)}</span>{"<span class=\"read-dot\" title=\"Chapter authored; see review status\"></span>" if n in chapter_files() else ""}</a>')
         opened= ' open' if (current_module is not None and lo<=current_module<=hi) else ''
         parts.append(f'<details class="toc-part"{opened}><summary><span class="roman">{roman}</span><span>{html.escape(title)}</span><span class="chevron">⌄</span></summary><div class="toc-chapters">{"".join(items)}</div></details>')
     return f'''<aside class="book-sidebar" id="book-sidebar" aria-label="Book table of contents">
@@ -193,7 +193,7 @@ def frame(body,page,title,prefix='',article=False,toc=None):
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Verify the requirement before buying the architecture.</h2><p>Evaluate fictional enterprise constraints, trace controls to evidence and explain the release decision.</p><a class="simple-link" href="../labs/module-03/index.html">Open Module 03 lab ↗</a><a class="simple-link" href="../learning/index.html">Practice in Architecture Studio ↗</a><a class="simple-link" href="../social/module-03/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-03/POST.html">Read the teaching post ↗</a></section>'''
         if page=='module02' and title=='Module 02':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Test a maturity claim before approving it.</h2><p>Run the synthetic scoring lab and examine its hard-gate evidence.</p><a class="simple-link" href="../labs/module-02/index.html">Open Module 02 lab ↗</a><a class="simple-link" href="../learning/index.html">Try Architecture Studio ↗</a><a class="simple-link" href="../social/module-02/CAROUSEL.html">Explore the eight-question deck ↗</a><a class="simple-link" href="../social/module-02/POST.html">Read the teaching post ↗</a></section>'''
-        if page=='module' and title=='Module 05':
+        if page in ('module','module05') and title=='Module 05':
             body+='''<section class="chapter-next"><div class="section-number">AFTER THIS CHAPTER</div><h2>Turn the question into a decision.</h2><p>Try the local lab, then explore the HTML version of the LinkedIn question deck.</p><a class="simple-link" href="../labs/module-05/index.html">Open practical lab ↗</a><a class="simple-link" href="../social/module-05/CAROUSEL.html">Open question deck ↗</a></section>'''
     outer=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>{html.escape(title)} — Sovereign AI Field Guide</title><meta name="description" content="A sourced, annotated book on enterprise sovereign AI product leadership."><link rel="stylesheet" href="{prefix}assets/site.css"></head>
     <body data-repo="shantanuchandra/sovereign-ai-mastery" data-page="{html.escape(page)}"><a class="skip-link" href="#main">Skip to chapter</a><div class="reading-layout">{book_sidebar(page,prefix)}<div class="reading-main">{topbar(page,prefix)}<div class="reading-grid"><main class="book-page" id="main">{body}<div class="page-bottom"><span>THE SOVEREIGN AI FIELD GUIDE</span><span>◆</span><span>LEARN • BUILD • QUESTION</span></div></main>{notes_panel()}</div></div></div>
@@ -224,6 +224,34 @@ def home():
       <div class="after-feature"><a href="learning/index.html">Explore the Architecture & Learning Studio <span>↗</span></a><a href="onboarding/index.html">Try the quick questionnaire <span>↗</span></a><a href="taxonomy/ONTOLOGY.html">Explore the ontology <span>↗</span></a><a href="social/module-01/CAROUSEL.html">View the HTML question deck <span>↗</span></a><a href="curriculum.html">Browse all 24 modules <span>↗</span></a></div>
     </div>'''
 
+def study_plan():
+    plan = json.loads((ROOT/'learning/study-plan.json').read_text())
+    authored = chapter_files()
+    assert len(plan['modules']) == 24 and sum(len(m['hours']) for m in plan['modules']) == 240
+    options = '<option value="all">All 24 modules</option>'
+    sections = []
+    for module in plan['modules']:
+        number = module['number']
+        ident = f'{number:02}'
+        title = html.escape(module['title'])
+        options += f'<option value="{ident}">{ident} · {title}</option>'
+        if number in authored:
+            state = 'Chapter authored; review status appears in the lesson.'
+            destination = f'../modules/{authored[number].stem}.html'
+            action = f'<a href="{destination}">Open Module {ident} ↗</a>'
+        else:
+            state = 'Planned module; full lesson and practical materials are not yet authored.'
+            action = f'<a href="../curriculum.html#module-{ident}">View syllabus ↗</a>'
+        hours = []
+        for hour in module['hours']:
+            key = html.escape(hour['id'], quote=True)
+            hours.append(f'''<li><label for="{key}"><input id="{key}" type="checkbox" data-hour="{key}"> Hour {hour['hour']:02} · {html.escape(hour['title'])}</label><p>{html.escape(hour['activity'])}</p><p class="study-output"><strong>Keep:</strong> {html.escape(hour['output'])}</p></li>''')
+        sections.append(f'''<section data-module="{ident}" id="module-{ident}" class="study-module"><h2>Module {ident} — {title}</h2><p class="study-state">{state} {action}</p><p><strong>Scenario:</strong> {html.escape(module['scenario'])}. <strong>PM artifact:</strong> {html.escape(module['artifact'])}.</p><ol class="study-hours">{''.join(hours)}</ol></section>''')
+    body = f'''<div class="prose"><div class="book-eyebrow">24 MODULES / 240 STUDY HOURS</div><h1 id="study-plan">One deliberate hour at a time.</h1><p>Each module has ten one-hour sessions: study, map, build, challenge and defend. Use one module per week or choose your own pace. These are relative study hours, not booked appointments or delivery promises.</p><p>{html.escape(plan['notice'])}</p><p>Some chapters remain drafts or have review holds. Authored means the lesson exists; it does not mean independent approval. Begin practical work only with the published synthetic instructions.</p><label for="plan-module">Choose a module</label><select id="plan-module">{options}</select><p id="plan-progress" role="status">0 of 240 study hours marked complete</p><p id="plan-status">Progress is stored in this browser. Export a study record to keep a copy. No data is sent to a server.</p><button type="button" id="export-plan">Export study record (.md)</button><noscript><p>All 240 sessions are readable without JavaScript. Saving, filtering and exporting require JavaScript.</p></noscript>{''.join(sections)}</div>'''
+    result = frame(body, 'schedule', 'Hourly study plan', '../')
+    return result.replace('</body>', '<script type="module" src="./study-plan.mjs"></script></body>')
+
+
 def main():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
@@ -234,12 +262,13 @@ def main():
     (DIST/'taxonomy').mkdir(exist_ok=True)
     shutil.copy2(ROOT/'taxonomy/ontology.yaml',DIST/'taxonomy/ontology.yaml')
     write(DIST/'index.html',frame(home(),'index','Opening pages'))
+    write(DIST/'learning/schedule.html', study_plan())
     paths=[
       ('TOC.md','curriculum.html','curriculum','Complete contents'),
       ('taxonomy/ONTOLOGY.md','taxonomy/ONTOLOGY.html','ontology','Taxonomy & ontology'),
       ('STYLE_GUIDE.md','editorial.html','editorial','Editorial standards'),
       ('CHAPTER_TEMPLATE.md','CHAPTER_TEMPLATE.html','editorial','Chapter template'),
-      ('chapters/05-laws-regulation-jurisdiction.md','modules/05-laws-regulation-jurisdiction.html','module','Module 05'),
+      ('chapters/05-laws-regulation-jurisdiction.md','modules/05-laws-regulation-jurisdiction.html','module05','Module 05'),
       ('labs/module-01/README.md','labs/module-01/index.html','module01','Module 01 lab'),
       ('labs/module-02/README.md','labs/module-02/index.html','module02','Module 02 lab'),
       ('labs/module-03/README.md','labs/module-03/index.html','module03','Module 03 requirements lab'),
@@ -250,7 +279,7 @@ def main():
       ('social/module-04/POST.md','social/module-04/POST.html','module04','LinkedIn post draft 04'),
       ('social/module-05/SLIDES.md','social/module-05/SLIDES.html','module','Question deck outline'),
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
-      ('labs/module-05/README.md','labs/module-05/index.html','module','Module 05 lab'),
+      ('labs/module-05/README.md','labs/module-05/index.html','module05','Module 05 lab'),
     ]
     # Publish every source-authored chapter as soon as it has substantive content.
     # Module 05 retains its legacy HTML fallback until its Markdown source exists.

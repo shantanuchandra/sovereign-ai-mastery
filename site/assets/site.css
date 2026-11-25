@@ -67,3 +67,17 @@ mark.reader-mark{background:#f3dc94;color:inherit;border-radius:2px;cursor:point
 .prose .diagram-source summary{font:600 13px var(--sans);color:#3f6257;cursor:pointer;padding:8px 0}
 .prose .diagram-source pre{margin-top:6px;font-size:11px;line-height:1.4}
 @media(max-width:650px){.prose .diagram-rendered{margin:26px 0;padding:10px}.prose .diagram-viewport img{width:820px}}
+
+/* Study plan: readable as a complete document without JavaScript. */
+.study-module{scroll-margin-top:5rem;border-top:1px solid #bec9c9;padding-top:1.5rem;margin-top:2rem}
+.study-hours{list-style:none;padding:0!important;display:grid;gap:1rem}
+.study-hours li{border:1px solid #bec9c9;padding:1rem;border-radius:4px;background:#f8f6f0}
+.study-hours label{font-weight:700;display:block;cursor:pointer}
+.study-hours input{width:1.25rem;height:1.25rem;vertical-align:middle;margin-right:.5rem}
+.study-hours p{margin:.5rem 0 0}.study-output,.study-state{font-size:.9em}
+#plan-module{max-width:100%;padding:.7rem;background:white;color:#172e3a}
+#export-plan{padding:.7rem 1rem;background:#135e65;color:white;border:0;cursor:pointer}
+.study-module[hidden]{display:none}
+/* Keep long primary-source URLs readable without widening the chapter. */
+.prose{min-width:0;overflow-wrap:anywhere}
+select:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}

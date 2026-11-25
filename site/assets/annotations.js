@@ -164,7 +164,5 @@
   const menu=document.querySelector('.mobile-menu');menu?.addEventListener('click',()=>{const side=el('book-sidebar');const show=side.classList.toggle('is-visible');menu.setAttribute('aria-expanded',String(show));});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){hideToolbar();el('reader-notes')?.classList.remove('is-visible');el('book-sidebar')?.classList.remove('is-visible');}});
   annotations=readLocal();render();
-  // Public repository, no authentication. Import existing GitHub notes on initial load
-  // when local storage is empty; explicit Sync button remains available otherwise.
-  if(!annotations.length)void sync(false);
+  // Keep reading and local study offline. Load GitHub notes only after an explicit click.
 })();

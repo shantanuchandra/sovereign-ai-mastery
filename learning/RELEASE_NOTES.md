@@ -12,3 +12,8 @@ Missed tutor decisions unlock a different follow-up question for the concept. Fi
 
 **Publication and limits:** Prepared as a review branch; local verification is not a deployed-site claim. This bounded increment does not close Module 04's outstanding source/accessibility/assessment review gates. No live enterprise infrastructure, actual air gap, legal applicability, independent assessment or manual screen-reader behavior was verified.
 
+## Module 05 draft and hourly study plan | 2026-11-22
+
+Added the canonical eight-topic legal-to-architecture chapter, primary-source inspection ledger, 14-case local evidence lab, separate assessment/RCA key, eight-question deck/post and PDF pipeline. Added ten one-hour study sessions for every module, browser-local progress and Markdown export. Future lessons are explicitly planned. Legal/manual/independent review remains pending; Module 04's HOLD is retained.
+
+Browser verification caught and fixed phone overflow from long source links and automatic GitHub note loading. Notes now load only after explicit user action. See MODULE_PROGRESS.md and the two Module 05 self-audits for evidence and limits.

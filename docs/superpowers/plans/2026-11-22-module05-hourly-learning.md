@@ -1,0 +1,5 @@
+# Module 05 and hourly learning increment
+
+Implement a canonical source chapter for all eight Module 05 syllabus topics, a synthetic legal-question/evidence lab, separate assessment key, eight-question HTML deck and PDF export. Legal applicability remains a named-reviewer decision, never an inferred compliance result. Add ten one-hour learning sessions for all 24 modules, with module-specific tasks and artifacts, visible from the curriculum and Studio. Distinguish authored lessons from planned lessons and learner completion from publication approval.
+
+Verification: fail-closed lab mutation tests; schedule inventory and routing checks; site link checks; actual browser keyboard/mobile/persistence/export checks; eight-page PDF text checks; existing Studio, labs and QA regression checks; repository CI and deployed-file confirmation. Record technical/source and editorial/assessment self-audits honestly. Module 04 source/manual-review HOLD remains unchanged. Hourly implementation automation already exists; no duplicate schedule.
