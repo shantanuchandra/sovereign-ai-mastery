@@ -23,7 +23,7 @@ python3 -m unittest discover -s labs/module-06 -p 'test_*.py' -v
 
 ## Input and course rules
 
-Each case declares a physical `site`, `country`, boundary (`country`, `premises`, `airgap`), build ID, intended/allowed uses, responsible/validator/accountable people, incident state, control evidence, subgroup counts and nine lifecycle routes. Routes include inference, training, embeddings, speech/OCR, diagnostics, telemetry, backup, support/activation and failover. Include prompts, outputs, weights, vectors, logs, update media and recovery artifacts in those declarations as appropriate. A false declaration can fool this lab; real evidence must inspect the actual routes and operations.
+Each case declares a physical `site`, `country`, boundary (`country`, `premises`, `airgap`), build ID, intended/allowed uses, responsible/validator/accountable people, incident state, control evidence, subgroup counts and ten lifecycle routes. Routes include inference, training, embeddings, speech/OCR, diagnostics, telemetry, backup, support/activation, failover and updates. Include prompts, outputs, weights, vectors, logs, update media and recovery artifacts in those declarations as appropriate. A false declaration can fool this lab; real evidence must inspect the actual routes and operations.
 
 For air gap, `network: true` on any declared route is a known conflict. For premises, a different physical site is a conflict even in the same country. Controlled offline media and update procedures need separate real inspection. Missing routes remain unverified, never implicitly local.
 

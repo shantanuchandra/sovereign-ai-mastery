@@ -6,7 +6,7 @@ import json
 import math
 from pathlib import Path
 
-LIFECYCLE=('inference','training','embeddings','speech_ocr','diagnostics','telemetry','backup','support_activation','failover')
+LIFECYCLE=('inference','training','embeddings','speech_ocr','diagnostics','telemetry','backup','support_activation','failover','updates')
 CONTROLS=('boundary','quality','oversight','recovery')
 
 def text(value):
@@ -42,9 +42,12 @@ def evaluate(record):
     for flow in flows:
         if not isinstance(flow,dict):gaps.append('flow_record');continue
         kind=flow.get('kind')
-        if not isinstance(kind,str) or kind not in LIFECYCLE:gaps.append('flow_kind');continue
-        if kind in seen:gaps.append('duplicate_flow:'+kind)
-        seen.add(kind)
+        if not isinstance(kind,str) or kind not in LIFECYCLE:
+            gaps.append('flow_kind')
+            kind=kind if text(kind) else 'unknown'
+        else:
+            if kind in seen:gaps.append('duplicate_flow:'+kind)
+            seen.add(kind)
         for k in ('country','site'):
             if not text(flow.get(k)):gaps.append(k+':'+kind)
         if type(flow.get('network')) is not bool:gaps.append('network:'+kind)

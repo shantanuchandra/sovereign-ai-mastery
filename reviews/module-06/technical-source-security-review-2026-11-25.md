@@ -10,11 +10,13 @@ ISO's full paid texts and an actual certificate/audit were not inspected. No det
 
 ## Implementation and adversarial checks
 
-The lab calculates subgroup and aggregate rates from synthetic counts. Known control failures, changed intended use, incidents and site/network conflicts outrank gaps. Tests cover every one of nine lifecycle routes under premises/airgap constraints, duplicate records, impossible and Boolean counts, nonfinite values, stale builds/dates, evidence provenance and role conflicts. Malformed group counts suppress the aggregate rather than displaying a misleading partial aggregate. The evaluator reads no evidence pointers, executes no external requests and writes no customer information.
+The lab calculates subgroup and aggregate rates from synthetic counts. Known control failures, changed intended use, incidents and site/network conflicts outrank gaps. Tests cover every one of ten lifecycle routes under premises/airgap constraints, duplicate records, impossible and Boolean counts, nonfinite values, stale builds/dates, evidence provenance and role conflicts. Malformed group counts suppress the aggregate rather than displaying a misleading partial aggregate. The evaluator reads no evidence pointers, executes no external requests and writes no customer information.
 
 Review found and fixed integration issues before publication: the study-plan contract still expected Module 06 to be planned; it now checks Module 07. A new regression exposed missing remediation links in exported journals; attempted tutor answers now export their canonical lesson URL. Question IDs, scoring and storage version remain unchanged, and existing saved-answer/persistence tests pass. An adversarial oversized integer criterion also exposed float-conversion overflow; integer validation now uses exact bounds without float conversion, with a regression covering Boolean, nonfinite, oversized and string criteria.
 
 Local evidence: 16 Module 06 tests and 16 fixtures (7 BLOCKED, 7 UNVERIFIED, 2 REVIEW_REQUIRED); 83 lab tests across Modules 01–06; 32 Node Studio tests; 40 curriculum checks; complete 35-page static build with both installed renderer and CI fallback. Browser/PDF evidence is documented in the editorial review. CI/live publication results belong in the progress record only after observed success.
+
+A final route review made updates explicit as a tenth lab route rather than relying on other lifecycle declarations. Unknown route labels now retain observed site/network conflicts while also reporting a classification gap. The existing per-route regression loops cover the added path and an unclassified off-site route. Studio already treated update/media paths explicitly; its gates are unchanged.
 
 ## Residual limits
 

@@ -22,6 +22,10 @@ class GovernanceTests(unittest.TestCase):
                 c=copy.deepcopy(self.case)
                 next(f for f in c['flows'] if f['kind']==kind)['site']='OTHER-SITE'
                 self.assertIn('site:'+kind,evaluate(c)['blockers'])
+        c=copy.deepcopy(self.case)
+        c['flows'].append({'kind':'unclassified','site':'OTHER-SITE','country':'UAE','network':False})
+        self.assertIn('site:unclassified',evaluate(c)['blockers'])
+        self.assertIn('flow_kind',evaluate(c)['gaps'])
     def test_airgap_forbids_each_network_path(self):
         for kind in LIFECYCLE:
             with self.subTest(kind=kind):
