@@ -18,6 +18,8 @@ Local evidence: 16 Module 06 tests and 16 fixtures (7 BLOCKED, 7 UNVERIFIED, 2 R
 
 A final route review made updates explicit as a tenth lab route rather than relying on other lifecycle declarations. Unknown route labels now retain observed site/network conflicts while also reporting a classification gap. The existing per-route regression loops cover the added path and an unclassified off-site route. Studio already treated update/media paths explicitly; its gates are unchanged.
 
+Threshold-edge regression also exposed binary rounding at exactly 10 percentage points (18% versus 28%). Comparisons now use exact rational counts against the declared decimal criterion; displayed rates remain ordinary JSON numbers. A case exactly at the limit remains eligible for review, while an above-limit case still blocks.
+
 ## Residual limits
 
 Declarations, names and evidence pointers are not authenticated. Group partitions, sample selection, fairness and confidence are not inferred from counts. The 30-day evidence window and numeric thresholds are course examples. No real model, factory, security appliance, Azure deployment or air-gapped operating procedure was validated. Module 04 HOLD and Module 05 legal-review status remain unchanged.

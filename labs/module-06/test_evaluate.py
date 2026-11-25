@@ -16,6 +16,12 @@ class GovernanceTests(unittest.TestCase):
         self.assertAlmostEqual(r['aggregate_error'],.0158)
         self.assertIn('group_error:ar',r['blockers'])
         self.assertIn('group_disparity',r['blockers'])
+        edge=copy.deepcopy(self.case)
+        edge['criteria']['error_limit']=.5
+        edge['groups']=[{'id':'en','n':100,'errors':18},{'id':'ar','n':100,'errors':28}]
+        self.assertEqual(evaluate(edge)['status'],'REVIEW_REQUIRED')
+        edge['groups'][1]['errors']=29
+        self.assertIn('group_disparity',evaluate(edge)['blockers'])
     def test_all_lifecycle_paths_enforce_physical_site(self):
         for kind in LIFECYCLE:
             with self.subTest(kind=kind):

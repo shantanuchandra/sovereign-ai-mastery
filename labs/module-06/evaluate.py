@@ -2,6 +2,7 @@
 """Course-authored governance triage. Reads synthetic declarations, never certifies them."""
 import argparse
 from datetime import date
+from fractions import Fraction
 import json
 import math
 from pathlib import Path
@@ -17,7 +18,7 @@ def number(value):
 
 def evaluate(record):
     """Known conflicts outrank missing evidence. Strongest output is REVIEW_REQUIRED."""
-    blockers=[];gaps=[];rates={};aggregate=None
+    blockers=[];gaps=[];rates={};exact_rates={};aggregate=None
     if not isinstance(record,dict):record={};gaps.append('record')
     for k in ('id','build_id','site','country','intended_use'):
         if not text(record.get(k)):gaps.append(k)
@@ -77,12 +78,12 @@ def evaluate(record):
             gaps.append('counts:'+name);complete_counts=False;continue
         total_n+=n;total_errors+=e
         if n==0:gaps.append('sample:'+name);continue
-        rate=e/n;rates[name]=rate
+        rate=e/n;rates[name]=rate;exact_rates[name]=Fraction(e,n)
         if valid_criteria:
             if n<minimum:gaps.append('sample:'+name)
-            if rate>criteria['error_limit']:blockers.append('group_error:'+name)
+            if exact_rates[name]>Fraction(str(criteria['error_limit'])):blockers.append('group_error:'+name)
     if total_n and complete_counts:aggregate=total_errors/total_n
-    if valid_criteria and len(rates)>1 and max(rates.values())-min(rates.values())>criteria['disparity_limit']:
+    if valid_criteria and len(exact_rates)>1 and max(exact_rates.values())-min(exact_rates.values())>Fraction(str(criteria['disparity_limit'])):
         blockers.append('group_disparity')
     controls=record.get('controls');seen=set()
     if not isinstance(controls,list):controls=[];gaps.append('controls')
