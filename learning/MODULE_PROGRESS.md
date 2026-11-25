@@ -22,3 +22,11 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 ## Next work
 
 Next substantive module: Module 07 End-to-End Sovereign AI Stack & Reference Architecture. Carry the governance/control IDs into physical, data, compute, management and control planes. Continue later modules while retaining Module 04 HOLD and Module 05/06 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+
+## Module 07 release candidate, 25 November 2026
+
+Continue `feat/module-07-architecture`. Seven-topic canonical lesson, three inspected primary sources (NIST SP 800-207 abstract, Kubernetes Components and AWS Outposts racks service-link guide), 14-test synthetic graph lab, ADR template/20-point rubric, separate Q1–Q6 solutions/40-point rubric, static plane diagram, eight-question HTML carousel/post/PDF and Studio architecture remediation are prepared. The real-product question uses documented Outposts connectivity with a hypothetical air-gap customer, not an invented customer incident.
+
+Local evidence: 40-page build with installed and CI-fallback renderer; 97 lab tests across Modules 01–07, 43 curriculum checks and 33 Node Studio checks; 7 Studio plus 6 study-plan/reader browser tests. The reader tests now cover Module 07/ADR and script-disabled diagram display. Carousel reflow 1280/390/320 px and actual eight-page PDF text/geometry passed. Chapter, diagram and real-product slide screenshots were inspected. Two distinct author self-audits remain explicit about unavailable independent/manual assurance.
+
+Publish only after reviewed matching PR checks pass, then observe matching Pages success and inspect live files. Source-authored count is seven; public-site count remains six until this candidate is deployed. Preserve Module 04 HOLD and Module 05–07 draft limitations. Next substantive module after verified publication: Module 08 Data Sovereignty & Engineering. Do not restart the completed Module 07 authoring work.

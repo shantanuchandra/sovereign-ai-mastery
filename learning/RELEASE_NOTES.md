@@ -27,3 +27,7 @@ Artifacts are published as an educational draft, with an eight-question HTML car
 Final route review adds an explicit model/software update path to the lab. Unknown route classifications retain observed site/network conflicts; a missing classification cannot erase a known violation. Studio update/media gates remain unchanged.
 
 Subgroup threshold comparisons use exact counts/decimal criteria to avoid a binary-rounding block at an exactly permitted boundary. The regression also checks that exceeding the limit still blocks.
+
+## Module 07 architecture release candidate | 2026-11-25
+
+Completed the physical-to-application teaching package and graph lab with four responsibility planes and fourteen lifecycle purposes. Added primary-source ledger, ADR, separate assessment/RCA key, static SVG, eight-question HTML carousel/post and PDF pipeline. Studio architecture remediation and journal exports now link to Module 07; saved-answer identities and hard gates remain unchanged. The 240-hour plan links the authored lesson and retains Module 08 as planned. Independent/manual review remains pending. See MODULE_PROGRESS.md for the release checkpoint.

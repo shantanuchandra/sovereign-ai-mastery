@@ -92,18 +92,19 @@ class StudyPlanBrowserTests(unittest.TestCase):
             self.page.click('#export-plan')
         self.assertIn('Completed: 1 / 240',Path(event.value.path()).read_text())
 
-    def test_module06_diagram_and_reader_without_javascript(self):
+    def test_module06_and07_diagrams_without_javascript(self):
         context=self.browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
         page=context.new_page()
         try:
-            page.goto(self.origin+'/modules/06-governance-responsible-ai-risk.html',wait_until='networkidle')
-            expect(page.locator('h1')).to_contain_text('Module 06')
-            diagram=page.locator('figure.diagram-rendered img')
-            diagram.scroll_into_view_if_needed()
-            expect(diagram).to_be_visible()
-            self.assertGreater(diagram.evaluate('(img)=>img.naturalWidth'),0)
-            expect(page.locator('details.diagram-source summary')).to_have_text('View Mermaid source')
-            self.assertTrue(page.locator('a[href="../labs/module-06/index.html"]').count())
+            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture')]:
+                page.goto(self.origin+'/modules/'+slug+'.html',wait_until='networkidle')
+                expect(page.locator('h1')).to_contain_text('Module '+module)
+                diagram=page.locator('figure.diagram-rendered img')
+                diagram.scroll_into_view_if_needed()
+                expect(diagram).to_be_visible()
+                self.assertGreater(diagram.evaluate('(img)=>img.naturalWidth'),0)
+                expect(page.locator('details.diagram-source summary')).to_have_text('View Mermaid source')
+                self.assertTrue(page.locator('a[href="../labs/module-'+module+'/index.html"]').count())
         finally:
             context.close()
 
@@ -127,7 +128,8 @@ class StudyPlanBrowserTests(unittest.TestCase):
         for route in ['/learning/schedule.html#module-05','/modules/05-laws-regulation-jurisdiction.html',
                       '/labs/module-05/index.html','/social/module-05/POST.html',
                       '/modules/06-governance-responsible-ai-risk.html','/labs/module-06/index.html',
-                      '/social/module-06/POST.html']:
+                      '/social/module-06/POST.html','/modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html',
+                      '/labs/module-07/index.html','/labs/module-07/ADR.html','/social/module-07/POST.html']:
             for width in (1280,390,320):
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.page.goto(self.origin+route,wait_until='networkidle')
@@ -140,6 +142,8 @@ class StudyPlanBrowserTests(unittest.TestCase):
             self.page.screenshot(path=str(output/'module05-mobile.png'))
             self.page.goto(self.origin+'/modules/06-governance-responsible-ai-risk.html',wait_until='networkidle')
             self.page.screenshot(path=str(output/'module06-mobile.png'))
+            self.page.goto(self.origin+'/modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html',wait_until='networkidle')
+            self.page.screenshot(path=str(output/'module07-mobile.png'))
 
 if __name__=='__main__':
     unittest.main(verbosity=2)
