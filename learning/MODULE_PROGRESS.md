@@ -11,6 +11,8 @@ Updated 25 November 2026. Read the specific reviews before claiming approval. Si
 
 ## Module 06 release candidate
 
+[PR #10](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/10) contains the reviewed draft. Publication/CI outcome is recorded below only after observed success.
+
 All seven governance topics; seven inspected primary sources; static decision diagram; 16-case/16-test synthetic risk-register lab; charter/RACI/audit-index deliverable; Q1–Q5 plus detailed Q6 RCA; separate 40-point key and 20-point PM rubric; eight-question HTML carousel/post and verified PDF export. Studio evidence remediation and journal lesson links now point to Module 06. Question identities/scoring/storage version are preserved.
 
 Two distinct author self-audits are in `reviews/module-06/`. Educational draft; independent assessment and manual accessibility remain pending. Full paid ISO texts, real infrastructure and production controls were not inspected or certified. Source authenticity is not established by fixture tests.

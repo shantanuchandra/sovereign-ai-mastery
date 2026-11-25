@@ -48,6 +48,9 @@ class GovernanceTests(unittest.TestCase):
             with self.subTest(value=v):
                 c=copy.deepcopy(self.case);c['groups'][0]['n']=v
                 self.assertEqual(evaluate(c)['status'],'UNVERIFIED')
+        for value in [True,float('nan'),float('inf'),10**1000,'0.10']:
+            c=copy.deepcopy(self.case);c['criteria']['error_limit']=value
+            self.assertEqual(evaluate(c)['status'],'UNVERIFIED')
         for obj in [None,[],42,True]:
             self.assertEqual(evaluate(obj)['status'],'UNVERIFIED')
     def test_duplicates_and_impossible_counts_are_gaps(self):
