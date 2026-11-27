@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 27 November 2026. Read the specific reviews before claiming approval. Ten of 24 module packages are authored and published with their stated review status. Fourteen modules remain to author, including capstone Modules 22–24.
+Updated 28 November 2026. Read the specific reviews before claiming approval. Eleven of 24 module packages are authored and published with their stated review status. Thirteen modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 11 Sovereign Models & Model Strategy. Reuse Module 10 deployment admissibility, Module 08 artifact/retention controls and Module 09 compute evidence when choosing models and operating patterns. Continue later modules while retaining Module 04 HOLD and Module 05–10 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Next substantive module: Module 12 Sovereign RAG Systems. Reuse Module 11 model-bundle identity and language-slice evidence, Module 08 tenant/retention controls and Module 10 deployment admissibility. Continue later modules while retaining Module 04 HOLD and Module 05–11 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -76,9 +76,15 @@ Local checks include the earlier 141 lab regressions plus 30 new checks; 52 curr
 
 Two distinct same-author reviews are in `reviews/module-10/`. Independent/manual accessibility/assessment and production assurance remain NOT COMPLETED; preserve Module 04 HOLD. Next substantive authoring after publication: Module 11 Sovereign Models & Model Strategy.
 
-## Module 11 release candidate, 27 November 2026
+## Module 11 published educational draft, 28 November 2026
 
-Eleven packages are source-authored; ten have observed publication evidence above. Module 11 awaits matching CI, merge, Pages success and live checks. Do not count it as published yet.
+Eleven packages are source-authored and observed published; thirteen remain. This is not a count of independently approved modules.
+
+[PR #20](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/20) merged as [b477c12](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/b477c12b5c8f9830792185b190983cd8f0695a65). All eight checks passed on head `02d138024f8ed7127efd2c06a6b55aaeecf265d9`, including [Module 11 CI 45979931181](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45979931181), [Studio CI 45979931118](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45979931118) and Module 05–10 regressions. Module 10's [run 45979930894](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45979930894) initially stopped before tests on an upstream package-server HTTP 403; retry attempt 2 passed without a code change or skipped gate.
+
+The Module 11 artifact includes actual Linux/x86_64 CPU generation with torch 2.9.1+cpu and Transformers 4.57.3. Downloaded results passed the run-record validator and matched all nine Mac model-artifact hashes. Both observed runs retained English 0/4 and Arabic 0/4 exact-label results. This is replication of the bounded synthetic experiment, not production language quality or physical isolation.
+
+Matching [Pages 46052310652](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46052310652) and [main Studio 46052310596](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46052310596) succeeded. Eighteen live routes returned HTTP 200; lab scripts/cases/observed outputs, Studio engine, diagram, carousel, ontology and release records matched source bytes. Seven topics, draft label, 240 study-hour controls, Module 12 planned state and eight-page 8×10-inch PDF were checked. Live mobile Chromium verified chapter/lab/matrix/carousel without document overflow, 26 workloads/21 presets, missed portability feedback linking to Module 11 and an actual downloaded journal retaining that lesson. The chapter SVG loaded with JavaScript disabled; no page errors were observed.
 
 Artifacts: seven-topic model strategy chapter, seven inspected primary sources/brief quotations, static model-choice SVG, real pinned small-model CPU generation with local artifact verification and Python socket denial, eight synthetic prompts, raw recorded responses and per-language counts, 32 adverse/record tests, distinct model-choice matrix/20-point PM rubric, separate Q1–Q6/40-point key, eight-question HTML carousel/post and eight-page portrait PDF. Actual local exact-label results were English 0/4 and Arabic 0/4; two English responses contain correct facts plus extra text. This is not production accuracy or a completed Arabic/domain review. No Jais custom code, cloud inference, training, Metal/CUDA or real customer data was used.
 
