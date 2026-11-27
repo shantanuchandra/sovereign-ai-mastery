@@ -1,0 +1,63 @@
+name: Verify Module 11 model strategy package
+on:
+  pull_request:
+    paths:
+      - 'chapters/11-*'
+      - 'assessments/solutions/11-*'
+      - 'labs/module-11/**'
+      - 'social/module-11/**'
+      - 'diagrams/module-11*'
+      - 'learning/study-plan*'
+      - 'learning/tests/test_rendered_study_plan.py'
+      - 'qa/test_module11*'
+      - 'scripts/build_site.py'
+      - 'site/assets/site.css'
+      - 'TOC.md'
+      - '.github/workflows/module11.yml'
+permissions:
+  contents: read
+jobs:
+  module11:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install site and browser dependencies
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify scoring, artifact integrity and adverse declarations
+        run: |
+          python -m unittest discover -s labs/module-11 -p 'test_*.py' -v
+          python labs/module-11/evaluate.py labs/module-11/candidate.json > /tmp/module11-decisions.json
+          python labs/module-11/check_run.py labs/module-11/observed-local-run.json
+      - name: Run pinned small model on CPU
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+        run: |
+          python -m venv /tmp/module11-model-env
+          /tmp/module11-model-env/bin/pip install 'torch==2.9.1' --index-url https://download.pytorch.org/whl/cpu
+          /tmp/module11-model-env/bin/pip install 'transformers==4.57.3'
+          /tmp/module11-model-env/bin/python labs/module-11/prepare.py /tmp/module11-model
+          /tmp/module11-model-env/bin/python labs/module-11/run_local.py /tmp/module11-model artifacts/module11/ci-model-run.json
+          python labs/module-11/check_run.py artifacts/module11/ci-model-run.json
+      - name: Build and verify curriculum routes and assessment separation
+        run: |
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Verify study progress and mobile reader
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/module11
+        run: python learning/tests/test_rendered_study_plan.py
+      - name: Verify portrait slides and actual PDF
+        run: |
+          python social/module-11/test_rendered_carousel.py
+          python social/module-11/export_pdf.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: module11-browser-evidence
+          path: artifacts/module11
+          if-no-files-found: ignore

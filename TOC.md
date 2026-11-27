@@ -199,6 +199,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 11 — Sovereign Models & Model Strategy (Week 11)
 
+[Read the authored educational draft](chapters/11-sovereign-models-model-strategy.md). Independent/manual review remains pending.
+
 11.1 Transformer/LLM essentials for product and architecture decisions  
 11.2 Open-source, open-weight, and proprietary model distinctions  
 11.3 Licenses, model artifacts, ownership, provenance, and IP  

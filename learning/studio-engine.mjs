@@ -143,6 +143,7 @@ const MODS=Object.freeze({
   data:{label:'Module 08: data lineage, retention and recovery',url:'../modules/08-data-sovereignty-engineering.html'},
   compute:{label:'Module 09: memory, capacity and failure evidence',url:'../modules/09-gpus-compute-networking-platform-engineering.html'},
   infrastructure:{label:'Module 10: placement, operations and recovery evidence',url:'../modules/10-sovereign-cloud-deployment-patterns.html'},
+  models:{label:'Module 11: model rights, bundle and language evidence',url:'../modules/11-sovereign-models-model-strategy.html'},
   agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
   architecture:{label:'Module 07: architecture and control planes',url:'../modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html'},
@@ -306,7 +307,7 @@ export function createBlueprint(raw={}) {
   const controls=[
     control('TERR-01','Territorial',territory,siteOnly?'Local services; deny-by-default outbound and explicit media controls':'Destination allow-list, data-flow inventory and egress logs',territorialTest,evidenceState),
     control('OPS-01','Operational','Only permitted administrative paths may control the system',siteOnly?'On-site identities, key custody, access logging, no unapproved remote support':'Roles, key custody and privileged access review','Attempt denied privileged access and review support-path audit',evidenceState),
-    control('TECH-01','Technological','Exit dependencies and model artifacts are understood',airgap?'Offline model artifact signing, SBOM, licensed weights and rebuild path':'Model/license inventory and a repeatable exit path','Replace model/serving stack in a rehearsed migration; record compatibility',evidenceState),
+    control('TECH-01','Technological','Exit dependencies and model artifacts are understood',airgap?'Offline model artifact signing, SBOM, licensed weights and rebuild path':'Model/license inventory and a repeatable exit path','Reconstruct model, tokenizer, chat template and runtime from reviewed artifacts; repeat task/language tests with denominators and cold restart without prohibited external fallback',evidenceState),
     control('LEGAL-01','Legal/contractual','Relevant contractual and legal boundaries receive qualified review','Counsel-reviewed scope, terms, entity and transfer map','Document the responsible entity, regulations, authorizations and exceptions','REVIEW_REQUIRED')
   ];
   const traces={
@@ -322,7 +323,8 @@ export function createBlueprint(raw={}) {
     stage:critical?'Assurance, reliability and operational readiness require production validation.':'Prototype and pilot constraints are still enforceable.'
   };
   for(const [key,value] of Object.entries(v)) trace.push(step(key,`${key}: ${LABELS[key][value]}`,traces[key]));
-  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure];
+  gates.push('Record model rights review, full weight/tokenizer/template/runtime bundle, trusted revisions and hashes; evaluate English, Arabic and domain slices with raw outputs and passed/total denominators on the exact build. A better score cannot authorize an external fallback.');
+  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure,MODS.models];
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
   if(['essential','owned','strong'].includes(v.portability))lessons.push(MODS.agents);
   lessons.push(MODS.security,MODS.regulation,MODS.governance);
@@ -358,7 +360,7 @@ export function createChallenges(raw={}) {
     qs.push({id:'operations',dimension:'Operational',question:'A platform hosts the model in an approved location. What demonstrates operational control?',options:[choice('The marketing term sovereign.','Marketing wording is not access evidence.'),choice('A photograph of the data center.','Location does not establish who can administer it.'),choice('Privileged identities, actual support paths, key custody and tested access policies.','Correct. Operational authority requires enforceable and inspectable controls.')],correct:2,root:'Substituting a location assertion for operational access evidence.',action:'Review privileged roles, normal/degraded/recovery support paths and IaC state; execute a negative authorization test.',lesson:MODS.infrastructure});
   }
   if(['essential','owned','strong'].includes(v.portability)){
-    qs.push({id:'portability',dimension:'Technological',question:'Your local platform uses portable model files. Does that alone guarantee a vendor exit?',options:[choice('No. Rehearse a rebuild and migration using the actual license, runtime, integrations and dependencies.','Correct. A weight file is one input to a complete migration.'),choice('Yes. Model weight format guarantees every application will behave identically.','Serving, tokenizers, guardrails, tooling and performance can differ.'),choice('Yes, because on-premises deployments have no supply-chain dependencies.','Local hardware, packages and vendor support remain dependencies.')],correct:0,root:'Mistaking one portable artifact for an operable exit plan.',action:'Run an offline or authorized migration rehearsal with timing, quality and licensing checks.',lesson:MODS.agents});
+    qs.push({id:'portability',dimension:'Technological',question:'Your local platform uses portable model files. Does that alone guarantee a vendor exit?',options:[choice('No. Rehearse a rebuild and migration using the actual license, runtime, integrations and dependencies.','Correct. A weight file is one input to a complete migration.'),choice('Yes. Model weight format guarantees every application will behave identically.','Serving, tokenizers, guardrails, tooling and performance can differ.'),choice('Yes, because on-premises deployments have no supply-chain dependencies.','Local hardware, packages and vendor support remain dependencies.')],correct:0,root:'Mistaking one portable artifact for an operable exit plan.',action:'Reconstruct the reviewed weight/tokenizer/template/runtime bundle; repeat task and language-slice tests with denominators, timing and rights checks, including cold restart without an external fallback.',lesson:MODS.models});
   } else {
     qs.push({id:'portability',dimension:'Technological',question:'Provider exit is a lower-priority requirement. What should still be recorded?',options:[choice('Nothing; this removes all dependency risk.','A deferred risk is still an owned decision.'),choice('The accepted dependency, estimated exit effort, owner and review trigger.','Correct. Transparent trade-offs support future decisions.'),choice('A guarantee that exit will always be easy.','An untested guarantee is not meaningful evidence.')],correct:1,root:'Treating a prioritized-down risk as nonexistent.',action:'Record the dependency and review trigger in the decision log.',lesson:MODS.ontology});
   }
