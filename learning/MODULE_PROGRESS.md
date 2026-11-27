@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 27 November 2026. Read the specific reviews before claiming approval. Nine of 24 module packages are authored and published with their stated review status. Fifteen modules remain to author, including capstone Modules 22–24.
+Updated 27 November 2026. Read the specific reviews before claiming approval. Ten of 24 module packages are authored and published with their stated review status. Fourteen modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 10 Sovereign Cloud & Deployment Patterns. Reuse the Module 08 artifact/retention contract and Module 09 compute evidence in placement and operating-model decisions. Continue later modules while retaining Module 04 HOLD and Module 05–09 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Next substantive module: Module 11 Sovereign Models & Model Strategy. Reuse Module 10 deployment admissibility, Module 08 artifact/retention controls and Module 09 compute evidence when choosing models and operating patterns. Continue later modules while retaining Module 04 HOLD and Module 05–10 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -62,9 +62,13 @@ Local checks: 141 lab tests across Modules 01–09 (25 new); 49 curriculum check
 
 Two separate author reviews are in `reviews/module-09/`. Independent/manual assessment/accessibility, real GPU/Kubernetes validation, actual model performance, physical residency and production assurance remain pending. Preserve Module 04 HOLD. Next substantive authoring after observed publication: Module 10 Sovereign Cloud & Deployment Patterns.
 
-## Module 10 release candidate, 27 November 2026
+## Module 10 published educational draft, 27 November 2026
 
-Ten packages are source-authored; nine have observed publication evidence above. Module 10 awaits matching PR checks, merge, Pages success and live verification. Do not count it as published yet.
+Ten packages are source-authored and observed published; fourteen remain. This is not a count of independently approved modules.
+
+[PR #18](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/18) merged as [d5cab9a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/d5cab9a19b56ad8eca899a3de92597d261ccf358). Final-head [Module 10 CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45971819158), [Studio CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45971819121) and Module 05–09 regression workflows succeeded before merge. Matching [Pages run 45972204886](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45972204886) and [main Studio run 45972204846](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45972204846) succeeded. Fifteen live routes returned HTTP 200; downloadable scripts/fixture, engine, carousel, diagram, ontology and release records matched source bytes. All seven topics, educational-draft label, 240 study-hour controls, Module 11 planned status and eight-page portrait PDF were verified. Live mobile Chromium checked chapter/lab/ADR/carousel without horizontal overflow, all 26 workloads/21 presets, the actual missed-answer link to Module 10 and a downloaded journal retaining related lessons. The diagram also loaded with JavaScript disabled; no page errors were observed.
+
+All eight workflows now use Ubuntu 24.04 explicitly. An initial Ubuntu 26.04 dependency installation failed with an upstream package-repository HTTP 403 before tests ran; the supported runner pin was followed by successful final-head gates, including the real Linux Docker regression. This does not establish full build reproducibility.
 
 Artifacts: seven-topic deployment lesson; four inspected primary sources with short exact excerpts; editable three-candidate/gate SVG; offline standard-library declaration checker and deterministic recovery simulation; thirty lab tests; distinct bank deployment scorecard/ADR with 20-point rubric; separate Q1–Q6 key with 40-point rubric; eight-question HTML carousel/post and actual eight-page PDF export. Prices, fit scores, locations and timeline values are invented. No cloud, database restoration, Terraform executable, actual site, provider capability or legal applicability was verified.
 
