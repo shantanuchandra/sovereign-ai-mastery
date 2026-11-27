@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 27 November 2026. Read the specific reviews before claiming approval. Seven of 24 module packages are authored and published with their stated review status. Seventeen modules remain to author, including capstone Modules 22–24.
+Updated 27 November 2026. Read the specific reviews before claiming approval. Eight of 24 module packages are authored and published with their stated review status. Sixteen modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 08 Data Sovereignty & Engineering. Carry the architecture lifecycle IDs into classification, lineage, embeddings, retention and deletion. Continue later modules while retaining Module 04 HOLD and Module 05/06 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Next substantive module: Module 09 GPUs, Compute, Networking & Platform Engineering. Reuse the Module 08 artifact/retention contract in capacity and isolation decisions. Continue later modules while retaining Module 04 HOLD and Module 05–08 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -34,9 +34,11 @@ Local evidence: 40-page build with installed and CI-fallback renderer; 97 lab te
 Source-authored and published-package counts are seven. This is not a count of independently approved modules. Preserve Module 04 HOLD and Module 05–07 draft limitations. Next substantive module: Module 08 Data Sovereignty & Engineering. Do not restart the completed Module 07 authoring work.
 
 
-## Module 08 release candidate, 27 November 2026
+## Module 08 published educational draft, 27 November 2026
 
-Eight module packages are now source-authored; seven have observed publication evidence above. Module 08 is on `feat/module-08-data-engineering` pending PR checks, merge and matching Pages/live verification. Do not count it as published until those observations are recorded.
+[PR #14](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/14) merged as [1b9bd3a](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/1b9bd3af949a27b708bd1fc3ead4b90c848e573c). Final-head [Module 08 CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45949156478), [Studio CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45949156379) and Module 05/06/07 regression workflows passed before merge. Matching [Pages run 45949401841](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45949401841) and [main Studio run 45949401842](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45949401842) succeeded. Thirteen live routes returned HTTP 200; engine, pipeline, fixture, carousel, SVG and downloadable ontology matched source bytes. All seven topics, draft label, 240 study hours, Module 09 planned state and eight-page portrait PDF were verified. Live mobile Chromium confirmed the chapter, Studio lesson navigation and carousel without horizontal document overflow.
+
+Eight packages are source-authored and observed published; sixteen remain. This is not a count of independently approved modules.
 
 Artifacts: all seven data-engineering topics; four inspected primary sources with short quotations; static lineage/retirement SVG; actual SQLite ingestion/retrieval pipeline with four synthetic formats and 19 tests; data-control specification and 20-point PM rubric; separate Q1–Q6 key and 40-point rubric; eight-question HTML deck/post and eight-page portrait PDF export. The lab uses lexical vectors, a caller-supplied trusted tenant scope and historical fixture clock, not authentication, semantic embeddings or secure erasure. Unknown copies and actual physical residency remain unverified.
 
@@ -44,4 +46,4 @@ Studio links now reach the authored Module 08 lesson. Retrieval and backup test 
 
 Local verification: 116 lab tests across Modules 01–08; 46 curriculum checks; 35 Node Studio checks; installed and CI-fallback 45-page static builds; seven Studio browser tests and six reader/study-plan browser tests. Module 08 reader/lab/control-spec/post reflow passed at 1280/390/320 px; its SVG loaded with JavaScript disabled. All eight slide previews, a mobile slide, chapter and complete SVG were inspected. Deck checks cover reflow, actual print overflow, keyboard link, eight pages at 8×10 inches and extractable question text. PDF remains untagged.
 
-Two separate author self-audits are in `reviews/module-08/`; independent assessment/different-model review, manual screen-reader/zoom/contrast and production validation are NOT COMPLETED. This educational draft does not lift Module 04 HOLD or earlier draft limitations. Next substantive authoring after observed publication: Module 09 compute, networking and platform engineering.
+Two separate author self-audits are in `reviews/module-08/`; independent assessment/different-model review, manual screen-reader/zoom/contrast and production validation are NOT COMPLETED. This educational draft does not lift Module 04 HOLD or earlier draft limitations. Next substantive authoring: Module 09 compute, networking and platform engineering. Do not repeat the completed Module 08 authoring package.

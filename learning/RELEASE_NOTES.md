@@ -31,3 +31,10 @@ Subgroup threshold comparisons use exact counts/decimal criteria to avoid a bina
 ## Module 07 architecture release candidate | 2026-11-25
 
 Completed the physical-to-application teaching package and graph lab with four responsibility planes and fourteen lifecycle purposes. Added primary-source ledger, ADR, separate assessment/RCA key, static SVG, eight-question HTML carousel/post and PDF pipeline. Studio architecture remediation and journal exports now link to Module 07; saved-answer identities and hard gates remain unchanged. The 240-hour plan links the authored lesson and retains Module 08 as planned. Independent/manual review remains pending. See MODULE_PROGRESS.md for the release checkpoint.
+
+
+## Module 08 educational draft, 27 November 2026
+
+Published the seven-topic data-engineering lesson, synthetic SQLite ingestion/retrieval and retirement/recovery lab, data-control specification, separate six-question assessment key, static lineage SVG and eight-question HTML/PDF teaching deck. The 19 lab tests demonstrate bounded logical controls, not authentication, semantic embedding quality, anonymity, physical residency or secure erasure.
+
+Studio data feedback and exports now link to the authored lesson. Retrieval and backup guidance includes identity-derived scope, expiry before ranking and current retirement decisions after restoring older snapshots. Downloadable and reader ontologies share the new lifecycle entities. Saved-answer IDs, scoring and storage version remain unchanged. Module 09 remains planned in the 240-hour study plan. Independent assessment and manual accessibility review remain pending; Module 04 HOLD is preserved. See [the progress record](MODULE_PROGRESS.md) for PR, CI, live verification and next-module evidence.
