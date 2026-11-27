@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.3 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.4 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -154,3 +154,17 @@ Course-authored extension, 27 November 2026. Resource declarations, arithmetic a
 | ReplicaPlan | Active/spare counts, placement, shared dependencies, failure case | Supports capacity and recovery planning; co-located processes share failure domains |
 
 A resource allocation does not authorize another tenant's data access. A favorable supplied test declaration still requires evidence review. Preserve DataArtifact/RetentionRule handling across replicas, diagnostics and recovery. The [Module 09 lesson](../chapters/09-gpus-compute-networking-platform-engineering.md) and [compute worksheet](../labs/module-09/WORKSHEET.md) connect this model to executable synthetic exercises.
+
+
+## 10. Module 10 deployment and recovery extension
+
+These course-authored entities separate deployment labels, enforceable requirements and bounded evidence.
+
+| Entity | Properties | Relationship and limit |
+|---|---|---|
+| DeploymentCandidate | Build, lifecycle routes, operator model, connectivity, evidence kind | Places infrastructure; not discovered configuration |
+| PlacementRule | Scope, allowed site/country, operators, network constraint | Constrains a candidate; country and premises differ |
+| RecoveryObjective | Failure scope, RTO, RPO, business owner | Constrains a candidate; objectives are requirements |
+| RecoveryExercise | Build, checkpoint, failure, restoration, evidence kind | Tests an objective; simulation is not measured restoration |
+
+Inventory administrative artifacts such as IaC state and preserve DataArtifact/RetentionRule handling in recovery. A preference score cannot clear a known conflict. See the [deployment lesson](../chapters/10-sovereign-cloud-deployment-patterns.md) and [bank scorecard/ADR](../labs/module-10/ADR.md).

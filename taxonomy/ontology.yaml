@@ -1,4 +1,4 @@
-version: '1.3.0'
+version: '1.4.0'
 status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-27'
 maintainer: Sovereign AI Mastery
@@ -39,6 +39,10 @@ classes:
   - Workload
   - ProcessingActivity
   - Dataset
+  - DeploymentCandidate
+  - PlacementRule
+  - RecoveryObjective
+  - RecoveryExercise
   - ComputeProfile
   - CapacityBudget
   - LoadObservation
@@ -73,7 +77,16 @@ compute_properties:
   CapacityBudget: [placement, available_memory, runtime_allocation, added_margin]
   LoadObservation: [candidate_build, load_method, duration, successes, errors, latency_population]
   ReplicaPlan: [active_count, spare_count, placement, shared_dependencies, failure_case]
+deployment_properties:
+  DeploymentCandidate: [candidate_build, lifecycle_routes, operator_model, connectivity, evidence_kind]
+  PlacementRule: [scope, allowed_site_or_country, operators, network_constraint]
+  RecoveryObjective: [failure_scope, rto, rpo, business_owner]
+  RecoveryExercise: [candidate_build, checkpoint, failure, restoration, evidence_kind]
 relations:
+  - [DeploymentCandidate, places, InfrastructureService]
+  - [PlacementRule, constrains, DeploymentCandidate]
+  - [RecoveryObjective, constrains, DeploymentCandidate]
+  - [RecoveryExercise, tests, RecoveryObjective]
   - [ComputeProfile, describes, Workload]
   - [CapacityBudget, allocates_for, ComputeProfile]
   - [LoadObservation, tests, ComputeProfile]
@@ -113,6 +126,8 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - A deployment label or preference score cannot clear a known placement or connectivity conflict.
+  - Simulated recovery time and point do not establish achieved production recovery objectives.
   - Resource allocation does not grant data access or establish physical placement.
   - Successful-only latency must be considered alongside the error denominator.
   - A replica count does not establish independent recovery or availability.

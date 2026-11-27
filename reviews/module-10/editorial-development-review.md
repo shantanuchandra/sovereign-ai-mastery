@@ -1,0 +1,11 @@
+# Module 10 editorial, accessibility and assessment author review
+
+27 November 2026. Separate same-author assistant editorial self-critique; not a human, independent or different-model review.
+
+All seven syllabus topics have teaching sections, a taxonomy/ontology extension, a fictional UAE bank comparison, explicit deployment diagrams, a reproducible local declaration/simulation lab, a distinct scorecard/ADR and separate assessment/PM rubrics. Q1–Q5 test different decisions; the real-product Q5 distinguishes AWS documentation from the hypothetical customer. Q6 separates initial simulation, untested actual deployment and an observed fictional failed drill, with diagnostic hypotheses, accountable owners, containment and a planned 30 November retest in the separate key. Source facts, invented prices/preferences/times and unavailable production evidence are labeled.
+
+The question-led carousel has eight semantic slide headings, visible scope/source notes and an HTML-first reading route. Social copy contains no em dash. All eight slide previews, the full deployment SVG and a mobile chapter screenshot were inspected. The slides and diagram have readable hierarchy, no observed clipping and textual blocked/review labels; the diagram does not rely solely on color. The same local carousel framework checks actual reflow at 1280/390/320 px, overflow-detector mutation, keyboard link focus, print overflow and an eight-page 8×10-inch PDF with extractable question text.
+
+Reader tests cover the Module 10 chapter/lab/ADR/post at 1280/390/320 px, diagram display with JavaScript disabled and all 240 study controls. Existing local progress, corrupt/denied storage, actual export and explicit-only GitHub note loading remain tested. Studio browser checks retain all 26 workload options, 21 presets, saved first attempts/follow-ups and physical hard gates. Installed and CI-fallback builds each generate 55 HTML pages; answer keys remain excluded.
+
+Manual screen-reader, 200% zoom, manual contrast and tagged-PDF reading order: NOT COMPLETED. The PDF remains untagged; HTML is preferred. Independent learner assessment/different-model critique: NOT COMPLETED. No real infrastructure or legal approval is implied by editorial or automated checks. The technical review is a separately documented same-author audit, not independent assurance.

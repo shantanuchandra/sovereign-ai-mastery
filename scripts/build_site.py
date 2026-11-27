@@ -54,6 +54,9 @@ def article_content(path,dest,diagram=False):
       'labs/module-05/README.md':'labs/module-05/index.html',
       'labs/module-06/README.md':'labs/module-06/index.html',
       'labs/module-09/README.md':'labs/module-09/index.html',
+      'labs/module-10/README.md':'labs/module-10/index.html',
+      'labs/module-10/ADR.md':'labs/module-10/ADR.html',
+      'social/module-10/POST.md':'social/module-10/POST.html',
       'labs/module-09/WORKSHEET.md':'labs/module-09/WORKSHEET.html',
       'social/module-09/POST.md':'social/module-09/POST.html',
       'labs/module-08/README.md':'labs/module-08/index.html',
@@ -95,6 +98,7 @@ def article_content(path,dest,diagram=False):
     # The Markdown remains the canonical editable Mermaid source.
     source_key=path.relative_to(ROOT).as_posix()
     diagram_assets={
+      'chapters/10-sovereign-cloud-deployment-patterns.md': ('diagrams/module-10-deployment.svg','Three fictional deployment patterns compared against placement, operator and recovery gates. Local-private requires review; off-site managed and hybrid paths remain blocked under the stated premises-only rule.'),
       'chapters/09-gpus-compute-networking-platform-engineering.md': ('diagrams/module-09-capacity.svg','Workload and lifecycle constraints pass through physical gates, per-replica memory and load/spare arithmetic, then candidate-build tests and evidence review'),
       'chapters/08-data-sovereignty-engineering.md': ('diagrams/module-08-lineage.svg','Source, derived chunks and lexical vectors, tenant-scoped retrieval and registered snapshots governed by a separate protected retirement ledger'),
       'chapters/01-sovereign-ai-fundamentals.md': ('diagrams/module-01-claim-chain.svg','Sovereignty claim evidence chain'),
@@ -298,6 +302,9 @@ def main():
       ('labs/module-05/README.md','labs/module-05/index.html','module05','Module 05 lab'),
       ('labs/module-06/README.md','labs/module-06/index.html','module06','Module 06 governance lab'),
       ('labs/module-09/README.md','labs/module-09/index.html','module09','Module 09 compute lab'),
+      ('labs/module-10/README.md','labs/module-10/index.html','module10','Module 10 deployment lab'),
+      ('labs/module-10/ADR.md','labs/module-10/ADR.html','module10','Deployment scorecard and ADR'),
+      ('social/module-10/POST.md','social/module-10/POST.html','module10','Deployment decisions post'),
       ('labs/module-09/WORKSHEET.md','labs/module-09/WORKSHEET.html','module09','Compute-sizing worksheet'),
       ('social/module-09/POST.md','social/module-09/POST.html','module09','Compute decisions post'),
       ('labs/module-08/README.md','labs/module-08/index.html','module08','Module 08 data lifecycle lab'),
