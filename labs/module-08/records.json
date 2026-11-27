@@ -1,0 +1,57 @@
+[
+  {
+    "site": "PLANT-A",
+    "country": "UAE",
+    "preprocess_site": "PLANT-A",
+    "transport": "local",
+    "classification": "restricted",
+    "owner": "fictional data steward",
+    "expires": "2026-12-01",
+    "id": "manual_a",
+    "tenant": "plant_a",
+    "format": "text",
+    "body": "Pump pressure inspection follows the approved fictional maintenance manual."
+  },
+  {
+    "site": "PLANT-A",
+    "country": "UAE",
+    "preprocess_site": "PLANT-A",
+    "transport": "local",
+    "classification": "restricted",
+    "owner": "fictional data steward",
+    "expires": "2026-12-01",
+    "id": "manual_b",
+    "tenant": "plant_b",
+    "format": "record",
+    "body": {
+      "title": "Pump pressure",
+      "body": "Synthetic tenant B procedure is restricted to tenant B."
+    }
+  },
+  {
+    "site": "PLANT-A",
+    "country": "UAE",
+    "preprocess_site": "PLANT-A",
+    "transport": "local",
+    "classification": "restricted",
+    "owner": "fictional data steward",
+    "expires": "2026-12-01",
+    "id": "scan_a",
+    "tenant": "plant_a",
+    "format": "ocr",
+    "body": "Synthetic pre-extracted scan: valve inspection requires operator review."
+  },
+  {
+    "site": "PLANT-A",
+    "country": "UAE",
+    "preprocess_site": "PLANT-A",
+    "transport": "local",
+    "classification": "restricted",
+    "owner": "fictional data steward",
+    "expires": "2026-12-01",
+    "id": "speech_a",
+    "tenant": "plant_a",
+    "format": "transcript",
+    "body": "Synthetic pre-written transcript: افحص الصمام قبل التشغيل"
+  }
+]

@@ -149,6 +149,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 08 — Data Sovereignty & Engineering (Week 8)
 
+[Read the educational draft](chapters/08-data-sovereignty-engineering.md). Independent assessment and manual accessibility review pending.
+
 8.1 Data classification, ownership, governance, and stewardship  
 8.2 Data acquisition, pipelines, storage, transformations, and cataloging  
 8.3 Structured, unstructured, and multimodal data  

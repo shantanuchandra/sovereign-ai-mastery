@@ -140,7 +140,7 @@ const control=(id,dimension,claim,implementation,test,evidence='UNVERIFIED')=>({
 const MODS=Object.freeze({
   foundations:{label:'Module 01: bounded sovereignty claims',url:'../modules/01-sovereign-ai-fundamentals.html'},
   ontology:{label:'Sovereignty taxonomy and ontology',url:'../taxonomy/ONTOLOGY.html'},
-  data:{label:'Module 08: data boundaries (syllabus)',url:'../curriculum.html#module-08'},
+  data:{label:'Module 08: data lineage, retention and recovery',url:'../modules/08-data-sovereignty-engineering.html'},
   infrastructure:{label:'Module 10: cloud and deployment (syllabus)',url:'../curriculum.html#module-10'},
   agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
@@ -158,11 +158,11 @@ function createFlows(v,blocked){
   const network=offline?'NONE':v.connectivity==='isolated'?'LOCAL_ONLY':'APPROVED_DESTINATIONS';
   const rows=[
     ['ingestion','Source ingestion','Source files, uploads and staging copies','Enterprise data owner','Trace staging, scanning and temporary files; reject unauthorized destinations.'],
-    ['retrieval','Retrieval and embeddings','Chunks, embeddings, vector indexes and query context','Data platform lead','Trace embedding calls and index replicas, including failed requests and re-indexing.'],
+    ['retrieval','Retrieval and embeddings','Chunks, embeddings, vector indexes and query context','Data platform lead','Trace embedding calls and index replicas, including failed requests and re-indexing; derive tenant scope from verified identity and apply expiry before ranking.'],
     ['inference','Model inference','Prompts, context, generated tokens and inference caches','Model serving lead','Exercise timeouts and failover; ensure no prohibited external model fallback.'],
     ['outputs','Application outputs','Responses, reports, downloads and conversation history','Application owner','Test response access, export permissions, retention and temporary output files.'],
     ['telemetry','Observability and evaluation','Logs, traces, crash reports, evaluation sets and metrics','Security operations lead','Trigger a synthetic error and inspect log collectors, telemetry queues and diagnostic exports.'],
-    ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Restore a synthetic backup and verify every replica and recovery destination.'],
+    ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Restore an old synthetic snapshot with a separate protected retirement ledger; confirm retired source rows, chunks and vectors stay excluded, and inspect every replica and recovery destination.'],
     ['support','Administration and support','Admin sessions, screen captures and support bundles','Identity and support lead',local?'Deny remote support and test on-site access; keep restricted diagnostic bundles within approved premises.':'Exercise break-glass access and inspect provider support and subprocessor paths.'],
     ['updates','Model and software updates','Weights, packages, signatures and dependency manifests','Supply chain lead',offline?'Test signed inbound offline media, malware inspection and rollback; prohibit restricted exports through removable media.':'Verify approved update sources, signatures and rollback; ensure updaters cannot upload restricted artifacts.'],
     ['licensing','Licensing and service dependencies','Activation, entitlement checks, identity and key services','Platform operations lead',offline?'Test offline activation, cold restart and restore without any network, including licence renewal and identity dependencies.':'Test restart, licence renewal, key access and identity outages; trace any external activation request.']
