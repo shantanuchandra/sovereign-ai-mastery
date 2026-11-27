@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.4 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.5 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -168,3 +168,16 @@ These course-authored entities separate deployment labels, enforceable requireme
 | RecoveryExercise | Build, checkpoint, failure, restoration, evidence kind | Tests an objective; simulation is not measured restoration |
 
 Inventory administrative artifacts such as IaC state and preserve DataArtifact/RetentionRule handling in recovery. A preference score cannot clear a known conflict. See the [deployment lesson](../chapters/10-sovereign-cloud-deployment-patterns.md) and [bank scorecard/ADR](../labs/module-10/ADR.md).
+
+## Module 11 model-strategy extension, version 1.5
+
+Course-authored framework, not a legal classification or certification. The existing ModelArtifact includes revision, trusted hashes, tokenizer, template, runtime and adapters.
+
+| Entity | Minimum fields | Relationship |
+|---|---|---|
+| LicenseReview | Reviewer, entity, intended use, terms revision, disposition | Evaluates ModelArtifact |
+| EvaluationSlice | Language, task, criterion, passed/total | Measured by ModelRun |
+| ModelRun | Artifact build, runtime/settings, raw outputs, environment | Uses ModelArtifact |
+| ExitRehearsal | Source/reconstructed build, boundary, task regression | Reconstructs ModelArtifact |
+
+Weights access does not establish scoped rights or system openness. Missing language denominators remain unverified. Bundle changes invalidate reliance on old observations; favourable quality never clears a known boundary conflict. See [Module 11](../chapters/11-sovereign-models-model-strategy.md).

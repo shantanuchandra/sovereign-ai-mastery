@@ -1,0 +1,23 @@
+{
+  "site": "BANK-A",
+  "network": false,
+  "remote_operator": false,
+  "license_review": true,
+  "provenance": true,
+  "build": "fictional-demo1",
+  "evaluated_build": "fictional-demo1",
+  "rows": [
+    {
+      "id": "en1",
+      "language": "en",
+      "expected": "LOCAL",
+      "output": "LOCAL"
+    },
+    {
+      "id": "ar1",
+      "language": "ar",
+      "expected": "محلي",
+      "output": "محلي"
+    }
+  ]
+}

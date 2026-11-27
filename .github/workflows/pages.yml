@@ -48,6 +48,11 @@ jobs:
         run: |
           python -m unittest discover -s labs/module-10 -p 'test_*.py' -v
           python labs/module-10/compare.py > /tmp/module10-decisions.json
+      - name: Validate Module 11 model evaluation and observed evidence
+        run: |
+          python -m unittest discover -s labs/module-11 -p 'test_*.py' -v
+          python labs/module-11/check_run.py labs/module-11/observed-local-run.json
+          python labs/module-11/evaluate.py labs/module-11/candidate.json > /tmp/module11-decisions.json
       - name: Validate Module 08 data lifecycle lab
         run: python -m unittest discover -s labs/module-08 -p 'test_*.py' -v
       - name: Validate Module 07 architecture lab
@@ -115,6 +120,11 @@ jobs:
           python -m unittest discover -s qa -p 'test_module10_learning_contract.py' -v
           python social/module-10/test_rendered_carousel.py
           python social/module-10/export_pdf.py
+      - name: Verify Module 11 reader and portrait PDF
+        run: |
+          python -m unittest discover -s qa -p 'test_module11_learning_contract.py' -v
+          python social/module-11/test_rendered_carousel.py
+          python social/module-11/export_pdf.py
       - name: Verify Module 08 reader and portrait PDF
         run: |
           python -m unittest discover -s qa -p 'test_module08_learning_contract.py' -v

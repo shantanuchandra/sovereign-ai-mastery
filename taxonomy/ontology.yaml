@@ -1,4 +1,4 @@
-version: '1.4.0'
+version: '1.5.0'
 status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-27'
 maintainer: Sovereign AI Mastery
@@ -54,6 +54,10 @@ classes:
   - Tombstone
   - Replica
   - ModelArtifact
+  - LicenseReview
+  - EvaluationSlice
+  - ModelRun
+  - ExitRehearsal
   - InfrastructureService
   - Identity
   - CryptographicKey
@@ -82,7 +86,17 @@ deployment_properties:
   PlacementRule: [scope, allowed_site_or_country, operators, network_constraint]
   RecoveryObjective: [failure_scope, rto, rpo, business_owner]
   RecoveryExercise: [candidate_build, checkpoint, failure, restoration, evidence_kind]
+model_properties:
+  ModelArtifact: [revision, hashes, tokenizer, template, runtime, adapters]
+  LicenseReview: [reviewer, entity, intended_use, terms_revision, disposition]
+  EvaluationSlice: [language, task, criterion, passed, total]
+  ModelRun: [artifact_build, runtime, settings, raw_outputs, environment]
+  ExitRehearsal: [source_build, reconstructed_build, boundary, task_regression]
 relations:
+  - [LicenseReview, evaluates, ModelArtifact]
+  - [ModelRun, uses, ModelArtifact]
+  - [ModelRun, measures, EvaluationSlice]
+  - [ExitRehearsal, reconstructs, ModelArtifact]
   - [DeploymentCandidate, places, InfrastructureService]
   - [PlacementRule, constrains, DeploymentCandidate]
   - [RecoveryObjective, constrains, DeploymentCandidate]
@@ -126,6 +140,9 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - A downloaded weight file does not establish scoped permission or complete system openness.
+  - Missing language denominators cannot be treated as a successful subgroup evaluation.
+  - A changed tokenizer or template requires a new evaluated build identity.
   - A deployment label or preference score cannot clear a known placement or connectivity conflict.
   - Simulated recovery time and point do not establish achieved production recovery objectives.
   - Resource allocation does not grant data access or establish physical placement.

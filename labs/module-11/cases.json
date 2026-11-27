@@ -1,0 +1,10 @@
+[
+ {"id":"en1","language":"en","prompt":"Reply with only the city name. What is the capital of France?","expected":"Paris"},
+ {"id":"en2","language":"en","prompt":"Reply with only the number. What is 2 plus 2?","expected":"4"},
+ {"id":"en3","language":"en","prompt":"Copy exactly this label and nothing else: LOCAL","expected":"LOCAL"},
+ {"id":"en4","language":"en","prompt":"Policy: files stay in BANK-A. Reply with only the site name. Where must files stay?","expected":"BANK-A"},
+ {"id":"ar1","language":"ar","prompt":"أجب باسم المدينة فقط. ما عاصمة فرنسا؟","expected":"باريس"},
+ {"id":"ar2","language":"ar","prompt":"أجب بالرقم فقط. ما حاصل جمع 2 و 2؟","expected":"4"},
+ {"id":"ar3","language":"ar","prompt":"انسخ هذه الكلمة فقط دون إضافة: محلي","expected":"محلي"},
+ {"id":"ar4","language":"ar","prompt":"السياسة: تبقى الملفات في BANK-A. أجب باسم الموقع فقط. أين تبقى الملفات؟","expected":"BANK-A"}
+]

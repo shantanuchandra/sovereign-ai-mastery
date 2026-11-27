@@ -1,0 +1,124 @@
+{
+  "started_utc": "2026-11-27T10:06:55.144213+00:00",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "artifact_hashes": {
+    "README.md": "4f97533ad95b1b2fea15fbc075c01b94578ebdd7c8138888fa43fa3abd530dc4",
+    "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+    "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+    "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+    "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+    "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+    "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+    "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+    "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+  },
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "python": "3.13.9",
+  "torch": "2.9.1",
+  "transformers": "4.57.3",
+  "device": "cpu",
+  "dtype": "float32",
+  "threads": 2,
+  "max_new_tokens": 24,
+  "do_sample": false,
+  "load_seconds": 0.174789,
+  "network_guard": "Python connect/create_connection/getaddrinfo denied; not OS isolation",
+  "rows": [
+    {
+      "id": "en1",
+      "language": "en",
+      "prompt": "Reply with only the city name. What is the capital of France?",
+      "expected": "Paris",
+      "output": "The capital of France is Paris.",
+      "input_tokens": 45,
+      "generated_tokens": 8,
+      "seconds": 0.146217
+    },
+    {
+      "id": "en2",
+      "language": "en",
+      "prompt": "Reply with only the number. What is 2 plus 2?",
+      "expected": "4",
+      "output": "2 + 2 is 4.",
+      "input_tokens": 45,
+      "generated_tokens": 9,
+      "seconds": 0.109025
+    },
+    {
+      "id": "en3",
+      "language": "en",
+      "prompt": "Copy exactly this label and nothing else: LOCAL",
+      "expected": "LOCAL",
+      "output": "I'm a helpful AI assistant named SmolLM, trained by Hugging Face",
+      "input_tokens": 41,
+      "generated_tokens": 17,
+      "seconds": 0.199609
+    },
+    {
+      "id": "en4",
+      "language": "en",
+      "prompt": "Policy: files stay in BANK-A. Reply with only the site name. Where must files stay?",
+      "expected": "BANK-A",
+      "output": "The policy states that files must be kept in the Bank-A. Reply with only the site name.",
+      "input_tokens": 53,
+      "generated_tokens": 23,
+      "seconds": 0.26776
+    },
+    {
+      "id": "ar1",
+      "language": "ar",
+      "prompt": "أجب باسم المدينة فقط. ما عاصمة فرنسا؟",
+      "expected": "باريس",
+      "output": "أجب باسم المدينة فقط. ما ع",
+      "input_tokens": 67,
+      "generated_tokens": 24,
+      "seconds": 0.295981
+    },
+    {
+      "id": "ar2",
+      "language": "ar",
+      "prompt": "أجب بالرقم فقط. ما حاصل جمع 2 و 2؟",
+      "expected": "4",
+      "output": "أجب بالرقم فقط. ما حاصل",
+      "input_tokens": 65,
+      "generated_tokens": 24,
+      "seconds": 0.280386
+    },
+    {
+      "id": "ar3",
+      "language": "ar",
+      "prompt": "انسخ هذه الكلمة فقط دون إضافة: محلي",
+      "expected": "محلي",
+      "output": "أنها أن الكلمة فقط دون إ",
+      "input_tokens": 65,
+      "generated_tokens": 24,
+      "seconds": 0.28708
+    },
+    {
+      "id": "ar4",
+      "language": "ar",
+      "prompt": "السياسة: تبقى الملفات في BANK-A. أجب باسم الموقع فقط. أين تبقى الملفات؟",
+      "expected": "BANK-A",
+      "output": "بالملفات الموقع الأجبيلية. �",
+      "input_tokens": 95,
+      "generated_tokens": 24,
+      "seconds": 0.284295
+    }
+  ],
+  "exact_match": {
+    "en": {
+      "passed": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "ar": {
+      "passed": 0,
+      "total": 4,
+      "rate": 0.0
+    }
+  },
+  "status": "REVIEW_REQUIRED",
+  "limits": "Eight synthetic cases, four per language; exact labels only, no production accuracy, p95, security or residency claim"
+}
