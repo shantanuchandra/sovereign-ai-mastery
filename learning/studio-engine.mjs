@@ -142,7 +142,7 @@ const MODS=Object.freeze({
   ontology:{label:'Sovereignty taxonomy and ontology',url:'../taxonomy/ONTOLOGY.html'},
   data:{label:'Module 08: data lineage, retention and recovery',url:'../modules/08-data-sovereignty-engineering.html'},
   compute:{label:'Module 09: memory, capacity and failure evidence',url:'../modules/09-gpus-compute-networking-platform-engineering.html'},
-  infrastructure:{label:'Module 10: cloud and deployment (syllabus)',url:'../curriculum.html#module-10'},
+  infrastructure:{label:'Module 10: placement, operations and recovery evidence',url:'../modules/10-sovereign-cloud-deployment-patterns.html'},
   agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
   architecture:{label:'Module 07: architecture and control planes',url:'../modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html'},
@@ -163,7 +163,7 @@ function createFlows(v,blocked){
     ['inference','Model inference','Prompts, context, generated tokens and inference caches','Model serving lead','Measure candidate-build memory, successful throughput, p95 and errors under load and replica loss; exercise timeouts/failover without a prohibited external model fallback.'],
     ['outputs','Application outputs','Responses, reports, downloads and conversation history','Application owner','Test response access, export permissions, retention and temporary output files.'],
     ['telemetry','Observability and evaluation','Logs, traces, crash reports, evaluation sets and metrics','Security operations lead','Trigger a synthetic error and inspect log collectors, telemetry queues and diagnostic exports.'],
-    ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Restore an old synthetic snapshot with a separate protected retirement ledger; confirm retired source rows, chunks and vectors stay excluded, and inspect every replica and recovery destination.'],
+    ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Measure recovery point and restoration time separately for a named host/site failure and candidate build. Restore an old synthetic snapshot with a separate protected retirement ledger; confirm retired source rows, chunks and vectors stay excluded, and inspect every replica and recovery destination.'],
     ['support','Administration and support','Admin sessions, screen captures and support bundles','Identity and support lead',local?'Deny remote support and test on-site access; keep restricted diagnostic bundles within approved premises.':'Exercise break-glass access and inspect provider support and subprocessor paths.'],
     ['updates','Model and software updates','Weights, packages, signatures and dependency manifests','Supply chain lead',offline?'Test signed inbound offline media, malware inspection and rollback; prohibit restricted exports through removable media.':'Verify approved update sources, signatures and rollback; ensure updaters cannot upload restricted artifacts.'],
     ['licensing','Licensing and service dependencies','Activation, entitlement checks, identity and key services','Platform operations lead',offline?'Test offline activation, cold restart and restore without any network, including licence renewal and identity dependencies.':'Test restart, licence renewal, key access and identity outages; trace any external activation request.']
@@ -299,6 +299,7 @@ export function createBlueprint(raw={}) {
   else if(v.evidence==='tested'||v.evidence==='independent')gates.push('Review the actual outcomes, test scope, provenance and dates; their mere existence does not prove a passing control.');
   else gates.push('No inspected passing runtime test is available. All controls remain unverified.');
   gates.push('A capacity dropdown is not a benchmark: budget weights, context/KV and runtime memory, then inspect candidate-build load, error and replica-loss evidence.');
+  gates.push('Record separate RTO and RPO criteria, failure scope and candidate-build recovery evidence. Inventory IaC state, remote operators and normal/degraded/update/recovery paths; a score cannot clear forbidden placement or connectivity.');
   const territory=siteOnly?'No protected information, prompts, embeddings, telemetry, backups or diagnostics may leave the approved physical premises':'Declared destinations for inference, storage, processing and derivatives are enforced';
   const territorialTest=siteOnly?'Conduct isolated-network, DNS/proxy, update, failover, remote support, removable-media and backup-destination tests':'Trace prompts, logs, embeddings, support and failover destinations';
   const evidenceState=v.evidence==='adverse'?'NONCONFORMANCE_REPORTED':conflicts.length?'CONFLICT':(v.evidence==='tested'||v.evidence==='independent'?'REVIEW_REQUIRED':'UNVERIFIED');
@@ -321,9 +322,8 @@ export function createBlueprint(raw={}) {
     stage:critical?'Assurance, reliability and operational readiness require production validation.':'Prototype and pilot constraints are still enforceable.'
   };
   for(const [key,value] of Object.entries(v)) trace.push(step(key,`${key}: ${LABELS[key][value]}`,traces[key]));
-  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute];
+  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure];
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
-  if(siteOnly||owned||enterpriseCompute||v.capacity==='managed')lessons.push(MODS.infrastructure);
   if(['essential','owned','strong'].includes(v.portability))lessons.push(MODS.agents);
   lessons.push(MODS.security,MODS.regulation,MODS.governance);
   const architectures=[
@@ -355,7 +355,7 @@ export function createChallenges(raw={}) {
   } else if(v.operator==='enterprise'&&!['onsite_cpu','onsite_gpu','private_dc','gpu','colo'].includes(v.capacity)){
     qs.push({id:'operations',dimension:'Operational',question:'Enterprise-only operators are required but enterprise compute is unavailable. What decision is defensible?',options:[choice('Launch a provider-run platform and mark the requirement satisfied.','Provider-administered hosting does not automatically meet enterprise-only control.'),choice('Gate the prototype; acquire capacity or formally revise operating requirements.','Correct. Resolve the impossible operating assumption.'),choice('Disable administrative logging.','Removing evidence does not create capacity.')],correct:1,root:'Choosing an architecture before resolving operating authority.',action:'Document a blocking decision with owner and acceptance criterion.',lesson:MODS.compute});
   } else {
-    qs.push({id:'operations',dimension:'Operational',question:'A platform hosts the model in an approved location. What demonstrates operational control?',options:[choice('The marketing term sovereign.','Marketing wording is not access evidence.'),choice('A photograph of the data center.','Location does not establish who can administer it.'),choice('Privileged identities, actual support paths, key custody and tested access policies.','Correct. Operational authority requires enforceable and inspectable controls.')],correct:2,root:'Substituting a location assertion for operational access evidence.',action:'Review privileged roles and execute a negative authorization test.',lesson:MODS.security});
+    qs.push({id:'operations',dimension:'Operational',question:'A platform hosts the model in an approved location. What demonstrates operational control?',options:[choice('The marketing term sovereign.','Marketing wording is not access evidence.'),choice('A photograph of the data center.','Location does not establish who can administer it.'),choice('Privileged identities, actual support paths, key custody and tested access policies.','Correct. Operational authority requires enforceable and inspectable controls.')],correct:2,root:'Substituting a location assertion for operational access evidence.',action:'Review privileged roles, normal/degraded/recovery support paths and IaC state; execute a negative authorization test.',lesson:MODS.infrastructure});
   }
   if(['essential','owned','strong'].includes(v.portability)){
     qs.push({id:'portability',dimension:'Technological',question:'Your local platform uses portable model files. Does that alone guarantee a vendor exit?',options:[choice('No. Rehearse a rebuild and migration using the actual license, runtime, integrations and dependencies.','Correct. A weight file is one input to a complete migration.'),choice('Yes. Model weight format guarantees every application will behave identically.','Serving, tokenizers, guardrails, tooling and performance can differ.'),choice('Yes, because on-premises deployments have no supply-chain dependencies.','Local hardware, packages and vendor support remain dependencies.')],correct:0,root:'Mistaking one portable artifact for an operable exit plan.',action:'Run an offline or authorized migration rehearsal with timing, quality and licensing checks.',lesson:MODS.agents});
@@ -412,6 +412,8 @@ export function exportJournal(blueprint,qs,answers,reflection='',remediationAnsw
   lines.push('','### Data-flow register','','Required paths for review; these records are not observations or authorization.');
   for(const f of blueprint.flows)lines.push(`- **${f.name} / ${f.evidence}:** ${clean(f.artifacts)}. Destination: ${clean(f.destination)}. Network: ${f.network}. Owner: ${clean(f.owner)}. Test: ${clean(f.test)}`);
   lines.push('','### Unresolved gates');for(const g of blueprint.gates)lines.push('- '+clean(g));
+  lines.push('','### Related lessons');
+  for(const lesson of blueprint.lessons)lines.push(`- ${clean(lesson.label)} (${new URL(lesson.url,'https://shantanuchandra.github.io/sovereign-ai-mastery/learning/index.html').href})`);
   lines.push('','## Adaptive tutor review','');
   qs.forEach((q,i)=>{
     const a=answers[q.id],e=evaluateChallenge(q,a);

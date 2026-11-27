@@ -181,6 +181,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 10 — Sovereign Cloud & Deployment Patterns (Week 10)
 
+[Read the educational draft](chapters/10-sovereign-cloud-deployment-patterns.md). Independent assessment and manual accessibility review pending.
+
 10.1 Public cloud, sovereign-managed cloud, private cloud, and on-premises  
 10.2 Hybrid, edge, and distributed designs  
 10.3 Connected, restricted-connectivity, and air-gapped systems  

@@ -1,0 +1,441 @@
+{
+  "notice": "All locations, preferences, costs and timeline values are invented. No provider capability is claimed.",
+  "policy": {
+    "scope": "premises",
+    "site": "BANK-A",
+    "country": "AE",
+    "airgap": false,
+    "failure_scope": "host",
+    "allowed_operators": [
+      "enterprise",
+      "onsite_partner"
+    ],
+    "rto_minutes": 10,
+    "rpo_minutes": 2
+  },
+  "candidates": [
+    {
+      "id": "local-private",
+      "pattern": "Local-private on-premises",
+      "build": "fictional-v1",
+      "observed_build": "fictional-v1",
+      "evidence_kind": "simulation",
+      "dependency_inventory_complete": true,
+      "fit_score": 70,
+      "monthly_cost_aed": 12000,
+      "routes": [
+        {
+          "purpose": "ingestion",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "training",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "embeddings",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "speech_ocr",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "inference",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "outputs",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "diagnostics",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "telemetry",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "backup",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "support",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "activation",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "updates",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "failover",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "retirement",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "iac_state",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        }
+      ],
+      "recovery": {
+        "failed_domain": "HOST-1",
+        "target_domain": "HOST-2",
+        "events": [
+          {
+            "kind": "checkpoint",
+            "at": 8,
+            "site": "BANK-A",
+            "country": "AE"
+          },
+          {
+            "kind": "failure",
+            "at": 10,
+            "site": "BANK-A",
+            "country": "AE"
+          },
+          {
+            "kind": "restore",
+            "at": 14,
+            "site": "BANK-A",
+            "country": "AE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "managed-sovereign",
+      "pattern": "Fictional managed domestic service",
+      "build": "fictional-v1",
+      "observed_build": "fictional-v1",
+      "evidence_kind": "simulation",
+      "dependency_inventory_complete": true,
+      "fit_score": 95,
+      "monthly_cost_aed": 8000,
+      "routes": [
+        {
+          "purpose": "ingestion",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "training",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "embeddings",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "speech_ocr",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "inference",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "outputs",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "diagnostics",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "telemetry",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "backup",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "support",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "activation",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "updates",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "failover",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "retirement",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "iac_state",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        }
+      ],
+      "recovery": {
+        "failed_domain": "HOST-1",
+        "target_domain": "HOST-2",
+        "events": [
+          {
+            "kind": "checkpoint",
+            "at": 8,
+            "site": "DC-B",
+            "country": "AE"
+          },
+          {
+            "kind": "failure",
+            "at": 10,
+            "site": "DC-B",
+            "country": "AE"
+          },
+          {
+            "kind": "restore",
+            "at": 14,
+            "site": "DC-B",
+            "country": "AE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hybrid",
+      "pattern": "Local serving plus external support/recovery",
+      "build": "fictional-v1",
+      "observed_build": "fictional-v1",
+      "evidence_kind": "simulation",
+      "dependency_inventory_complete": true,
+      "fit_score": 90,
+      "monthly_cost_aed": 10000,
+      "routes": [
+        {
+          "purpose": "ingestion",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "training",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "embeddings",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "speech_ocr",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "inference",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "outputs",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "diagnostics",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "telemetry",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "backup",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "support",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "activation",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "updates",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "failover",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        },
+        {
+          "purpose": "retirement",
+          "site": "BANK-A",
+          "country": "AE",
+          "network": false,
+          "operator": "enterprise"
+        },
+        {
+          "purpose": "iac_state",
+          "site": "DC-B",
+          "country": "AE",
+          "network": true,
+          "operator": "provider_remote"
+        }
+      ],
+      "recovery": {
+        "failed_domain": "HOST-1",
+        "target_domain": "HOST-2",
+        "events": [
+          {
+            "kind": "checkpoint",
+            "at": 8,
+            "site": "BANK-A",
+            "country": "AE"
+          },
+          {
+            "kind": "failure",
+            "at": 10,
+            "site": "BANK-A",
+            "country": "AE"
+          },
+          {
+            "kind": "restore",
+            "at": 14,
+            "site": "DC-B",
+            "country": "AE"
+          }
+        ]
+      }
+    }
+  ]
+}

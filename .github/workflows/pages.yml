@@ -44,6 +44,10 @@ jobs:
         run: |
           python -m unittest discover -s labs/module-09 -p 'test_*.py' -v
           python labs/module-09/run_container.py > /tmp/module09-container.json
+      - name: Validate Module 10 deployment comparison and simulation
+        run: |
+          python -m unittest discover -s labs/module-10 -p 'test_*.py' -v
+          python labs/module-10/compare.py > /tmp/module10-decisions.json
       - name: Validate Module 08 data lifecycle lab
         run: python -m unittest discover -s labs/module-08 -p 'test_*.py' -v
       - name: Validate Module 07 architecture lab
@@ -106,6 +110,11 @@ jobs:
           python -m unittest discover -s qa -p 'test_module09_learning_contract.py' -v
           python social/module-09/test_rendered_carousel.py
           python social/module-09/export_pdf.py
+      - name: Verify Module 10 reader and portrait PDF
+        run: |
+          python -m unittest discover -s qa -p 'test_module10_learning_contract.py' -v
+          python social/module-10/test_rendered_carousel.py
+          python social/module-10/export_pdf.py
       - name: Verify Module 08 reader and portrait PDF
         run: |
           python -m unittest discover -s qa -p 'test_module08_learning_contract.py' -v

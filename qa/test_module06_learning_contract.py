@@ -43,6 +43,6 @@ class Module06Publication(unittest.TestCase):
         self.assertFalse((ROOT/'dist/assessments').exists())
         plan=BeautifulSoup((ROOT/'dist/learning/schedule.html').read_text(),'html.parser')
         self.assertIn('06-governance-responsible-ai-risk.html',str(plan.select_one('[data-module="06"]')))
-        self.assertIn('Planned module',plan.select_one('[data-module="10"]').get_text())
+        self.assertIn('Planned module',plan.select_one('[data-module="11"]').get_text())
 
 if __name__=='__main__':unittest.main()
