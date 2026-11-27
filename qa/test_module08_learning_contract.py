@@ -14,6 +14,10 @@ class DataPublication(unittest.TestCase):
         k=(ROOT/'assessments/solutions/08-data-sovereignty-engineering-solutions.md').read_text()
         for n in range(1,7):self.assertIn(f'## Q{n}.',k)
         self.assertIn('Total 40 points',k)
+        ontology=(ROOT/'taxonomy/ontology.yaml').read_text()
+        for entity in ['DataArtifact','Transformation','LineageEdge','RetentionRule','Tombstone','Replica']:
+            self.assertIn('  - '+entity+'\n',ontology)
+            self.assertIn('| '+entity+' |',(ROOT/'taxonomy/ONTOLOGY.md').read_text())
     def test_routes_and_key_exclusion(self):
         self.assertFalse((ROOT/'dist/assessments').exists())
         routes=['modules/08-data-sovereignty-engineering.html','labs/module-08/index.html','labs/module-08/CONTROL_SPEC.html','social/module-08/POST.html','social/module-08/CAROUSEL.html']
