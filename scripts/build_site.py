@@ -53,6 +53,9 @@ def article_content(path,dest,diagram=False):
       'social/module-02/POST.md':'social/module-02/POST.html',
       'labs/module-05/README.md':'labs/module-05/index.html',
       'labs/module-06/README.md':'labs/module-06/index.html',
+      'labs/module-08/README.md':'labs/module-08/index.html',
+      'labs/module-08/CONTROL_SPEC.md':'labs/module-08/CONTROL_SPEC.html',
+      'social/module-08/POST.md':'social/module-08/POST.html',
       'labs/module-07/README.md':'labs/module-07/index.html',
       'labs/module-07/ADR.md':'labs/module-07/ADR.html',
       'social/module-07/POST.md':'social/module-07/POST.html',
@@ -89,6 +92,7 @@ def article_content(path,dest,diagram=False):
     # The Markdown remains the canonical editable Mermaid source.
     source_key=path.relative_to(ROOT).as_posix()
     diagram_assets={
+      'chapters/08-data-sovereignty-engineering.md': ('diagrams/module-08-lineage.svg','Source, derived chunks and lexical vectors, tenant-scoped retrieval and registered snapshots governed by a separate protected retirement ledger'),
       'chapters/01-sovereign-ai-fundamentals.md': ('diagrams/module-01-claim-chain.svg','Sovereignty claim evidence chain'),
       'chapters/03-enterprise-sovereignty-requirements-strategy.md': ('diagrams/module-03-workload-gates.svg','Workload classification by sensitivity, criticality and impact, followed by fail-closed physical and network architecture gates'),
       'chapters/04-uae-gcc-global-sovereign-ai-ecosystems.md': ('diagrams/module-04-ecosystem-evidence.svg','Conceptual UAE AI ecosystem chain with independent verification of model rights, infrastructure control paths and business outcomes'),
@@ -289,6 +293,9 @@ def main():
       ('social/module-05/POST.md','social/module-05/POST.html','module','LinkedIn post draft'),
       ('labs/module-05/README.md','labs/module-05/index.html','module05','Module 05 lab'),
       ('labs/module-06/README.md','labs/module-06/index.html','module06','Module 06 governance lab'),
+      ('labs/module-08/README.md','labs/module-08/index.html','module08','Module 08 data lifecycle lab'),
+      ('labs/module-08/CONTROL_SPEC.md','labs/module-08/CONTROL_SPEC.html','module08','Data-control specification'),
+      ('social/module-08/POST.md','social/module-08/POST.html','module08','Data lifecycle post'),
       ('labs/module-07/README.md','labs/module-07/index.html','module07','Module 07 architecture lab'),
       ('labs/module-07/ADR.md','labs/module-07/ADR.html','module07','Architecture decision record'),
       ('social/module-07/POST.md','social/module-07/POST.html','module07','Architecture post'),
@@ -321,7 +328,7 @@ def main():
         prefix='../'*dest.count('/')
         write(DIST/dest,frame(content,page,title,prefix,True,sections))
     # Custom-designed HTML carousels, independent of Markdown rendering.
-    for n in ('01','02','03','04','05','06','07'):
+    for n in ('01','02','03','04','05','06','07','08'):
         if (ROOT/f'social/module-{n}/CAROUSEL.html').exists():
             shutil.copy2(ROOT/f'social/module-{n}/CAROUSEL.html',DIST/f'social/module-{n}/CAROUSEL.html')
     print('Built',len(list(DIST.rglob('*.html'))),'HTML pages in', DIST)

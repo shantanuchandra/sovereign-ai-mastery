@@ -1,6 +1,6 @@
-version: '1.1.0'
+version: '1.2.0'
 status: course-authored-framework-not-a-regulatory-standard
-reviewed: '2026-11-17'
+reviewed: '2026-11-27'
 maintainer: Sovereign AI Mastery
 note: >-
   This ontology is a learning and product-design tool. It does not determine
@@ -39,6 +39,12 @@ classes:
   - Workload
   - ProcessingActivity
   - Dataset
+  - DataArtifact
+  - Transformation
+  - LineageEdge
+  - RetentionRule
+  - Tombstone
+  - Replica
   - ModelArtifact
   - InfrastructureService
   - Identity
@@ -51,7 +57,23 @@ classes:
   - Test
   - Evidence
   - Decision
+data_lifecycle_properties:
+  DataArtifact: [id, purpose, owner, tenant_scope, classification, declared_location]
+  Transformation: [id, code_version, input_format, execution_boundary]
+  LineageEdge: [parent_id, child_id, transformation_id]
+  RetentionRule: [clock_or_event, expiry, hold_authority, action]
+  Tombstone: [artifact_id, tenant_scope, retirement_decision]
+  Replica: [parent_build, snapshot_time, destination, recovery_owner]
 relations:
+  - [Organization, owns, DataArtifact]
+  - [Transformation, consumes, DataArtifact]
+  - [Transformation, produces, DataArtifact]
+  - [LineageEdge, connects_parent, DataArtifact]
+  - [LineageEdge, connects_child, DataArtifact]
+  - [LineageEdge, records, Transformation]
+  - [RetentionRule, governs, DataArtifact]
+  - [Tombstone, retires, DataArtifact]
+  - [Replica, copies, DataArtifact]
   - [Organization, owns, Workload]
   - [Organization, sets, BusinessObjective]
   - [BusinessObjective, motivates, SovereigntyClaim]
@@ -77,6 +99,11 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - Derivatives preserve source handling rules unless an authorized change is evidenced.
+  - A caller-supplied tenant is not authenticated identity or authorization.
+  - Restoring an old snapshot must preserve current retirement decisions.
+  - Known-copy logical deletion does not establish unknown-copy or physical erasure.
+  - Network permission does not relax a physical-premises requirement.
   - A sovereignty claim must name a scope, dimension, owner, and test criterion.
   - Missing evidence is unknown, not compliant or noncompliant by default.
   - Evidence must have a time, source, and relation to a specific test.

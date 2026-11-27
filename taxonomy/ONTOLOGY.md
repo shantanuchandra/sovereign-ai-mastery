@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.1 · 17 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.2 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -125,3 +125,18 @@ A claim can be promoted from *proposed* to *accepted* only when the accountable 
 - **UAE AI Office, National Strategy 2031:** the strategy positions UAE to become one of the “world leaders in A.I. by 2031” (short direct quotation). This is a national strategy context, not a proof of any enterprise product's sovereignty. Source: [UAE AI strategy](https://ai.gov.ae/strategy/). Accessed 17 Nov 2026.
 
 **Editorial rule:** Every official quote is short and attributed. Every course-generated classification is expressly labeled. Vendor assertions are evidence to investigate, not facts to accept uncritically.
+
+## 8. Module 08 data lifecycle extension
+
+Course-authored extension, 27 November 2026. These entities describe the learning specification; they are not an industry schema or a claim that the toy lab implements every production control.
+
+| Entity | Properties | Relationships and constraints |
+|---|---|---|
+| DataArtifact | ID, purpose, owner, tenant scope, classification, declared location | Produced by a transformation; governed by a retention rule; handling restrictions persist unless an authorized change is evidenced |
+| Transformation | Code/version, input format, execution boundary | Consumes parent artifacts and produces derivatives; preprocessing is inside the boundary assessment |
+| LineageEdge | Parent ID, child ID, transformation identity | Connects specific artifacts; a content hash does not authenticate their issuer |
+| RetentionRule | Clock/event, expiry, hold authority, action | Governs eligibility and retirement; actual legal/contractual periods need qualified review |
+| Tombstone | Artifact ID, tenant scope, retirement decision | Excludes retired content; must survive restoration of a snapshot that predates retirement |
+| Replica | Parent snapshot/build/time, destination, recovery owner | Preserves the parent's restrictions; registered-copy disposition does not prove unknown copies or physical remnants are erased |
+
+Keep identity-derived scope separate from a caller-supplied tenant parameter. Keep a physical-premises requirement separate from connectivity: permission to use a network does not authorize off-site preprocessing, support or recovery. The [Module 08 lesson](../chapters/08-data-sovereignty-engineering.md) and [data-control specification](../labs/module-08/CONTROL_SPEC.md) apply these relations to a synthetic local pipeline.

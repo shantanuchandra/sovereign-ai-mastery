@@ -40,6 +40,8 @@ jobs:
           python -m unittest discover -s labs/module-02 -p 'test_*.py' -v
           python labs/module-02/evaluate.py labs/module-02/cases.json > /tmp/module02-scorecard.json
           test -s /tmp/module02-scorecard.json
+      - name: Validate Module 08 data lifecycle lab
+        run: python -m unittest discover -s labs/module-08 -p 'test_*.py' -v
       - name: Validate Module 07 architecture lab
         run: python -m unittest discover -s labs/module-07 -p 'test_*.py' -v
       - name: Validate Module 06 governance lab
@@ -95,6 +97,11 @@ jobs:
           python social/module-05/test_rendered_carousel.py
           python social/module-05/export_pdf.py
           test -s dist/social/module-05/QUESTIONS.pdf
+      - name: Verify Module 08 reader and portrait PDF
+        run: |
+          python -m unittest discover -s qa -p 'test_module08_learning_contract.py' -v
+          python social/module-08/test_rendered_carousel.py
+          python social/module-08/export_pdf.py
       - name: Verify Module 07 reader and portrait PDF
         run: |
           python -m unittest discover -s qa -p 'test_module07_learning_contract.py' -v

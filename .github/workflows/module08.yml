@@ -1,0 +1,52 @@
+name: Verify Module 08 data engineering package
+on:
+  pull_request:
+    paths:
+      - 'chapters/08-*'
+      - 'assessments/solutions/08-*'
+      - 'labs/module-08/**'
+      - 'social/module-08/**'
+      - 'learning/study-plan*'
+      - 'learning/tests/test_rendered_study_plan.py'
+      - 'qa/test_module08*'
+      - 'scripts/build_site.py'
+      - 'site/assets/site.css'
+      - 'site/assets/annotations.js'
+      - 'TOC.md'
+      - '.github/workflows/module08.yml'
+permissions:
+  contents: read
+jobs:
+  module08:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install site and browser dependencies
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify synthetic lab and invalid/adverse inputs
+        run: |
+          python -m unittest discover -s labs/module-08 -p 'test_*.py' -v
+          python labs/module-08/pipeline.py > /tmp/module08-decisions.json
+      - name: Build and verify curriculum routes and assessment separation
+        run: |
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Verify study progress, mobile pages and downloads
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/module08
+        run: python learning/tests/test_rendered_study_plan.py
+      - name: Verify portrait slides and PDF text
+        run: |
+          python social/module-08/test_rendered_carousel.py
+          python social/module-08/export_pdf.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: module08-browser-evidence
+          path: artifacts/module08
+          if-no-files-found: ignore
