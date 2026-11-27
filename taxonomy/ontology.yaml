@@ -1,4 +1,4 @@
-version: '1.2.0'
+version: '1.3.0'
 status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-27'
 maintainer: Sovereign AI Mastery
@@ -39,6 +39,10 @@ classes:
   - Workload
   - ProcessingActivity
   - Dataset
+  - ComputeProfile
+  - CapacityBudget
+  - LoadObservation
+  - ReplicaPlan
   - DataArtifact
   - Transformation
   - LineageEdge
@@ -64,7 +68,17 @@ data_lifecycle_properties:
   RetentionRule: [clock_or_event, expiry, hold_authority, action]
   Tombstone: [artifact_id, tenant_scope, retirement_decision]
   Replica: [parent_build, snapshot_time, destination, recovery_owner]
+compute_properties:
+  ComputeProfile: [model_runtime_build, context_mix, concurrency, profile_type]
+  CapacityBudget: [placement, available_memory, runtime_allocation, added_margin]
+  LoadObservation: [candidate_build, load_method, duration, successes, errors, latency_population]
+  ReplicaPlan: [active_count, spare_count, placement, shared_dependencies, failure_case]
 relations:
+  - [ComputeProfile, describes, Workload]
+  - [CapacityBudget, allocates_for, ComputeProfile]
+  - [LoadObservation, tests, ComputeProfile]
+  - [ReplicaPlan, places, InfrastructureService]
+  - [ReplicaPlan, preserves, RetentionRule]
   - [Organization, owns, DataArtifact]
   - [Transformation, consumes, DataArtifact]
   - [Transformation, produces, DataArtifact]
@@ -99,6 +113,9 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - Resource allocation does not grant data access or establish physical placement.
+  - Successful-only latency must be considered alongside the error denominator.
+  - A replica count does not establish independent recovery or availability.
   - Derivatives preserve source handling rules unless an authorized change is evidenced.
   - A caller-supplied tenant is not authenticated identity or authorization.
   - Restoring an old snapshot must preserve current retirement decisions.

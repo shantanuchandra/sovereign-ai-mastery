@@ -141,6 +141,7 @@ const MODS=Object.freeze({
   foundations:{label:'Module 01: bounded sovereignty claims',url:'../modules/01-sovereign-ai-fundamentals.html'},
   ontology:{label:'Sovereignty taxonomy and ontology',url:'../taxonomy/ONTOLOGY.html'},
   data:{label:'Module 08: data lineage, retention and recovery',url:'../modules/08-data-sovereignty-engineering.html'},
+  compute:{label:'Module 09: memory, capacity and failure evidence',url:'../modules/09-gpus-compute-networking-platform-engineering.html'},
   infrastructure:{label:'Module 10: cloud and deployment (syllabus)',url:'../curriculum.html#module-10'},
   agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
@@ -159,7 +160,7 @@ function createFlows(v,blocked){
   const rows=[
     ['ingestion','Source ingestion','Source files, uploads and staging copies','Enterprise data owner','Trace staging, scanning and temporary files; reject unauthorized destinations.'],
     ['retrieval','Retrieval and embeddings','Chunks, embeddings, vector indexes and query context','Data platform lead','Trace embedding calls and index replicas, including failed requests and re-indexing; derive tenant scope from verified identity and apply expiry before ranking.'],
-    ['inference','Model inference','Prompts, context, generated tokens and inference caches','Model serving lead','Exercise timeouts and failover; ensure no prohibited external model fallback.'],
+    ['inference','Model inference','Prompts, context, generated tokens and inference caches','Model serving lead','Measure candidate-build memory, successful throughput, p95 and errors under load and replica loss; exercise timeouts/failover without a prohibited external model fallback.'],
     ['outputs','Application outputs','Responses, reports, downloads and conversation history','Application owner','Test response access, export permissions, retention and temporary output files.'],
     ['telemetry','Observability and evaluation','Logs, traces, crash reports, evaluation sets and metrics','Security operations lead','Trigger a synthetic error and inspect log collectors, telemetry queues and diagnostic exports.'],
     ['backup','Backup and recovery','Snapshots, replicas, archives and disaster-recovery copies','Recovery lead','Restore an old synthetic snapshot with a separate protected retirement ledger; confirm retired source rows, chunks and vectors stay excluded, and inspect every replica and recovery destination.'],
@@ -297,6 +298,7 @@ export function createBlueprint(raw={}) {
   if(v.evidence==='adverse')gates.push('Evidence status remains nonconforming until corrective action and accepted retest.');
   else if(v.evidence==='tested'||v.evidence==='independent')gates.push('Review the actual outcomes, test scope, provenance and dates; their mere existence does not prove a passing control.');
   else gates.push('No inspected passing runtime test is available. All controls remain unverified.');
+  gates.push('A capacity dropdown is not a benchmark: budget weights, context/KV and runtime memory, then inspect candidate-build load, error and replica-loss evidence.');
   const territory=siteOnly?'No protected information, prompts, embeddings, telemetry, backups or diagnostics may leave the approved physical premises':'Declared destinations for inference, storage, processing and derivatives are enforced';
   const territorialTest=siteOnly?'Conduct isolated-network, DNS/proxy, update, failover, remote support, removable-media and backup-destination tests':'Trace prompts, logs, embeddings, support and failover destinations';
   const evidenceState=v.evidence==='adverse'?'NONCONFORMANCE_REPORTED':conflicts.length?'CONFLICT':(v.evidence==='tested'||v.evidence==='independent'?'REVIEW_REQUIRED':'UNVERIFIED');
@@ -319,7 +321,7 @@ export function createBlueprint(raw={}) {
     stage:critical?'Assurance, reliability and operational readiness require production validation.':'Prototype and pilot constraints are still enforceable.'
   };
   for(const [key,value] of Object.entries(v)) trace.push(step(key,`${key}: ${LABELS[key][value]}`,traces[key]));
-  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture];
+  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute];
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
   if(siteOnly||owned||enterpriseCompute||v.capacity==='managed')lessons.push(MODS.infrastructure);
   if(['essential','owned','strong'].includes(v.portability))lessons.push(MODS.agents);
@@ -327,7 +329,7 @@ export function createBlueprint(raw={}) {
   const architectures=[
     {name:'Workload boundary',detail:LABELS.workload[v.workload],owner:'Product owner'},
     {name:'Data and retrieval',detail:siteOnly?'On-site documents, vector index, model context, logs and local backups':sensitive?'Restricted data, role-aware retrieval and derived-data governance':'Scoped data, retention and access policies',owner:'Enterprise data owner'},
-    {name:'Inference and model',detail:model,owner:['onprem','airgap','localoffline','private','gated'].includes(id)?'Enterprise / physically verified':'Proposed model/service operator'},
+    {name:'Inference and model',detail:model,owner:['onprem','airgap','localoffline','private','gated'].includes(id)?'Enterprise operator; physical placement evidence required':'Proposed model/service operator'},
     {name:'Operations and identity',detail:operations,owner:'Security and platform engineering'},
     {name:'Networks and evidence',detail:traffic,owner:'Network and assurance leads'}
   ];
@@ -351,7 +353,7 @@ export function createChallenges(raw={}) {
   if(siteConflict){
     qs.push({id:'operations',dimension:'Operational',question:'The premises-only requirement conflicts with the selected compute, access or connectivity option. What should the PM approve?',options:[choice('Launch using a remote cloud model and note the exception after release.','An unapproved external model violates the stated hard boundary.'),choice('Block real-data deployment. Keep only a synthetic local prototype while capacity, access and egress requirements are corrected.','Correct. Hard conflicts must be resolved or formally changed before processing real data.'),choice('Rename the system sovereign and rely on contractual marketing language.','A label and an unverified contract do not change an incompatible network path.')],correct:1,root:'Treating a hard data boundary as a preference that can be traded away silently.',action:'Assign owners to the conflicting input choices, procure on-site compute, and run egress and privileged-access tests.',lesson:MODS.architecture});
   } else if(v.operator==='enterprise'&&!['onsite_cpu','onsite_gpu','private_dc','gpu','colo'].includes(v.capacity)){
-    qs.push({id:'operations',dimension:'Operational',question:'Enterprise-only operators are required but enterprise compute is unavailable. What decision is defensible?',options:[choice('Launch a provider-run platform and mark the requirement satisfied.','Provider-administered hosting does not automatically meet enterprise-only control.'),choice('Gate the prototype; acquire capacity or formally revise operating requirements.','Correct. Resolve the impossible operating assumption.'),choice('Disable administrative logging.','Removing evidence does not create capacity.')],correct:1,root:'Choosing an architecture before resolving operating authority.',action:'Document a blocking decision with owner and acceptance criterion.',lesson:MODS.architecture});
+    qs.push({id:'operations',dimension:'Operational',question:'Enterprise-only operators are required but enterprise compute is unavailable. What decision is defensible?',options:[choice('Launch a provider-run platform and mark the requirement satisfied.','Provider-administered hosting does not automatically meet enterprise-only control.'),choice('Gate the prototype; acquire capacity or formally revise operating requirements.','Correct. Resolve the impossible operating assumption.'),choice('Disable administrative logging.','Removing evidence does not create capacity.')],correct:1,root:'Choosing an architecture before resolving operating authority.',action:'Document a blocking decision with owner and acceptance criterion.',lesson:MODS.compute});
   } else {
     qs.push({id:'operations',dimension:'Operational',question:'A platform hosts the model in an approved location. What demonstrates operational control?',options:[choice('The marketing term sovereign.','Marketing wording is not access evidence.'),choice('A photograph of the data center.','Location does not establish who can administer it.'),choice('Privileged identities, actual support paths, key custody and tested access policies.','Correct. Operational authority requires enforceable and inspectable controls.')],correct:2,root:'Substituting a location assertion for operational access evidence.',action:'Review privileged roles and execute a negative authorization test.',lesson:MODS.security});
   }

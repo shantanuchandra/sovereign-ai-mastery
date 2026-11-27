@@ -1,0 +1,13 @@
+# Module 09 editorial/accessibility/assessment author review
+
+27 November 2026. Separate same-author self-audit. Educational draft; independent assessment and manual accessibility review pending.
+
+Checked all seven syllabus topics and fourteen chapter sections, course ontology, fictional UAE factory-only versus wider country scope, local CPU and separate container procedures, distinct PM worksheet/rubric, and six decision questions with a separate 40-point key. Q5 preserves the current documented Docker GPU scope. Q6 distinguishes observed error failure, direct-cause hypotheses, systemic gaps, owner/containment, a dated planned retest and bounded closure. The 20-point PM rubric and knowledge score require hard-gate/assurance remediation irrespective of numerical result. Source visibility is not confidentiality; answer keys stay outside the reader build.
+
+Actual Chromium: six reader/study-plan and seven Studio tests passed, including new Module 09 chapter/lab/worksheet/post reflow at 1280/390/320 px, static diagram loading without JavaScript, 240-hour progress/export and explicit-only GitHub note loading. Preset/dropdown, saved attempt/remediation and portable exports remain covered. The new literal citation/guard text is additionally built by the installed and fallback renderers. No automated test is described as a human review.
+
+Inspected all eight slide previews in a 1080×1350 browser viewport, the phone-sized GPU slide, mobile chapter first screen and full static SVG. Slides vary through a memory table, HTTP status example and latency/error comparison. No clipping was visible in those samples. Carousel tests check real question headings, overflow mutation, 1280/390/320 px reflow, keyboard reachability, print overflow and an actual eight-page 8×10-inch PDF with extractable question text. Social artifacts have no em dashes. HTML is preferred; the PDF is untagged. Site diagrams retain a scrollable viewport, full-size link and Mermaid source.
+
+No manual screen-reader, 200% zoom, full contrast/PDF reading-order audit, representative learner marking or independent model assessment was performed. Local Mac Docker/GPU and Kubernetes execution are NOT COMPLETED; Linux container execution remains a separately observed CI gate. Existing Module 04 HOLD and earlier draft limits remain intact.
+
+Independent prompt: teach and mark Q1–Q6, challenge model/cost examples and scoped product claims, test real keyboard/screen-reader/zoom and PDF reading order, and record reviewer identity, environment and independent findings. Save separate output before claiming independent assurance.
