@@ -1,0 +1,124 @@
+{
+  "parameters_billion": 7,
+  "weight_bits": 4,
+  "layers": 32,
+  "kv_heads": 8,
+  "head_dim": 128,
+  "context_tokens": 4096,
+  "concurrent_sequences": 4,
+  "kv_bytes": 2,
+  "runtime_overhead_gib": 2,
+  "available_memory_gib": 12,
+  "headroom_fraction": 0.2,
+  "arrival_rps": 2,
+  "profile_rps": 5,
+  "target_utilization": 0.6,
+  "installed_replicas": 2,
+  "spare_replicas": 1,
+  "p95_ms": 120,
+  "slo_p95_ms": 250,
+  "error_rate": 0,
+  "max_error_rate": 0.01,
+  "device_kw": 0.3,
+  "hours_per_month": 100,
+  "energy_price_per_kwh": 0.3,
+  "fixed_monthly_cost": 2000,
+  "monthly_successful_requests": 100000,
+  "required_site": "PLANT-A",
+  "compute_site": "PLANT-A",
+  "required_country": "UAE",
+  "compute_country": "UAE",
+  "candidate_build": "fictional-v1",
+  "profile_build": "fictional-v1",
+  "currency": "AED",
+  "physical_airgap": true,
+  "external_network_dependencies": false,
+  "profile_evidence": "assumption",
+  "routes": [
+    {
+      "id": "ingestion",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "training",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "embeddings",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "speech_ocr",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "inference",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "outputs",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "diagnostics",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "telemetry",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "backup",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "support",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "activation",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "updates",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "failover",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    },
+    {
+      "id": "retirement",
+      "site": "PLANT-A",
+      "country": "UAE",
+      "network": false
+    }
+  ],
+  "notice": "Invented planning inputs, not an actual model configuration, benchmark, tariff, quote or budget."
+}

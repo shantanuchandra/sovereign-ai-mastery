@@ -165,6 +165,8 @@ The final product is a **responsive course website** generated from Markdown. Ev
 
 ### Module 09 — GPUs, Compute, Networking & Platform Engineering (Week 9)
 
+[Read the educational draft](chapters/09-gpus-compute-networking-platform-engineering.md). Independent assessment and manual accessibility review pending.
+
 9.1 GPUs, accelerator types, and memory constraints  
 9.2 Compute profiles: training, fine-tuning, batch and online inference  
 9.3 Clusters, storage, high-speed networks, and scheduling  

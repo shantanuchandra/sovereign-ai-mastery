@@ -1,0 +1,7 @@
+ARG BASE_IMAGE=python:3.13-slim
+FROM ${BASE_IMAGE}
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY service.py bench.py ./
+USER 65532:65532
+CMD ["python", "service.py", "--port", "8080"]

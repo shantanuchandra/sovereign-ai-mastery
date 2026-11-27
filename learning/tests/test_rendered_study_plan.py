@@ -96,7 +96,7 @@ class StudyPlanBrowserTests(unittest.TestCase):
         context=self.browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
         page=context.new_page()
         try:
-            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering')]:
+            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering'),('09','09-gpus-compute-networking-platform-engineering')]:
                 page.goto(self.origin+'/modules/'+slug+'.html',wait_until='networkidle')
                 expect(page.locator('h1')).to_contain_text('Module '+module)
                 diagram=page.locator('figure.diagram-rendered img')
@@ -131,7 +131,9 @@ class StudyPlanBrowserTests(unittest.TestCase):
                       '/social/module-06/POST.html','/modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html',
                       '/labs/module-07/index.html','/labs/module-07/ADR.html','/social/module-07/POST.html',
                       '/modules/08-data-sovereignty-engineering.html','/labs/module-08/index.html',
-                      '/labs/module-08/CONTROL_SPEC.html','/social/module-08/POST.html']:
+                      '/labs/module-08/CONTROL_SPEC.html','/social/module-08/POST.html',
+                      '/modules/09-gpus-compute-networking-platform-engineering.html','/labs/module-09/index.html',
+                      '/labs/module-09/WORKSHEET.html','/social/module-09/POST.html']:
             for width in (1280,390,320):
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.page.goto(self.origin+route,wait_until='networkidle')
@@ -149,6 +151,8 @@ class StudyPlanBrowserTests(unittest.TestCase):
             self.page.goto(self.origin+'/modules/08-data-sovereignty-engineering.html',wait_until='networkidle')
             self.page.screenshot(path=str(output/'module08-mobile.png'))
             self.page.locator('figure.diagram-rendered').screenshot(path=str(output/'module08-diagram.png'))
+            self.page.goto(self.origin+'/modules/09-gpus-compute-networking-platform-engineering.html',wait_until='networkidle')
+            self.page.screenshot(path=str(output/'module09-mobile.png'))
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

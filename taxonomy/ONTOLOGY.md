@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.2 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.3 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -140,3 +140,17 @@ Course-authored extension, 27 November 2026. These entities describe the learnin
 | Replica | Parent snapshot/build/time, destination, recovery owner | Preserves the parent's restrictions; registered-copy disposition does not prove unknown copies or physical remnants are erased |
 
 Keep identity-derived scope separate from a caller-supplied tenant parameter. Keep a physical-premises requirement separate from connectivity: permission to use a network does not authorize off-site preprocessing, support or recovery. The [Module 08 lesson](../chapters/08-data-sovereignty-engineering.md) and [data-control specification](../labs/module-08/CONTROL_SPEC.md) apply these relations to a synthetic local pipeline.
+
+
+## 9. Module 09 compute-capacity extension
+
+Course-authored extension, 27 November 2026. Resource declarations, arithmetic and observations are distinct evidence types.
+
+| Entity | Properties | Relationships and constraints |
+|---|---|---|
+| ComputeProfile | Model/runtime/build, context mix, concurrency, profile type | Describes a workload; one profile does not characterize every training or serving task |
+| CapacityBudget | Device/host placement, available memory, runtime allocation, added margin | Allocates resources for a profile; aggregate device memory is not an operable sharding plan |
+| LoadObservation | Candidate build, load method, duration, successes, errors, latency population | Tests a profile; successful-only p95 must retain the error denominator |
+| ReplicaPlan | Active/spare counts, placement, shared dependencies, failure case | Supports capacity and recovery planning; co-located processes share failure domains |
+
+A resource allocation does not authorize another tenant's data access. A favorable supplied test declaration still requires evidence review. Preserve DataArtifact/RetentionRule handling across replicas, diagnostics and recovery. The [Module 09 lesson](../chapters/09-gpus-compute-networking-platform-engineering.md) and [compute worksheet](../labs/module-09/WORKSHEET.md) connect this model to executable synthetic exercises.
