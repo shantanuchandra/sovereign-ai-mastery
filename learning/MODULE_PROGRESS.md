@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 27 November 2026. Read the specific reviews before claiming approval. Eight of 24 module packages are authored and published with their stated review status. Sixteen modules remain to author, including capstone Modules 22–24.
+Updated 27 November 2026. Read the specific reviews before claiming approval. Nine of 24 module packages are authored and published with their stated review status. Fifteen modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 09 GPUs, Compute, Networking & Platform Engineering. Reuse the Module 08 artifact/retention contract in capacity and isolation decisions. Continue later modules while retaining Module 04 HOLD and Module 05–08 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Next substantive module: Module 10 Sovereign Cloud & Deployment Patterns. Reuse the Module 08 artifact/retention contract and Module 09 compute evidence in placement and operating-model decisions. Continue later modules while retaining Module 04 HOLD and Module 05–09 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -48,9 +48,13 @@ Local verification: 116 lab tests across Modules 01–08; 46 curriculum checks; 
 
 Two separate author self-audits are in `reviews/module-08/`; independent assessment/different-model review, manual screen-reader/zoom/contrast and production validation are NOT COMPLETED. This educational draft does not lift Module 04 HOLD or earlier draft limitations. Next substantive authoring: Module 09 compute, networking and platform engineering. Do not repeat the completed Module 08 authoring package.
 
-## Module 09 release candidate, 27 November 2026
+## Module 09 published educational draft, 27 November 2026
 
-Nine packages are source-authored; eight have observed publication evidence above. Module 09 is pending its matching Linux container/PR checks, merge, Pages and live verification. Do not count it as published yet.
+Nine packages are source-authored and observed published; fifteen remain. This is not a count of independently approved modules.
+
+[PR #16](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/16) merged as [4ba6bbc](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/4ba6bbc7e9d346e26cf77ef1eb25921feec2ed62). Final-head [Module 09 CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45961680971), [Studio CI](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45961681131) and Module 05–08 regression workflows passed before merge. Matching [Pages run 45961932516](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45961932516) and [main Studio run 45961932520](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/45961932520) succeeded. Fifteen live routes returned HTTP 200; lab scripts/fixture, Studio engine, carousel, SVG and ontology matched source bytes. Seven syllabus topics, draft label, 240 study hours, Module 10 planned state and eight-page 8×10-inch PDF were verified. Live mobile Chromium checked chapter/lab/worksheet/carousel reflow, Studio lesson navigation and 26 workloads/21 presets with no page errors. The chapter diagram also loaded with JavaScript disabled.
+
+The Module 09 CI artifact records actual Linux/x86_64 Docker execution, inspected constraints, serial 32/32 success and removal of the owned container/tag. Its concurrent synthetic probe observed 3 successes and 29 errors; that bounded observation is not model capacity or a production SLO. The resolved base digest was `python@sha256:7249d5587b78209a006dc4a3b5340678f84ea729239193aa559962cd8c1fce50`. The Pages workflow independently repeated the real container gate. Local Mac Docker/ARM64, GPU and Kubernetes execution remain NOT COMPLETED.
 
 Artifacts: seven compute/platform topics, five inspected primary sources, static capacity-decision SVG, actual synthetic CPU HTTP service/probe, separate memory/load/spare/economics calculator, Docker runner with resolved base digest and bounded cleanup, compute worksheet/20-point PM rubric, separate Q1–Q6 key/40-point rubric, eight-question HTML deck/post and verified eight-page PDF export. The toy model/profile/cost inputs are invented. The Mac engine was stopped, so local Docker/ARM64 is NOT COMPLETED; real Linux container execution is a required CI gate, not inferred from source.
 
