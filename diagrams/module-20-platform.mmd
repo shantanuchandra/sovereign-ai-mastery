@@ -1,0 +1,11 @@
+flowchart TD
+  A[Stakeholder outcome and workload boundary] --> B[Versioned product requirements]
+  B --> C[Acceptance criteria and named owners]
+  C --> D[Requested tenant]
+  D --> E[Configured declared local paths]
+  E --> F[Validated synthetic checks]
+  F --> G[Active fixture only]
+  C --> H[BLOCKED conflict or UNVERIFIED evidence]
+  E --> H
+  F --> H
+  G --> I[Launch indicators and twelve month roadmap]

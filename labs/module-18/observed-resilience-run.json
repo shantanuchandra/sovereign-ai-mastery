@@ -1,0 +1,46 @@
+{
+  "schema": "module18-observation-v1",
+  "date": "2026-11-28",
+  "synthetic": true,
+  "backup_sha256": "c0cccbd541b05ab9969d04e917aac876e4278bedc1e01dc5f0fae73d1b2b146b",
+  "live_file_deleted_before_restore": true,
+  "restore": {
+    "decision": "RESTORED_SYNTHETIC",
+    "restored_ids": [
+      "d1",
+      "d3"
+    ],
+    "retired_excluded": [
+      "d2"
+    ],
+    "restored_sha256": "cd423feeb5199ac258ae50a9e38a5eae7e4d90871fdfb46a1480cf87601b760d",
+    "boundary": "DECLARED_ONLY"
+  },
+  "migration": {
+    "decision": "MIGRATED_SYNTHETIC",
+    "rows": 2,
+    "equal_records": true
+  },
+  "substitution": {
+    "decision": "FIXTURE_ONLY",
+    "ids": [
+      "d1"
+    ],
+    "model": "substitute-v1"
+  },
+  "external_failover": {
+    "decision": "BLOCKED"
+  },
+  "revoked_model": {
+    "decision": "BLOCKED",
+    "reason": "MODEL_REVOKED"
+  },
+  "limitations": [
+    "No production RTO or RPO measured",
+    "No real model, workload or database service",
+    "Boundary declarations are not physical evidence",
+    "No crash-durability, encryption, IAM or independent audit",
+    "Current retirement registry is in process memory",
+    "Temporary files removed after exercise"
+  ]
+}

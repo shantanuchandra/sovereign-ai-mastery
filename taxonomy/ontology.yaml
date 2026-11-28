@@ -1,4 +1,4 @@
-version: '1.7.0'
+version: '1.8.0'
 status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-28'
 maintainer: Sovereign AI Mastery
@@ -28,6 +28,15 @@ classification_axes:
     values: [proposed, reviewed, accepted, accepted_with_exception, rejected]
     question: What disposition did an accountable reviewer record?
 classes:
+  - RestoreExercise
+  - ExitPlan
+  - AssuranceSnapshot
+  - BuyerEvidence
+  - OpportunityHypothesis
+  - DiscoveryDecision
+  - ProductRequirement
+  - AcceptanceCriterion
+  - OnboardingTransition
   - ThreatScenario
   - SecurityValidation
   - CustodyPolicy
@@ -132,7 +141,25 @@ security_operations_properties:
   ReleaseManifest: [model_revision, prompt_digest, policy_version, runtime_build, rollback_target]
   ServiceObjective: [tenant_scope, window, attempted, good, errors, latency_threshold]
   TelemetryPolicy: [allowed_fields, redaction, retention, collector_destination]
+recovery_product_properties:
+  RestoreExercise: [source_snapshot, target_boundary, current_retirement_version, restored_digest, migration_result, elapsed_scope]
+  ExitPlan: [dependencies, replacement_build, rights_review, failure_scope, owner, retest_trigger]
+  AssuranceSnapshot: [build, control_criteria, evidence_date, reviewer, disposition, invalidating_change]
+  BuyerEvidence: [source_kind, buyer_role, job, consent_scope, observation, independence_group]
+  OpportunityHypothesis: [segment, alternative, value_assumption, sovereignty_necessity, feasibility, evidence_gaps]
+  DiscoveryDecision: [hypothesis, hard_conflicts, unknowns, next_test, owner, disposition]
+  ProductRequirement: [id, stakeholder, constraint, owner, priority, evidence_state]
+  AcceptanceCriterion: [requirement_id, build, test, expected_outcome, observed_result, disposition]
+  OnboardingTransition: [tenant, principal, previous_state, next_state, request_id, authorization]
 relations:
+  - [RestoreExercise, tests, ExitPlan]
+  - [ExitPlan, reconstructs, ModelArtifact]
+  - [AssuranceSnapshot, evaluates, Control]
+  - [BuyerEvidence, informs, OpportunityHypothesis]
+  - [DiscoveryDecision, evaluates, OpportunityHypothesis]
+  - [ProductRequirement, constrains, Workload]
+  - [AcceptanceCriterion, tests, ProductRequirement]
+  - [OnboardingTransition, scopes, Identity]
   - [ThreatScenario, exposes, Risk]
   - [SecurityValidation, tests, ThreatScenario]
   - [CustodyPolicy, governs, CryptographicKey]
@@ -199,6 +226,13 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - Restored snapshots must preserve current retirement and revocation decisions before serving data.
+  - A file restoration or migration observation does not establish production recovery objectives or provider exit.
+  - Synthetic buyer interviews and repeated assertions are not independent customer demand evidence.
+  - A favorable opportunity score cannot override known physical or operational conflicts.
+  - Missing discovery evidence stays unknown and must not become a default passing score.
+  - Acceptance criteria bind a requirement to an exact build and inspected result, not a roadmap promise.
+  - Tenant registration is distinct from authorization to process restricted data.
   - Retrieved instructions do not grant tool authority or permission to export data.
   - A checksum requires a trusted reference and is not a malware or provenance verdict.
   - Encryption, key ownership and attestation do not establish physical data residency.

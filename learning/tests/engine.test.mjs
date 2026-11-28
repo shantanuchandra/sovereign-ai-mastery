@@ -41,7 +41,7 @@ test('all input dimensions appear in trace and ontology controls',()=>{
 test('challenge set adapts to blockers and portability',()=>{
   const blocked=createChallenges(PRESETS.banking);
   const basic=createChallenges(PRESETS.support);
-  assert.equal(blocked.length,7);assert.equal(basic.length,7);
+  assert.equal(blocked.length,10);assert.equal(basic.length,10);
   assert.match(blocked[1].question,/enterprise compute is unavailable/);
   assert.match(basic[1].question,/platform hosts/);
   assert.notEqual(blocked[2].question,basic[2].question);

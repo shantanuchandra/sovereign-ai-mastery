@@ -18,7 +18,7 @@ test('security, custody and operations lessons reach every generated blueprint a
 
 test('new guidance preserves identities, saved-answer version and seven original practice decisions',()=>{
   assert.equal(VERSION,'1.2.0');
-  assert.deepEqual(createChallenges(PRESETS.factory).map(q=>[q.id,q.correct]),[
+  assert.deepEqual(createChallenges(PRESETS.factory).slice(0,7).map(q=>[q.id,q.correct]),[
     ['location',1],['operations',2],['portability',0],['evidence',1],
     ['rag-permissions',1],['optimization-evidence',2],['agent-approval',1]
   ]);

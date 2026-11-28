@@ -85,7 +85,7 @@ class StudioBrowserTests(unittest.TestCase):
             expect(self.page.locator(f'[data-qid="{qid}"] .feedback a')).to_have_attribute('href','../modules/'+slug+'.html')
             expect(self.page.locator(f'[data-qid="remediation-{qid}"]')).to_be_visible()
         self.page.reload(wait_until="networkidle")
-        expect(self.page.locator('#tutor-progress')).to_have_text('3 of 7 answered')
+        expect(self.page.locator('#tutor-progress')).to_have_text('3 of 10 answered')
         md=self.download('#download-md')
         data=self.download('#download-json')
         for slug in ['12-sovereign-rag-systems','13-fine-tuning-optimization-evaluation','14-agents-apis-enterprise-integrations']:
@@ -122,6 +122,44 @@ class StudioBrowserTests(unittest.TestCase):
         for number in ['15','16','17']:
             self.assertIn('/'+number+'-',journal)
             self.assertTrue(any('/'+number+'-' in row['url'] for row in record['blueprint']['lessons']))
+
+    def test_recovery_discovery_acceptance_followups_and_exports(self):
+        self.scenario('factory')
+        cases=[('recovery-evidence','18-resilience-audit-vendor-exit',0,0),
+               ('discovery-evidence','19-enterprise-market-use-case-discovery',0,1),
+               ('acceptance-trace','20-platform-product-strategy-prds',1,2)]
+        for qid,slug,wrong,follow in cases:
+            self.page.locator(f'[data-qid="{qid}"] [data-choice="{wrong}"]').click()
+            expect(self.page.locator(f'[data-qid="{qid}"] .feedback a')).to_have_attribute('href','../modules/'+slug+'.html')
+            self.page.locator(f'[data-qid="remediation-{qid}"] [data-choice="{follow}"]').click()
+        self.page.reload(wait_until='networkidle')
+        expect(self.page.locator('#tutor-progress')).to_have_text('3 of 10 answered')
+        md=self.download('#download-md')
+        record=json.loads(self.download('#download-json'))
+        self.assertEqual(md.count('- Result: Needs review'),3)
+        self.assertEqual(md.count('Follow-up result: Correct reasoning'),3)
+        for offset,(qid,slug,wrong,_) in enumerate(cases):
+            self.assertIn(slug,md)
+            row=record['review']['challenges'][7+offset]
+            self.assertEqual(row['selectedIndex'],wrong)
+            self.assertFalse(row['feedback']['ok'])
+            self.assertTrue(row['followUp']['feedback']['ok'])
+
+    def test_seven_saved_decisions_survive_three_appended_questions(self):
+        self.scenario('factory')
+        self.page.evaluate('''key => {
+            const saved=JSON.parse(localStorage.getItem(key));
+            saved.answers={location:1,operations:2,portability:0,evidence:1,
+                'rag-permissions':1,'optimization-evidence':2,'agent-approval':1};
+            saved.reflection='Preserve this prior reflection.';
+            localStorage.setItem(key,JSON.stringify(saved));
+        }''',STORAGE)
+        self.page.reload(wait_until='networkidle')
+        expect(self.page.locator('#tutor-progress')).to_have_text('7 of 10 answered')
+        expect(self.page.locator('#reflection')).to_have_value('Preserve this prior reflection.')
+        for qid in ['recovery-evidence','discovery-evidence','acceptance-trace']:
+            expect(self.page.locator(f'[data-qid="{qid}"] .answer.selected')).to_have_count(0)
+        self.assertNotIn('All 10 decisions align',self.page.locator('#tutor-summary').inner_text())
 
     def test_physical_boundaries_and_counterfactual_do_not_authorize_cloud_fallback(self):
         self.scenario("energy")
@@ -160,7 +198,7 @@ class StudioBrowserTests(unittest.TestCase):
         self.missed_location()
         self.page.locator('[data-qid="remediation-location"] [data-choice="0"]').click()
         self.page.click("#restart-challenges")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 10 answered")
         expect(self.page.locator(".remediation")).to_have_count(0)
         self.page.locator('[data-qid="location"] [data-choice="0"]').click()
         self.page.select_option("#data", "synthetic")
@@ -179,7 +217,7 @@ class StudioBrowserTests(unittest.TestCase):
         self.page.reload(wait_until="networkidle")
         expect(self.page.locator("#workload")).to_have_value("speech")
         expect(self.page.locator("#reflection")).to_have_value("Keep this reflection.")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 10 answered")
         self.page.evaluate("""key => {
             const saved=JSON.parse(localStorage.getItem(key));
             saved.answers={location:999,operations:'1',evidence:-1};
@@ -187,7 +225,7 @@ class StudioBrowserTests(unittest.TestCase):
             localStorage.setItem(key,JSON.stringify(saved));
         }""", STORAGE)
         self.page.reload(wait_until="networkidle")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 10 answered")
         expect(self.page.locator(".remediation")).to_have_count(0)
 
     def test_malformed_or_disabled_storage_does_not_break_the_studio(self):
