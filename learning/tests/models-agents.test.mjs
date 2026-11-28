@@ -4,7 +4,7 @@ import {VERSION,PRESETS,createBlueprint,createChallenges,createRemediation,evalu
 
 test('new practice appends to the four stable decisions without invalidating saved answers',()=>{
   const qs=createChallenges(PRESETS.factory);
-  assert.deepEqual(qs.map(q=>q.id),['location','operations','portability','evidence','rag-permissions','optimization-evidence','agent-approval']);
+  assert.deepEqual(qs.slice(0,7).map(q=>q.id),['location','operations','portability','evidence','rag-permissions','optimization-evidence','agent-approval']);
   assert.deepEqual(qs.slice(0,4).map(q=>q.correct),[1,2,0,1]);
   assert.equal(VERSION,'1.2.0');
 });

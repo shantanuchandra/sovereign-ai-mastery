@@ -1,0 +1,9 @@
+flowchart TD
+  A[Current requirements retirement and revocation] --> B[Snapshot identity and integrity]
+  B --> C[Premises operator air gap and media gates]
+  C --> D[Restore eligible records to local file]
+  D --> E[Migrate JSON records to SQLite]
+  E --> F[Test substitute and tenant separation]
+  F --> G[Dated assurance snapshot and exit decision]
+  C --> H[BLOCK conflicts or preserve UNVERIFIED gaps]
+  G --> A

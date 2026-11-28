@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 28 November 2026. Read the specific reviews before claiming approval. Fourteen of 24 module packages are authored and published with their stated review status. Ten modules remain to author, including capstone Modules 22–24.
+Updated 28 November 2026. Read the specific reviews before claiming approval. Seventeen of 24 module packages are observed published with their stated review status. Modules 18–20 are authored release candidates pending publication; four modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Modules 12–14 were published after three module workers and coordinator-owned integration. Next substantive batch: Modules 15 AI Security & Threat Modeling, 16 Cryptography, Identity & Confidential Computing and 17 MLOps, LLMOps & Observability. Continue with separate worker ownership and coordinator-owned shared files. Retain Module 04 HOLD and earlier draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Finish verified publication of Modules 18–20, then author Module 21 economics and capstone Modules 22–24. Use separate module ownership and coordinator-owned shared integration. Preserve Module 04 HOLD, existing draft limitations, and the active hourly implementation schedule. All 24 modules retain ten one-hour learning sessions each.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -137,3 +137,14 @@ The coordinator downloaded the new Linux CI artifact and compared all three fres
 Matching [Pages 46115233043](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46115233043) and [main Studio 46115233041](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46115233041) succeeded on merge `3af50ddeab3d40c79f7819be4605b8b5d0f137d4`. Thirty-two live routes returned HTTP 200. Lab scripts/retained records, Studio engine/UI, ontology, carousel HTML and SVGs matched source bytes. All 21 topic headings, three educational-draft labels, 240 stable study-hour controls, Module 18 planned state and three eight-page 8×10-inch PDFs were checked. Live mobile Chromium verified all three chapters, 26 workloads/21 presets, the three existing RAG/optimization/agent missed-answer feedback and follow-ups, persisted 3-of-7 attempts, an actual journal download containing all three new lessons, the new security/custody/operations gates, a blocked cloud counterfactual and three diagrams with JavaScript disabled. No page errors were observed.
 
 Seventeen packages are source-authored and observed published; seven remain, Modules 18–24. This is not a count of independently approved modules. Module 04 stays HOLD and the draft limitations above remain open. Resume substantive authoring at Module 18 (Resilience, Audit & Vendor Exit), then Modules 19 and 20 with separate worker ownership. The existing hourly automation was verified ACTIVE; all 240 one-hour learning sessions remain available. Do not repeat Modules 15–17 or create another schedule.
+
+
+## Modules 18–20 authored release candidate, 28 November 2026
+
+Twenty source packages are authored; seventeen are confirmed published by the preceding evidence. This release candidate adds Resilience, Audit & Vendor Exit; Enterprise Market & Use Case Discovery; and Platform Product Strategy & PRDs. Four modules remain to author: Module 21 economics and capstone Modules 22–24. Publication remains pending until matching-head CI, Pages and live checks succeed.
+
+The batch adds 21 syllabus topics, three runnable standard-library labs with retained actual synthetic observations, three separate 20-point PM deliverables, separate Q1–Q6/40-point keys, three editable SVG/Mermaid diagrams and 24 question-led slides with eight-page PDF exporters. Module 18 performs actual temporary local-file restoration, applies current retirement, compares JSON-to-SQLite records and checks a fixture substitute. Module 19 scores five invented sector interviews only after evidence and eligibility gates; these are not measured demand. Module 20 exercises a trusted in-memory tenant onboarding flow, denied cross-tenant actions, idempotent retries and ordered stages; its acceptance flags are declarations, not externally verified tests. Production RTO/RPO, real identity/HTTP/durability, actual customer evidence and physical assurance remain open.
+
+Studio retains version 1.2.0, its original seven question IDs/options/correct indexes, 26 workloads, 21 presets, ten dropdown dimensions and all 240 stable study-hour controls. Three appended exercises and distinct follow-ups address recovery/current retirement, actual buyer evidence and exact-build acceptance. Browser checks verify previous seven-answer history survives the appended questions, original mistakes remain visible after follow-up, actual Markdown/JSON downloads retain feedback and known site/air-gap conflicts remain blocked. Course-authored ontology v1.8 adds recovery, discovery and acceptance entities; no score grants approval.
+
+Local verification: 529 lab tests across Modules 01–20 (20, 28 and 28 new); 67 curriculum checks; 57 Node checks; 105-page installed and fallback builds; eleven Studio and six reader/study-plan browser checks; three carousel reflow/keyboard/overflow/print checks and eight-page extractable-text 8×10-inch PDF exports. All 24 slides, three complete SVGs and mobile chapter openings were inspected. Separate-agent, same-model peer review caught and corrected huge-integer scoring overflow, validation error precedence and revocation priority with incomplete recovery evidence; this is not independent human or different-model approval. Two honest author reviews accompany each module. Manual accessibility/contrast/zoom, tagged PDFs, qualified rights/domain review and production assurance remain NOT COMPLETED. Module 04 remains HOLD. Final publication evidence will be recorded after observation.

@@ -1,0 +1,45 @@
+{
+  "steps": [
+    {
+      "tenant": "tenant-a",
+      "stage": "REQUESTED",
+      "assurance": "SYNTHETIC_ONLY"
+    },
+    {
+      "tenant": "tenant-a",
+      "stage": "CONFIGURED",
+      "assurance": "SYNTHETIC_ONLY"
+    },
+    {
+      "tenant": "tenant-a",
+      "stage": "VALIDATED",
+      "assurance": "SYNTHETIC_ONLY"
+    },
+    {
+      "tenant": "tenant-a",
+      "stage": "ACTIVE_FIXTURE",
+      "assurance": "SYNTHETIC_ONLY"
+    }
+  ],
+  "retry": {
+    "tenant": "tenant-a",
+    "stage": "ACTIVE_FIXTURE",
+    "assurance": "SYNTHETIC_ONLY"
+  },
+  "event_count": 4,
+  "external_trace": {
+    "status": "BLOCKED",
+    "reasons": [
+      "traces"
+    ]
+  },
+  "traceability": {
+    "R1": "test_cross_tenant",
+    "R2": "test_idempotent_retry",
+    "R3": "test_stage_skip",
+    "R4": "test_boundary_conflict",
+    "R5": "test_airgap",
+    "R6": "test_missing_evidence"
+  },
+  "limitations": "In-memory trusted fixture; no HTTP, real authentication, facility assurance, actual acceptance evidence or production launch."
+}

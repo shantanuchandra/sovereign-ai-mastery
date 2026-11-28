@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.7 · 28 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.8 · 28 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -223,3 +223,24 @@ A course-authored evidence map, not a security certification or deployment appro
 Encryption does not authorize a prohibited transfer. Key administration differs from decryption. Attestation has a verifier and freshness policy and cannot establish residency by itself. Operations require exact-build gates, rollback, tenant controls and privacy-conscious incident evidence. A favorable SLO or red-team score never clears a known premises or physical air-gap conflict.
 
 See [Module 15](../chapters/15-ai-security-threat-modeling.md), [Module 16](../chapters/16-cryptography-identity-confidential-computing.md) and [Module 17](../chapters/17-mlops-llmops-observability.md).
+
+
+## Modules 18–20 recovery and product extension, version 1.8
+
+Course-authored entities connect recovery evidence to discovery and product acceptance. None certifies a supplier, deployment, demand forecast or launch.
+
+| Entity | Required properties | Decision relationship |
+|---|---|---|
+| RestoreExercise | Snapshot, allowed target, current retirement version, restored digest, migration result, elapsed scope | Tests ExitPlan; bounded file operations do not establish production RTO/RPO |
+| ExitPlan | Dependencies, replacement build, rights review, failure scope, owner, retest trigger | Reconstructs ModelArtifact and the full operational dependency set |
+| AssuranceSnapshot | Build, criteria, evidence date, reviewer, disposition, invalidating change | Evaluates Control; changed assumptions reopen review |
+| BuyerEvidence | Source kind, buyer role, job, consent, observation, independence group | Informs OpportunityHypothesis; fictional cards are not market demand |
+| OpportunityHypothesis | Segment, alternative, value assumption, sovereignty necessity, feasibility, gaps | Separates desirability, necessity and feasible implementation |
+| DiscoveryDecision | Hypothesis, conflicts, unknowns, next test, owner, disposition | Evaluates OpportunityHypothesis after hard constraints |
+| ProductRequirement | Identifier, stakeholder, constraint, owner, priority, evidence state | Constrains Workload with a traceable obligation |
+| AcceptanceCriterion | Requirement, exact build, test, expected/observed outcome, disposition | Tests ProductRequirement; a date or demo does not establish acceptance |
+| OnboardingTransition | Tenant, principal, previous/next state, request, authorization | Scopes Identity; registered does not mean authorized for restricted processing |
+
+Restore current permissions and retirement decisions as well as bytes. Preserve unknown discovery evidence and test the buyer problem against alternatives. Inspect positive and negative acceptance results on the changed release. Value, adoption and correct quiz answers never clear known physical-premises or air-gap conflicts.
+
+See [Module 18](../chapters/18-resilience-audit-vendor-exit.md), [Module 19](../chapters/19-enterprise-market-use-case-discovery.md) and [Module 20](../chapters/20-platform-product-strategy-prds.md).

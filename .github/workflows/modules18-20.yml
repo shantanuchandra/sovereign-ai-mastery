@@ -1,0 +1,77 @@
+name: Verify Modules 18–20 resilience, discovery and strategy
+on:
+  pull_request:
+    paths:
+      - 'chapters/18-*'
+      - 'chapters/19-*'
+      - 'chapters/20-*'
+      - 'labs/module-18/**'
+      - 'labs/module-19/**'
+      - 'labs/module-20/**'
+      - 'assessments/solutions/18-*'
+      - 'assessments/solutions/19-*'
+      - 'assessments/solutions/20-*'
+      - 'social/module-18/**'
+      - 'social/module-19/**'
+      - 'social/module-20/**'
+      - 'diagrams/module-18*'
+      - 'diagrams/module-19*'
+      - 'diagrams/module-20*'
+      - 'taxonomy/**'
+      - 'learning/**'
+      - 'qa/test_modules18_20*'
+      - 'scripts/build_site.py'
+      - '.github/workflows/modules18-20.yml'
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install reader and browser dependencies
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify labs and retained observations
+        run: |
+          python -m unittest discover -s labs/module-18 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-19 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-20 -p 'test_*.py' -v
+          node --test learning/tests/*.test.mjs
+      - name: Record fresh bounded synthetic demonstrations
+        run: |
+          mkdir -p artifacts/modules18-20
+          python labs/module-18/resilience.py > artifacts/modules18-20/ci-resilience-run.json
+          python labs/module-19/discovery.py > artifacts/modules18-20/ci-discovery-run.json
+          python labs/module-20/platform_flow.py > artifacts/modules18-20/ci-platform-run.json
+      - name: Build and verify public routes and separate keys
+        run: |
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Verify actual tutor, study progress and mobile reader
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/modules18-20
+        run: |
+          python learning/tests/test_rendered_studio.py
+          python learning/tests/test_rendered_study_plan.py
+      - name: Verify three carousels and eight-page PDF exports
+        run: |
+          python social/module-18/test_rendered_carousel.py
+          python social/module-18/export_pdf.py
+          python social/module-19/test_rendered_carousel.py
+          python social/module-19/export_pdf.py
+          python social/module-20/test_rendered_carousel.py
+          python social/module-20/export_pdf.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modules18-20-browser-evidence
+          path: artifacts/modules18-20
+          if-no-files-found: ignore

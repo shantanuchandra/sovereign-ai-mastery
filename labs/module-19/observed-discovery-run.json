@@ -1,0 +1,73 @@
+{
+  "scope": "five invented interviews, no market estimate",
+  "results": [
+    {
+      "id": "FIN",
+      "state": "ELIGIBLE_FOR_DISCOVERY",
+      "desirability": 3.15,
+      "sovereignty_necessity": "required",
+      "segment": "physical-site",
+      "conflicts": [],
+      "unknowns": [],
+      "assurance": "SYNTHETIC_DECLARATIONS_ONLY",
+      "next_action": "validate with real buyer"
+    },
+    {
+      "id": "HEALTH",
+      "state": "UNKNOWN",
+      "desirability": null,
+      "sovereignty_necessity": "required",
+      "segment": "physical-site",
+      "conflicts": [],
+      "unknowns": [
+        "evidence:baseline",
+        "score:feasibility:unobserved"
+      ],
+      "assurance": "SYNTHETIC_DECLARATIONS_ONLY",
+      "next_action": "collect evidence"
+    },
+    {
+      "id": "TEL",
+      "state": "ELIGIBLE_FOR_DISCOVERY",
+      "desirability": 3.15,
+      "sovereignty_necessity": "preferred",
+      "segment": "approved-managed",
+      "conflicts": [],
+      "unknowns": [],
+      "assurance": "SYNTHETIC_DECLARATIONS_ONLY",
+      "next_action": "validate with real buyer"
+    },
+    {
+      "id": "GOV",
+      "state": "BLOCKED",
+      "desirability": null,
+      "sovereignty_necessity": "required",
+      "segment": "physical-site",
+      "conflicts": [
+        "external:telemetry"
+      ],
+      "unknowns": [
+        "path:telemetry"
+      ],
+      "assurance": "SYNTHETIC_DECLARATIONS_ONLY",
+      "next_action": "resolve conflict"
+    },
+    {
+      "id": "IND",
+      "state": "BLOCKED",
+      "desirability": null,
+      "sovereignty_necessity": "required",
+      "segment": "disconnected-site",
+      "conflicts": [
+        "airgap:network"
+      ],
+      "unknowns": [],
+      "assurance": "SYNTHETIC_DECLARATIONS_ONLY",
+      "next_action": "resolve conflict"
+    }
+  ],
+  "eligible_backlog": [
+    "FIN",
+    "TEL"
+  ]
+}
