@@ -147,7 +147,9 @@ const MODS=Object.freeze({
   rag:{label:'Module 12: authorized retrieval and grounded responses',url:'../modules/12-sovereign-rag-systems.html'},
   optimization:{label:'Module 13: measured optimization and evaluation',url:'../modules/13-fine-tuning-optimization-evaluation.html'},
   agents:{label:'Module 14: scoped agents and approval evidence',url:'../modules/14-agents-apis-enterprise-integrations.html'},
-  security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
+  threats:{label:'Module 15: AI security and threat modeling',url:'../modules/15-ai-security-threat-modeling.html'},
+  security:{label:'Module 16: key custody and identity',url:'../modules/16-cryptography-identity-confidential-computing.html'},
+  llmops:{label:'Module 17: release gates and private observability',url:'../modules/17-mlops-llmops-observability.html'},
   architecture:{label:'Module 07: architecture and control planes',url:'../modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html'},
   governance:{label:'Module 06: governance and risk evidence',url:'../modules/06-governance-responsible-ai-risk.html'},
   regulation:{label:'Module 05: legal jurisdiction',url:'../modules/05-laws-regulation-jurisdiction.html'}
@@ -329,9 +331,12 @@ export function createBlueprint(raw={}) {
   gates.push('For retrieval, derive tenant and permissions from trusted identity; apply revocation before ranking and context assembly, partition caches and validate citations against the authorized context.');
   gates.push('For optimization, compare the exact build and workload with warm-up, timing boundaries, failures/errors and English/Arabic task-quality denominators; latency gains alone cannot approve a changed model.');
   gates.push('For agent actions, bind approval to actor, tenant, tool, exact arguments, resource/policy version and expiry; reject replay and recheck authorization at execution with a redacted audit.');
+  gates.push('For security, threat-model each trust boundary and indirect prompt injection; keep retrieved content untrusted, enforce tool permissions and egress outside the model, and validate trusted artifact provenance and negative tests. A passing synthetic case does not prove attack resistance.');
+  gates.push('For key custody, map decrypt, key administration and support principals separately; test revocation, rotation and key-service outage. Encryption and attestation do not establish physical residency, and a declared TEE measurement is not verified attestation.');
+  gates.push('For operations, bind release gates and rollback to the exact model, prompt, policy and runtime build; retain all eligible attempted requests in SLO and error-budget denominators, enforce tenant quotas, and inspect redacted traces, incident paths and allowed collector destinations.');
   const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure,MODS.models,MODS.rag,MODS.optimization,MODS.agents];
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
-  lessons.push(MODS.security,MODS.regulation,MODS.governance);
+  lessons.push(MODS.threats,MODS.security,MODS.llmops,MODS.regulation,MODS.governance);
   const architectures=[
     {name:'Workload boundary',detail:LABELS.workload[v.workload],owner:'Product owner'},
     {name:'Data and retrieval',detail:siteOnly?'On-site documents, vector index, model context, logs and local backups':sensitive?'Restricted data, role-aware retrieval and derived-data governance':'Scoped data, retention and access policies',owner:'Enterprise data owner'},

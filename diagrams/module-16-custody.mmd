@@ -1,0 +1,11 @@
+flowchart TD
+  I[Trusted identity and current tenant] --> P[Role and attribute policy]
+  P --> D[Permitted data operation]
+  C[Two separate custodians] --> A[Key administrator: bound rotation]
+  A --> K[Key-version metadata]
+  K --> D
+  V[Attestation appraisal: separate production design] --> R[Workload-bound release policy]
+  R --> D
+  B[Complete site boundary and audit readiness] --> P
+  B --> A
+  D --> E[Minimal access evidence]

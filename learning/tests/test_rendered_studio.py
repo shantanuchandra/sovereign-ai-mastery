@@ -109,6 +109,20 @@ class StudioBrowserTests(unittest.TestCase):
                 expect(self.page.locator(f"#{key}")).to_have_value(value)
         self.assertEqual(self.page.locator("#counter-key option").count(), 10)
 
+    def test_security_custody_operations_guidance_and_exports(self):
+        self.page.set_viewport_size({'width':1600,'height':1000})
+        self.scenario('factory')
+        for number in ['15','16','17']:
+            expect(self.page.locator(f'#lesson-links a[href*="/modules/{number}-"]')).to_be_visible()
+        expect(self.page.locator('#approval-gates')).to_contain_text('indirect prompt injection')
+        expect(self.page.locator('#approval-gates')).to_contain_text('Encryption and attestation do not establish physical residency')
+        expect(self.page.locator('#approval-gates')).to_contain_text('SLO and error-budget denominators')
+        journal=self.download('#download-md')
+        record=json.loads(self.download('#download-json'))
+        for number in ['15','16','17']:
+            self.assertIn('/'+number+'-',journal)
+            self.assertTrue(any('/'+number+'-' in row['url'] for row in record['blueprint']['lessons']))
+
     def test_physical_boundaries_and_counterfactual_do_not_authorize_cloud_fallback(self):
         self.scenario("energy")
         expect(self.page.locator("#solution-status")).to_have_text("PROVISIONAL")

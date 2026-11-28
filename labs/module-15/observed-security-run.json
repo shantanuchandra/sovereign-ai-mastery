@@ -1,0 +1,56 @@
+{
+  "module": 15,
+  "environment": "Python standard-library synthetic in-process fixture",
+  "model_executed": false,
+  "network_executed": false,
+  "boundary_assurance": "DECLARED_ONLY",
+  "observations": [
+    {
+      "case": "allowed-read",
+      "decision": "COMPLETED",
+      "reason": "FIXED_LOCAL_READ",
+      "boundary": "DECLARED_ONLY"
+    },
+    {
+      "case": "injected-export-proposal",
+      "decision": "DENIED",
+      "reason": "TOOL_FORBIDDEN",
+      "boundary": "DECLARED_ONLY"
+    },
+    {
+      "case": "cross-tenant-read",
+      "decision": "DENIED",
+      "reason": "RESOURCE_DENIED",
+      "boundary": "DECLARED_ONLY"
+    },
+    {
+      "case": "injected-content-as-data",
+      "decision": "COMPLETED",
+      "reason": "FIXED_LOCAL_READ",
+      "boundary": "DECLARED_ONLY"
+    }
+  ],
+  "local_read_calls": 2,
+  "audit": [
+    {
+      "decision": "COMPLETED",
+      "reason": "FIXED_LOCAL_READ"
+    },
+    {
+      "decision": "DENIED",
+      "reason": "TOOL_FORBIDDEN"
+    },
+    {
+      "decision": "DENIED",
+      "reason": "RESOURCE_DENIED"
+    },
+    {
+      "decision": "COMPLETED",
+      "reason": "FIXED_LOCAL_READ"
+    }
+  ],
+  "limits": [
+    "No injection detection or model efficacy measured",
+    "No real IAM, network isolation, artifact signature or facility verification"
+  ]
+}

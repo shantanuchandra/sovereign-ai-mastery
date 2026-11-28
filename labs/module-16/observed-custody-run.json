@@ -1,0 +1,88 @@
+{
+  "attempts": [
+    {
+      "case": "administrator-read",
+      "decision": "DENIED",
+      "reason": "PERMISSION"
+    },
+    {
+      "case": "cross-tenant-read",
+      "decision": "DENIED",
+      "reason": "PERMISSION"
+    },
+    {
+      "case": "reader-before-rotation",
+      "decision": "ALLOWED",
+      "result": {
+        "key_version": 1,
+        "resource": "A-doc",
+        "result": "METADATA_ONLY"
+      }
+    },
+    {
+      "case": "two-custodian-rotation",
+      "decision": "ALLOWED",
+      "result": {
+        "current": 2,
+        "revision": 2,
+        "tenant": "A",
+        "versions": {
+          "1": "retired",
+          "2": "active"
+        }
+      }
+    },
+    {
+      "case": "old-record-after-rotation",
+      "decision": "ALLOWED",
+      "result": {
+        "key_version": 1,
+        "resource": "A-doc",
+        "result": "METADATA_ONLY"
+      }
+    },
+    {
+      "case": "replay-rotation",
+      "decision": "DENIED",
+      "reason": "GRANT"
+    },
+    {
+      "case": "support-read",
+      "decision": "DENIED",
+      "reason": "PERMISSION"
+    }
+  ],
+  "audit": [
+    {
+      "actor": "reader",
+      "operation": "access-metadata",
+      "outcome": "ALLOWED",
+      "policy_revision": 1,
+      "target": "A-doc"
+    },
+    {
+      "actor": "admin",
+      "operation": "rotate-metadata",
+      "outcome": "AUTHORIZED",
+      "policy_revision": 1,
+      "target": "A-key"
+    },
+    {
+      "actor": "reader",
+      "operation": "access-metadata",
+      "outcome": "ALLOWED",
+      "policy_revision": 1,
+      "target": "A-doc"
+    }
+  ],
+  "boundary_state": "DECLARED_ONLY",
+  "limits": [
+    "No encryption/decryption or key material",
+    "No IdP, KMS, HSM, TEE or attestation",
+    "No physical, OS or production assurance"
+  ],
+  "module": 16,
+  "platform": "Darwin arm64",
+  "python": "3.14.8",
+  "scope": "SYNTHETIC_METADATA_ONLY"
+}

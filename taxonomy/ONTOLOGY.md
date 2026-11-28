@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.6 · 28 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.7 · 28 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -204,3 +204,22 @@ This course-authored extension connects retrieval, experiments and delegated act
 A revoked document cannot remain authorized through an old cache. A faster successful-request median does not settle error, Arabic/domain quality or energy questions. A generic approval click cannot authorize substituted arguments, a different tenant or replay. Synthetic labs test their stated mechanisms; authentication, physical residency and production assurance require separate evidence.
 
 See [Module 12](../chapters/12-sovereign-rag-systems.md), [Module 13](../chapters/13-fine-tuning-optimization-evaluation.md) and [Module 14](../chapters/14-agents-apis-enterprise-integrations.md). The downloadable YAML defines all relation endpoints explicitly.
+
+
+## Modules 15–17 security, custody and operations extension, version 1.7
+
+A course-authored evidence map, not a security certification or deployment approval.
+
+| Entity | Minimum fields | Relationship and limit |
+|---|---|---|
+| ThreatScenario | Asset, trust boundary, attacker capability, impact, owner | Exposes Risk; a prompt filter cannot enforce tool authorization |
+| SecurityValidation | Build, scenario, expected and observed outcome, residual risk | Tests ThreatScenario; synthetic tests are bounded observations |
+| CustodyPolicy | Key reference, decrypt/admin principals, support paths, revocation | Governs CryptographicKey; no secret material enters the map |
+| AttestationReview | Verifier, freshness, reference measurement, workload binding, disposition | Evaluates InfrastructureService; no inferred physical location |
+| ReleaseManifest | Model revision, prompt digest, policy/runtime version, rollback target | Uses ModelArtifact; old test evidence cannot silently approve a changed build |
+| ServiceObjective | Tenant, window, attempted/good/error counts, latency threshold | Constrains Workload; failures remain in the eligible denominator |
+| TelemetryPolicy | Allowed fields, redaction, retention, collector destination | Governs DataArtifact, including traces and support exports |
+
+Encryption does not authorize a prohibited transfer. Key administration differs from decryption. Attestation has a verifier and freshness policy and cannot establish residency by itself. Operations require exact-build gates, rollback, tenant controls and privacy-conscious incident evidence. A favorable SLO or red-team score never clears a known premises or physical air-gap conflict.
+
+See [Module 15](../chapters/15-ai-security-threat-modeling.md), [Module 16](../chapters/16-cryptography-identity-confidential-computing.md) and [Module 17](../chapters/17-mlops-llmops-observability.md).

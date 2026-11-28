@@ -58,6 +58,9 @@ jobs:
           python -m unittest discover -s labs/module-12 -p 'test_*.py' -v
           python -m unittest discover -s labs/module-13 -p 'test_*.py' -v
           python -m unittest discover -s labs/module-14 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-15 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-16 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-17 -p 'test_*.py' -v
       - name: Validate Module 08 data lifecycle lab
         run: python -m unittest discover -s labs/module-08 -p 'test_*.py' -v
       - name: Validate Module 07 architecture lab
@@ -134,6 +137,12 @@ jobs:
           python social/module-13/export_pdf.py
           python social/module-14/test_rendered_carousel.py
           python social/module-14/export_pdf.py
+          python social/module-15/test_rendered_carousel.py
+          python social/module-15/export_pdf.py
+          python social/module-16/test_rendered_carousel.py
+          python social/module-16/export_pdf.py
+          python social/module-17/test_rendered_carousel.py
+          python social/module-17/export_pdf.py
       - name: Verify Module 11 reader and portrait PDF
         run: |
           python -m unittest discover -s qa -p 'test_module11_learning_contract.py' -v

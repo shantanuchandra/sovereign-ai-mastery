@@ -96,7 +96,7 @@ class StudyPlanBrowserTests(unittest.TestCase):
         context=self.browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
         page=context.new_page()
         try:
-            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering'),('09','09-gpus-compute-networking-platform-engineering'),('10','10-sovereign-cloud-deployment-patterns'),('11','11-sovereign-models-model-strategy'),('12','12-sovereign-rag-systems'),('13','13-fine-tuning-optimization-evaluation'),('14','14-agents-apis-enterprise-integrations')]:
+            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering'),('09','09-gpus-compute-networking-platform-engineering'),('10','10-sovereign-cloud-deployment-patterns'),('11','11-sovereign-models-model-strategy'),('12','12-sovereign-rag-systems'),('13','13-fine-tuning-optimization-evaluation'),('14','14-agents-apis-enterprise-integrations'),('15', '15-ai-security-threat-modeling'),('16', '16-cryptography-identity-confidential-computing'),('17', '17-mlops-llmops-observability')]:
                 page.goto(self.origin+'/modules/'+slug+'.html',wait_until='networkidle')
                 expect(page.locator('h1')).to_contain_text('Module '+module)
                 diagram=page.locator('figure.diagram-rendered img')
@@ -143,7 +143,7 @@ class StudyPlanBrowserTests(unittest.TestCase):
                       '/modules/13-fine-tuning-optimization-evaluation.html','/labs/module-13/index.html',
                       '/labs/module-13/TRADEOFF_MEMO.html','/social/module-13/POST.html',
                       '/modules/14-agents-apis-enterprise-integrations.html','/labs/module-14/index.html',
-                      '/labs/module-14/CONTROL_SPEC.html','/social/module-14/POST.html']:
+                      '/labs/module-14/CONTROL_SPEC.html','/social/module-14/POST.html','/modules/15-ai-security-threat-modeling.html','/labs/module-15/index.html','/labs/module-15/THREAT_MODEL.html','/social/module-15/POST.html','/modules/16-cryptography-identity-confidential-computing.html','/labs/module-16/index.html','/labs/module-16/CUSTODY_REVIEW.html','/social/module-16/POST.html','/modules/17-mlops-llmops-observability.html','/labs/module-17/index.html','/labs/module-17/OPERATING_MODEL.html','/social/module-17/POST.html']:
             for width in (1280,390,320):
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.page.goto(self.origin+route,wait_until='networkidle')
