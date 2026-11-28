@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Next substantive module: Module 12 Sovereign RAG Systems. Reuse Module 11 model-bundle identity and language-slice evidence, Module 08 tenant/retention controls and Module 10 deployment admissibility. Continue later modules while retaining Module 04 HOLD and Module 05–11 draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Current substantive batch: Modules 12–14, implemented by three module workers with coordinator-owned shared integration. After their reviewed publication, continue Module 15 Security, Threat Models & Defensive Architecture. Retain Module 04 HOLD and earlier draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -91,3 +91,16 @@ Artifacts: seven-topic model strategy chapter, seven inspected primary sources/b
 Checks: 203 lab tests across Modules 01–11; 55 curriculum checks; 43 Node checks; installed and fallback 60-page builds; seven Studio and six reader/study-plan browser tests; actual carousel/PDF/keyboard/print checks. All eight slides, full vector and mobile chapter inspected. Studio model/bundle/slice/exit guidance and portability remediation reach Module 11 while retaining question identities, first-attempt retention, scoring/storage, 26 workloads, 21 presets and ten dimensions. All 240 study hours remain available; Module 12 stays planned.
 
 Two distinct same-author audits are in `reviews/module-11/`. Independent/manual assessment/accessibility, qualified rights and Arabic/domain review, actual OS/physical isolation, production load/quality and enterprise assurance remain NOT COMPLETED. Preserve Module 04 HOLD and earlier draft limits. Next substantive authoring after publication: Module 12 Sovereign RAG Systems. Do not repeat the completed model-authoring package or create another schedule.
+
+
+## Modules 12–14 release candidate, 28 November 2026
+
+Three user-requested workers prepared separate RAG, optimization and enterprise-agent packages. The coordinator integrated the shared website, ontology v1.6, Studio guidance and three appended questions/follow-ups. Original four question IDs/options/correct indexes, saved version 1.2.0, first attempts, 26 workloads, 21 presets and ten dimensions are preserved. All 240 stable one-hour study sessions remain available; Module 15 stays planned.
+
+The working checkout moved to `/Users/shantanuchandra/Documents/ChatGPT/MetisJean Cloud/sovereign-ai-mastery`, preserving the complete working tree and Git history. The existing hourly automation was updated with that checkout and parallel module ownership; it remains ACTIVE. No duplicate schedule was created.
+
+Artifacts: 21 substantive syllabus topics; three bounded synthetic labs; actual pinned local RAG generation and 48 CPU tuning generations; three PM deliverables; separate six-question keys with 40-point assessment/20-point PM rubrics; three SVGs; 24 question-led slides, posts and eight-page portrait PDFs; distinct author technical/editorial audits. RAG's single English response contains the right seven-day fact but fails its strict format criterion. Both tuning profiles fail all four unique English and four unique Arabic literal labels; 12 repeated measurements per language are not 12 independent cases. The agent exercise runs an in-memory tool with server-owned fixtures and exact-action approval, revocation/expiry/tamper/replay checks; it is not an enterprise connector or real identity service.
+
+Local gates: 328 lab tests across Modules 01–14, 59 curriculum checks, 49 Node checks, 75-page installed/fallback static builds, eight Studio browser checks, six reader/study-plan browser checks and all three carousel/print/PDF checks. The coordinator inspected all 24 slides, all three complete SVGs and mobile chapter openings. Known physical/air-gap conflicts remain blocked even with correct quiz answers. Public answer keys remain excluded. Pages/CI/live publication evidence will be recorded after observation; this paragraph alone does not claim published status.
+
+Two author reviews per module are available. Independent assessment, manual screen-reader/zoom/contrast, tagged-PDF assurance, qualified Arabic/domain/rights review, physical/OS isolation, real enterprise identity, production load/quality and deployment assurance remain open. Module 04 remains HOLD. Next substantive module after publication: Module 15. Do not restart Modules 12–14 or create another schedule.

@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-11-27T19:19:55.514246+00:00",
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "artifact_hashes": {
+    "README.md": "4f97533ad95b1b2fea15fbc075c01b94578ebdd7c8138888fa43fa3abd530dc4",
+    "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+    "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+    "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+    "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+    "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+    "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+    "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+    "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+  },
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "python": "3.13.9",
+  "torch": "2.9.1",
+  "transformers": "4.57.3",
+  "device": "cpu",
+  "dtype": "float32",
+  "threads": 2,
+  "max_new_tokens": 24,
+  "do_sample": false,
+  "load_seconds": 0.425424,
+  "generation_seconds": 0.348497,
+  "principal": "a-staff",
+  "question": "How many days before departure must tenant A staff submit a travel request?",
+  "context_chunk_ids": [
+    "a-travel:0"
+  ],
+  "prompt_sha256": "88a1b277f284dc61094255100caaf2dd1166faaf5f0208432147e3a76cf9a94b",
+  "fixture_sha256": "3e5f81afd99477fc61081c80224c0ec0edc742ea1dc9b8a4885112cabcd47589",
+  "input_tokens": 123,
+  "generated_tokens": 10,
+  "raw_output": "The answer is: 7 days before departure",
+  "exact_answer_pass": false,
+  "network_guard": "Python connect/create_connection/getaddrinfo denied; not OS isolation",
+  "status": "REVIEW_REQUIRED",
+  "release": "WITHHELD; synthetic raw output, no production authorization",
+  "limits": "One English synthetic RAG generation; no Arabic model quality, latency benchmark or physical air-gap proof"
+}

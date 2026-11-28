@@ -31,7 +31,7 @@ class ComputePublication(unittest.TestCase):
         self.assertIsNotNone(s.select_one('figure.diagram-rendered img'))
         plan=BeautifulSoup((ROOT/'dist/learning/schedule.html').read_text(),'html.parser')
         self.assertIn('09-gpus-compute-networking-platform-engineering.html',str(plan.select_one('[data-module="09"]')))
-        self.assertIn('Planned module',plan.select_one('[data-module="12"]').get_text())
+        self.assertIn('Planned module',plan.select_one('[data-module="15"]').get_text())
         self.assertEqual(len(plan.select('input[type="checkbox"]')),240)
         self.assertIn('independent assessment and manual accessibility review pending',s.get_text())
     def test_social_questions_and_style(self):

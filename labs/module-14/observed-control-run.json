@@ -1,0 +1,74 @@
+{
+  "scope": "synthetic-control-test-only",
+  "boundary": "DECLARED_ONLY",
+  "tool_calls": 1,
+  "outcomes": [
+    {
+      "case": "no_approval",
+      "decision": "DENIED",
+      "reason": "approval_required"
+    },
+    {
+      "case": "exact_approved_action",
+      "decision": "COMPLETED",
+      "result": {
+        "status": "closed",
+        "version": 2
+      }
+    },
+    {
+      "case": "replay",
+      "decision": "DENIED",
+      "reason": "stale_resource"
+    },
+    {
+      "case": "cross_tenant",
+      "decision": "DENIED",
+      "reason": "resource_denied"
+    }
+  ],
+  "audit": [
+    {
+      "request_digest": "2a369c5c345a11e2844c62c2b723c5c424d1af1a66e2a84648fcf68803ba1b08",
+      "action_digest": "e46fe361762e7184f7dec5b47db406d20eda91485a04eb9aa58ec3da9d4b4531",
+      "tenant": "A",
+      "status": "DENIED",
+      "reason": "approval_required"
+    },
+    {
+      "request_digest": "2a369c5c345a11e2844c62c2b723c5c424d1af1a66e2a84648fcf68803ba1b08",
+      "action_digest": "e46fe361762e7184f7dec5b47db406d20eda91485a04eb9aa58ec3da9d4b4531",
+      "tenant": "A",
+      "status": "APPROVED",
+      "reason": "bound_exact_action"
+    },
+    {
+      "request_digest": "2a369c5c345a11e2844c62c2b723c5c424d1af1a66e2a84648fcf68803ba1b08",
+      "action_digest": "e46fe361762e7184f7dec5b47db406d20eda91485a04eb9aa58ec3da9d4b4531",
+      "tenant": "A",
+      "status": "AUTHORIZED",
+      "reason": "validated_before_tool"
+    },
+    {
+      "request_digest": "2a369c5c345a11e2844c62c2b723c5c424d1af1a66e2a84648fcf68803ba1b08",
+      "action_digest": "e46fe361762e7184f7dec5b47db406d20eda91485a04eb9aa58ec3da9d4b4531",
+      "tenant": "A",
+      "status": "COMPLETED",
+      "reason": "synthetic_tool_returned"
+    },
+    {
+      "request_digest": "2a369c5c345a11e2844c62c2b723c5c424d1af1a66e2a84648fcf68803ba1b08",
+      "action_digest": "e46fe361762e7184f7dec5b47db406d20eda91485a04eb9aa58ec3da9d4b4531",
+      "tenant": "A",
+      "status": "DENIED",
+      "reason": "stale_resource"
+    },
+    {
+      "request_digest": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f",
+      "action_digest": "9ea69dc1c48f170bc0ee74d08574ca287b59b913d6e28b9074479eac05a36e8f",
+      "tenant": "A",
+      "status": "DENIED",
+      "reason": "resource_denied"
+    }
+  ]
+}

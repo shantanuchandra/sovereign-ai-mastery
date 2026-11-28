@@ -78,6 +78,21 @@ class StudioBrowserTests(unittest.TestCase):
             self.page.click(button)
         return Path(event.value.path()).read_text()
 
+    def test_new_module_feedback_followups_and_both_downloads(self):
+        self.scenario("factory")
+        for qid,slug in [('rag-permissions','12-sovereign-rag-systems'),('optimization-evidence','13-fine-tuning-optimization-evaluation'),('agent-approval','14-agents-apis-enterprise-integrations')]:
+            self.page.locator(f'[data-qid="{qid}"] [data-choice="0"]').click()
+            expect(self.page.locator(f'[data-qid="{qid}"] .feedback a')).to_have_attribute('href','../modules/'+slug+'.html')
+            expect(self.page.locator(f'[data-qid="remediation-{qid}"]')).to_be_visible()
+        self.page.reload(wait_until="networkidle")
+        expect(self.page.locator('#tutor-progress')).to_have_text('3 of 7 answered')
+        md=self.download('#download-md')
+        data=self.download('#download-json')
+        for slug in ['12-sovereign-rag-systems','13-fine-tuning-optimization-evaluation','14-agents-apis-enterprise-integrations']:
+            self.assertIn(slug,md)
+            self.assertIn(slug,data)
+        self.assertEqual(md.count('Follow-up result: Not attempted'),3)
+
     def test_all_dropdowns_and_scenarios_match_the_engine(self):
         expected = self.page.evaluate("""async () => {
             const e = await import('./studio-engine.mjs');
@@ -131,7 +146,7 @@ class StudioBrowserTests(unittest.TestCase):
         self.missed_location()
         self.page.locator('[data-qid="remediation-location"] [data-choice="0"]').click()
         self.page.click("#restart-challenges")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 4 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
         expect(self.page.locator(".remediation")).to_have_count(0)
         self.page.locator('[data-qid="location"] [data-choice="0"]').click()
         self.page.select_option("#data", "synthetic")
@@ -150,7 +165,7 @@ class StudioBrowserTests(unittest.TestCase):
         self.page.reload(wait_until="networkidle")
         expect(self.page.locator("#workload")).to_have_value("speech")
         expect(self.page.locator("#reflection")).to_have_value("Keep this reflection.")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 4 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
         self.page.evaluate("""key => {
             const saved=JSON.parse(localStorage.getItem(key));
             saved.answers={location:999,operations:'1',evidence:-1};
@@ -158,7 +173,7 @@ class StudioBrowserTests(unittest.TestCase):
             localStorage.setItem(key,JSON.stringify(saved));
         }""", STORAGE)
         self.page.reload(wait_until="networkidle")
-        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 4 answered")
+        expect(self.page.locator("#tutor-progress")).to_have_text("0 of 7 answered")
         expect(self.page.locator(".remediation")).to_have_count(0)
 
     def test_malformed_or_disabled_storage_does_not_break_the_studio(self):

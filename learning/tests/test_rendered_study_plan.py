@@ -96,7 +96,7 @@ class StudyPlanBrowserTests(unittest.TestCase):
         context=self.browser.new_context(java_script_enabled=False,viewport={'width':390,'height':900})
         page=context.new_page()
         try:
-            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering'),('09','09-gpus-compute-networking-platform-engineering'),('10','10-sovereign-cloud-deployment-patterns'),('11','11-sovereign-models-model-strategy')]:
+            for module,slug in [('06','06-governance-responsible-ai-risk'),('07','07-end-to-end-sovereign-ai-stack-reference-architecture'),('08','08-data-sovereignty-engineering'),('09','09-gpus-compute-networking-platform-engineering'),('10','10-sovereign-cloud-deployment-patterns'),('11','11-sovereign-models-model-strategy'),('12','12-sovereign-rag-systems'),('13','13-fine-tuning-optimization-evaluation'),('14','14-agents-apis-enterprise-integrations')]:
                 page.goto(self.origin+'/modules/'+slug+'.html',wait_until='networkidle')
                 expect(page.locator('h1')).to_contain_text('Module '+module)
                 diagram=page.locator('figure.diagram-rendered img')
@@ -137,7 +137,13 @@ class StudyPlanBrowserTests(unittest.TestCase):
                       '/modules/10-sovereign-cloud-deployment-patterns.html','/labs/module-10/index.html',
                       '/labs/module-10/ADR.html','/social/module-10/POST.html',
                       '/modules/11-sovereign-models-model-strategy.html','/labs/module-11/index.html',
-                      '/labs/module-11/MODEL_MATRIX.html','/social/module-11/POST.html']:
+                      '/labs/module-11/MODEL_MATRIX.html','/social/module-11/POST.html',
+                      '/modules/12-sovereign-rag-systems.html','/labs/module-12/index.html',
+                      '/labs/module-12/REQUIREMENTS.html','/social/module-12/POST.html',
+                      '/modules/13-fine-tuning-optimization-evaluation.html','/labs/module-13/index.html',
+                      '/labs/module-13/TRADEOFF_MEMO.html','/social/module-13/POST.html',
+                      '/modules/14-agents-apis-enterprise-integrations.html','/labs/module-14/index.html',
+                      '/labs/module-14/CONTROL_SPEC.html','/social/module-14/POST.html']:
             for width in (1280,390,320):
                 self.page.set_viewport_size({'width':width,'height':900})
                 self.page.goto(self.origin+route,wait_until='networkidle')

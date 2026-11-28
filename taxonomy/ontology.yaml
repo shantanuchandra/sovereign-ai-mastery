@@ -1,6 +1,6 @@
-version: '1.5.0'
+version: '1.6.0'
 status: course-authored-framework-not-a-regulatory-standard
-reviewed: '2026-11-27'
+reviewed: '2026-11-28'
 maintainer: Sovereign AI Mastery
 note: >-
   This ontology is a learning and product-design tool. It does not determine
@@ -28,6 +28,17 @@ classification_axes:
     values: [proposed, reviewed, accepted, accepted_with_exception, rejected]
     question: What disposition did an accountable reviewer record?
 classes:
+  - RetrievalPolicy
+  - RetrievalIndex
+  - RetrievedContext
+  - GroundingCheck
+  - OptimizationExperiment
+  - ExperimentVariant
+  - MeasurementPopulation
+  - AgentIdentity
+  - ToolAction
+  - ApprovalGrant
+  - InvocationRecord
   - Organization
   - Vendor
   - Authority
@@ -92,7 +103,33 @@ model_properties:
   EvaluationSlice: [language, task, criterion, passed, total]
   ModelRun: [artifact_build, runtime, settings, raw_outputs, environment]
   ExitRehearsal: [source_build, reconstructed_build, boundary, task_regression]
+rag_properties:
+  RetrievalPolicy: [trusted_identity, tenant_scope, current_permissions, revocation_version, expiry]
+  RetrievalIndex: [source_build, parser, chunker, embedding_build, tenant_scope]
+  RetrievedContext: [request_id, authorized_chunks, policy_version, citations]
+  GroundingCheck: [case_id, authorized_context, claim_support, refusal_criterion, result]
+optimization_properties:
+  OptimizationExperiment: [baseline_build, candidate_build, workload, timing_boundary, acceptance_criteria]
+  ExperimentVariant: [runtime_build, threads, batch_size, precision, decoding_settings]
+  MeasurementPopulation: [attempts, successes, errors, warmups, repeats, latency_population]
+agent_properties:
+  AgentIdentity: [principal_id, tenant_scope, delegated_permissions, credential_reference]
+  ToolAction: [actor, tenant, tool, exact_arguments, resource_version, policy_version]
+  ApprovalGrant: [approver, action_digest, expiry, consumed_state]
+  InvocationRecord: [action_id, decision, redacted_outcome, reconciliation_id]
 relations:
+  - [RetrievalPolicy, authorizes, RetrievedContext]
+  - [RetrievalIndex, indexes, DataArtifact]
+  - [RetrievedContext, selects_from, RetrievalIndex]
+  - [GroundingCheck, tests, RetrievedContext]
+  - [OptimizationExperiment, compares, ExperimentVariant]
+  - [ExperimentVariant, uses, ModelArtifact]
+  - [OptimizationExperiment, observes, MeasurementPopulation]
+  - [OptimizationExperiment, evaluates, EvaluationSlice]
+  - [Identity, delegates_to, AgentIdentity]
+  - [AgentIdentity, proposes, ToolAction]
+  - [ApprovalGrant, authorizes_action, ToolAction]
+  - [InvocationRecord, records_invocation, ToolAction]
   - [LicenseReview, evaluates, ModelArtifact]
   - [ModelRun, uses, ModelArtifact]
   - [ModelRun, measures, EvaluationSlice]
@@ -140,6 +177,12 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - Retrieval relevance never grants access; current permission must precede context assembly and cached reuse.
+  - Citations and prompt instructions do not establish authorization or factual support.
+  - Optimization observations must name the timing population and retain failures and language denominators.
+  - Timing changes do not establish energy savings or preserved task quality.
+  - Approval is scoped to an exact action and current authority; changed arguments invalidate reliance.
+  - Expired or consumed approval cannot authorize a fresh action; ambiguous retries require reconciliation.
   - A downloaded weight file does not establish scoped permission or complete system openness.
   - Missing language denominators cannot be treated as a successful subgroup evaluation.
   - A changed tokenizer or template requires a new evaluated build identity.
