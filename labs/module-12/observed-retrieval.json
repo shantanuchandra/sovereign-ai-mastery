@@ -1,0 +1,102 @@
+{
+  "fixture_sha256": "3e5f81afd99477fc61081c80224c0ec0edc742ea1dc9b8a4885112cabcd47589",
+  "mode": "permission-aware TF-IDF retrieval + extractive baseline; no LLM",
+  "rows": [
+    {
+      "id": "a-travel",
+      "principal": "a-staff",
+      "language": "en",
+      "question": "Travel request before departure",
+      "expected_document": "a-travel",
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "REVIEW_REQUIRED",
+        "answer": "Travel policy for tenant A: submit the travel request seven days before departure. The staff manager approves the request.",
+        "citations": [
+          "a-travel:0"
+        ]
+      },
+      "expected_document_hit": true
+    },
+    {
+      "id": "b-travel",
+      "principal": "b-staff",
+      "language": "en",
+      "question": "Travel request before departure",
+      "expected_document": "b-travel",
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "REVIEW_REQUIRED",
+        "answer": "Travel policy for tenant B: submit the travel request ninety-nine days before departure. B-ONLY-CANARY is a synthetic isolation marker.",
+        "citations": [
+          "b-travel:0"
+        ]
+      },
+      "expected_document_hit": true
+    },
+    {
+      "id": "a-pay-denied",
+      "principal": "a-staff",
+      "language": "en",
+      "question": "Payroll exception ceiling",
+      "expected_document": null,
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "ABSTAIN",
+        "answer": "No authorized evidence found.",
+        "citations": []
+      },
+      "expected_document_hit": true
+    },
+    {
+      "id": "a-pay-allowed",
+      "principal": "a-hr",
+      "language": "en",
+      "question": "Payroll exception ceiling",
+      "expected_document": "a-pay",
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "REVIEW_REQUIRED",
+        "answer": "Payroll policy: the payroll exception ceiling is 410 dirhams. A-HR-CANARY is synthetic information restricted to the HR group.",
+        "citations": [
+          "a-pay:0"
+        ]
+      },
+      "expected_document_hit": true
+    },
+    {
+      "id": "a-ar",
+      "principal": "a-staff",
+      "language": "ar",
+      "question": "طلب الإجازة",
+      "expected_document": "a-ar",
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "REVIEW_REQUIRED",
+        "answer": "سياسة الإجازة: يقدم الموظف طلب الإجازة قبل خمسة أيام. هذه وثيقة تدريبية اصطناعية وليست سياسة حقيقية.",
+        "citations": [
+          "a-ar:0"
+        ]
+      },
+      "expected_document_hit": true
+    },
+    {
+      "id": "absent",
+      "principal": "a-staff",
+      "language": "en",
+      "question": "Quantum telescope warranty",
+      "expected_document": null,
+      "response": {
+        "mode": "extractive baseline; no LLM",
+        "status": "ABSTAIN",
+        "answer": "No authorized evidence found.",
+        "citations": []
+      },
+      "expected_document_hit": true
+    }
+  ],
+  "expected_document_hits": 6,
+  "denominator": 6,
+  "status": "REVIEW_REQUIRED",
+  "limits": "Six synthetic cases; no semantic quality, latency, authentication service or production security claim"
+}

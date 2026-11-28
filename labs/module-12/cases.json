@@ -1,0 +1,8 @@
+[
+ {"id":"a-travel","principal":"a-staff","language":"en","question":"Travel request before departure","expected_document":"a-travel"},
+ {"id":"b-travel","principal":"b-staff","language":"en","question":"Travel request before departure","expected_document":"b-travel"},
+ {"id":"a-pay-denied","principal":"a-staff","language":"en","question":"Payroll exception ceiling","expected_document":null},
+ {"id":"a-pay-allowed","principal":"a-hr","language":"en","question":"Payroll exception ceiling","expected_document":"a-pay"},
+ {"id":"a-ar","principal":"a-staff","language":"ar","question":"طلب الإجازة","expected_document":"a-ar"},
+ {"id":"absent","principal":"a-staff","language":"en","question":"Quantum telescope warranty","expected_document":null}
+]

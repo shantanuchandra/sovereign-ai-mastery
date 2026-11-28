@@ -144,7 +144,9 @@ const MODS=Object.freeze({
   compute:{label:'Module 09: memory, capacity and failure evidence',url:'../modules/09-gpus-compute-networking-platform-engineering.html'},
   infrastructure:{label:'Module 10: placement, operations and recovery evidence',url:'../modules/10-sovereign-cloud-deployment-patterns.html'},
   models:{label:'Module 11: model rights, bundle and language evidence',url:'../modules/11-sovereign-models-model-strategy.html'},
-  agents:{label:'Module 14: agents and model interfaces (syllabus)',url:'../curriculum.html#module-14'},
+  rag:{label:'Module 12: authorized retrieval and grounded responses',url:'../modules/12-sovereign-rag-systems.html'},
+  optimization:{label:'Module 13: measured optimization and evaluation',url:'../modules/13-fine-tuning-optimization-evaluation.html'},
+  agents:{label:'Module 14: scoped agents and approval evidence',url:'../modules/14-agents-apis-enterprise-integrations.html'},
   security:{label:'Module 16: key custody and identity (syllabus)',url:'../curriculum.html#module-16'},
   architecture:{label:'Module 07: architecture and control planes',url:'../modules/07-end-to-end-sovereign-ai-stack-reference-architecture.html'},
   governance:{label:'Module 06: governance and risk evidence',url:'../modules/06-governance-responsible-ai-risk.html'},
@@ -324,9 +326,11 @@ export function createBlueprint(raw={}) {
   };
   for(const [key,value] of Object.entries(v)) trace.push(step(key,`${key}: ${LABELS[key][value]}`,traces[key]));
   gates.push('Record model rights review, full weight/tokenizer/template/runtime bundle, trusted revisions and hashes; evaluate English, Arabic and domain slices with raw outputs and passed/total denominators on the exact build. A better score cannot authorize an external fallback.');
-  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure,MODS.models];
+  gates.push('For retrieval, derive tenant and permissions from trusted identity; apply revocation before ranking and context assembly, partition caches and validate citations against the authorized context.');
+  gates.push('For optimization, compare the exact build and workload with warm-up, timing boundaries, failures/errors and English/Arabic task-quality denominators; latency gains alone cannot approve a changed model.');
+  gates.push('For agent actions, bind approval to actor, tenant, tool, exact arguments, resource/policy version and expiry; reject replay and recheck authorization at execution with a redacted audit.');
+  const lessons=[MODS.foundations,MODS.ontology,MODS.architecture,MODS.compute,MODS.infrastructure,MODS.models,MODS.rag,MODS.optimization,MODS.agents];
   if(siteOnly||sensitive||strictCountry)lessons.push(MODS.data);
-  if(['essential','owned','strong'].includes(v.portability))lessons.push(MODS.agents);
   lessons.push(MODS.security,MODS.regulation,MODS.governance);
   const architectures=[
     {name:'Workload boundary',detail:LABELS.workload[v.workload],owner:'Product owner'},
@@ -366,6 +370,10 @@ export function createChallenges(raw={}) {
   }
   const stem=v.evidence==='adverse'?'A controlled test reportedly found a boundary violation.':v.evidence==='none'?'No runtime test has been recorded.':['tested','independent','logs','configuration'].includes(v.evidence)?'Records exist, but the acceptance result has not been validated.':'Only policy, vendor or design documents are available.';
   qs.push({id:'evidence',dimension:'Evidence',question:`${stem} What claim state should you use?`,options:[choice('PASS because some documentation exists.','Documentation alone does not establish an accepted passing result.'),choice(v.evidence==='adverse'?'Reported nonconformance: stop release and investigate, remediate and retest.':['tested','independent'].includes(v.evidence)?'REVIEW_REQUIRED until evidence outcomes and scope are accepted.':'UNVERIFIED until valid evidence supports the claim.','Correct. Status depends on reviewed evidence and adverse observations.'),choice('CERTIFIED because the tool generated an architecture.','The questionnaire cannot issue certifications.')],correct:1,root:'Conflating evidence presence with a passing control outcome.',action:v.evidence==='adverse'?'Record the adverse path, root cause, owner, containment and dated retest.':'Define a repeatable test, criteria and reviewer.',lesson:MODS.governance});
+  // Append new identities; the original four questions and saved first attempts remain compatible.
+  qs.push({id:'rag-permissions',dimension:'Retrieval',question:`A ${siteOnly?'premises-only':'restricted'} assistant retrieves a document whose access was revoked after indexing. What must happen before the model receives context?`,options:[choice('Send the old cached chunks because the vector score is high.','Ranking relevance cannot grant access or override revocation.'),choice('Recheck identity-derived tenant, current permissions and expiry before ranking and context assembly; invalidate unauthorized cache entries.','Correct. Index freshness and authorization freshness are separate requirements.'),choice('Ask the model to hide any secret material after it reads the chunks.','A prompt is not an authorization boundary; unauthorized material must not enter the context.')],correct:1,root:'Treating retrieval relevance or a stale cache as permission.',action:'Test revocation against ranking, cache hits, citations and assembled context; confirm no unauthorized chunk reaches the model.',lesson:MODS.rag});
+  qs.push({id:'optimization-evidence',dimension:'Evaluation',question:'An inference change lowers median latency on successful English requests, but errors increase and Arabic results were not measured. What can the PM approve?',options:[choice('Production rollout because the median improved.','Successful-request latency hides failures and says nothing about missing language results.'),choice('A claim that energy and quality both improved.','Latency is neither energy measurement nor task-quality evidence.'),choice('Only further bounded testing: report attempts, errors and quality by English/Arabic slice on the exact changed build before a rollout decision.','Correct. Use the complete request population and separate quality criteria; missing slices remain unverified.')],correct:2,root:'Optimizing a favorable metric while excluding failures and affected users.',action:'Repeat matched baseline/candidate runs with warm-up, raw timings, error denominators and language/task quality; keep energy claims separate.',lesson:MODS.optimization});
+  qs.push({id:'agent-approval',dimension:'Agent authority',question:'A user approves an agent proposal, but the tool arguments change before execution. Which release control is needed?',options:[choice('Treat the earlier click as approval for any subsequent action.','An approval for one proposal does not authorize substituted arguments.'),choice('Bind approval to actor, tenant, tool, exact arguments, resource/policy version and expiry; reject replay and recheck current authorization at execution.','Correct. The execution gateway must validate the precise action and current authority.'),choice('Trust the agent explanation and omit audit events.','Generated reasoning is not authorization or a durable action record.')],correct:1,root:'Treating conversational intent or a generic click as unlimited delegated authority.',action:'Attempt argument substitution, tenant mismatch, expired grants, replay and revoked credentials; require failure-closed behavior and redacted audit events.',lesson:MODS.agents});
   return qs;
 }
 
@@ -373,6 +381,18 @@ export function createRemediation(question,raw={}){
   const v=normalize(raw),physical=['premises','airgap','approved_sites'].includes(v.location);
   const offline=v.location==='airgap'||v.connectivity==='disconnected';
   const scenarios={
+    'rag-permissions':{
+      question:'A correctly tenant-filtered search is followed by a shared answer-cache hit created for another user. What must the gateway do?',
+      options:[choice('Return it because retrieval was filtered earlier.','The answer cache is another authorization surface.'),choice('Scope cache reuse to the current tenant and effective permissions, recheck revocation, and reject unauthorized context or citations.','Correct. Every reused artifact must satisfy current access policy.'),choice('Remove citations but return the same answer.','Removing references does not remove disclosed information.')],correct:1
+    },
+    'optimization-evidence':{
+      question:'A larger batch improves total throughput but increases tail latency and timeout errors. Which comparison supports the decision?',
+      options:[choice('Report attempted/completed/error counts, the timing population and tail latency against separate quality criteria on the matched workload.','Correct. Throughput and user latency are different objectives; failures must remain visible.'),choice('Drop timeouts and publish the fastest response.','This selects a favorable subset and hides user failures.'),choice('Call the result greener because it is faster.','No energy measurement or boundary has been established.')],correct:0
+    },
+    'agent-approval':{
+      question:'A tool call succeeded but its client timed out. The client retries using the same approval. How should replay be handled?',
+      options:[choice('Execute again because the client did not see success.','Ambiguous delivery does not justify repeating an authorized action.'),choice('Generate a new approval locally without asking the approver.','The executor cannot create delegated human authority.'),choice('Reject a consumed grant, reconcile the recorded action using its identifier, and require fresh authorization for any distinct action.','Correct. Replay prevention and reconciliation address ambiguous retries without duplicate effects.')],correct:2
+    },
     location:offline?{
       question:'The disconnected utility assistant restarts and its licence requests online activation. What does the acceptance test require?',
       options:[choice('Temporarily reconnect it; licence traffic is always exempt.','An air gap has no network exception for licensing.'),choice('Skip the restart test because inference worked yesterday.','Cold restart and recovery are part of the dependency boundary.'),choice('Keep it disconnected and require working offline licensing, identity and recovery before acceptance.','Correct. Prove the entire service can restart and operate offline, not just the model.')],correct:2

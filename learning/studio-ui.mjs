@@ -83,7 +83,7 @@ function renderChallenges(){
     const resolved=wrong.filter(q=>{const follow=createRemediation(q,current.input);return evaluateChallenge(follow,remediationAnswers[follow.id])?.ok}).length;
     summary.innerHTML=`<strong>First-attempt revision topics:</strong> ${escape(wrong.map(q=>q.dimension).join(', '))}. ${resolved} of ${wrong.length} follow-up decisions now align with the rationale. Your first attempts are retained. Read the feedback and identify one concrete validation action. This is practice feedback, not a proficiency certification.`;
   }
-  else if(count===questions.length){summary.textContent='All four decisions align with the course rationale. Now defend a counterfactual change in writing. Correct multiple-choice answers alone do not establish mastery.';}
+  else if(count===questions.length){summary.textContent=`All ${questions.length} decisions align with the course rationale. Now defend a counterfactual change in writing. Correct multiple-choice answers alone do not establish mastery.`;}
   else summary.textContent='Good. Continue to the remaining questions, then explain the architectural choice in your own words.';
 }
 function build(){

@@ -1,6 +1,6 @@
 # The Sovereign AI Taxonomy & Ontology
 
-> **Field guide · v1.5 · 27 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
+> **Field guide · v1.6 · 28 November 2026.** This is a **course-authored decision framework**. It is not an official regulatory taxonomy, an independent certification, or a claim that full sovereignty is always achievable. Its purpose is to give AI PMs a consistent language for classifying systems, testing claims, and finding gaps.
 
 ## 1. Why a taxonomy and an ontology are different
 
@@ -181,3 +181,26 @@ Course-authored framework, not a legal classification or certification. The exis
 | ExitRehearsal | Source/reconstructed build, boundary, task regression | Reconstructs ModelArtifact |
 
 Weights access does not establish scoped rights or system openness. Missing language denominators remain unverified. Bundle changes invalidate reliance on old observations; favourable quality never clears a known boundary conflict. See [Module 11](../chapters/11-sovereign-models-model-strategy.md).
+
+
+## Modules 12–14 models-and-agents extension, version 1.6
+
+This course-authored extension connects retrieval, experiments and delegated actions. It does not certify an index, model or enterprise integration.
+
+| Entity | Required properties | Decision relationship |
+|---|---|---|
+| RetrievalPolicy | Trusted identity, tenant, current permissions, revocation version, expiry | Authorizes RetrievedContext before ranking, context construction and cache reuse |
+| RetrievalIndex | Source/parser/chunker/embedding build, tenant scope | Indexes DataArtifact; a high score never grants access |
+| RetrievedContext | Request, authorized chunks, policy version, citations | Selects from RetrievalIndex for a specific permitted request |
+| GroundingCheck | Case, authorized context, support/refusal criterion, result | Tests RetrievedContext; a citation alone is insufficient |
+| OptimizationExperiment | Matched builds, workload, timing boundary, acceptance criteria | Compares ExperimentVariant and evaluates EvaluationSlice |
+| ExperimentVariant | Runtime, threads, batch, precision, decoding | Uses a specific ModelArtifact bundle |
+| MeasurementPopulation | Attempts, successes, errors, warm-ups, repeats, latency population | Records observations without hiding failed requests |
+| AgentIdentity | Principal, tenant, delegated permissions, credential reference | Receives delegation from Identity; no secret values enter the record |
+| ToolAction | Actor, tenant, tool, exact arguments, resource and policy versions | Proposed by AgentIdentity; must pass current authorization |
+| ApprovalGrant | Approver, action digest, expiry, consumed state | Authorizes one exact ToolAction within its scope |
+| InvocationRecord | Action identifier, decision, redacted outcome, reconciliation identifier | Records invocation and supports ambiguous-retry reconciliation |
+
+A revoked document cannot remain authorized through an old cache. A faster successful-request median does not settle error, Arabic/domain quality or energy questions. A generic approval click cannot authorize substituted arguments, a different tenant or replay. Synthetic labs test their stated mechanisms; authentication, physical residency and production assurance require separate evidence.
+
+See [Module 12](../chapters/12-sovereign-rag-systems.md), [Module 13](../chapters/13-fine-tuning-optimization-evaluation.md) and [Module 14](../chapters/14-agents-apis-enterprise-integrations.md). The downloadable YAML defines all relation endpoints explicitly.

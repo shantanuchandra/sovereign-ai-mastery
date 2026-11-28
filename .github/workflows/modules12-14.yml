@@ -1,0 +1,84 @@
+name: Verify Modules 12–14 models and agents
+on:
+  pull_request:
+    paths:
+      - 'chapters/12-*'
+      - 'chapters/13-*'
+      - 'chapters/14-*'
+      - 'labs/module-12/**'
+      - 'labs/module-13/**'
+      - 'labs/module-14/**'
+      - 'assessments/solutions/12-*'
+      - 'assessments/solutions/13-*'
+      - 'assessments/solutions/14-*'
+      - 'social/module-12/**'
+      - 'social/module-13/**'
+      - 'social/module-14/**'
+      - 'diagrams/module-12*'
+      - 'diagrams/module-13*'
+      - 'diagrams/module-14*'
+      - 'taxonomy/**'
+      - 'learning/**'
+      - 'qa/test_modules12_14*'
+      - 'scripts/build_site.py'
+      - '.github/workflows/modules12-14.yml'
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install reader and browser dependencies
+        run: |
+          python -m pip install 'beautifulsoup4>=4.12,<5' 'mistune>=3,<4' 'playwright>=1.55,<2' 'pypdf>=5,<7'
+          python -m playwright install --with-deps chromium
+      - name: Verify labs and retained observations
+        run: |
+          python -m unittest discover -s labs/module-12 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-13 -p 'test_*.py' -v
+          python -m unittest discover -s labs/module-14 -p 'test_*.py' -v
+          node --test learning/tests/*.test.mjs
+      - name: Repeat actual local RAG generation and CPU tuning
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+        run: |
+          python -m venv /tmp/modules12-13-model-env
+          /tmp/modules12-13-model-env/bin/pip install 'torch==2.9.1' --index-url https://download.pytorch.org/whl/cpu
+          /tmp/modules12-13-model-env/bin/pip install 'transformers==4.57.3'
+          /tmp/modules12-13-model-env/bin/python labs/module-11/prepare.py /tmp/modules12-13-model
+          /tmp/modules12-13-model-env/bin/python labs/module-12/run_local_model.py /tmp/modules12-13-model artifacts/modules12-14/ci-rag-run.json
+          python labs/module-12/check_run.py artifacts/modules12-14/ci-rag-run.json
+          /tmp/modules12-13-model-env/bin/python labs/module-13/run_tuning.py /tmp/modules12-13-model artifacts/modules12-14/ci-tuning-run.json
+          python labs/module-13/experiment.py artifacts/modules12-14/ci-tuning-run.json
+          python labs/module-14/gated_agent.py > artifacts/modules12-14/ci-agent-run.json
+      - name: Build and verify public routes and separate keys
+        run: |
+          python scripts/build_site.py
+          python -m unittest discover -s qa -p 'test_*.py' -v
+      - name: Verify actual tutor, study progress and mobile reader
+        env:
+          STUDIO_QA_SCREENSHOTS: artifacts/modules12-14
+        run: |
+          python learning/tests/test_rendered_studio.py
+          python learning/tests/test_rendered_study_plan.py
+      - name: Verify three carousels and eight-page PDF exports
+        run: |
+          python social/module-12/test_rendered_carousel.py
+          python social/module-12/export_pdf.py
+          python social/module-13/test_rendered_carousel.py
+          python social/module-13/export_pdf.py
+          python social/module-14/test_rendered_carousel.py
+          python social/module-14/export_pdf.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modules12-14-browser-evidence
+          path: artifacts/modules12-14
+          if-no-files-found: ignore
