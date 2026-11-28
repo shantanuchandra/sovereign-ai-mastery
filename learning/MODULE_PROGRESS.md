@@ -1,6 +1,6 @@
 # Sovereign AI Mastery module progress
 
-Updated 28 November 2026. Read the specific reviews before claiming approval. Eleven of 24 module packages are authored and published with their stated review status. Thirteen modules remain to author, including capstone Modules 22–24.
+Updated 28 November 2026. Read the specific reviews before claiming approval. Fourteen of 24 module packages are authored and published with their stated review status. Ten modules remain to author, including capstone Modules 22–24.
 
 ## Published foundation and tools
 
@@ -21,7 +21,7 @@ Local verification: 35-page static build under installed and CI-fallback rendere
 
 ## Next work
 
-Current substantive batch: Modules 12–14, implemented by three module workers with coordinator-owned shared integration. After their reviewed publication, continue Module 15 Security, Threat Models & Defensive Architecture. Retain Module 04 HOLD and earlier draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
+Modules 12–14 were published after three module workers and coordinator-owned integration. Next substantive batch: Modules 15 AI Security & Threat Modeling, 16 Cryptography, Identity & Confidential Computing and 17 MLOps, LLMOps & Observability. Continue with separate worker ownership and coordinator-owned shared files. Retain Module 04 HOLD and earlier draft limitations. Do not repeat cosmetic assurance-only iterations or create another schedule.
 
 ## Module 07 published educational draft, 25 November 2026
 
@@ -93,7 +93,7 @@ Checks: 203 lab tests across Modules 01–11; 55 curriculum checks; 43 Node chec
 Two distinct same-author audits are in `reviews/module-11/`. Independent/manual assessment/accessibility, qualified rights and Arabic/domain review, actual OS/physical isolation, production load/quality and enterprise assurance remain NOT COMPLETED. Preserve Module 04 HOLD and earlier draft limits. Next substantive authoring after publication: Module 12 Sovereign RAG Systems. Do not repeat the completed model-authoring package or create another schedule.
 
 
-## Modules 12–14 release candidate, 28 November 2026
+## Modules 12–14 published educational drafts, 28 November 2026
 
 Three user-requested workers prepared separate RAG, optimization and enterprise-agent packages. The coordinator integrated the shared website, ontology v1.6, Studio guidance and three appended questions/follow-ups. Original four question IDs/options/correct indexes, saved version 1.2.0, first attempts, 26 workloads, 21 presets and ten dimensions are preserved. All 240 stable one-hour study sessions remain available; Module 15 stays planned.
 
@@ -101,6 +101,15 @@ The working checkout moved to `/Users/shantanuchandra/Documents/ChatGPT/MetisJea
 
 Artifacts: 21 substantive syllabus topics; three bounded synthetic labs; actual pinned local RAG generation and 48 CPU tuning generations; three PM deliverables; separate six-question keys with 40-point assessment/20-point PM rubrics; three SVGs; 24 question-led slides, posts and eight-page portrait PDFs; distinct author technical/editorial audits. RAG's single English response contains the right seven-day fact but fails its strict format criterion. Both tuning profiles fail all four unique English and four unique Arabic literal labels; 12 repeated measurements per language are not 12 independent cases. The agent exercise runs an in-memory tool with server-owned fixtures and exact-action approval, revocation/expiry/tamper/replay checks; it is not an enterprise connector or real identity service.
 
-Local gates: 328 lab tests across Modules 01–14, 59 curriculum checks, 49 Node checks, 75-page installed/fallback static builds, eight Studio browser checks, six reader/study-plan browser checks and all three carousel/print/PDF checks. The coordinator inspected all 24 slides, all three complete SVGs and mobile chapter openings. Known physical/air-gap conflicts remain blocked even with correct quiz answers. Public answer keys remain excluded. Pages/CI/live publication evidence will be recorded after observation; this paragraph alone does not claim published status.
+Local gates: 328 lab tests across Modules 01–14, 59 curriculum checks, 49 Node checks, 75-page installed/fallback static builds, eight Studio browser checks, six reader/study-plan browser checks and all three carousel/print/PDF checks. The coordinator inspected all 24 slides, all three complete SVGs and mobile chapter openings. Known physical/air-gap conflicts remain blocked even with correct quiz answers. Public answer keys remain excluded. The publication evidence below records observed CI, deployment and live results; these are educational packages, not independently approved systems.
 
 Two author reviews per module are available. Independent assessment, manual screen-reader/zoom/contrast, tagged-PDF assurance, qualified Arabic/domain/rights review, physical/OS isolation, real enterprise identity, production load/quality and deployment assurance remain open. Module 04 remains HOLD. Next substantive module after publication: Module 15. Do not restart Modules 12–14 or create another schedule.
+
+
+[PR #22](https://github.com/shantanuchandra/sovereign-ai-mastery/pull/22) merged as [488580c](https://github.com/shantanuchandra/sovereign-ai-mastery/commit/488580c420033659da700056bac7bf821daf74be). All nine checks passed on exact head `8c6cf407e17314706c9ccbfb8f39bf8c940c0b63`, including [Modules 12–14 CI 46107427661](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46107427661), [Studio CI 46107427572](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46107427572) and Module 05–11 regressions. No failed gate was skipped.
+
+The downloaded CI artifact records fresh Linux/x86_64 CPU RAG generation and 48 tuning generations with torch 2.9.1+cpu and Transformers 4.57.3. Both records passed their standalone consistency validators; all nine model-artifact hashes match the retained Mac bundle. RAG again returned “The answer is: 7 days before departure” and failed the strict-format criterion. Each tuning profile again retained zero literal passes among four unique English and four unique Arabic cases (0/12 repeated measurements per language/profile). CI timings differ from the Mac observation and are not interchangeable benchmarks. The synthetic agent CI run made one tool call; absent approval, replay and cross-tenant attempts were denied. Its boundary state is DECLARED_ONLY, not verified physical isolation.
+
+Matching [Pages 46107807903](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46107807903) and [main Studio 46107807945](https://github.com/shantanuchandra/sovereign-ai-mastery/actions/runs/46107807945) succeeded on merge `488580c420033659da700056bac7bf821daf74be`. Thirty-two live routes returned HTTP 200; scripts, retained observations, Studio assets, SVGs, carousels and ontology matched source bytes. All 21 new topic headings, draft labels, 240 stable study hours, Module 15 planned state and three eight-page 8×10-inch PDFs were verified. Live mobile Chromium checked all three chapters, 26 workloads/21 presets, three new missed-answer lesson links/follow-ups, reload retaining 3 of 7 attempts, an actual journal download containing all three lessons, a blocked cloud counterfactual and all three diagrams with scripts disabled. No page errors were observed.
+
+Fourteen packages are source-authored and observed published; ten remain. This is not a count of independently approved modules. Resume substantive authoring at Module 15, then 16 and 17 in parallel. Preserve Module 04 HOLD and all draft limitations. The existing hourly schedule remains active with the relocated checkout and user-authorized subagents.
