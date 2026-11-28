@@ -25,7 +25,7 @@ class ModelsAgentsPublication(unittest.TestCase):
         self.assertFalse((ROOT/'dist/assessments').exists())
         plan=BeautifulSoup((ROOT/'dist/learning/schedule.html').read_text(),'html.parser')
         self.assertEqual(len(plan.select('input[type="checkbox"]')),240)
-        self.assertIn('Planned module',plan.select_one('[data-module="15"]').get_text())
+        self.assertIn('Planned module',plan.select_one('[data-module="18"]').get_text())
         for n,slug,pm,_ in PACKAGES:
             routes=[f'modules/{slug}.html',f'labs/module-{n}/index.html',f'labs/module-{n}/{pm}.html',f'social/module-{n}/POST.html',f'social/module-{n}/CAROUSEL.html']
             for route in routes:

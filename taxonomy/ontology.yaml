@@ -1,4 +1,4 @@
-version: '1.6.0'
+version: '1.7.0'
 status: course-authored-framework-not-a-regulatory-standard
 reviewed: '2026-11-28'
 maintainer: Sovereign AI Mastery
@@ -28,6 +28,13 @@ classification_axes:
     values: [proposed, reviewed, accepted, accepted_with_exception, rejected]
     question: What disposition did an accountable reviewer record?
 classes:
+  - ThreatScenario
+  - SecurityValidation
+  - CustodyPolicy
+  - AttestationReview
+  - ReleaseManifest
+  - ServiceObjective
+  - TelemetryPolicy
   - RetrievalPolicy
   - RetrievalIndex
   - RetrievedContext
@@ -117,7 +124,22 @@ agent_properties:
   ToolAction: [actor, tenant, tool, exact_arguments, resource_version, policy_version]
   ApprovalGrant: [approver, action_digest, expiry, consumed_state]
   InvocationRecord: [action_id, decision, redacted_outcome, reconciliation_id]
+security_operations_properties:
+  ThreatScenario: [asset, trust_boundary, attacker_capability, impact, owner]
+  SecurityValidation: [build, scenario, expected_outcome, observed_result, residual_risk]
+  CustodyPolicy: [key_reference, decrypt_principals, admin_principals, support_paths, revocation_version]
+  AttestationReview: [verifier, freshness, reference_measurement, workload_binding, disposition]
+  ReleaseManifest: [model_revision, prompt_digest, policy_version, runtime_build, rollback_target]
+  ServiceObjective: [tenant_scope, window, attempted, good, errors, latency_threshold]
+  TelemetryPolicy: [allowed_fields, redaction, retention, collector_destination]
 relations:
+  - [ThreatScenario, exposes, Risk]
+  - [SecurityValidation, tests, ThreatScenario]
+  - [CustodyPolicy, governs, CryptographicKey]
+  - [AttestationReview, evaluates, InfrastructureService]
+  - [ReleaseManifest, uses, ModelArtifact]
+  - [ServiceObjective, constrains, Workload]
+  - [TelemetryPolicy, governs, DataArtifact]
   - [RetrievalPolicy, authorizes, RetrievedContext]
   - [RetrievalIndex, indexes, DataArtifact]
   - [RetrievedContext, selects_from, RetrievalIndex]
@@ -177,6 +199,14 @@ relations:
   - [LegalInstrument, contains, Requirement]
   - [Requirement, mapped_to, Control]
 constraints:
+  - Retrieved instructions do not grant tool authority or permission to export data.
+  - A checksum requires a trusted reference and is not a malware or provenance verdict.
+  - Encryption, key ownership and attestation do not establish physical data residency.
+  - Attestation requires verifier policy, freshness and workload binding; declared measurements are not verification.
+  - Key administration, decryption and support access must be reviewed as separate permissions.
+  - Release evidence is bound to model, prompt, policy and runtime versions; a changed build requires review.
+  - Error budgets retain every eligible attempted request, including failures; successful-only latency is a separate population.
+  - Telemetry is a data derivative subject to access, retention and destination controls.
   - Retrieval relevance never grants access; current permission must precede context assembly and cached reuse.
   - Citations and prompt instructions do not establish authorization or factual support.
   - Optimization observations must name the timing population and retain failures and language denominators.
