@@ -53,7 +53,7 @@ jobs:
           python -m unittest discover -s labs/module-11 -p 'test_*.py' -v
           python labs/module-11/check_run.py labs/module-11/observed-local-run.json
           python labs/module-11/evaluate.py labs/module-11/candidate.json > /tmp/module11-decisions.json
-      - name: Validate Modules 12–14 labs and retained observations
+      - name: Validate Modules 12–17 labs and retained observations
         run: |
           python -m unittest discover -s labs/module-12 -p 'test_*.py' -v
           python -m unittest discover -s labs/module-13 -p 'test_*.py' -v
@@ -128,7 +128,7 @@ jobs:
           python -m unittest discover -s qa -p 'test_module10_learning_contract.py' -v
           python social/module-10/test_rendered_carousel.py
           python social/module-10/export_pdf.py
-      - name: Verify Modules 12–14 reader and portrait PDFs
+      - name: Verify Modules 12–17 reader and portrait PDFs
         run: |
           python -m unittest discover -s qa -p 'test_modules12_14_learning_contract.py' -v
           python social/module-12/test_rendered_carousel.py
